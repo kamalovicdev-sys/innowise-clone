@@ -1,0 +1,184 @@
+/* src/components/sections/Portfolio/Portfolio.module.css */
+
+.portfolioSection {
+  padding: 100px 0;
+  background-color: #ffffff;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 60px;
+  letter-spacing: -0.5px;
+}
+
+/* =========================================
+   Tabs (Yorliqlar) qismi
+   ========================================= */
+.tabsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 50px;
+}
+
+.tabList {
+  display: flex;
+  gap: 40px;
+  overflow-x: auto; /* Kichik ekranlarda skroll bo'lishi uchun */
+  scrollbar-width: none; /* Firefox da scrollbarni yashirish */
+}
+
+.tabList::-webkit-scrollbar {
+  display: none; /* Chrome/Safari da scrollbarni yashirish */
+}
+
+.tabBtn {
+  background: none;
+  border: none;
+  padding-bottom: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.tabBtn:hover {
+  color: #1a1a1a;
+}
+
+/* Faol (Tanlangan) tab qizil chiziq bilan ajralib turadi */
+.tabBtn.active {
+  color: #1a1a1a;
+  border-bottom-color: #cc292b; /* Rasmdagi qizil rang */
+}
+
+/* O'ng tarafdagi o'q tugmalari */
+.controls {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.arrowBtn {
+  background: none;
+  border: none;
+  color: #1a1a1a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.arrowBtn:hover {
+  transform: scale(1.1);
+}
+
+/* =========================================
+   Kontent qismi (Matn va Rasm)
+   ========================================= */
+.contentArea {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.leftBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contentTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.contentDesc {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Ro'yxat (Qizil nuqtalar bilan) */
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #475569;
+  font-size: 1rem;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: #0e172a;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.rightBlock {
+  width: 100%;
+}
+
+.rightBlock img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.item:last-child { border-top: 1px solid #e2e8f0; }
+
+/* Responsive (Moslashuvchanlik) */
+@media (max-width: 992px) {
+  .contentArea {
+    grid-template-columns: 1fr; /* Planshet va mobilda rasm matn tagiga tushadi */
+    gap: 40px;
+  }
+  .tabsHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .controls {
+    display: none; /* Mobilda o'qlarni yashiramiz, faqat barmoq bilan surish qoladi */
+  }
+  .tabList {
+    width: 100%;
+  }
+}

@@ -1,0 +1,87 @@
+/* src/components/sections/Services/Services.module.css */
+
+.servicesSection {
+  padding: 100px 0;
+  background-color: #ffffff;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 50px;
+  letter-spacing: -0.5px;
+}
+
+/* 3 ustunli toza Grid tizimi */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Kartochkalar dizayni */
+.card {
+  background-color: #f8fafc; /* Rasmdagi kabi och kulrang fon */
+  padding: 30px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.card:hover {
+  background-color: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #1e293b;
+  margin: 0;
+  max-width: 75%;
+  line-height: 1.4;
+}
+
+/* Ikonka uslubi */
+.iconWrapper {
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.card:hover .iconWrapper {
+  color: #2563eb; /* Hover qilinganda brend rangiga kiradi */
+}
+
+/* Moslashuvchanlik (Responsive) */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+}

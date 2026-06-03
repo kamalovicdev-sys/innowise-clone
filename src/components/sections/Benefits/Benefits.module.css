@@ -1,0 +1,58 @@
+.benefitsSection {
+  padding: 100px 0;
+  background-color: #ffffff;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0e172a;
+  margin-bottom: 60px;
+  letter-spacing: -0.5px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Chap taraf 1 qism, o'ng taraf 2 qism joy oladi */
+  gap: 60px;
+  padding: 25px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Birinchi elementning tepasiga ham chiziq kerak bo'lsa (rasmda faqat orasida va pastida bor): */
+/* .item:first-child { border-top: 1px solid #e2e8f0; } */
+
+.itemTitle {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #0e172a;
+  margin: 0;
+}
+
+.itemDesc {
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Kichik ekranlar uchun moslashuvchanlik */
+@media (max-width: 768px) {
+  .item {
+    grid-template-columns: 1fr; /* Mobilda ustma-ust tushadi */
+    gap: 16px;
+    padding: 30px 0;
+  }
+}

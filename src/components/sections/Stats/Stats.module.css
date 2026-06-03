@@ -1,0 +1,131 @@
+/* src/components/sections/Stats/Stats.module.css */
+
+.statsSection {
+  padding: 100px 0;
+  background-color: #ffffff; /* Oq, toza fon */
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Chap taraf - Matn qismi */
+.textContent {
+  flex: 1;
+}
+
+.title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* O'ng taraf - Kartochkalar Grid'i */
+.statsGrid {
+  flex: 1.2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.statCard {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.statCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1);
+  border-color: #bfdbfe;
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  background-color: #eff6ff;
+  color: #2563eb;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.statNumberBox {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.statNumber {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  /* Raqamlarga zamonaviy gradient rang berish */
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.statSuffix {
+  font-size: 2rem;
+  color: #3b82f6;
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+.statLabel {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* Kichik ekranlar (Tablet va Mobil) uchun moslashuvchanlik */
+@media (max-width: 992px) {
+  .wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+  .textContent {
+    margin-bottom: 20px;
+  }
+  .iconWrapper {
+    margin: 0 auto 16px auto; /* Ikonkani markazga olish */
+  }
+  .statNumberBox {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+  .statCard {
+    padding: 24px;
+  }
+}

@@ -1,0 +1,171 @@
+/* src/components/layout/Footer/Footer.module.css */
+
+.footer {
+  background-color: #0f172a; /* To'q ko'k fon */
+  color: #94a3b8;
+  padding: 80px 0 24px 0;
+  border-top: 1px solid #1e293b;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr; /* 4 ta ustun proporsiyasi */
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+/* --- 1-ustun: Logotip va Tarmoqlar --- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.logoIcon {
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  color: #ffffff;
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff; /* Footer'da yozuv oq bo'ladi */
+  letter-spacing: 0.5px;
+}
+
+.highlight {
+  color: #3b82f6;
+}
+
+.desc {
+  line-height: 1.6;
+  margin-bottom: 24px;
+  max-width: 300px;
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+}
+
+.socialIcon {
+  color: #94a3b8;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.socialIcon:hover {
+  color: #3b82f6;
+  transform: translateY(-3px);
+}
+
+/* --- 2 va 3-ustunlar: Menyular --- */
+.title {
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.list a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.list a:hover {
+  color: #3b82f6;
+  padding-left: 4px; /* O'ngga biroz surilish effekti */
+}
+
+/* --- 4-ustun: Contact Us ma'lumotlari --- */
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.contactIcon {
+  color: #3b82f6;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contactText {
+  color: #cbd5e1;
+}
+
+.contactText a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contactText a:hover {
+  color: #3b82f6;
+}
+
+/* --- Eng pastki qism (Copyright) --- */
+.bottom {
+  border-top: 1px solid #1e293b;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.bottomLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.bottomLinks a {
+  color: #94a3b8;
+  text-decoration: none;
+}
+
+.bottomLinks a:hover {
+  color: #ffffff;
+}
+
+/* --- Responsive (Moslashuvchanlik) --- */
+@media (max-width: 992px) {
+  .top {
+    grid-template-columns: repeat(2, 1fr); /* Planshetda 2 ta ustun */
+  }
+}
+
+@media (max-width: 600px) {
+  .top {
+    grid-template-columns: 1fr; /* Mobilda 1 ta ustun */
+    gap: 30px;
+  }
+  .bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}

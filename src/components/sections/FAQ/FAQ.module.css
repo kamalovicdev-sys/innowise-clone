@@ -1,0 +1,158 @@
+.faqSection {
+  padding: 100px 0;
+  background-color: #ffffff;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 9%;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0e172a;
+  margin-bottom: 50px;
+}
+
+/* Ikki ustunli tarmoq (Grid) */
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 85px;
+  align-items: start;
+}
+
+/* =========================================
+   Chap taraf: Accordion (Savol-javoblar)
+   ========================================= */
+.accordion {
+  display: flex;
+  flex-direction: column;
+}
+
+.faqItem {
+  border-bottom: 1px solid #cbd5e1;
+  transition: all 0.3s ease;
+}
+
+/* Faol savol dizayni (Qora fon) */
+.faqItem.active {
+  background-color: #0e172a;
+  border-bottom: none;
+}
+
+.questionBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* Qo'shish (+) va Ayirish (-) ikonkalari foni */
+.iconWrapper {
+  color: #cc292b; /* Rasmdagi qizil rang */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.questionText {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0e172a;
+  transition: color 0.3s ease;
+}
+
+/* Faol bo'lganda yozuv oq rangga kiradi */
+.faqItem.active .questionText {
+  color: #ffffff;
+}
+
+/* Silliq ochilish animatsiyasi (Grid orqali) */
+.answerWrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.faqItem.active .answerWrapper {
+  grid-template-rows: 1fr;
+}
+
+.answerInner {
+  overflow: hidden;
+}
+
+.answerText {
+  padding: 0 30px 40px 70px; /* Ikonka bilan bir chiziqda turishi uchun chapdan joy tashlanadi */
+  color: #e2e8f0;
+  line-height: 1.7;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* =========================================
+   O'ng taraf: CTA Kartochka (Book a call)
+   ========================================= */
+.ctaCard {
+  border: 1px solid #cbd5e1;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.ctaIcon {
+  margin-bottom: 30px;
+  color: #0e172a;
+}
+
+.ctaTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0e172a;
+  margin-bottom: 40px;
+  line-height: 1.4;
+}
+
+.ctaBtn {
+  width: 100%;
+  background-color: #2563eb; /* Qizil tugma */
+  color: #ffffff;
+  border: none;
+  padding: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ctaBtn:hover {
+  background-color: #2563eb;
+}
+
+/* =========================================
+   Responsive (Moslashuvchanlik)
+   ========================================= */
+@media (max-width: 992px) {
+  .wrapper {
+    grid-template-columns: 1fr; /* Planshet va mobilda 1 ustun bo'ladi */
+  }
+  .questionBtn {
+    padding: 20px;
+  }
+  .answerText {
+    padding: 0 20px 30px 60px;
+  }
+}

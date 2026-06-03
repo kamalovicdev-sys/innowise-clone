@@ -1,0 +1,168 @@
+/* src/components/sections/Expertise/Expertise.module.css */
+
+.expertiseSection {
+  padding: 100px 0;
+  background-color: #ffffff; /* Oq toza fon */
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #475569;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* =========================================
+   Ikki ustunli Layout (Yon menyu va Kontent)
+   ========================================= */
+.wrapper {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+/* Chap taraf - Kategoriyalar (Sidebar) */
+.sidebar {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.categoryBtn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.categoryBtn:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.categoryName {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* Faol (Tanlangan) kategoriya dizayni */
+.categoryBtn.active {
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  border-color: transparent;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+  transform: translateX(10px); /* Faol bo'lganda o'ngga biroz suriladi */
+}
+
+.active .categoryName {
+  color: #ffffff;
+}
+
+/* Ikonka foni */
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: #ffffff;
+  color: #2563eb;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.active .iconBox {
+  color: #1e40af;
+}
+
+/* O'ng taraf - Texnologiyalar */
+.contentArea {
+  flex: 1;
+  min-height: 350px;
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.techCard {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #0f172a;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  cursor: default;
+}
+
+.techCard:hover {
+  border-color: #3b82f6;
+  color: #2563eb;
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.1);
+  transform: translateY(-5px);
+}
+
+/* Responsive dizayn */
+@media (max-width: 992px) {
+  .wrapper {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .sidebar {
+    flex: none;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .categoryBtn {
+    flex: 1;
+    min-width: 220px;
+  }
+  .categoryBtn.active {
+    transform: translateY(-5px); /* Mobilda tepaga suriladi */
+  }
+}
+
+@media (max-width: 600px) {
+  .categoryBtn {
+    min-width: 100%;
+  }
+  .techGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
