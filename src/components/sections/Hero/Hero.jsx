@@ -1,4 +1,3 @@
-// src/components/sections/Hero/Hero.jsx
 import React, { useState } from 'react';
 import styles from './Hero.module.css';
 import ContactModal from '../../ui/ContactModal/ContactModal';
@@ -14,10 +13,9 @@ const Hero = () => {
         {/* 1. Chap taraf (Matn) */}
         <div className={styles.content}>
           <h1 className={styles.title}>
-            Custom Software Development Company
-          </h1>
+            IT services and solutions delivered by Mehrzod Group       </h1>
           <p className={styles.subtitle}>
-            We deliver digital transformation and empower businesses worldwide through innovative tech solutions. Over 17 years of experience in IT outsourcing.
+            We help businesses turn data into decisions. Whether you’re exploring new revenue opportunities, reducing operational costs, or improving forecasting, our data teams build the systems and pipelines that make it possible. Fast, reliable, and scalable.
           </p>
           <div className={styles.buttonGroup}>
             {/* Estimate Project tugmasiga onClick ulandi */}

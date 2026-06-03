@@ -1,12 +1,10 @@
-/* src/components/sections/Hero/Hero.module.css */
-
 .heroSection {
   min-height: 100vh;
   display: flex;
   align-items: center;
   background-color: #f8fafc;
   padding-top: 80px;
-  overflow: hidden; /* Animatsiya chekkaga chiqib ketmasligi uchun */
+  overflow: hidden; /* Animatsiya chekkaga chiqib ketmasligi un */
 }
 
 .container {

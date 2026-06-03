@@ -66,7 +66,7 @@ const Services = () => {
     <section className={styles.servicesSection} id="services">
       <div className={styles.container}>
 
-        <h2 className={styles.title}>Data analytics solutions we build</h2>
+        <h2 className={styles.title}>Our Services</h2>
 
         <div className={styles.grid}>
           {solutionsData.map((item) => (

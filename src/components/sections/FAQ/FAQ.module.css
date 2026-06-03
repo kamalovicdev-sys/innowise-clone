@@ -20,8 +20,8 @@
 /* Ikki ustunli tarmoq (Grid) */
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 85px;
+  grid-template-columns: 1fr 400px;
+  gap: 100px;
   align-items: start;
 }
 
@@ -128,7 +128,7 @@
 
 .ctaBtn {
   width: 100%;
-  background-color: #2563eb; /* Qizil tugma */
+  background-color: #1e4ed8;
   color: #ffffff;
   border: none;
   padding: 16px;
