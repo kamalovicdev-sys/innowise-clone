@@ -1,100 +1,100 @@
 // src/components/sections/Stats/Stats.jsx
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import styles from './Stats.module.css';
-import { Calendar, Users, Briefcase, Smile } from 'lucide-react';
 
-// Raqamlarni sanab beruvchi maxsus ichki komponent (Endi icon ham qabul qiladi)
-const StatCounter = ({ targetNumber, suffix, label, duration = 2000, icon }) => {
-  const [count, setCount] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const counterRef = useRef(null);
+const roadmapData = [
+  {
+    id: 1,
+    color: '#d32f2f', // To'q qizil
+    title: 'Requirement analysis',
+    desc: "We look at how your team uses data, find what's missing, and define what your analytics system needs to deliver."
+  },
+  {
+    id: 2,
+    color: '#df6262',
+    title: 'Data architecture',
+    desc: "We design how your data is structured, labeled, and linked, so your analytics are accurate, fast, and easy to scale."
+  },
+  {
+    id: 3,
+    color: '#e58e8e',
+    title: 'Data ingestion',
+    desc: "Whether it's files, APIs, or cloud tools, we connect every source and ensure your data flows into one place without errors or delays."
+  },
+  {
+    id: 4,
+    color: '#ebb6b6', // Och pushti
+    title: 'Data lake building',
+    desc: "We set up storage for all raw and semi-structured data, so you can keep everything in one place and use it later for reports or deep analysis."
+  },
+  {
+    id: 5,
+    color: '#e29ab9',
+    title: 'Data warehouse setup',
+    desc: "This is where clean data lives. We set up a central warehouse that keeps everything organized and ready for reporting."
+  },
+  {
+    id: 6,
+    color: '#cd9bd9',
+    title: 'Data cleaning',
+    desc: "From duplicates to format mismatches, we resolve the issues that slow teams down, so every record can be trusted."
+  },
+  {
+    id: 7,
+    color: '#bca1e6', // Och binafsha
+    title: 'ETL/ELT development',
+    desc: "Your analytics are only as fresh as your pipeline. We set up flows that move and transform data without delays or manual work."
+  },
+  {
+    id: 8,
+    color: '#d7c7f0', // Eng och binafsha
+    title: 'Quality assurance',
+    desc: "We test each component of your data pipeline, including data connections, pipeline logic, data accuracy, load times to prevent future issues."
+  },
+  {
+    id: 9,
+    color: '#aa8dd8',
+    title: 'Deployment',
+    desc: "Finally, we put it all in motion — automating updates, syncing reports, and handing off a system that's ready to deliver insights from day one."
+  },
+  {
+    id: 10,
+    color: '#8964c4', // To'q binafsha
+    title: 'Data analytics',
+    desc: "With everything in place, we integrate real-time analytics into your workflows so your team can explore data insights and make data-driven decisions."
+  }
+];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (counterRef.current) {
-      observer.observe(counterRef.current);
-    }
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!isVisible) return;
-    let startTime = null;
-    const animation = (currentTime) => {
-      if (!startTime) startTime = currentTime;
-      const progress = currentTime - startTime;
-
-      const currentCount = Math.min(
-        Math.floor((progress / duration) * targetNumber),
-        targetNumber
-      );
-      setCount(currentCount);
-
-      if (progress < duration) {
-        requestAnimationFrame(animation);
-      } else {
-        setCount(targetNumber);
-      }
-    };
-    requestAnimationFrame(animation);
-  }, [isVisible, targetNumber, duration]);
-
-  return (
-    <div ref={counterRef} className={styles.statCard}>
-      <div className={styles.iconWrapper}>
-        {icon}
-      </div>
-      <div className={styles.statNumberBox}>
-        <span className={styles.statNumber}>{count}</span>
-        <span className={styles.statSuffix}>{suffix}</span>
-      </div>
-      <p className={styles.statLabel}>{label}</p>
-    </div>
-  );
-};
-
-// Asosiy Stats bo'limi
 const Stats = () => {
   return (
-    <section className={styles.statsSection}>
+    <section className={styles.statsSection} id="process">
       <div className={styles.container}>
 
-        <div className={styles.wrapper}>
-          {/* Chap taraf - Matn */}
-          <div className={styles.textContent}>
-            <h2 className={styles.title}>Numbers that Speak for Themselves</h2>
-            <p className={styles.subtitle}>
-              We measure our success by the success of our clients. With years of experience and a dedicated team, we deliver outstanding results across every industry we serve.
-            </p>
-          </div>
+        <div className={styles.header}>
+          <h2 className={styles.title}>Your project at your pace</h2>
+          <p className={styles.subtitle}>
+            Each step moves your data closer to real business value with zero wasted effort or guesswork.
+          </p>
+        </div>
 
-          {/* O'ng taraf - Kartochkalar */}
-          <div className={styles.statsGrid}>
-            <StatCounter
-              icon={<Calendar size={24} />}
-              targetNumber={17} suffix="+" label="Years of Experience"
-            />
-            <StatCounter
-              icon={<Users size={24} />}
-              targetNumber={1500} suffix="+" label="IT Professionals" duration={2500}
-            />
-            <StatCounter
-              icon={<Briefcase size={24} />}
-              targetNumber={800} suffix="+" label="Completed Projects" duration={2200}
-            />
-            <StatCounter
-              icon={<Smile size={24} />}
-              targetNumber={97} suffix="%" label="Client Retention Rate"
-            />
+        <div className={styles.gridWrapper}>
+          <div className={styles.grid}>
+
+            {roadmapData.map((item) => (
+              // Inline style orqali rang beramiz, CSS dagi 'currentColor' buni o'qib oladi
+              <div key={item.id} className={styles.item} style={{ color: item.color }}>
+
+                <div className={styles.node}>
+                  <div className={styles.dot}></div>
+                  <div className={styles.line}></div>
+                </div>
+
+                <h3 className={styles.itemTitle}>{item.title}</h3>
+                <p className={styles.itemDesc}>{item.desc}</p>
+
+              </div>
+            ))}
+
           </div>
         </div>
 
