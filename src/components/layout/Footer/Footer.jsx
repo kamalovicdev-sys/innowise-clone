@@ -92,7 +92,7 @@ const Footer = () => {
             <div className={styles.contactItem}>
               <Mail className={styles.contactIcon} size={20} />
               <span className={styles.contactText}>
-                <a href="mehrzodgroup@gmail.com">mehrzodgroup@gmail.com</a>
+                <a href="mailto:mehrzodgroup@gmail.com">mehrzodgroup@gmail.com</a>
               </span>
             </div>
           </div>
