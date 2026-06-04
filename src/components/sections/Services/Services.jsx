@@ -1,4 +1,3 @@
-// src/components/sections/Services/Services.jsx
 import React from 'react';
 import styles from './Services.module.css';
 import {
@@ -7,16 +6,16 @@ import {
   HardDrive,
   BarChart3,
   LayoutDashboard,
-  FileBarChart,
+  Headset,
   Cpu,
   Network,
-  Cloud
+  SquareChartGantt
 } from 'lucide-react';
 
 const solutionsData = [
   {
     id: 1,
-    title: 'Data collection systems',
+    title: 'Data Analysis',
     icon: <Database size={36} strokeWidth={1.2} />
   },
   {
@@ -31,34 +30,35 @@ const solutionsData = [
   },
   {
     id: 4,
-    title: 'Custom BI platforms',
+    title: 'Business Intelligence',
     icon: <BarChart3 size={36} strokeWidth={1.2} />
   },
   {
     id: 5,
-    title: 'Interactive dashboards',
+    title: 'Website + ADS',
     icon: <LayoutDashboard size={36} strokeWidth={1.2} />
   },
-  {
-    id: 6,
-    title: 'Automated reporting',
-    icon: <FileBarChart size={36} strokeWidth={1.2} />
-  },
+
   {
     id: 7,
-    title: 'Predictive & AI tools',
+    title: 'AI tools & Bots',
     icon: <Cpu size={36} strokeWidth={1.2} />
   },
   {
     id: 8,
-    title: 'Decision support systems',
+    title: 'System Design',
     icon: <Network size={36} strokeWidth={1.2} />
   },
   {
     id: 9,
-    title: 'Cloud analytics solutions',
-    icon: <Cloud size={36} strokeWidth={1.2} />
-  }
+    title: 'Business Consulting\n',
+    icon: <SquareChartGantt size={36} strokeWidth={1.2} />
+  },
+  {
+    id: 6,
+    title: 'Sales Department Development and Implementation',
+    icon: <Headset size={36} strokeWidth={1.2} />
+  },
 ];
 
 const Services = () => {
