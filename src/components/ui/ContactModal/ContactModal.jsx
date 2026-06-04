@@ -1,4 +1,3 @@
-// src/components/ui/ContactModal/ContactModal.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './ContactModal.module.css';
 import { X, Check } from 'lucide-react';

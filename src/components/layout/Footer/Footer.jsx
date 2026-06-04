@@ -1,4 +1,3 @@
-// src/components/layout/Footer/Footer.jsx
 import React from 'react';
 import styles from './Footer.module.css';
 // DIQQAT: Github, Twitter va Linkedin importdan olib tashlandi
@@ -64,10 +63,10 @@ const Footer = () => {
           <div>
             <h3 className={styles.title}>Services</h3>
             <ul className={styles.list}>
-              <li><a href="#services">Data Analytics</a></li>
-              <li><a href="#services">Custom Software</a></li>
-              <li><a href="#services">Cloud Solutions</a></li>
-              <li><a href="#services">Cybersecurity</a></li>
+              <li><a href="#services">Data Analytics & BI</a></li>
+              <li><a href="#services">Data warehousing solutions</a></li>
+              <li><a href="#services">Website + SEO & ADS</a></li>
+              <li><a href="#services">Business Consulting</a></li>
             </ul>
           </div>
 

@@ -1,4 +1,3 @@
-// src/components/sections/Portfolio/Portfolio.jsx
 import React, { useState } from 'react';
 import styles from './Portfolio.module.css';
 import { ArrowLeft, ArrowRight } from 'lucide-react';

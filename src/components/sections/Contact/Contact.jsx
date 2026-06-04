@@ -1,4 +1,3 @@
-// src/components/sections/Contact/Contact.jsx
 import React, { useState, useRef } from 'react';
 import styles from './Contact.module.css';
 import { Check } from 'lucide-react';

@@ -1,4 +1,3 @@
-// src/components/layout/Navbar/Navbar.jsx
 import React, { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 import { ChartGantt } from 'lucide-react';

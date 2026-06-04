@@ -9,8 +9,6 @@ function App() {
   return (
     <Router>
       <Navbar />
-
-      {/* Asosiy kontent qismi. Sahifalar shu yerda o'zgaradi */}
       <main style={{ minHeight: 'calc(100vh - 400px)' }}>
         <Routes>
           <Route path="/" element={<Home />} />
