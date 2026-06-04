@@ -28,7 +28,7 @@ const techCategories = [
     id: 'cloud',
     title: 'Cloud & DevOps',
     icon: <Cloud size={24} />,
-    techs: ["AWS", "Google Cloud", "Docker", "Kubernetes", "CI|CD"]
+    techs: ["AWS", "Google Cloud", "Docker", "Kubernetes", "CI/CD"]
   }
 ];
 
