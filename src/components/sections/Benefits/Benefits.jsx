@@ -4,28 +4,28 @@ import styles from './Benefits.module.css';
 const benefitsData = [
   {
     id: 1,
-    title: 'Forecast with confidence',
-    desc: "No more flying blind. We surface the trends and patterns behind your data so you can plan with confidence and stay ahead of what's coming."
+    title: 'Clear visibility into your business',
+    desc: "Stop guessing what sells. We turn your raw data into clear trends so you know exactly what to stock, build, or promote next."
   },
   {
     id: 2,
-    title: 'No more wasted time on manual reporting',
-    desc: "Reporting shouldn't eat up your days. We automate routine tasks so your team spends less time wrangling data and more time using it."
+    title: 'Automated, stress-free reporting',
+    desc: "Say goodbye to messy spreadsheets. We build real-time dashboards that give you the full picture of your sales, inventory, and profits in seconds."
   },
   {
     id: 3,
-    title: 'Dashboards that actually tell you something',
-    desc: "Ditch the messy spreadsheets. We build dashboards that show the story behind your data clearly, visually, and in real time."
+    title: 'A digital presence that drives sales',
+    desc: "A beautiful website isn't enough. Through targeted SEO and brand ads, we put your business right in front of customers ready to buy."
   },
   {
     id: 4,
-    title: 'Compliance made simpler',
-    desc: "Staying compliant shouldn't feel like a burden. We help you keep data secure, traceable, and audit-ready without the stress."
+    title: 'Strategic guidance for scaling',
+    desc: "Growing your business shouldn't be trial and error. Our consulting helps you optimize operations, cut wasted costs, and scale confidently."
   },
   {
     id: 5,
-    title: 'Data that produces ROI',
-    desc: "With the right metrics in place, your data becomes a tool for growth. We help you track which campaigns convert, what drives profit, and where to invest for business results."
+    title: 'Measurable ROI on every dollar spent',
+    desc: "Every strategy we implement is focused on one thing: your bottom line. We track what works so your investments directly fuel your growth."
   }
 ];
 

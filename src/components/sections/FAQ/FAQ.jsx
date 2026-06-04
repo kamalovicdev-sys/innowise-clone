@@ -1,4 +1,3 @@
-// src/components/sections/FAQ/FAQ.jsx
 import React, { useState } from 'react';
 import styles from './FAQ.module.css';
 import { Plus, Minus, Headset } from 'lucide-react';
@@ -9,23 +8,28 @@ import ContactModal from '../../ui/ContactModal/ContactModal';
 const faqData = [
   {
     id: 1,
-    question: 'How does Innowise tailor data analytics solutions to our requirements?',
-    answer: "We begin by analyzing your data landscape: data sources, infrastructure, and business objectives. Based on that, we design end-to-end solutions — custom ETL pipelines, data models, and visualizations — optimized for use cases. Whether you're dealing with fragmented systems, inconsistent data, or real-time analytics needs, we build a solution that fits both your architecture and your goals."
+    question: 'What is Business Intelligence (BI) and why does my company need it?',
+    answer: "Business Intelligence is the process of turning your company's raw, messy data into clear, visual, and easy-to-understand reports (dashboards). As a business owner, you likely have data scattered across sales, inventory, and marketing. BI gathers all this into one screen, allowing you to see your exact profits, top-selling products, and weak spots in real-time. You need it so you can stop making decisions based on guesses and start making them based on facts."
   },
   {
     id: 2,
-    question: 'What are the components of data analytics services?',
-    answer: 'Our data analytics services typically include data integration, data warehousing, BI dashboard development, predictive analytics, and machine learning model deployment.'
+    question: 'Do we need to replace our current software (like 1C, ERP, or Excel) to work with you?',
+    answer: "No, absolutely not. We understand that changing software is a headache. Our BI and data solutions are designed to connect directly with the systems you already use. Whether your data lives in 1C, a custom CRM, Google Sheets, or an e-commerce platform, we seamlessly extract that data and feed it into a unified dashboard without disrupting your team's daily work."
   },
   {
     id: 3,
-    question: 'What should one look for in a data analytics services company?',
-    answer: 'You should look for proven expertise in your industry, strong technological partnerships, scalable architecture design, and a focus on data security and compliance.'
+    question: 'How can Data Analysis help increase my sales in FMCG or E-commerce?',
+    answer: 'Data analysis reveals the hidden buying patterns of your customers. For example, we can show you which products are frequently bought together, at what time of day, and by which demographic. This allows you to create highly targeted marketing campaigns, optimize your pricing, and ensure your best-selling items are never out of stock. It basically tells you what your customers want before they even ask for it.'
   },
   {
     id: 4,
-    question: 'What data analytics services does Innowise offer?',
-    answer: 'We offer a full spectrum of services including data strategy consulting, data engineering, advanced analytics, AI integration, and ongoing data management support.'
+    question: 'How long does it take to see the first dashboard for our business?',
+    answer: 'While it depends on the complexity of your data, our goal is to deliver value quickly. Typically, within 2 to 4 weeks, we complete the initial data integration and provide your first working dashboard. From there, we continuously refine and add new metrics based on your feedback and evolving business goals.'
+  },
+  {
+    id: 5,
+    question: "Is our company data safe when we hand it over to your team?",
+    answer: "Data security is our top priority. Before we even look at your data, we sign a strict Non-Disclosure Agreement (NDA). We use secure, encrypted cloud platforms to handle your information. Furthermore, we don't need access to sensitive personal data (like customer passwords); we only work with the metrics needed to build your business reports. You retain full ownership and control of your data at all times."
   }
 ];
 
