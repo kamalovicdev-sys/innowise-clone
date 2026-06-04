@@ -1,4 +1,3 @@
-// src/components/sections/Expertise/Expertise.jsx
 import React, { useState } from 'react';
 import styles from './Expertise.module.css';
 import { motion } from 'framer-motion';
@@ -11,25 +10,25 @@ const techCategories = [
     id: 'frontend',
     title: 'Frontend',
     icon: <MonitorSmartphone size={24} />,
-    techs: ["React", "Vue.js", "Angular", "Next.js", "TypeScript", "Tailwind CSS"]
+    techs: ["React", "Vue.js", "Next.js", "TypeScript", "Tailwind CSS"]
   },
   {
     id: 'backend',
     title: 'Backend',
     icon: <TerminalSquare size={24} />,
-    techs: ["Node.js", "Python", "Java", "Go", "FastAPI", "Spring Boot"]
+    techs: ["Node.js", "Python", "Go", "FastAPI"]
   },
   {
     id: 'database',
     title: 'Database',
     icon: <Database size={24} />,
-    techs: ["PostgreSQL", "MongoDB", "Redis", "MySQL", "Elasticsearch", "Cassandra"]
+    techs: ["PostgreSQL", "MongoDB", "Redis", "MySQL"]
   },
   {
     id: 'cloud',
     title: 'Cloud & DevOps',
     icon: <Cloud size={24} />,
-    techs: ["AWS", "Google Cloud", "Docker", "Kubernetes", "CI/CD", "Terraform"]
+    techs: ["AWS", "Google Cloud", "Docker", "Kubernetes", "CI|CD"]
   }
 ];
 
