@@ -18,7 +18,8 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: 'en', // Sayt yuklanganda birinchi bo'lib Ingliz tili ochiladi (xohishga qarab 'ru' yoki 'uz' ga o'zgartirishingiz mumkin)
+    lng: 'ru',
+    fallbackLng: 'ru',
     interpolation: {
       escapeValue: false
     }
