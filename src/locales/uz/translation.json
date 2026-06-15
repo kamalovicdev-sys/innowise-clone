@@ -194,5 +194,20 @@
     "rights": "Mehrzod Business Group. Barcha huquqlar himoyalangan.",
     "privacy": "Maxfiylik siyosati",
     "terms": "Xizmat ko'rsatish shartlari"
+  },
+
+  "contactModal": {
+    "title": "Biz bilan bog'laning",
+    "subtitle": "Quyidagi shaklni to'ldiring va loyihangizni muhokama qilish uchun siz bilan bog'lanamiz.",
+    "name": "To'liq ism *",
+    "email": "Ishchi Email",
+    "phone": "Telefon raqami *",
+    "company": "Kompaniya",
+    "message": "Sizga qanday yordam bera olamiz?",
+    "btnSubmit": "Xabarni yuborish",
+    "sending": "Yuborilmoqda...",
+    "successTitle": "Rahmat!",
+    "successDesc": "Xabaringiz qabul qilindi va tez orada siz bilan bog'lanamiz.",
+    "errorMsg": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring."
   }
 }

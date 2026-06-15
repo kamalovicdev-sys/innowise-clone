@@ -54,16 +54,46 @@
     "title": "Your project at your pace",
     "subtitle": "Each step moves your data closer to real business value with zero wasted effort or guesswork.",
     "steps": {
-      "step1": { "title": "Requirement analysis", "desc": "We look at how your team uses data, find what's missing, and define what your analytics system needs to deliver." },
-      "step2": { "title": "Data architecture", "desc": "We design how your data is structured, labeled, and linked, so your analytics are accurate, fast, and easy to scale." },
-      "step3": { "title": "Data ingestion", "desc": "Whether it's files, APIs, or cloud tools, we connect every source and ensure your data flows into one place without errors or delays." },
-      "step4": { "title": "Data lake building", "desc": "We set up storage for all raw and semi-structured data, so you can keep everything in one place and use it later for reports or deep analysis." },
-      "step5": { "title": "Data warehouse setup", "desc": "This is where clean data lives. We set up a central warehouse that keeps everything organized and ready for reporting." },
-      "step6": { "title": "Data cleaning", "desc": "From duplicates to format mismatches, we resolve the issues that slow teams down, so every record can be trusted." },
-      "step7": { "title": "ETL/ELT development", "desc": "Your analytics are only as fresh as your pipeline. We set up flows that move and transform data without delays or manual work." },
-      "step8": { "title": "Quality assurance", "desc": "We test each component of your data pipeline, including data connections, pipeline logic, data accuracy, load times to prevent future issues." },
-      "step9": { "title": "Deployment", "desc": "Finally, we put it all in motion — automating updates, syncing reports, and handing off a system that's ready to deliver insights from day one." },
-      "step10": { "title": "Data analytics", "desc": "With everything in place, we integrate real-time analytics into your workflows so your team can explore data insights and make data-driven decisions." }
+      "step1": {
+        "title": "Requirement analysis",
+        "desc": "We look at how your team uses data, find what's missing, and define what your analytics system needs to deliver."
+      },
+      "step2": {
+        "title": "Data architecture",
+        "desc": "We design how your data is structured, labeled, and linked, so your analytics are accurate, fast, and easy to scale."
+      },
+      "step3": {
+        "title": "Data ingestion",
+        "desc": "Whether it's files, APIs, or cloud tools, we connect every source and ensure your data flows into one place without errors or delays."
+      },
+      "step4": {
+        "title": "Data lake building",
+        "desc": "We set up storage for all raw and semi-structured data, so you can keep everything in one place and use it later for reports or deep analysis."
+      },
+      "step5": {
+        "title": "Data warehouse setup",
+        "desc": "This is where clean data lives. We set up a central warehouse that keeps everything organized and ready for reporting."
+      },
+      "step6": {
+        "title": "Data cleaning",
+        "desc": "From duplicates to format mismatches, we resolve the issues that slow teams down, so every record can be trusted."
+      },
+      "step7": {
+        "title": "ETL/ELT development",
+        "desc": "Your analytics are only as fresh as your pipeline. We set up flows that move and transform data without delays or manual work."
+      },
+      "step8": {
+        "title": "Quality assurance",
+        "desc": "We test each component of your data pipeline, including data connections, pipeline logic, data accuracy, load times to prevent future issues."
+      },
+      "step9": {
+        "title": "Deployment",
+        "desc": "Finally, we put it all in motion — automating updates, syncing reports, and handing off a system that's ready to deliver insights from day one."
+      },
+      "step10": {
+        "title": "Data analytics",
+        "desc": "With everything in place, we integrate real-time analytics into your workflows so your team can explore data insights and make data-driven decisions."
+      }
     }
   },
   "expertise": {
@@ -194,6 +224,21 @@
     "rights": "Mehrzod Business Group. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
+  },
+
+  "contactModal": {
+    "title": "Get in Touch",
+    "subtitle": "Fill out the form below and we'll reach out to discuss your project.",
+    "name": "Full Name *",
+    "email": "Work Email",
+    "phone": "Phone *",
+    "company": "Company",
+    "message": "How can we help?",
+    "btnSubmit": "Send Message",
+    "sending": "Sending...",
+    "successTitle": "Thank You!",
+    "successDesc": "We have received your message and will get back to you shortly.",
+    "errorMsg": "An error occurred. Please try again."
   }
 }
 

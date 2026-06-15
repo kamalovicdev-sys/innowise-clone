@@ -2,8 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './ContactModal.module.css';
 import { X, Check } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { useTranslation } from 'react-i18next'; // 1. Hookni import qilamiz
 
 const ContactModal = ({ isOpen, onClose }) => {
+  const { t } = useTranslation(); // 2. Hookni chaqiramiz
   const form = useRef();
 
   // State'ga shablondagi barcha maydonlarni qo'shamiz
@@ -37,7 +39,7 @@ const ContactModal = ({ isOpen, onClose }) => {
       'service_nd0dlfn',
       'template_8262qok',
       form.current,
-      '1_d6jjPbBc2LZUQlh'    
+      '1_d6jjPbBc2LZUQlh'
     )
     .then((result) => {
         setIsLoading(false);
@@ -51,7 +53,8 @@ const ContactModal = ({ isOpen, onClose }) => {
         }, 3000);
     }, (error) => {
         setIsLoading(false);
-        alert("Xatolik yuz berdi. Iltimos, qayta urinib ko'ring.");
+        // Xatolik xabarini ham tarjima qildik
+        alert(t('contactModal.errorMsg'));
         console.log(error.text);
     });
   };
@@ -70,44 +73,44 @@ const ContactModal = ({ isOpen, onClose }) => {
               <div className={styles.successIcon}>
                 <Check size={32} />
               </div>
-              <h3 className={styles.title}>Thank You!</h3>
-              <p className={styles.subtitle}>We have received your message and will get back to you shortly.</p>
+              <h3 className={styles.title}>{t('contactModal.successTitle')}</h3>
+              <p className={styles.subtitle}>{t('contactModal.successDesc')}</p>
             </div>
           ) : (
             <>
-              <h2 className={styles.title}>Get in Touch</h2>
-              <p className={styles.subtitle}>Fill out the form below and we'll reach out to discuss your project.</p>
+              <h2 className={styles.title}>{t('contactModal.title')}</h2>
+              <p className={styles.subtitle}>{t('contactModal.subtitle')}</p>
 
               <form ref={form} onSubmit={handleSubmit}>
                 <div className={styles.formGroup}>
-                  <label className={styles.label} htmlFor="modal-name">Full Name *</label>
-                  <input type="text" id="modal-name" name="name" className={styles.input} placeholder="John Doe" value={formData.name} onChange={handleChange} required />
+                  <label className={styles.label} htmlFor="modal-name">{t('contactModal.name')}</label>
+                  <input type="text" id="modal-name" name="name" className={styles.input} placeholder="" value={formData.name} onChange={handleChange} required />
                 </div>
 
                 <div className={styles.formGroup}>
-                  <label className={styles.label} htmlFor="modal-email">Work Email </label>
+                  <label className={styles.label} htmlFor="modal-email">{t('contactModal.email')}</label>
                   <input type="email" id="modal-email" name="email" className={styles.input} placeholder="example@mail.com" value={formData.email} onChange={handleChange}  />
                 </div>
 
                 {/* Telefon va Kompaniya maydonlari joy tejash uchun yonma-yon qo'yildi */}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                   <div className={styles.formGroup}>
-                    <label className={styles.label} htmlFor="modal-phone">Phone *</label>
+                    <label className={styles.label} htmlFor="modal-phone">{t('contactModal.phone')}</label>
                     <input type="tel" id="modal-phone" name="phone" className={styles.input} placeholder="+ 998 99 000 0000" value={formData.phone} onChange={handleChange}  required />
                   </div>
                   <div className={styles.formGroup}>
-                    <label className={styles.label} htmlFor="modal-company">Company</label>
-                    <input type="text" id="modal-company" name="company" className={styles.input} placeholder="Your Company" value={formData.company} onChange={handleChange} />
+                    <label className={styles.label} htmlFor="modal-company">{t('contactModal.company')}</label>
+                    <input type="text" id="modal-company" name="company" className={styles.input} placeholder="" value={formData.company} onChange={handleChange} />
                   </div>
                 </div>
 
                 <div className={styles.formGroup}>
-                  <label className={styles.label} htmlFor="modal-message">How can we help? </label>
-                  <textarea id="modal-message" name="message" className={styles.textarea} placeholder="Tell us about your project..." value={formData.message} onChange={handleChange}  ></textarea>
+                  <label className={styles.label} htmlFor="modal-message">{t('contactModal.message')}</label>
+                  <textarea id="modal-message" name="message" className={styles.textarea} placeholder="..." value={formData.message} onChange={handleChange}  ></textarea>
                 </div>
 
                 <button type="submit" className={styles.submitBtn} disabled={isLoading}>
-                  {isLoading ? 'Sending...' : 'Send Message'}
+                  {isLoading ? t('contactModal.sending') : t('contactModal.btnSubmit')}
                 </button>
               </form>
             </>
