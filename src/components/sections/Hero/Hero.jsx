@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import styles from './Hero.module.css';
 import ContactModal from '../../ui/ContactModal/ContactModal';
+// 1. Tarjima uchun hookni import qilamiz
+import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
+  // 2. Hookni chaqiramiz
+  const { t } = useTranslation();
+
   // Modalni ochib-yopish uchun state
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -12,10 +17,12 @@ const Hero = () => {
 
         {/* 1. Chap taraf (Matn) */}
         <div className={styles.content}>
+          {/* Matnlarni t() funksiyasi bilan almashtiramiz */}
           <h1 className={styles.title}>
-            IT services and solutions delivered by Mehrzod Group       </h1>
+            {t('hero.title')}
+          </h1>
           <p className={styles.subtitle}>
-            We help businesses turn data into decisions. Whether you’re exploring new revenue opportunities, reducing operational costs, or improving forecasting, our data teams build the systems and pipelines that make it possible. Fast, reliable, and scalable.
+            {t('hero.subtitle')}
           </p>
           <div className={styles.buttonGroup}>
             {/* Estimate Project tugmasiga onClick ulandi */}
@@ -23,9 +30,11 @@ const Hero = () => {
               className={styles.primaryBtn}
               onClick={() => setIsModalOpen(true)}
             >
-              Estimate Project
+              {t('hero.btnEstimate')}
             </button>
-            <button className={styles.secondaryBtn}>Explore Services</button>
+            <button className={styles.secondaryBtn}>
+              {t('hero.btnExplore')}
+            </button>
           </div>
         </div>
 

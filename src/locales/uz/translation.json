@@ -1,0 +1,198 @@
+{
+  "nav": {
+    "services": "Xizmatlar",
+    "portfolio": "Keyslar",
+    "faq": "FAQ",
+    "contact": "Biz bilan bog'lanish"
+  },
+  "hero": {
+    "title": "Mehrzod Group tomonidan IT xizmatlar va yechimlar",
+    "subtitle": "Biz bizneslarga ma'lumotlarni aniq qarorlarga aylantirishga yordam beramiz. Yangi daromad manbalarini qidiryapsizmi, xarajatlarni kamaytirmoqchimisiz yoki bashorat qilishni yaxshilamoqchimisiz, bizning jamoamiz buni amalga oshiradigan tizimlarni yaratadi. Tez, ishonchli va kengaytiriladigan.",
+    "btnEstimate": "Loyihani baholash",
+    "btnExplore": "Xizmatlarni o'rganish"
+  },
+  "benefits": {
+    "title": "Biz bilan ishlash orqali nimalarga ega bo'lasiz",
+    "items": {
+      "visibility": {
+        "title": "Biznesingizning aniq ko'rinishi",
+        "desc": "Nima yaxshi sotilishini taxmin qilishni bas qiling. Biz ma'lumotlaringizni aniq tendentsiyalarga aylantiramiz, shunda siz nima zaxira qilish yoki reklama qilishni aniq bilib olasiz."
+      },
+      "reporting": {
+        "title": "Avtomatlashtirilgan, stressiz hisobotlar",
+        "desc": "Chalkash jadvallar bilan xayrlashing. Biz bir necha soniya ichida sotuvlar, zaxiralar va foydalar haqida to'liq ma'lumot beruvchi real vaqtli dasbordlarni yaratamiz."
+      },
+      "presence": {
+        "title": "Sotuvlarni oshiruvchi raqamli mavjudlik",
+        "desc": "Chiroyli veb-saytning o'zi yetarli emas. Maqsadli SEO va brend reklamalari orqali biz sizning biznesingizni xarid qilishga tayyor mijozlar ko'z o'ngiga olib chiqamiz."
+      },
+      "guidance": {
+        "title": "Kengayish uchun strategik ko'rsatmalar",
+        "desc": "Biznesingizni rivojlantirish xatolar orqali bo'lmasligi kerak. Bizning konsalting xizmatimiz operatsiyalarni optimallashtirish, xarajatlarni kamaytirish va ishonch bilan o'sishga yordam beradi."
+      },
+      "roi": {
+        "title": "Har bir sarflangan dollar uchun o'lchanadigan ROI",
+        "desc": "Biz amalga oshiradigan har bir strategiya bitta narsaga qaratilgan: sizning foydangiz. Biz sarmoyalaringiz to'g'ridan-to'g'ri o'sishingizga xizmat qilishi uchun nima ish berayotganini kuzatib boramiz."
+      }
+    }
+  },
+  "services": {
+    "title": "Bizning Xizmatlar",
+    "items": {
+      "analysis": "Ma'lumotlar tahlili",
+      "warehousing": "Ma'lumotlar ombori yechimlari",
+      "management": "Ma'lumotlarni boshqarish platformalari",
+      "bi": "Business Intelligence (BI)",
+      "web_ads": "Veb-sayt va Reklama",
+      "ai_bots": "AI vositalari va Botlar",
+      "system_design": "Tizim dizayni",
+      "consulting": "Biznes konsalting",
+      "sales_dept": "Sotuv bo'limini ishlab chiqish va joriy etish"
+    }
+  },
+  "stats": {
+    "title": "Loyihangiz sizning tezligingizda",
+    "subtitle": "Har bir qadam ma'lumotlaringizni biznes qiymatiga yaqinlashtiradi, behuda harakatlar va taxminlarsiz.",
+    "steps": {
+      "step1": { "title": "Talablarni tahlil qilish", "desc": "Biz jamoangiz ma'lumotlardan qanday foydalanishini o'rganamiz, kamchiliklarni topamiz va tahliliy tizimingiz nimalarni taqdim etishi kerakligini belgilaymiz." },
+      "step2": { "title": "Ma'lumotlar arxitekturasi", "desc": "Biz ma'lumotlaringiz qanday tuzilishi, belgilanishi va bog'lanishini loyihalashtiramiz, shunda tahlillaringiz aniq, tez va oson kengaytiriladigan bo'ladi." },
+      "step3": { "title": "Ma'lumotlarni yig'ish", "desc": "Fayllar, API yoki bulutli vositalar bo'ladimi, biz har bir manbani ulaymiz va ma'lumotlaringiz xatosiz yoki kechikishlarsiz bitta joyga kelib tushishini ta'minlaymiz." },
+      "step4": { "title": "Ma'lumotlar ko'lini (Data Lake) yaratish", "desc": "Biz barcha xom va yarim tuzilgan ma'lumotlar uchun ombor o'rnatamiz, shunda siz hamma narsani bir joyda saqlashingiz va keyinroq hisobotlar yoki chuqur tahlil uchun ishlatishingiz mumkin." },
+      "step5": { "title": "Ma'lumotlar omborini o'rnatish", "desc": "Bu yerda toza ma'lumotlar yashaydi. Biz hamma narsani tartibli va hisobot berishga tayyor holda saqlaydigan markaziy omborni o'rnatamiz." },
+      "step6": { "title": "Ma'lumotlarni tozalash", "desc": "Dublikatlardan tortib format mos kelmasligigacha, biz jamoalar ishini sekinlashtiradigan muammolarni hal qilamiz, shunda har bir yozuvga ishonish mumkin bo'ladi." },
+      "step7": { "title": "ETL/ELT ishlab chiqish", "desc": "Sizning tahlillaringiz tizimingiz kabi yangi. Biz ma'lumotlarni kechikishlarsiz yoki qo'l mehnatisiz ko'chiradigan va o'zgartiradigan oqimlarni o'rnatamiz." },
+      "step8": { "title": "Sifat nazorati", "desc": "Kelajakdagi muammolarni oldini olish uchun biz ma'lumotlar tizimingizning har bir qismini, jumladan, ulanishlar, mantiq, aniqlik va yuklanish vaqtlarini sinovdan o'tkazamiz." },
+      "step9": { "title": "Ishga tushirish (Deployment)", "desc": "Nihoyat, biz hammasini harakatga keltiramiz — yangilanishlarni avtomatlashtiramiz, hisobotlarni sinxronlashtiramiz va birinchi kundan boshlab ma'lumot berishga tayyor tizimni topshiramiz." },
+      "step10": { "title": "Ma'lumotlar tahlili", "desc": "Hamma narsa o'z joyida bo'lgach, biz jamoangiz ma'lumotlarni o'rganishi va qarorlar qabul qilishi uchun real vaqt tahlilini ish jarayonlaringizga kiritamiz." }
+    }
+  },
+  "expertise": {
+    "title": "Asosiy Texnologiyalarimiz",
+    "subtitle": "Biz biznesingizning ehtiyojlariga mos keladigan yechimlarni yaratish uchun eng zamonaviy texnologiyalardan foydalanamiz.",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Ma'lumotlar bazasi",
+      "cloud": "Bulut & DevOps"
+    }
+  },
+  "portfolio": {
+    "title": "Har bir soha uchun ma'lumotlar tahlili",
+    "industries": {
+      "healthcare": {
+        "name": "Sog'liqni saqlash",
+        "title": "Sog'liqni saqlash tahlili",
+        "desc": "Biz tibbiyot muassasalariga bemorlar natijalarini yaxshilash, resurslarni taqsimlashni optimallashtirish va tibbiy ma'lumotlar qoidalariga rioya qilishni ta'minlashda yordam beramiz.",
+        "features": [
+          "Bemorlarning bashoratli tahlili",
+          "Resurslar va xodimlarni optimallashtirish",
+          "EHR ma'lumotlarini integratsiyasi va xavfsizligi"
+        ]
+      },
+      "retail": {
+        "name": "Chakana savdo va e-tijorat",
+        "title": "Chakana savdo va E-tijorat",
+        "desc": "Ilg'or mijozlar tahlili, shaxsiy tavsiya tizimlari va real vaqt bozor ma'lumotlariga asoslangan dinamik narxlash modellari bilan chakana biznesingizni o'zgartiring.",
+        "features": [
+          "Mijozlar ketishini bashorat qilish",
+          "Dinamik narxlash algoritmlari",
+          "Zaxiralar va talabni bashorat qilish"
+        ]
+      },
+      "banking": {
+        "name": "Bank va moliya",
+        "title": "Bank va Moliya",
+        "desc": "Moliyaviy muassasangizni xavfsiz ma'lumotlarni qayta ishlash, firibgarlikni aniqlash tizimlari va aktivlarni himoya qiluvchi hamda barqaror o'sishni ta'minlovchi xavflarni baholash modellari bilan kuchaytiring.",
+        "features": [
+          "Firibgarlikni real vaqtda aniqlash tizimlari",
+          "Xavflarni avtomatlashtirilgan baholash modellari",
+          "Algoritmik savdo tahlili"
+        ]
+      },
+      "logistics": {
+        "name": "Transport va logistika",
+        "title": "Transport va Logistika",
+        "desc": "Logistikada har bir daqiqa muhim. Mehrzod Group kompaniyalarga transport parkini kuzatish, ombor tizimlari va yetkazib berish jarayonlaridagi ma'lumotlarni tahlil qilish orqali to'liq nazoratga ega bo'lishga yordam beradi.",
+        "features": [
+          "Xizmat ko'rsatish xarajatlarini kamaytirish",
+          "Real vaqt ma'lumotlari orqali yaxshi rejalashtirish",
+          "Yaxshilangan marshrut va tarmoq optimallashtirish"
+        ]
+      },
+      "insurance": {
+        "name": "Sug'urta",
+        "title": "Sug'urta",
+        "desc": "Sug'urta sektori uchun ma'lumotlar tahlili yechimlarimiz yordamida da'volarni ko'rib chiqishni optimallashtiring, xavflarni aniq baholang va shaxsiylashtirilgan polis tavsiyalarini taqdim eting.",
+        "features": [
+          "Da'volarni avtomatlashtirilgan qayta ishlash",
+          "Bashoratli xavf modellashtirish",
+          "Mijozning umr bo'yi qiymatini (LTV) bashorat qilish"
+        ]
+      }
+    }
+  },
+  "faq": {
+    "title": "Ko'p so'raladigan savollar (FAQ)",
+    "ctaTitle": "Qo'ng'iroqni band qilishdan tortinmang va barcha kerakli javoblarni oling.",
+    "btnCall": "Qo'ng'iroqni band qilish",
+    "items": {
+      "q1": {
+        "q": "Business Intelligence (BI) nima va u mening kompaniyamga nima uchun kerak?",
+        "a": "BI - bu kompaniyangizning xom, tartibsiz ma'lumotlarini aniq va tushunarli hisobotlarga (dasbordlarga) aylantirish jarayoni. BI barcha tarqalgan ma'lumotlarni bitta ekranga jamlaydi va real vaqt rejimida aniq daromadingizni, eng ko'p sotilayotgan mahsulotlarni va zaif tomonlarni ko'rish imkonini beradi."
+      },
+      "q2": {
+        "q": "Siz bilan ishlash uchun joriy dasturiy ta'minotimizni (1C, ERP yoki Excel) almashtirishimiz kerakmi?",
+        "a": "Yo'q, mutlaqo yo'q. Bizning yechimlarimiz siz allaqachon foydalanayotgan tizimlarga to'g'ridan-to'g'ri ulanish uchun yaratilgan. Ma'lumotlaringiz 1C, CRM, Google Sheets yoki elektron tijorat platformasida bo'ladimi, biz jamoangizning kundalik ishini buzmasdan yagona dasbordga joylashtiramiz."
+      },
+      "q3": {
+        "q": "Ma'lumotlar tahlili FMCG yoki E-tijoratda sotuvlarimni oshirishga qanday yordam berishi mumkin?",
+        "a": "Ma'lumotlar tahlili mijozlaringizning yashirin xarid odatlarini ochib beradi. Masalan, qaysi mahsulotlar ko'pincha birga xarid qilinishini ko'rsata olamiz. Bu sizga maqsadli marketing kampaniyalarini yaratish va eng yaxshi mahsulotlaringiz doimo zaxirada bo'lishini ta'minlash imkonini beradi."
+      },
+      "q4": {
+        "q": "Biznesimiz uchun birinchi dasbordni ko'rishga qancha vaqt ketadi?",
+        "a": "Odatda 2 dan 4 haftagacha bo'lgan vaqt ichida biz dastlabki ma'lumotlar integratsiyasini yakunlaymiz va sizga birinchi ishchi dasbordni taqdim etamiz. Shundan so'ng yangi ko'rsatkichlarni qo'shib boramiz."
+      },
+      "q5": {
+        "q": "Kompaniyamiz ma'lumotlarini jamoangizga topshirganimizda ular xavfsizmi?",
+        "a": "Ma'lumotlar xavfsizligi bizning eng ustuvor vazifamizdir. Biz qat'iy Ma'lumotlarni oshkor etmaslik to'g'risidagi kelishuvni (NDA) imzolaymiz. Ma'lumotlaringiz bilan ishlash uchun xavfsiz, shifrlangan bulutli platformalardan foydalanamiz va mijozlarning shaxsiy parollari kabi maxfiy ma'lumotlarga kirish huquqini so'ramaymiz."
+      }
+    }
+  },
+  "contact": {
+    "title": "Loyihani boshlaymiz",
+    "subtitle": "Biznesingizni ma'lumotlarga asoslangan tahlillar orqali baholashni xohlaysizmi? Biz bilan bog'laning va mutaxassislarimiz tez orada sizga aloqaga chiqishadi.",
+    "name": "To'liq ism *",
+    "company": "Kompaniya",
+    "email": "Ishchi Email",
+    "phone": "Telefon raqami *",
+    "message": "Loyiha tafsilotlari",
+    "btnEstimate": "Bepul baholashni olish",
+    "successTitle": "Rahmat!",
+    "successDesc": "So'rovingiz qabul qilindi. Tez orada siz bilan bog'lanamiz."
+  },
+  "footer": {
+    "desc": "Ilg'or ma'lumotlar tahlili, maxsus dasturiy ta'minot va kengaytiriladigan bulutli yechimlar bilan global korxonalarni kuchaytiramiz.",
+    "quickLinks": "Tezkor havolalar",
+    "servicesTitle": "Xizmatlar",
+    "contactTitle": "Biz bilan bog'lanish",
+    "links": {
+      "ourServices": "Xizmatlarimiz",
+      "caseStudies": "Keyslar",
+      "coreTech": "Asosiy texnologiyalar",
+      "faq": "FAQ"
+    },
+    "serviceLinks": {
+      "dataAnalytics": "Ma'lumotlar tahlili va BI",
+      "dataWarehousing": "Ma'lumotlar ombori yechimlari",
+      "webAds": "Veb-sayt + SEO va Reklama",
+      "consulting": "Biznes konsalting"
+    },
+    "address": {
+      "street": "Shota Rustaveli ko'chasi, 150",
+      "city": "Toshkent"
+    },
+    "rights": "Mehrzod Business Group. Barcha huquqlar himoyalangan.",
+    "privacy": "Maxfiylik siyosati",
+    "terms": "Xizmat ko'rsatish shartlari"
+  }
+}

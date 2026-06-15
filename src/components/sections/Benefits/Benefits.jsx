@@ -1,39 +1,43 @@
 import React from 'react';
 import styles from './Benefits.module.css';
-
-const benefitsData = [
-  {
-    id: 1,
-    title: 'Clear visibility into your business',
-    desc: "Stop guessing what sells. We turn your raw data into clear trends so you know exactly what to stock, build, or promote next."
-  },
-  {
-    id: 2,
-    title: 'Automated, stress-free reporting',
-    desc: "Say goodbye to messy spreadsheets. We build real-time dashboards that give you the full picture of your sales, inventory, and profits in seconds."
-  },
-  {
-    id: 3,
-    title: 'A digital presence that drives sales',
-    desc: "A beautiful website isn't enough. Through targeted SEO and brand ads, we put your business right in front of customers ready to buy."
-  },
-  {
-    id: 4,
-    title: 'Strategic guidance for scaling',
-    desc: "Growing your business shouldn't be trial and error. Our consulting helps you optimize operations, cut wasted costs, and scale confidently."
-  },
-  {
-    id: 5,
-    title: 'Measurable ROI on every dollar spent',
-    desc: "Every strategy we implement is focused on one thing: your bottom line. We track what works so your investments directly fuel your growth."
-  }
-];
+import { useTranslation } from 'react-i18next'; // 1. Hookni import qilamiz
 
 const Benefits = () => {
+  const { t } = useTranslation(); // 2. t funksiyasini chaqiramiz
+
+  // Array komponent ichiga olindi va hardcoded matnlar t() ga almashtirildi
+  const benefitsData = [
+    {
+      id: 1,
+      title: t('benefits.items.visibility.title'),
+      desc: t('benefits.items.visibility.desc')
+    },
+    {
+      id: 2,
+      title: t('benefits.items.reporting.title'),
+      desc: t('benefits.items.reporting.desc')
+    },
+    {
+      id: 3,
+      title: t('benefits.items.presence.title'),
+      desc: t('benefits.items.presence.desc')
+    },
+    {
+      id: 4,
+      title: t('benefits.items.guidance.title'),
+      desc: t('benefits.items.guidance.desc')
+    },
+    {
+      id: 5,
+      title: t('benefits.items.roi.title'),
+      desc: t('benefits.items.roi.desc')
+    }
+  ];
+
   return (
     <section className={styles.benefitsSection}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>What you'll get from working with us</h2>
+        <h2 className={styles.sectionTitle}>{t('benefits.title')}</h2>
 
         <div className={styles.list}>
           {benefitsData.map((item) => (

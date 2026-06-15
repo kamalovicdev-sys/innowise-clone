@@ -1,9 +1,11 @@
 import React from 'react';
 import styles from './Footer.module.css';
-// DIQQAT: Github, Twitter va Linkedin importdan olib tashlandi
 import { ChartGantt, Mail, Phone, MapPin } from 'lucide-react';
+import { useTranslation } from 'react-i18next'; // 1. Hookni import qilamiz
 
 const Footer = () => {
+  const { t } = useTranslation(); // 2. Hookni chaqiramiz
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -21,7 +23,7 @@ const Footer = () => {
               </span>
             </a>
             <p className={styles.desc}>
-              Empowering global enterprises with advanced data analytics, custom software, and scalable cloud solutions.
+              {t('footer.desc')}
             </p>
             <div className={styles.socials}>
               {/* LinkedIn SVG */}
@@ -32,7 +34,7 @@ const Footer = () => {
                   <circle cx="4" cy="4" r="2"></circle>
                 </svg>
               </a>
-              {/* Twitter SVG */}
+              {/* Telegram/Twitter SVG */}
               <a href="#" className={styles.socialIcon} aria-label="Telegram">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5 0.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
@@ -50,35 +52,35 @@ const Footer = () => {
 
           {/* 2-ustun: Quick Links */}
           <div>
-            <h3 className={styles.title}>Quick Links</h3>
+            <h3 className={styles.title}>{t('footer.quickLinks')}</h3>
             <ul className={styles.list}>
-              <li><a href="#services">Our Services</a></li>
-              <li><a href="#portfolio">Case Studies</a></li>
-              <li><a href="#expertise">Core Tech Stack</a></li>
-              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#services">{t('footer.links.ourServices')}</a></li>
+              <li><a href="#portfolio">{t('footer.links.caseStudies')}</a></li>
+              <li><a href="#expertise">{t('footer.links.coreTech')}</a></li>
+              <li><a href="#faq">{t('footer.links.faq')}</a></li>
             </ul>
           </div>
 
           {/* 3-ustun: Services */}
           <div>
-            <h3 className={styles.title}>Services</h3>
+            <h3 className={styles.title}>{t('footer.servicesTitle')}</h3>
             <ul className={styles.list}>
-              <li><a href="#services">Data Analytics & BI</a></li>
-              <li><a href="#services">Data warehousing solutions</a></li>
-              <li><a href="#services">Website + SEO & ADS</a></li>
-              <li><a href="#services">Business Consulting</a></li>
+              <li><a href="#services">{t('footer.serviceLinks.dataAnalytics')}</a></li>
+              <li><a href="#services">{t('footer.serviceLinks.dataWarehousing')}</a></li>
+              <li><a href="#services">{t('footer.serviceLinks.webAds')}</a></li>
+              <li><a href="#services">{t('footer.serviceLinks.consulting')}</a></li>
             </ul>
           </div>
 
           {/* 4-ustun: Contact Us */}
           <div>
-            <h3 className={styles.title}>Contact Us</h3>
+            <h3 className={styles.title}>{t('footer.contactTitle')}</h3>
 
             <div className={styles.contactItem}>
               <MapPin className={styles.contactIcon} size={20} />
               <span className={styles.contactText}>
-                Shota Rustaveli Street, 150<br/>
-                Tashkent
+                {t('footer.address.street')}<br/>
+                {t('footer.address.city')}
               </span>
             </div>
 
@@ -101,10 +103,10 @@ const Footer = () => {
 
         {/* Pastki Copyright qismi */}
         <div className={styles.bottom}>
-          <p>&copy; {new Date().getFullYear()} Mehrzod Business Group. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {t('footer.rights')}</p>
           <div className={styles.bottomLinks}>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+            <a href="#">{t('footer.privacy')}</a>
+            <a href="#">{t('footer.terms')}</a>
           </div>
         </div>
 

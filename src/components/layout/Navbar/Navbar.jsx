@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './Navbar.module.css';
-import { ChartGantt } from 'lucide-react';
-// Yangi yaratilgan Modal komponentni chaqiramiz
+import { ChartGantt, Languages, ChevronDown } from 'lucide-react';
 import ContactModal from '@components/ui/ContactModal/ContactModal';
-// (Agar Vite alias ishlamasa: import ContactModal from '../../ui/ContactModal/ContactModal';)
+import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
+  const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // Modal ochiq yoki yopiqligini nazorat qiluvchi state
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+
+  // Til menyusini tashqarisiga bosganda yopish uchun
+  const langDropdownRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,7 +26,26 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Tashqariga bosganda til menyusini yopish
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (langDropdownRef.current && !langDropdownRef.current.contains(event.target)) {
+        setIsLangOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    setIsLangOpen(false);
+  };
+
+  // Hozirgi tilni chiroyli ko'rsatish uchun
+  const currentLang = i18n.language ? i18n.language.toUpperCase() : 'EN';
 
   return (
     <>
@@ -41,19 +63,40 @@ const Navbar = () => {
 
           <nav className={styles.desktopNav}>
             <ul className={styles.navLinks}>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#portfolio">Case Studies</a></li>
-              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#services">{t('nav.services')}</a></li>
+              <li><a href="#portfolio">{t('nav.portfolio')}</a></li>
+              <li><a href="#faq">{t('nav.faq')}</a></li>
             </ul>
           </nav>
 
           <div className={styles.rightActions}>
-            {/* <a> tegi <button> ga o'zgartirildi va onClick qo'shildi */}
+
+            {/* Korporativ Til o'zgartirgich (Dropdown) */}
+            <div className={styles.langSwitcher} ref={langDropdownRef}>
+              <button
+                className={styles.langBtn}
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                aria-label="Change language"
+              >
+                <Languages size={18} />
+                <span>{currentLang}</span>
+                <ChevronDown size={14} className={`${styles.chevron} ${isLangOpen ? styles.rotate : ''}`} />
+              </button>
+
+              {isLangOpen && (
+                <div className={styles.langDropdown}>
+                  <button onClick={() => changeLanguage('en')} className={currentLang === 'EN' ? styles.activeLang : ''}>English </button>
+                  <button onClick={() => changeLanguage('ru')} className={currentLang === 'RU' ? styles.activeLang : ''}>Русский </button>
+                  <button onClick={() => changeLanguage('uz')} className={currentLang === 'UZ' ? styles.activeLang : ''}>O'zbek </button>
+                </div>
+              )}
+            </div>
+
             <button
               className={styles.contactBtn}
               onClick={() => setIsModalOpen(true)}
             >
-              Contact us
+              {t('nav.contact')}
             </button>
 
             <button className={styles.hamburger} onClick={toggleMenu} aria-label="Menu">
@@ -67,20 +110,18 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className={styles.mobileMenu}>
             <ul className={styles.mobileLinks}>
-              <li><a href="#services" onClick={toggleMenu}>Services</a></li>
-              <li><a href="#portfolio" onClick={toggleMenu}>Case Studies</a></li>
-              <li><a href="#faq" onClick={toggleMenu}>FAQ</a></li>
+              <li><a href="#services" onClick={toggleMenu}>{t('nav.services')}</a></li>
+              <li><a href="#portfolio" onClick={toggleMenu}>{t('nav.portfolio')}</a></li>
+              <li><a href="#faq" onClick={toggleMenu}>{t('nav.faq')}</a></li>
               <li>
-                {/* Mobil menyudagi tugma ham Modalni ochadi */}
                 <button
-                  className={styles.contactBtn}
-                  style={{display: 'block', width: '100%'}}
+                  className={styles.contactBtnMobile}
                   onClick={() => {
                     setIsModalOpen(true);
-                    toggleMenu(); // Ochgandan keyin mobil menyuni yopish
+                    toggleMenu();
                   }}
                 >
-                  Contact us
+                  {t('nav.contact')}
                 </button>
               </li>
             </ul>
@@ -88,7 +129,6 @@ const Navbar = () => {
         )}
       </header>
 
-      {/* Modal komponenti sahifaga ulanadi */}
       <ContactModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

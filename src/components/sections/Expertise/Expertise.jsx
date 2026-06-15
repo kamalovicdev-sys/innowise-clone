@@ -1,43 +1,15 @@
 import React, { useState } from 'react';
 import styles from './Expertise.module.css';
 import { motion } from 'framer-motion';
-// Kategoriyalar uchun maxsus ikonkalar
 import { MonitorSmartphone, TerminalSquare, Database, Cloud } from 'lucide-react';
+import { useTranslation } from 'react-i18next'; // 1. Hookni import qilamiz
 
-// Ma'lumotlar bazasini ikonka va ID lar bilan kengaytiramiz
-const techCategories = [
-  {
-    id: 'frontend',
-    title: 'Frontend',
-    icon: <MonitorSmartphone size={24} />,
-    techs: ["React", "Vue.js", "Next.js", "TypeScript", "Tailwind CSS"]
-  },
-  {
-    id: 'backend',
-    title: 'Backend',
-    icon: <TerminalSquare size={24} />,
-    techs: ["Node.js", "Python", "Go", "FastAPI"]
-  },
-  {
-    id: 'database',
-    title: 'Database',
-    icon: <Database size={24} />,
-    techs: ["PostgreSQL", "MongoDB", "Redis", "MySQL"]
-  },
-  {
-    id: 'cloud',
-    title: 'Cloud & DevOps',
-    icon: <Cloud size={24} />,
-    techs: ["AWS", "Google Cloud", "Docker", "Kubernetes", "CI/CD"]
-  }
-];
-
-// Animatsiya sozlamalari
+// Animatsiya sozlamalari (tashqarida qolishi yaxshi, qayta-qayta render bo'lmaydi)
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 } // Har bir kartochka 0.1 soniya farq bilan chiqadi
+    transition: { staggerChildren: 0.1 }
   }
 };
 
@@ -47,17 +19,50 @@ const itemVariants = {
 };
 
 const Expertise = () => {
-  // Boshlang'ich holatda birinchi kategoriyani (Frontend) tanlaymiz
-  const [activeTab, setActiveTab] = useState(techCategories[0]);
+  const { t } = useTranslation(); // 2. Hookni chaqiramiz
+
+  // Array'ni komponent ichiga olamiz, chunki t() funksiyasi shu yerda ishlaydi
+  const techCategories = [
+    {
+      id: 'frontend',
+      title: t('expertise.categories.frontend'),
+      icon: <MonitorSmartphone size={24} />,
+      techs: ["React", "Vue.js", "Next.js", "TypeScript", "Tailwind CSS"]
+    },
+    {
+      id: 'backend',
+      title: t('expertise.categories.backend'),
+      icon: <TerminalSquare size={24} />,
+      techs: ["Node.js", "Python", "Go", "FastAPI"]
+    },
+    {
+      id: 'database',
+      title: t('expertise.categories.database'),
+      icon: <Database size={24} />,
+      techs: ["PostgreSQL", "MongoDB", "Redis", "MySQL"]
+    },
+    {
+      id: 'cloud',
+      title: t('expertise.categories.cloud'),
+      icon: <Cloud size={24} />,
+      techs: ["AWS", "Google Cloud", "Docker", "Kubernetes", "CI/CD"]
+    }
+  ];
+
+  // State'da butun ob'ektni emas, faqat ID ni saqlaymiz (til o'zgarganda xato bermasligi uchun)
+  const [activeTabId, setActiveTabId] = useState(techCategories[0].id);
+
+  // Faol kategoriyani ID orqali topib olamiz
+  const activeTab = techCategories.find(cat => cat.id === activeTabId);
 
   return (
     <section className={styles.expertiseSection} id="expertise">
       <div className={styles.container}>
 
         <div className={styles.header}>
-          <h2 className={styles.title}>Our Core Technologies</h2>
+          <h2 className={styles.title}>{t('expertise.title')}</h2>
           <p className={styles.subtitle}>
-            We utilize the most modern and robust tech stacks to build scalable software solutions that fit your exact business needs.
+            {t('expertise.subtitle')}
           </p>
         </div>
 
@@ -68,8 +73,8 @@ const Expertise = () => {
             {techCategories.map((category) => (
               <button
                 key={category.id}
-                className={`${styles.categoryBtn} ${activeTab.id === category.id ? styles.active : ''}`}
-                onClick={() => setActiveTab(category)}
+                className={`${styles.categoryBtn} ${activeTabId === category.id ? styles.active : ''}`}
+                onClick={() => setActiveTabId(category.id)}
               >
                 <div className={styles.iconBox}>
                   {category.icon}
@@ -79,11 +84,10 @@ const Expertise = () => {
             ))}
           </div>
 
-          {/* O'ng taraf - Texnologiyalar Grid'i (Framer Motion bilan animatsiya qilingan) */}
+          {/* O'ng taraf - Texnologiyalar Grid'i */}
           <div className={styles.contentArea}>
             <motion.div
               className={styles.techGrid}
-              // key parametri orqali React'ga ma'lumot o'zgarganini bildirib, animatsiyani qayta ishga tushiramiz
               key={activeTab.id}
               variants={containerVariants}
               initial="hidden"

@@ -1,0 +1,199 @@
+{
+  "nav": {
+    "services": "Services",
+    "portfolio": "Case Studies",
+    "faq": "FAQ",
+    "contact": "Contact us"
+  },
+  "hero": {
+    "title": "IT Services & Solutions by Mehrzod Group",
+    "subtitle": "We help businesses turn data into decisions. Whether you are looking for new revenue streams, cutting costs, or improving forecasting, our teams build the systems that make it happen. Fast, reliable, and scalable.",
+    "btnEstimate": "Estimate Project",
+    "btnExplore": "Explore Services"
+  },
+  "benefits": {
+    "title": "What you'll get from working with us",
+    "items": {
+      "visibility": {
+        "title": "Clear visibility into your business",
+        "desc": "Stop guessing what sells. We turn your raw data into clear trends so you know exactly what to stock, build, or promote next."
+      },
+      "reporting": {
+        "title": "Automated, stress-free reporting",
+        "desc": "Say goodbye to messy spreadsheets. We build real-time dashboards that give you the full picture of your sales, inventory, and profits in seconds."
+      },
+      "presence": {
+        "title": "A digital presence that drives sales",
+        "desc": "A beautiful website isn't enough. Through targeted SEO and brand ads, we put your business right in front of customers ready to buy."
+      },
+      "guidance": {
+        "title": "Strategic guidance for scaling",
+        "desc": "Growing your business shouldn't be trial and error. Our consulting helps you optimize operations, cut wasted costs, and scale confidently."
+      },
+      "roi": {
+        "title": "Measurable ROI on every dollar spent",
+        "desc": "Every strategy we implement is focused on one thing: your bottom line. We track what works so your investments directly fuel your growth."
+      }
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "items": {
+      "analysis": "Data Analysis",
+      "warehousing": "Data warehousing solutions",
+      "management": "Data management platforms",
+      "bi": "Business Intelligence",
+      "web_ads": "Website + ADS",
+      "ai_bots": "AI tools & Bots",
+      "system_design": "System Design",
+      "consulting": "Business Consulting",
+      "sales_dept": "Sales Department Development and Implementation"
+    }
+  },
+  "stats": {
+    "title": "Your project at your pace",
+    "subtitle": "Each step moves your data closer to real business value with zero wasted effort or guesswork.",
+    "steps": {
+      "step1": { "title": "Requirement analysis", "desc": "We look at how your team uses data, find what's missing, and define what your analytics system needs to deliver." },
+      "step2": { "title": "Data architecture", "desc": "We design how your data is structured, labeled, and linked, so your analytics are accurate, fast, and easy to scale." },
+      "step3": { "title": "Data ingestion", "desc": "Whether it's files, APIs, or cloud tools, we connect every source and ensure your data flows into one place without errors or delays." },
+      "step4": { "title": "Data lake building", "desc": "We set up storage for all raw and semi-structured data, so you can keep everything in one place and use it later for reports or deep analysis." },
+      "step5": { "title": "Data warehouse setup", "desc": "This is where clean data lives. We set up a central warehouse that keeps everything organized and ready for reporting." },
+      "step6": { "title": "Data cleaning", "desc": "From duplicates to format mismatches, we resolve the issues that slow teams down, so every record can be trusted." },
+      "step7": { "title": "ETL/ELT development", "desc": "Your analytics are only as fresh as your pipeline. We set up flows that move and transform data without delays or manual work." },
+      "step8": { "title": "Quality assurance", "desc": "We test each component of your data pipeline, including data connections, pipeline logic, data accuracy, load times to prevent future issues." },
+      "step9": { "title": "Deployment", "desc": "Finally, we put it all in motion — automating updates, syncing reports, and handing off a system that's ready to deliver insights from day one." },
+      "step10": { "title": "Data analytics", "desc": "With everything in place, we integrate real-time analytics into your workflows so your team can explore data insights and make data-driven decisions." }
+    }
+  },
+  "expertise": {
+    "title": "Our Core Technologies",
+    "subtitle": "We utilize the most modern and robust tech stacks to build scalable software solutions that fit your exact business needs.",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "cloud": "Cloud & DevOps"
+    }
+  },
+  "portfolio": {
+    "title": "Data analytics for every industry",
+    "industries": {
+      "healthcare": {
+        "name": "Healthcare",
+        "title": "Healthcare Analytics",
+        "desc": "We help healthcare providers leverage data to improve patient outcomes, optimize resource allocation, and ensure compliance with strict medical data regulations.",
+        "features": [
+          "Predictive patient analytics",
+          "Resource and staff optimization",
+          "EHR data integration and security"
+        ]
+      },
+      "retail": {
+        "name": "Retail & e-commerce",
+        "title": "Retail & E-commerce",
+        "desc": "Transform your retail business with advanced customer analytics, personalized recommendation engines, and dynamic pricing models driven by real-time market data.",
+        "features": [
+          "Customer churn prediction",
+          "Dynamic pricing algorithms",
+          "Inventory and demand forecasting"
+        ]
+      },
+      "banking": {
+        "name": "Banking & finance",
+        "title": "Banking & Finance",
+        "desc": "Empower your financial institution with secure data processing, fraud detection systems, and risk assessment models that protect assets and drive sustainable growth.",
+        "features": [
+          "Real-time fraud detection systems",
+          "Automated risk assessment models",
+          "Algorithmic trading analytics"
+        ]
+      },
+      "logistics": {
+        "name": "Transportation & logistics",
+        "title": "Transportation & Logistics",
+        "desc": "In logistics, every minute counts. Mehrzod Group helps companies gain full visibility into their operations by analyzing data from fleet tracking, warehouse systems, and delivery workflows, so you can act faster and plan smarter.",
+        "features": [
+          "Lower maintenance costs",
+          "Better planning from real-time insights",
+          "Improved route and network optimization"
+        ]
+      },
+      "insurance": {
+        "name": "Insurance",
+        "title": "Insurance",
+        "desc": "Optimize claim processing, accurately assess risks, and provide personalized policy recommendations using our comprehensive data analytics solutions for the insurance sector.",
+        "features": [
+          "Automated claim processing",
+          "Predictive risk modeling",
+          "Customer lifetime value prediction"
+        ]
+      }
+    }
+  },
+  "faq": {
+    "title": "FAQ",
+    "ctaTitle": "Feel free to book a call and get all the answers you need.",
+    "btnCall": "Book a call",
+    "items": {
+      "q1": {
+        "q": "What is Business Intelligence (BI) and why does my company need it?",
+        "a": "Business Intelligence is the process of turning your company's raw, messy data into clear, visual, and easy-to-understand reports (dashboards). As a business owner, you likely have data scattered across sales, inventory, and marketing. BI gathers all this into one screen, allowing you to see your exact profits, top-selling products, and weak spots in real-time. You need it so you can stop making decisions based on guesses and start making them based on facts."
+      },
+      "q2": {
+        "q": "Do we need to replace our current software (like 1C, ERP, or Excel) to work with you?",
+        "a": "No, absolutely not. We understand that changing software is a headache. Our BI and data solutions are designed to connect directly with the systems you already use. Whether your data lives in 1C, a custom CRM, Google Sheets, or an e-commerce platform, we seamlessly extract that data and feed it into a unified dashboard without disrupting your team's daily work."
+      },
+      "q3": {
+        "q": "How can Data Analysis help increase my sales in FMCG or E-commerce?",
+        "a": "Data analysis reveals the hidden buying patterns of your customers. For example, we can show you which products are frequently bought together, at what time of day, and by which demographic. This allows you to create highly targeted marketing campaigns, optimize your pricing, and ensure your best-selling items are never out of stock. It basically tells you what your customers want before they even ask for it."
+      },
+      "q4": {
+        "q": "How long does it take to see the first dashboard for our business?",
+        "a": "While it depends on the complexity of your data, our goal is to deliver value quickly. Typically, within 2 to 4 weeks, we complete the initial data integration and provide your first working dashboard. From there, we continuously refine and add new metrics based on your feedback and evolving business goals."
+      },
+      "q5": {
+        "q": "Is our company data safe when we hand it over to your team?",
+        "a": "Data security is our top priority. Before we even look at your data, we sign a strict Non-Disclosure Agreement (NDA). We use secure, encrypted cloud platforms to handle your information. Furthermore, we don't need access to sensitive personal data (like customer passwords); we only work with the metrics needed to build your business reports. You retain full ownership and control of your data at all times."
+      }
+    }
+  },
+  "contact": {
+    "title": "Let's start a project",
+    "subtitle": "Would you like to evaluate your business with data-driven analytics? Contact us and our experts will get in touch with you shortly.",
+    "name": "Full Name *",
+    "company": "Company",
+    "email": "Work Email",
+    "phone": "Phone Number *",
+    "message": "Project Details",
+    "btnEstimate": "Get a Free Estimate",
+    "successTitle": "Thank you!",
+    "successDesc": "Your request has been received. We will contact you soon."
+  },
+  "footer": {
+    "desc": "Empowering global enterprises with advanced data analytics, custom software, and scalable cloud solutions.",
+    "quickLinks": "Quick Links",
+    "servicesTitle": "Services",
+    "contactTitle": "Contact Us",
+    "links": {
+      "ourServices": "Our Services",
+      "caseStudies": "Case Studies",
+      "coreTech": "Core Tech Stack",
+      "faq": "FAQ"
+    },
+    "serviceLinks": {
+      "dataAnalytics": "Data Analytics & BI",
+      "dataWarehousing": "Data warehousing solutions",
+      "webAds": "Website + SEO & ADS",
+      "consulting": "Business Consulting"
+    },
+    "address": {
+      "street": "Shota Rustaveli Street, 150",
+      "city": "Tashkent"
+    },
+    "rights": "Mehrzod Business Group. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}
+

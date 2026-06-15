@@ -2,11 +2,13 @@ import React, { useState, useRef } from 'react';
 import styles from './Contact.module.css';
 import { Check } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { useTranslation } from 'react-i18next'; // 1. Hookni import qilamiz
 
 const Contact = () => {
-  const form = useRef(); // Formani ushlab olish uchun ref
+  const { t } = useTranslation(); // 2. t() funksiyasini chaqiramiz
+  const form = useRef();
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // Yuklanish holati
+  const [isLoading, setIsLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     name: '', email: '', company: '', phone: '', message: ''
@@ -20,7 +22,6 @@ const Contact = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // EmailJS ga yuborish (ID larni o'zingiznikiga almashtirasiz)
     emailjs.sendForm(
       'service_nd0dlfn',
       'template_8262qok',
@@ -47,10 +48,9 @@ const Contact = () => {
       <div className={styles.container}>
 
         <div className={styles.header}>
-          <h2 className={styles.title}>Let's Commence The Project
-</h2>
+          <h2 className={styles.title}>{t('contact.title')}</h2>
           <p className={styles.subtitle}>
-            Would you like to evaluate your business through data-driven insights? Get in touch with us, and our specialists will contact you shortly.
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -72,43 +72,46 @@ const Contact = () => {
                 <div style={{ background: '#dcfce7', width: '64px', height: '64px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
                   <Check size={32} />
                 </div>
-                <h3 style={{ fontSize: '1.5rem', marginBottom: '10px', color: '#0f172a' }}>Thank you!</h3>
-                <p style={{ color: '#475569' }}>Your request has been received. We will contact you shortly.</p>
+                <h3 style={{ fontSize: '1.5rem', marginBottom: '10px', color: '#0f172a' }}>
+                  {t('contact.successTitle')}
+                </h3>
+                <p style={{ color: '#475569' }}>
+                  {t('contact.successDesc')}
+                </p>
               </div>
             ) : (
-              // Ref ni formaga ulaymiz
               <form ref={form} onSubmit={handleSubmit}>
                 <div className={styles.formGrid}>
 
                   <div className={styles.formGroup}>
-                    <label className={styles.label} htmlFor="name">Full Name *</label>
+                    <label className={styles.label} htmlFor="name">{t('contact.name')}</label>
                     <input type="text" id="name" name="name" className={styles.input} placeholder="" value={formData.name} onChange={handleChange} required />
                   </div>
 
                   <div className={styles.formGroup}>
-                    <label className={styles.label} htmlFor="company">Company</label>
+                    <label className={styles.label} htmlFor="company">{t('contact.company')}</label>
                     <input type="text" id="company" name="company" className={styles.input} placeholder="Your Company Ltd." value={formData.company} onChange={handleChange} />
                   </div>
 
                   <div className={styles.formGroup}>
-                    <label className={styles.label} htmlFor="email">Work Email </label>
+                    <label className={styles.label} htmlFor="email">{t('contact.email')}</label>
                     <input type="email" id="email" name="email" className={styles.input} placeholder="example@mail.com" value={formData.email} onChange={handleChange}  />
                   </div>
 
                   <div className={styles.formGroup}>
-                    <label className={styles.label} htmlFor="phone">Phone Number *</label>
+                    <label className={styles.label} htmlFor="phone">{t('contact.phone')}</label>
                     <input type="tel" id="phone" name="phone" className={styles.input} placeholder="+ 998 99 000 0000" value={formData.phone} onChange={handleChange} required />
                   </div>
 
                   <div className={`${styles.formGroup} ${styles.fullWidth}`}>
-                    <label className={styles.label} htmlFor="message">Project Details </label>
-                    <textarea id="message" name="message" className={styles.textarea} placeholder="Briefly describe your requirements..." value={formData.message} onChange={handleChange}  ></textarea>
+                    <label className={styles.label} htmlFor="message">{t('contact.message')}</label>
+                    <textarea id="message" name="message" className={styles.textarea} placeholder="..." value={formData.message} onChange={handleChange}  ></textarea>
                   </div>
 
                 </div>
 
                 <button type="submit" className={styles.submitBtn} disabled={isLoading}>
-                  {isLoading ? 'Sending...' : 'Get a Free Estimate'}
+                  {isLoading ? t('contact.sending', 'Sending...') : t('contact.btnEstimate')}
                 </button>
               </form>
             )}
