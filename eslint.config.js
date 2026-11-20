@@ -22,4 +22,10 @@ export default defineConfig([
     files: ['astro.config.mjs', 'eslint.config.js'],
     languageOptions: { globals: globals.node },
   },
+  {
+    // Node'da ishlaydigan testlar va skriptlar (Playwright fixture'idagi `use` React hook emas)
+    files: ['tests/**/*.js', 'scripts/**/*.mjs', 'playwright.config.js'],
+    languageOptions: { globals: globals.node },
+    rules: { 'react-hooks/rules-of-hooks': 'off' },
+  },
 ]);

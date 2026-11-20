@@ -20,14 +20,26 @@ npm run dev            # http://localhost:3000
 |---|---|
 | `npm run dev` | Ishlab chiqish serveri |
 | `npm run build` | `dist/` ga tayyor sayt yig'ish |
+| `npm run build:netlify` | Deploy uchun: avval lint va tip tekshiruvi, keyin build. Xato bo'lsa `dist/` yangilanmaydi |
 | `npm run preview` | Yig'ilgan saytni lokal ko'rish |
 | `npm run lint` | ESLint (accessibility qoidalari bilan) |
 | `npm run check` | Astro va tip tekshiruvi |
+| `npm run test:e2e` | Playwright testlari: tillar, forma, modal, mobil panel, 404, maxfiylik sahifasi (tizimda Google Chrome bo'lishi kerak) |
+| `npm run og` | Ijtimoiy tarmoqlar uchun ulashish rasmlarini (`public/og/og-*.jpg`) qayta yaratish. Hero sarlavhasi o'zgarsa ishga tushiring |
 
 ## Deploy (Netlify)
 
-1. `npm run build`
+1. `npm run build:netlify` (lint + tip tekshiruvi + build). Ixtiyoriy: `npm run test:e2e`
 2. `dist/` papkasini Netlify'ning **Deploys** sahifasiga sudrab tashlang.
+
+Deploy'dan keyin quyidagilarni tekshiring:
+- `https://mehrzod.uz/`, `/ru/`, `/en/` ochiladi. `/sitemap.xml` va `/robots.txt` mavjud.
+- Havolani Telegramda ulashing: og:image rasmi chiqishi kerak.
+- Google Search Console: eski `/sitemap-index.xml` yozuvini o'chiring, `/sitemap.xml` ni qayta yuboring.
+- Google Rich Results Test (search.google.com/test/rich-results): kompaniya ma'lumoti (JSON-LD) xatosiz.
+- EmailJS: Account → Security → Allowed origins ga `https://mehrzod.uz` qo'shing.
+
+`public/_headers` fayli Netlify'ga keshlash qoidalarini (`/_astro/*` 1 yil) va xavfsizlik headerlarini beradi.
 
 `404.html`, `robots.txt` va `sitemap.xml` (`src/pages/sitemap.xml.js`) avtomatik yaratiladi. Build vaqtida `.env` fayli bo'lishi shart. Kalit yetishmasa build xato beradi, shu sababli forma kalitsiz holda saytga chiqib qolmaydi.
 
@@ -52,7 +64,8 @@ src/
 ### Muhim joylar
 
 - **Matnlar:** `src/locales/*/translation.json`. Uchala faylda kalitlar bir xil bo'lishi kerak.
-- **Telefon, email, xarita:** `src/data/site.js` → `CONTACT`
+- **Telefon, email, xarita, koordinata:** `src/data/site.js` → `CONTACT`
+- **Portfolio rasmlari:** `src/assets/portfolio/<soha>.jpg`. Build vaqtida 480, 800 va 1200 px WebP'ga aylantiriladi. Almashtirganda fayl nomini saqlang
 - **Ijtimoiy tarmoqlar:** `src/data/site.js` → `SOCIAL_LINKS`. `href: null` bo'lgan tarmoq saytda ko'rsatilmaydi.
 - **Telegram / WhatsApp (to'g'ridan-to'g'ri yozish):** `src/data/site.js` → `CONTACT.telegram`, `CONTACT.whatsapp`. Havola yozilsa, tugmalar Contact bo'limida va mobil panelda paydo bo'ladi.
 - **Ishonch bloki** (raqamlar, mijoz logotiplari, mijoz fikrlari): `src/data/trust.js`. Hammasi bo'sh bo'lsa, blok saytda ko'rinmaydi. Faqat haqiqiy ma'lumot kiriting.

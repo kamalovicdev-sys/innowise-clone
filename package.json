@@ -6,10 +6,13 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:netlify": "npm run lint && npm run check && astro build",
     "preview": "astro preview",
     "check": "astro check",
     "lint": "eslint .",
-    "astro": "astro"
+    "astro": "astro",
+    "og": "node scripts/generate-og-images.mjs",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@astrojs/react": "^7.1.9",
@@ -24,6 +27,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.65.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@typescript-eslint/parser": "^8.73.0",
