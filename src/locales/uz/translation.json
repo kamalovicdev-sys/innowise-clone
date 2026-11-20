@@ -168,7 +168,10 @@
     "message": "Loyiha tafsilotlari",
     "btnEstimate": "Bepul baholashni olish",
     "successTitle": "Rahmat!",
-    "successDesc": "So'rovingiz qabul qilindi. Tez orada siz bilan bog'lanamiz."
+    "successDesc": "So'rovingiz qabul qilindi. Tez orada siz bilan bog'lanamiz.",
+    "sending": "Yuborilmoqda...",
+    "errorMsg": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring.",
+    "companyPlaceholder": "Kompaniyangiz MChJ"
   },
   "footer": {
     "desc": "Ilg'or ma'lumotlar tahlili, maxsus dasturiy ta'minot va kengaytiriladigan bulutli yechimlar bilan global korxonalarni kuchaytiramiz.",

@@ -198,7 +198,10 @@
     "message": "Project Details",
     "btnEstimate": "Get a Free Estimate",
     "successTitle": "Thank you!",
-    "successDesc": "Your request has been received. We will contact you soon."
+    "successDesc": "Your request has been received. We will contact you soon.",
+    "sending": "Sending...",
+    "errorMsg": "An error occurred. Please try again.",
+    "companyPlaceholder": "Your Company Ltd."
   },
   "footer": {
     "desc": "Empowering global enterprises with advanced data analytics, custom software, and scalable cloud solutions.",

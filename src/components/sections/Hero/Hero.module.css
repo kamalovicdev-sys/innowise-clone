@@ -47,6 +47,11 @@
 }
 
 .primaryBtn, .secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-family: inherit;
   padding: 16px 32px;
   font-size: 1rem;
   font-weight: 600;
@@ -84,6 +89,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden; /* Oqim chiziqlari chapdagi matn ustiga chiqib ketmasin */
 }
 
 /* Dashboard'ning asosiy geometrik asosi */
@@ -100,6 +106,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
   animation: dashPulse 6s infinite ease-in-out;
+  z-index: 1; /* Oqim chiziqlari kartalar orqasidan o'tadi */
 }
 
 /* Dashboard ichidagi Card'lar */
@@ -138,16 +145,17 @@
   transform-origin: center;
 }
 
-/* Alohida animatsiya chiziqlari (CSS orqali unikal ko'rinish) */
-.dataFlowLine:nth-child(1) {
+/* Alohida animatsiya chiziqlari.
+   nth-child ishlatilmaydi: ota-elementning 1-bolasi dashContainer, shuning uchun indekslar siljib ketardi */
+.flowLine1 {
   top: 10%; left: 0%; width: 100%;
   animation: flowHorizontal 4s infinite linear;
 }
-.dataFlowLine:nth-child(2) {
+.flowLine2 {
   top: 50%; left: 0%; width: 60%;
   animation: flowHorizontal 5s infinite 1s ease-in-out;
 }
-.dataFlowLine:nth-child(3) {
+.flowLine3 {
   top: 80%; left: 30%; width: 70%;
   animation: flowHorizontal 6s infinite 0.5s linear;
 }

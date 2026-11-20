@@ -156,6 +156,13 @@
   }
 }
 
+@media (max-width: 768px) {
+  /* "Texnologiyalarimiz" kabi uzun o'zbekcha so'z 2.5rem da telefonga sig'maydi (Services bilan bir xil o'lcham) */
+  .title {
+    font-size: 2rem;
+  }
+}
+
 @media (max-width: 600px) {
   .categoryBtn {
     min-width: 100%;
