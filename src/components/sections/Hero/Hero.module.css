@@ -1,24 +1,35 @@
 .heroSection {
+  position: relative;
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
   align-items: center;
   background-color: var(--color-surface);
-  padding-top: calc(var(--header-h) + var(--space-4)); /* qotirilgan navbar ostida qolmasligi uchun */
-  overflow: hidden; /* Animatsiya chekkaga chiqib ketmasligi uchun */
+  padding-top: calc(var(--header-h) + var(--space-6)); /* qotirilgan navbar ostida qolmasligi uchun */
+  padding-bottom: var(--space-12);
+  overflow: hidden;
+}
+
+/* Fonda nozik nuqtali to'r (ma'lumot/grafik qog'ozi), chetlarga qarab yo'qoladi */
+.heroSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(color-mix(in srgb, var(--color-primary) 14%, transparent) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 70% 60% at 70% 45%, #000 20%, transparent 75%);
+  pointer-events: none;
 }
 
 .container {
-  display: flex;
-  justify-content: space-between;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
   align-items: center;
-  gap: var(--space-10);
+  gap: var(--space-12);
 }
 
-/* 1. Matn qismi (chap tomon) */
 .content {
-  flex: 1;
-  max-width: 650px;
   animation: fadeInUp 0.8s var(--ease-out) both;
 }
 
@@ -36,7 +47,7 @@
   line-height: var(--leading-normal);
   color: var(--color-text-muted);
   margin-bottom: var(--space-10);
-  max-width: 600px;
+  max-width: 34rem;
 }
 
 .buttonGroup {
@@ -45,100 +56,8 @@
   flex-wrap: wrap;
 }
 
-/* 2. Animatsiya qismi (o'ng tomondagi dashboard, bezak) */
-.dashWrapper {
-  flex: 1;
-  height: 450px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden; /* Oqim chiziqlari chapdagi matn ustiga chiqib ketmasin */
-}
-
-.dashContainer {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  height: 300px;
-  background-color: color-mix(in srgb, var(--color-primary) 4%, transparent);
-  border: 2px solid color-mix(in srgb, var(--color-primary) 12%, transparent);
-  border-radius: var(--radius-lg);
-  padding: var(--space-5);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  animation: dashPulse 6s infinite ease-in-out;
-  z-index: 1; /* Oqim chiziqlari kartalar orqasidan o'tadi */
-}
-
-.dashCard {
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-  gap: 10px;
-  transition: transform var(--duration) ease, border-color var(--duration) ease;
-}
-
-.dashCard:hover {
-  border-color: var(--color-primary);
-  transform: scale(1.05) translateY(-5px);
-}
-
-/* Ma'lumotlarni anglatuvchi chiziqlar */
-.dashTitle,
-.dashValue,
-.dashBar {
-  background-color: var(--color-line);
-  border-radius: 4px;
-}
-
-.dashTitle { height: 14px; width: 60%; }
-.dashValue { height: 24px; width: 40%; background-color: color-mix(in srgb, var(--color-line-strong) 35%, var(--color-line)); }
-.dashBar { height: 8px; width: 100%; background-color: color-mix(in srgb, var(--color-primary) 22%, transparent); }
-
-.dashCardWide { grid-column: 2 / 4; }
-.dashCardBottom { grid-column: 1 / 3; }
-.dashTitleLong { width: 90%; }
-.dashValueWide { width: 60%; }
-.dashBars { display: flex; gap: 5px; }
-.dashBarShort { width: 70%; }
-
-/* Data oqimi chiziqlari (firuza) */
-.dataFlowLine {
-  position: absolute;
-  height: 2px;
-  background-color: color-mix(in srgb, var(--color-accent) 55%, transparent);
-  border-radius: 2px;
-  transform-origin: center;
-}
-
-.flowLine1 {
-  top: 10%; left: 0%; width: 100%;
-  animation: flowHorizontal 4s infinite linear;
-}
-.flowLine2 {
-  top: 50%; left: 0%; width: 60%;
-  animation: flowHorizontal 5s infinite 1s ease-in-out;
-}
-.flowLine3 {
-  top: 80%; left: 30%; width: 70%;
-  animation: flowHorizontal 6s infinite 0.5s linear;
-}
-
-/* Tepaga o'suvchi ustun (firuza aksent) */
-.upwardBar {
-  position: absolute;
-  bottom: 0;
-  left: 10%;
-  width: 15px;
-  height: 10px;
-  background-color: var(--color-accent);
-  border-radius: 4px 4px 0 0;
-  animation: growUp 5s infinite ease-out;
+.visual {
+  min-width: 0;
 }
 
 @keyframes fadeInUp {
@@ -146,49 +65,39 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes dashPulse {
-  0%, 100% { opacity: 0.85; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.02); }
-}
-
-@keyframes flowHorizontal {
-  0% { transform: translateX(-100%); opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { transform: translateX(100%); opacity: 0; }
-}
-
-@keyframes growUp {
-  0% { height: 10px; opacity: 1; }
-  30% { height: 120px; }
-  70% { height: 90px; }
-  100% { height: 150px; opacity: 0; }
-}
-
-/* Harakatni kamaytirish so'ralgan bo'lsa (OS sozlamasi) cheksiz animatsiyalarni to'xtatamiz */
 @media (prefers-reduced-motion: reduce) {
-  .content,
-  .dashContainer,
-  .dataFlowLine,
-  .upwardBar {
+  .content {
     animation: none;
   }
-  .dataFlowLine { display: none; }
-  .upwardBar { height: 90px; }
-  .dashCard:hover { transform: none; }
 }
 
-@media (max-width: 1024px) {
-  .dashWrapper { height: 350px; }
-}
-
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column-reverse;
-    padding-block: var(--space-12);
+@media (max-width: 960px) {
+  .heroSection {
+    min-height: auto;
+    padding-top: calc(var(--header-h) + var(--space-10));
   }
-  .content { text-align: center; max-width: 100%; }
-  .subtitle { font-size: var(--text-lg); margin-inline: auto; }
-  .buttonGroup { justify-content: center; }
-  .dashWrapper { width: 100%; max-width: 400px; margin-bottom: var(--space-10); }
+
+  .container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-8);
+  }
+
+  .content {
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: var(--text-lg);
+    margin-inline: auto;
+  }
+
+  .buttonGroup {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .buttonGroup > * {
+    flex: 1 1 100%;
+  }
 }

@@ -73,6 +73,19 @@ const Portfolio = ({ dict }) => {
                 </li>
               ))}
             </ul>
+
+            {/* Haqiqiy keys natijalari: tarjima faylida portfolio.industries.<id>.metrics = [{ value, label }]
+                bo'lgandagina ko'rsatiladi (masalan { value: '−23%', label: 'ombordagi ortiqcha zaxira' }) */}
+            {Array.isArray(text.metrics) && text.metrics.length > 0 && (
+              <dl className={styles.metrics}>
+                {text.metrics.map((metric) => (
+                  <div key={metric.label} className={styles.metric}>
+                    <dt className={styles.metricLabel}>{metric.label}</dt>
+                    <dd className={styles.metricValue}>{metric.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
           </div>
 
           <div className={styles.rightBlock}>

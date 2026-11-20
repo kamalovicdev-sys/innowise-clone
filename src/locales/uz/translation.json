@@ -14,10 +14,35 @@
     "skipToContent": "Asosiy mazmunga o'tish"
   },
   "hero": {
-    "title": "Mehrzod Group tomonidan IT xizmatlar va yechimlar",
-    "subtitle": "Biz bizneslarga ma'lumotlarni aniq qarorlarga aylantirishga yordam beramiz. Yangi daromad manbalarini qidiryapsizmi, xarajatlarni kamaytirmoqchimisiz yoki bashorat qilishni yaxshilamoqchimisiz, bizning jamoamiz buni amalga oshiradigan tizimlarni yaratadi. Tez, ishonchli va kengaytiriladigan.",
+    "title": "Ma'lumotlarni aniq qarorlarga aylantiramiz",
+    "subtitle": "Sotuvlar, zaxiralar va foydani bitta dashbordda ko'ring. Ma'lumot tizimlarini quramiz, hisobotlarni avtomatlashtiramiz va biznesingiz o'sishi mumkin bo'lgan nuqtalarni topamiz.",
     "btnEstimate": "Loyihani baholash",
-    "btnExplore": "Xizmatlarni o'rganish"
+    "btnExplore": "Xizmatlarni o'rganish",
+    "mock": {
+      "badge": "Demo",
+      "title": "Savdo tahlili",
+      "kpiGrowth": "Sotuvlar o'sishi",
+      "kpiOrders": "Buyurtmalar",
+      "kpiStock": "Zaxira darajasi",
+      "chartTitle": "Daromad dinamikasi",
+      "notification": "Haftalik hisobot tayyor",
+      "thisYear": "Bu yil",
+      "lastYear": "O'tgan yil",
+      "months": [
+        "Yan",
+        "Fev",
+        "Mar",
+        "Apr",
+        "May",
+        "Iyn",
+        "Iyl",
+        "Avg",
+        "Sen",
+        "Okt",
+        "Noy",
+        "Dek"
+      ]
+    }
   },
   "benefits": {
     "title": "Biz bilan ishlash orqali nimalarga ega bo'lasiz",
@@ -56,52 +81,73 @@
       "system_design": "Tizim dizayni",
       "consulting": "Biznes konsalting",
       "sales_dept": "Sotuv bo'limini ishlab chiqish va joriy etish"
+    },
+    "desc": {
+      "analysis": "Savdo, mijoz va ombor ma'lumotlaridan trendlar va o'sish nuqtalarini topamiz.",
+      "warehousing": "Barcha manbalardagi ma'lumotlarni bitta ishonchli omborga jamlaymiz.",
+      "management": "Ma'lumotlar sifati, kirish huquqlari va yangilanishini nazorat qiluvchi platformalar.",
+      "bi": "Rahbariyat uchun real vaqtli dashbordlar va avtomatik hisobotlar.",
+      "web_ads": "Sotuvga yo'naltirilgan veb-sayt, SEO va maqsadli reklama.",
+      "ai_bots": "Takroriy ishlarni avtomatlashtiradigan AI vositalari va chat-botlar.",
+      "system_design": "Biznes jarayonlaringizga mos, kengaytiriladigan tizim arxitekturasi.",
+      "consulting": "Jarayonlarni optimallashtirish va xarajatlarni kamaytirish bo'yicha maslahat.",
+      "sales_dept": "Sotuv bo'limini noldan qurish yoki mavjudini kuchaytirish."
     }
   },
-  "stats": {
+  "process": {
     "title": "Loyihangiz sizning tezligingizda",
     "subtitle": "Har bir qadam ma'lumotlaringizni biznes qiymatiga yaqinlashtiradi, behuda harakatlar va taxminlarsiz.",
-    "steps": {
-      "step1": {
-        "title": "Talablarni tahlil qilish",
-        "desc": "Biz jamoangiz ma'lumotlardan qanday foydalanishini o'rganamiz, kamchiliklarni topamiz va tahliliy tizimingiz nimalarni taqdim etishi kerakligini belgilaymiz."
+    "phases": [
+      {
+        "title": "Tahlil va loyihalash",
+        "desc": "Jamoangiz ma'lumotlardan qanday foydalanishini o'rganamiz, kamchiliklarni topamiz va tizim arxitekturasini loyihalaymiz.",
+        "steps": [
+          "Talablarni tahlil qilish",
+          "Ma'lumotlar arxitekturasi"
+        ]
       },
-      "step2": {
-        "title": "Ma'lumotlar arxitekturasi",
-        "desc": "Biz ma'lumotlaringiz qanday tuzilishi, belgilanishi va bog'lanishini loyihalashtiramiz, shunda tahlillaringiz aniq, tez va oson kengaytiriladigan bo'ladi."
+      {
+        "title": "Ma'lumotlarni yig'ish va saqlash",
+        "desc": "Fayllar, API va bulutli servislardagi ma'lumotlarni bir joyga yig'amiz: data lake va markaziy omborni quramiz.",
+        "steps": [
+          "Ma'lumotlarni yig'ish",
+          "Ma'lumotlar ko'lini (Data Lake) yaratish",
+          "Ma'lumotlar omborini o'rnatish"
+        ]
       },
-      "step3": {
-        "title": "Ma'lumotlarni yig'ish",
-        "desc": "Fayllar, API yoki bulutli vositalar bo'ladimi, biz har bir manbani ulaymiz va ma'lumotlaringiz xatosiz yoki kechikishlarsiz bitta joyga kelib tushishini ta'minlaymiz."
+      {
+        "title": "Tozalash va qayta ishlash",
+        "desc": "Dublikat va xatolarni tuzatamiz, ma'lumotlarni avtomatik yangilanadigan ETL/ELT oqimlariga ulaymiz.",
+        "steps": [
+          "Ma'lumotlarni tozalash",
+          "ETL/ELT ishlab chiqish"
+        ]
       },
-      "step4": {
-        "title": "Ma'lumotlar ko'lini (Data Lake) yaratish",
-        "desc": "Biz barcha xom va yarim tuzilgan ma'lumotlar uchun ombor o'rnatamiz, shunda siz hamma narsani bir joyda saqlashingiz va keyinroq hisobotlar yoki chuqur tahlil uchun ishlatishingiz mumkin."
+      {
+        "title": "Sinov va ishga tushirish",
+        "desc": "Har bir ulanish, mantiq va yuklanish vaqtini tekshiramiz, so'ng tizimni ishga tushirib, hisobotlarni avtomatlashtiramiz.",
+        "steps": [
+          "Sifat nazorati",
+          "Ishga tushirish (Deployment)"
+        ]
       },
-      "step5": {
-        "title": "Ma'lumotlar omborini o'rnatish",
-        "desc": "Bu yerda toza ma'lumotlar yashaydi. Biz hamma narsani tartibli va hisobot berishga tayyor holda saqlaydigan markaziy omborni o'rnatamiz."
-      },
-      "step6": {
-        "title": "Ma'lumotlarni tozalash",
-        "desc": "Dublikatlardan tortib format mos kelmasligigacha, biz jamoalar ishini sekinlashtiradigan muammolarni hal qilamiz, shunda har bir yozuvga ishonish mumkin bo'ladi."
-      },
-      "step7": {
-        "title": "ETL/ELT ishlab chiqish",
-        "desc": "Sizning tahlillaringiz tizimingiz kabi yangi. Biz ma'lumotlarni kechikishlarsiz yoki qo'l mehnatisiz ko'chiradigan va o'zgartiradigan oqimlarni o'rnatamiz."
-      },
-      "step8": {
-        "title": "Sifat nazorati",
-        "desc": "Kelajakdagi muammolarni oldini olish uchun biz ma'lumotlar tizimingizning har bir qismini, jumladan, ulanishlar, mantiq, aniqlik va yuklanish vaqtlarini sinovdan o'tkazamiz."
-      },
-      "step9": {
-        "title": "Ishga tushirish (Deployment)",
-        "desc": "Nihoyat, biz hammasini harakatga keltiramiz — yangilanishlarni avtomatlashtiramiz, hisobotlarni sinxronlashtiramiz va birinchi kundan boshlab ma'lumot berishga tayyor tizimni topshiramiz."
-      },
-      "step10": {
-        "title": "Ma'lumotlar tahlili",
-        "desc": "Hamma narsa o'z joyida bo'lgach, biz jamoangiz ma'lumotlarni o'rganishi va qarorlar qabul qilishi uchun real vaqt tahlilini ish jarayonlaringizga kiritamiz."
+      {
+        "title": "Tahlil va rivojlantirish",
+        "desc": "Real vaqt tahlilini ish jarayonlaringizga kiritamiz va fikr-mulohazangiz asosida yangi ko'rsatkichlar qo'shib boramiz.",
+        "steps": [
+          "Ma'lumotlar tahlili"
+        ]
       }
+    ]
+  },
+  "trust": {
+    "title": "Bizga ishonch bildirganlar",
+    "logosLabel": "Mijozlarimiz",
+    "stats": {
+      "projects": "tugallangan loyiha",
+      "years": "yillik tajriba",
+      "industries": "soha",
+      "clients": "doimiy mijoz"
     }
   },
   "expertise": {
@@ -211,7 +257,15 @@
     "successDesc": "So'rovingiz qabul qilindi. Tez orada siz bilan bog'lanamiz.",
     "sending": "Yuborilmoqda...",
     "errorMsg": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring.",
-    "companyPlaceholder": "Kompaniyangiz MChJ"
+    "companyPlaceholder": "Kompaniyangiz MChJ",
+    "channels": {
+      "phone": "Telefon",
+      "email": "Email",
+      "address": "Manzil",
+      "telegram": "Telegram",
+      "whatsapp": "WhatsApp",
+      "whatsappAction": "WhatsApp'da yozish"
+    }
   },
   "footer": {
     "desc": "Ilg'or ma'lumotlar tahlili, maxsus dasturiy ta'minot va kengaytiriladigan bulutli yechimlar bilan global korxonalarni kuchaytiramiz.",
@@ -255,11 +309,20 @@
     "companyPlaceholder": "Kompaniyangiz MChJ"
   },
   "form": {
-    "errorCall": "Yoki bizga qo'ng'iroq qiling:"
+    "errorCall": "Yoki bizga qo'ng'iroq qiling:",
+    "errors": {
+      "required": "Bu maydonni to'ldiring",
+      "phone": "Telefon raqamini to'liq kiriting, masalan +998 90 123 45 67",
+      "email": "Email manzilini to'g'ri kiriting, masalan name@company.uz"
+    }
   },
   "notFound": {
     "title": "Sahifa topilmadi",
     "desc": "Siz qidirgan sahifa mavjud emas yoki boshqa manzilga ko'chirilgan.",
     "back": "Bosh sahifaga qaytish"
+  },
+  "quickContact": {
+    "label": "Tezkor aloqa",
+    "call": "Qo'ng'iroq qilish"
   }
 }

@@ -64,6 +64,13 @@ html:has(dialog[open]) {
   padding-block: var(--section-y);
 }
 
+/* Telefonda pastki tezkor aloqa paneli (MobileCTA) footer matnini yopmasin */
+@media (max-width: 768px) {
+  body:has([data-mobile-cta]) {
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
 /* "Asosiy mazmunga o'tish" havolasi: faqat Tab bosilganda ko'rinadi */
 .skip-link {
   position: absolute;
