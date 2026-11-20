@@ -8,7 +8,8 @@ import styles from './ContactModal.module.css';
  * (Navbar, Hero, FAQ tugmalari), shuning uchun ular alohida modal nusxasini saqlamaydi.
  * Native <dialog>: Esc bilan yopiladi, fokus ichkarida qoladi, yopilganda tugmaga qaytadi.
  */
-const ContactModal = ({ dict, formDict }) => {
+/** @param {{ dict: any, formDict: any, privacyHref?: string | null }} props */
+const ContactModal = ({ dict, formDict, privacyHref = null }) => {
   const dialogRef = useRef(null);
   const triggerRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -75,6 +76,8 @@ const ContactModal = ({ dict, formDict }) => {
     errorMsg: dict.errorMsg,
     errorCall: formDict.errorCall,
     errors: formDict.errors,
+    consent: formDict.consent,
+    privacyHref,
   };
 
   return (

@@ -4,7 +4,8 @@ import { localizedPath } from '@i18n';
 import Logo from '@components/ui/Logo/Logo';
 import styles from './Footer.module.css';
 
-const Footer = ({ dict, homeHref, lang }) => {
+// anchorBase: bosh sahifada '', boshqa sahifalarda bosh sahifa manzili (bo'lim havolalari uchun)
+const Footer = ({ dict, homeHref, lang, anchorBase = '' }) => {
   // Havolasi hali yo'q tarmoqlar/sahifalar ko'rsatilmaydi ("o'lik" # havolalar o'rniga)
   const socials = SOCIAL_LINKS.filter((s) => s.href);
   const legal = [
@@ -37,20 +38,20 @@ const Footer = ({ dict, homeHref, lang }) => {
           <nav aria-labelledby="footer-quick-links">
             <h2 id="footer-quick-links" className={styles.title}>{dict.quickLinks}</h2>
             <ul className={styles.list}>
-              <li><a href="#services">{dict.links.ourServices}</a></li>
-              <li><a href="#portfolio">{dict.links.caseStudies}</a></li>
-              <li><a href="#expertise">{dict.links.coreTech}</a></li>
-              <li><a href="#faq">{dict.links.faq}</a></li>
+              <li><a href={`${anchorBase}#services`}>{dict.links.ourServices}</a></li>
+              <li><a href={`${anchorBase}#portfolio`}>{dict.links.caseStudies}</a></li>
+              <li><a href={`${anchorBase}#expertise`}>{dict.links.coreTech}</a></li>
+              <li><a href={`${anchorBase}#faq`}>{dict.links.faq}</a></li>
             </ul>
           </nav>
 
           <div>
             <h2 className={styles.title}>{dict.servicesTitle}</h2>
             <ul className={styles.list}>
-              <li><a href="#services">{dict.serviceLinks.dataAnalytics}</a></li>
-              <li><a href="#services">{dict.serviceLinks.dataWarehousing}</a></li>
-              <li><a href="#services">{dict.serviceLinks.webAds}</a></li>
-              <li><a href="#services">{dict.serviceLinks.consulting}</a></li>
+              <li><a href={`${anchorBase}#services`}>{dict.serviceLinks.dataAnalytics}</a></li>
+              <li><a href={`${anchorBase}#services`}>{dict.serviceLinks.dataWarehousing}</a></li>
+              <li><a href={`${anchorBase}#services`}>{dict.serviceLinks.webAds}</a></li>
+              <li><a href={`${anchorBase}#services`}>{dict.serviceLinks.consulting}</a></li>
             </ul>
           </div>
 

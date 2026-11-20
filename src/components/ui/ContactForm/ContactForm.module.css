@@ -95,6 +95,17 @@
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-danger) 15%, transparent);
 }
 
+.consent {
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.consent a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
 .fieldError {
   font-size: var(--text-sm);
   line-height: 1.4;

@@ -1,9 +1,11 @@
 import { LOCALES, DEFAULT_LOCALE, localizedPath } from '@i18n';
+import { LEGAL_PAGES } from '@data/site';
 
 // Sitemap Search Console'da allaqachon ro'yxatdan o'tgan /sitemap.xml manzilida qoladi.
 // Har bir sahifa uchun uchala til versiyasi hreflang orqali bog'lanadi.
-// Yangi sahifa qo'shilsa, uning tilga bog'liq bo'lmagan yo'lini shu ro'yxatga yozing (masalan 'privacy/').
-const PAGES = [''];
+// Yangi sahifa qo'shilsa, uning tilga bog'liq bo'lmagan yo'lini shu ro'yxatga yozing.
+// Huquqiy sahifalar faqat e'lon qilinganda (site.js -> LEGAL_PAGES) qo'shiladi.
+const PAGES = ['', ...Object.values(LEGAL_PAGES).filter(Boolean)];
 
 const escapeXml = (value) => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
