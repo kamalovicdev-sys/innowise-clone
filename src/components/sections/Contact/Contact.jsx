@@ -38,7 +38,7 @@ const Contact = () => {
         }, 3000);
     }, (error) => {
         setIsLoading(false);
-        alert("Xatolik yuz berdi. Iltimos, qayta urinib ko'ring.");
+        alert(t('contact.errorMsg'));
         console.log(error.text);
     });
   };
@@ -90,7 +90,7 @@ const Contact = () => {
 
                   <div className={styles.formGroup}>
                     <label className={styles.label} htmlFor="company">{t('contact.company')}</label>
-                    <input type="text" id="company" name="company" className={styles.input} placeholder="Your Company Ltd." value={formData.company} onChange={handleChange} />
+                    <input type="text" id="company" name="company" className={styles.input} placeholder={t('contact.companyPlaceholder')} value={formData.company} onChange={handleChange} />
                   </div>
 
                   <div className={styles.formGroup}>
@@ -111,7 +111,7 @@ const Contact = () => {
                 </div>
 
                 <button type="submit" className={styles.submitBtn} disabled={isLoading}>
-                  {isLoading ? t('contact.sending', 'Sending...') : t('contact.btnEstimate')}
+                  {isLoading ? t('contact.sending') : t('contact.btnEstimate')}
                 </button>
               </form>
             )}

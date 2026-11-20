@@ -45,7 +45,8 @@ const Navbar = () => {
   };
 
   // Hozirgi tilni chiroyli ko'rsatish uchun
-  const currentLang = i18n.language ? i18n.language.toUpperCase() : 'EN';
+  // resolvedLanguage doim 'uz' | 'ru' | 'en' dan biri bo'ladi ('en-US' kabi qiymatlar emas)
+  const currentLang = (i18n.resolvedLanguage || 'uz').toUpperCase();
 
   return (
     <>

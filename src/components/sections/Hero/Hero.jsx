@@ -32,9 +32,9 @@ const Hero = () => {
             >
               {t('hero.btnEstimate')}
             </button>
-            <button className={styles.secondaryBtn}>
+            <a href="#services" className={styles.secondaryBtn}>
               {t('hero.btnExplore')}
-            </button>
+            </a>
           </div>
         </div>
 
@@ -69,9 +69,9 @@ const Hero = () => {
           </div>
 
           {/* Fon orqasida harakatlanuvchi ma'lumot chiziqlari */}
-          <div className={styles.dataFlowLine}></div>
-          <div className={styles.dataFlowLine}></div>
-          <div className={styles.dataFlowLine}></div>
+          <div className={`${styles.dataFlowLine} ${styles.flowLine1}`}></div>
+          <div className={`${styles.dataFlowLine} ${styles.flowLine2}`}></div>
+          <div className={`${styles.dataFlowLine} ${styles.flowLine3}`}></div>
         </div>
 
       </div>
