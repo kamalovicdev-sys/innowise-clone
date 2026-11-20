@@ -10,14 +10,15 @@ import {
   SquareChartGantt,
 } from 'lucide-react';
 import { SERVICES } from '@data/sections';
+import SectionHeader from '@components/ui/SectionHeader/SectionHeader';
 import styles from './Services.module.css';
 
 const ICONS = { Database, Server, HardDrive, BarChart3, LayoutDashboard, Headset, Cpu, Network, SquareChartGantt };
 
 const Services = ({ dict }) => (
-  <section className={styles.servicesSection} id="services">
-    <div className={styles.container} data-reveal>
-      <h2 className={styles.title}>{dict.title}</h2>
+  <section className={`section ${styles.servicesSection}`} id="services">
+    <div className="container" data-reveal>
+      <SectionHeader title={dict.title} />
 
       <ul className={styles.grid}>
         {SERVICES.map(({ key, icon }) => {

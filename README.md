@@ -57,6 +57,26 @@ src/
 - **Privacy Policy / Terms:** `src/data/site.js` → `LEGAL_PAGES` (sahifalar hali yo'q).
 - **Aloqa oynasini ochish:** istalgan elementga `data-open-contact` atributini qo'shing.
 
+### Dizayn tizimi ("Lojuvard")
+
+Barcha ranglar, shriftlar, masofalar, burchaklar va soyalar `src/styles/tokens.css` faylida CSS o'zgaruvchilari sifatida saqlanadi. Komponentlarda rang yoki o'lchamni to'g'ridan-to'g'ri yozmang, tokendan foydalaning (masalan `var(--color-primary)`).
+
+| Token | Qiymat | Vazifasi |
+|---|---|---|
+| `--color-ink` | `#0e1a3b` | Asosiy matn, footer foni |
+| `--color-primary` | `#1f3a93` | Tugmalar, havolalar (lojuvard) |
+| `--color-accent` | `#0e9aa7` | Urg'u, to'q fondagi detallar (firuza) |
+| `--color-surface` | `#f3f6fa` | Muqobil bo'lim foni, kartalar |
+| `--color-text-muted` | `#51607e` | Ikkinchi darajali matn |
+
+- **Shriftlar:** sarlavhalarda Manrope, matnda Inter. Ikkalasi ham `@fontsource-variable` orqali o'z serverimizdan yuklanadi va kirill harflarini qo'llab-quvvatlaydi.
+- **Komponentlar:**
+  - `ui/Button`: `primary`, `secondary` va `dark` ko'rinishlari, `md` va `lg` o'lchamlari, `href` berilsa havola bo'ladi.
+  - `ui/SectionHeader`: bo'lim sarlavhasi va tavsifi.
+  - `ui/Logo`: `light` va `dark` ko'rinishlari.
+  - Global `.container` va `.section` klasslari.
+- **Logo:** "mehr" belgisi (sakkiz qirrali quyosh yulduzi va o'suvchi ustunlar) hozircha konsept. Rasmiy logo tayyor bo'lsa, `ui/Logo/Logo.jsx` va `public/favicon.*` fayllarini almashtiring.
+
 ### Qaysi qism JS ishlatadi
 
 Hero, Benefits, Services, Stats va Footer tayyor HTML bo'lib chiqadi va JS ishlatmaydi. Navbar va ContactModal sahifa ochilishi bilan, Expertise, Portfolio, FAQ va Contact esa ekranga kirganda jonlanadi (`client:visible`).

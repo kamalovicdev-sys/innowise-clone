@@ -1,32 +1,17 @@
 .faqSection {
-  padding: 100px 0;
-  background-color: #ffffff;
+  background-color: var(--color-bg);
 }
 
-.container {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 9%;
-}
-
-.sectionTitle {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #0e172a;
-  margin-bottom: 50px;
-}
-
-/* Ikki ustunli tarmoq (Grid) */
+/* Ikki ustun: savollar va CTA kartochkasi */
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 400px;
-  gap: 100px;
+  gap: var(--space-16);
   align-items: start;
 }
 
 /* =========================================
-   Chap taraf: Accordion (Savol-javoblar)
+   Accordion
    ========================================= */
 .accordion {
   display: flex;
@@ -34,19 +19,19 @@
 }
 
 .faqItem {
-  border-bottom: 1px solid #cbd5e1;
-  transition: all 0.3s ease;
+  border-bottom: 1px solid var(--color-line);
+  transition: background-color var(--duration) ease;
 }
 
-/* Faol savol dizayni (Qora fon) */
+/* Ochiq savol: to'q (ink) fon */
 .faqItem.active {
-  background-color: #0e172a;
-  border-bottom: none;
+  background-color: var(--color-ink);
+  border-bottom-color: transparent;
+  border-radius: var(--radius-md);
 }
 
 .questionHeading {
   font: inherit;
-  margin: 0;
 }
 
 .questionBtn {
@@ -54,48 +39,51 @@
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 24px 30px;
+  gap: var(--space-5);
+  padding: var(--space-6) var(--space-8);
   background: none;
   border: none;
+  border-radius: var(--radius-md);
   cursor: pointer;
   text-align: left;
 }
 
-/* Qo'shish (+) va Ayirish (-) ikonkalari foni */
 .iconWrapper {
-  color: #cc292b; /* Rasmdagi qizil rang */
+  color: var(--color-accent-ink);
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-shrink: 0;
 }
 
+.faqItem.active .iconWrapper {
+  color: var(--color-accent);
+}
+
 .questionText {
-  font-size: 1.125rem;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
   font-weight: 700;
-  color: #0e172a;
-  transition: color 0.3s ease;
+  color: var(--color-text);
+  transition: color var(--duration) ease;
 }
 
-/* Faol bo'lganda yozuv oq rangga kiradi */
 .faqItem.active .questionText {
-  color: #ffffff;
+  color: var(--color-on-ink);
 }
 
-/* Silliq ochilish animatsiyasi (Grid orqali) */
+/* focus halqasi to'q fonda ham ko'rinsin */
+.faqItem.active .questionBtn {
+  --color-focus: var(--color-accent);
+}
+
+/* Silliq ochilish (grid orqali) */
 .answerWrapper {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s ease;
+  transition: grid-template-rows var(--duration) ease;
 }
 
 .faqItem.active .answerWrapper {
   grid-template-rows: 1fr;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .answerWrapper { transition: none; }
 }
 
 .answerInner {
@@ -103,67 +91,55 @@
 }
 
 .answerText {
-  padding: 0 30px 40px 70px; /* Ikonka bilan bir chiziqda turishi uchun chapdan joy tashlanadi */
-  color: #e2e8f0;
-  line-height: 1.7;
-  font-size: 1rem;
-  margin: 0;
+  padding: 0 var(--space-8) var(--space-10) 4.375rem; /* ikonka bilan bir chiziqda */
+  color: var(--color-on-ink-muted);
+  line-height: var(--leading-relaxed);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .answerWrapper { transition: none; }
 }
 
 /* =========================================
-   O'ng taraf: CTA Kartochka (Book a call)
+   CTA kartochkasi
    ========================================= */
 .ctaCard {
-  border: 1px solid #cbd5e1;
-  padding: 50px 40px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-12) var(--space-10);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: #ffffff;
+  background-color: var(--color-surface);
 }
 
 .ctaIcon {
-  margin-bottom: 30px;
-  color: #0e172a;
+  margin-bottom: var(--space-8);
+  color: var(--color-primary);
 }
 
 .ctaTitle {
-  font-size: 1.35rem;
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
   font-weight: 700;
-  color: #0e172a;
-  margin-bottom: 40px;
-  line-height: 1.4;
-}
-
-.ctaBtn {
-  font-family: inherit;
-  width: 100%;
-  background-color: #1d4ed8;
-  color: #ffffff;
-  border: none;
-  padding: 16px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.ctaBtn:hover {
-  background-color: #2563eb;
+  color: var(--color-text);
+  margin-bottom: var(--space-10);
+  line-height: var(--leading-snug);
+  text-wrap: balance;
 }
 
 /* =========================================
-   Responsive (Moslashuvchanlik)
+   Responsive
    ========================================= */
 @media (max-width: 992px) {
   .wrapper {
-    grid-template-columns: 1fr; /* Planshet va mobilda 1 ustun bo'ladi */
+    grid-template-columns: 1fr;
   }
   .questionBtn {
-    padding: 20px;
+    padding: var(--space-5);
   }
   .answerText {
-    padding: 0 20px 30px 60px;
+    padding: 0 var(--space-5) var(--space-8) 3.75rem;
   }
 }

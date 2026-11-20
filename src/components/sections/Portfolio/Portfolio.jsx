@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { INDUSTRIES, DEFAULT_INDUSTRY } from '@data/sections';
 import { handleTabKeyDown } from '@lib/tabs';
+import SectionHeader from '@components/ui/SectionHeader/SectionHeader';
 import styles from './Portfolio.module.css';
 
 const DEFAULT_INDEX = Math.max(0, INDUSTRIES.findIndex((i) => i.id === DEFAULT_INDUSTRY));
@@ -16,9 +17,9 @@ const Portfolio = ({ dict }) => {
   const showPrev = () => setActiveIndex((prev) => (prev - 1 + count) % count);
 
   return (
-    <section className={styles.portfolioSection} id="portfolio">
-      <div className={styles.container} data-reveal>
-        <h2 className={styles.title} id="portfolio-title">{dict.title}</h2>
+    <section className={`section ${styles.portfolioSection}`} id="portfolio">
+      <div className="container" data-reveal>
+        <SectionHeader id="portfolio-title" title={dict.title} />
 
         <div className={styles.tabsHeader}>
           <div className={styles.tabList} role="tablist" aria-labelledby="portfolio-title">

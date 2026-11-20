@@ -1,6 +1,8 @@
 import { useEffect, useId, useRef, useState } from 'react';
-import { ChartGantt, Languages, ChevronDown } from 'lucide-react';
+import { Languages, ChevronDown } from 'lucide-react';
 import { LANG_STORAGE_KEY } from '@i18n';
+import Logo from '@components/ui/Logo/Logo';
+import Button from '@components/ui/Button/Button';
 import styles from './Navbar.module.css';
 
 const rememberLanguage = (code) => {
@@ -64,14 +66,9 @@ const Navbar = ({ dict, languages, homeHref }) => {
 
   return (
     <header ref={headerRef} className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
-      <div className={styles.container}>
-        <a href={homeHref} className={styles.logo}>
-          <span className={styles.logoIcon} aria-hidden="true">
-            <ChartGantt size={24} strokeWidth={2.5} />
-          </span>
-          <span className={styles.logoText}>
-            MEHR<span className={styles.highlight}>ZOD</span>
-          </span>
+      <div className={`container ${styles.container}`}>
+        <a href={homeHref} className={styles.logoLink} aria-label="Mehrzod Business Group">
+          <Logo />
         </a>
 
         <nav className={styles.desktopNav} aria-label="Main">
@@ -120,9 +117,9 @@ const Navbar = ({ dict, languages, homeHref }) => {
             </ul>
           </div>
 
-          <button type="button" className={styles.contactBtn} data-open-contact>
+          <Button variant="dark" className={styles.contactBtn} data-open-contact>
             {dict.contact}
-          </button>
+          </Button>
 
           <button
             ref={menuBtnRef}
@@ -146,9 +143,9 @@ const Navbar = ({ dict, languages, homeHref }) => {
           <li><a href="#portfolio" onClick={closeMenu}>{dict.portfolio}</a></li>
           <li><a href="#faq" onClick={closeMenu}>{dict.faq}</a></li>
           <li>
-            <button type="button" className={styles.contactBtnMobile} data-open-contact onClick={closeMenu}>
+            <Button block data-open-contact onClick={closeMenu}>
               {dict.contact}
-            </button>
+            </Button>
           </li>
         </ul>
       </nav>

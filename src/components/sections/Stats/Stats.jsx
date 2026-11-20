@@ -1,14 +1,12 @@
 import { PROCESS_STEPS } from '@data/sections';
+import SectionHeader from '@components/ui/SectionHeader/SectionHeader';
 import styles from './Stats.module.css';
 
 // Ish jarayoni bosqichlari (nomi tarixan "Stats"; 4-bosqich redizaynida "Process" bo'ladi)
 const Stats = ({ dict }) => (
-  <section className={styles.statsSection} id="process">
-    <div className={styles.container} data-reveal>
-      <div className={styles.header}>
-        <h2 className={styles.title}>{dict.title}</h2>
-        <p className={styles.subtitle}>{dict.subtitle}</p>
-      </div>
+  <section className={`section ${styles.statsSection}`} id="process">
+    <div className="container" data-reveal>
+      <SectionHeader title={dict.title} subtitle={dict.subtitle} />
 
       <div className={styles.gridWrapper}>
         <ol className={styles.grid}>

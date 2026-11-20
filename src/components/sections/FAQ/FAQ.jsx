@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Plus, Minus, Headset } from 'lucide-react';
 import { FAQ_ITEMS } from '@data/sections';
+import SectionHeader from '@components/ui/SectionHeader/SectionHeader';
+import Button from '@components/ui/Button/Button';
 import styles from './FAQ.module.css';
 
 const FAQ = ({ dict }) => {
@@ -10,9 +12,9 @@ const FAQ = ({ dict }) => {
   const toggle = (key) => setActiveKey((current) => (current === key ? null : key));
 
   return (
-    <section className={styles.faqSection} id="faq">
-      <div className={styles.container} data-reveal>
-        <h2 className={styles.sectionTitle}>{dict.title}</h2>
+    <section className={`section ${styles.faqSection}`} id="faq">
+      <div className="container" data-reveal>
+        <SectionHeader title={dict.title} />
 
         <div className={styles.wrapper}>
           <div className={styles.accordion}>
@@ -59,9 +61,9 @@ const FAQ = ({ dict }) => {
               <Headset size={72} strokeWidth={1} />
             </div>
             <p className={styles.ctaTitle}>{dict.ctaTitle}</p>
-            <button type="button" className={styles.ctaBtn} data-open-contact>
+            <Button block size="lg" data-open-contact>
               {dict.btnCall}
-            </button>
+            </Button>
           </div>
         </div>
       </div>

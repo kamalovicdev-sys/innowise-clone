@@ -1,19 +1,20 @@
+import Button from '@components/ui/Button/Button';
 import styles from './Hero.module.css';
 
 // Statik bo'lim (JS'siz). "Loyihani baholash" tugmasi umumiy ContactModal'ni data-open-contact orqali ochadi.
 const Hero = ({ dict }) => (
   <section className={styles.heroSection}>
-    <div className={styles.container}>
+    <div className={`container ${styles.container}`}>
       <div className={styles.content}>
         <h1 className={styles.title}>{dict.title}</h1>
         <p className={styles.subtitle}>{dict.subtitle}</p>
         <div className={styles.buttonGroup}>
-          <button type="button" className={styles.primaryBtn} data-open-contact>
+          <Button size="lg" data-open-contact>
             {dict.btnEstimate}
-          </button>
-          <a href="#services" className={styles.secondaryBtn}>
+          </Button>
+          <Button href="#services" variant="secondary" size="lg">
             {dict.btnExplore}
-          </a>
+          </Button>
         </div>
       </div>
 

@@ -1,6 +1,7 @@
-import { ChartGantt, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { CONTACT, SOCIAL_LINKS, LEGAL_PAGES } from '@data/site';
 import { localizedPath } from '@i18n';
+import Logo from '@components/ui/Logo/Logo';
 import styles from './Footer.module.css';
 
 const Footer = ({ dict, homeHref, lang }) => {
@@ -13,16 +14,11 @@ const Footer = ({ dict, homeHref, lang }) => {
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.container}>
+      <div className="container">
         <div className={styles.top}>
           <div className={styles.brandCol}>
-            <a href={homeHref} className={styles.logo}>
-              <span className={styles.logoIcon} aria-hidden="true">
-                <ChartGantt size={24} strokeWidth={2.5} />
-              </span>
-              <span className={styles.logoText}>
-                MEHR<span className={styles.highlight}>ZOD</span>
-              </span>
+            <a href={homeHref} className={styles.logo} aria-label="Mehrzod Business Group">
+              <Logo tone="dark" />
             </a>
             <p className={styles.desc}>{dict.desc}</p>
             {socials.length > 0 && (

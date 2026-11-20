@@ -1,10 +1,11 @@
 import { BENEFITS } from '@data/sections';
+import SectionHeader from '@components/ui/SectionHeader/SectionHeader';
 import styles from './Benefits.module.css';
 
 const Benefits = ({ dict }) => (
-  <section className={styles.benefitsSection}>
-    <div className={styles.container} data-reveal>
-      <h2 className={styles.sectionTitle}>{dict.title}</h2>
+  <section className={`section ${styles.benefitsSection}`}>
+    <div className="container" data-reveal>
+      <SectionHeader title={dict.title} />
 
       <div className={styles.list}>
         {BENEFITS.map((key) => (

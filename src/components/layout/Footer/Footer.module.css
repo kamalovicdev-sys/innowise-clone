@@ -1,181 +1,147 @@
 .footer {
-  background-color: #0f172a; /* To'q ko'k fon */
-  color: #94a3b8;
-  padding: 80px 0 24px 0;
-  border-top: 1px solid #1e293b;
-}
-
-.container {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 5%;
+  /* To'q fonda fokus halqasi firuza bo'ladi */
+  --color-focus: var(--color-accent);
+  background-color: var(--color-ink);
+  color: var(--color-on-ink-muted);
+  padding: var(--space-20) 0 var(--space-6);
 }
 
 .top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr; /* 4 ta ustun proporsiyasi */
-  gap: 40px;
-  margin-bottom: 60px;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: var(--space-10);
+  margin-bottom: var(--space-16);
 }
 
-/* --- 1-ustun: Logotip va Tarmoqlar --- */
+/* --- 1-ustun: logotip va tavsif --- */
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: inline-flex;
   text-decoration: none;
-  margin-bottom: 20px;
-}
-
-.logoIcon {
-  background: linear-gradient(135deg, #1e40af, #3b82f6);
-  color: #ffffff;
-  padding: 6px;
-  border-radius: 8px;
-  display: flex;
-}
-
-.logoText {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #ffffff; /* Footer'da yozuv oq bo'ladi */
-  letter-spacing: 0.5px;
-}
-
-.highlight {
-  color: #3b82f6;
+  margin-bottom: var(--space-5);
+  border-radius: var(--radius-sm);
 }
 
 .desc {
-  line-height: 1.6;
-  margin-bottom: 24px;
+  line-height: var(--leading-normal);
+  margin-bottom: var(--space-6);
   max-width: 300px;
 }
 
 .socials {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: var(--space-3);
   list-style: none;
 }
 
 .socialLink {
   display: inline-block;
-  padding: 6px 12px;
-  border: 1px solid #1e293b;
-  border-radius: 999px;
-  color: #cbd5e1;
-  font-size: 0.875rem;
+  padding: 6px var(--space-3);
+  border: 1px solid var(--color-ink-line);
+  border-radius: var(--radius-pill);
+  color: var(--color-on-ink-muted);
+  font-size: var(--text-sm);
   text-decoration: none;
-  transition: color 0.3s ease, border-color 0.3s ease;
+  transition: color var(--duration) ease, border-color var(--duration) ease;
 }
 
 .socialLink:hover {
-  color: #3b82f6;
-  border-color: #3b82f6;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
-.contactCol {
-  font-style: normal; /* <address> standart kursivini olib tashlaymiz */
-}
-
-/* --- 2 va 3-ustunlar: Menyular --- */
+/* --- Menyular --- */
 .title {
-  color: #ffffff;
-  font-size: 1.125rem;
+  color: var(--color-on-ink);
+  font-size: var(--text-lg);
   font-weight: 600;
-  margin-bottom: 24px;
+  margin-bottom: var(--space-6);
 }
 
 .list {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-3);
 }
 
 .list a {
-  color: #94a3b8;
+  color: var(--color-on-ink-muted);
   text-decoration: none;
-  transition: color 0.3s ease, padding-left 0.3s ease;
+  transition: color var(--duration) ease;
 }
 
 .list a:hover {
-  color: #3b82f6;
-  padding-left: 4px; /* O'ngga biroz surilish effekti */
+  color: var(--color-accent);
 }
 
-/* --- 4-ustun: Contact Us ma'lumotlari --- */
+/* --- Aloqa --- */
+.contactCol {
+  font-style: normal; /* <address> standart kursivini olib tashlaymiz */
+}
+
 .contactItem {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
   line-height: 1.5;
 }
 
 .contactIcon {
-  color: #3b82f6;
+  color: var(--color-accent);
   flex-shrink: 0;
   margin-top: 2px;
 }
 
-.contactText {
-  color: #cbd5e1;
-}
-
+.contactText,
 .contactText a {
-  color: #cbd5e1;
+  color: var(--color-on-ink);
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
 .contactText a:hover {
-  color: #3b82f6;
+  color: var(--color-accent);
 }
 
-/* --- Eng pastki qism (Copyright) --- */
+/* --- Eng pastki qism --- */
 .bottom {
-  border-top: 1px solid #1e293b;
-  padding-top: 24px;
+  border-top: 1px solid var(--color-ink-line);
+  padding-top: var(--space-6);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
 }
 
 .bottomLinks {
   display: flex;
-  gap: 20px;
+  gap: var(--space-5);
 }
 
 .bottomLinks a {
-  color: #94a3b8;
+  color: var(--color-on-ink-muted);
   text-decoration: none;
 }
 
 .bottomLinks a:hover {
-  color: #ffffff;
+  color: var(--color-on-ink);
 }
 
-/* --- Responsive (Moslashuvchanlik) --- */
 @media (max-width: 992px) {
   .top {
-    grid-template-columns: repeat(2, 1fr); /* Planshetda 2 ta ustun */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
   .top {
-    grid-template-columns: 1fr; /* Mobilda 1 ta ustun */
-    gap: 30px;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
   }
   .bottom {
     flex-direction: column;
-    gap: 16px;
+    gap: var(--space-4);
     text-align: center;
   }
 }

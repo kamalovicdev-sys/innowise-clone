@@ -1,6 +1,7 @@
 import { useId } from 'react';
 import { Check } from 'lucide-react';
 import { CONTACT } from '@data/site';
+import Button from '@components/ui/Button/Button';
 import { useContactForm } from './useContactForm';
 import styles from './ContactForm.module.css';
 
@@ -121,9 +122,9 @@ const ContactForm = ({ labels, layout = 'grid', onSuccess }) => {
         </p>
       )}
 
-      <button type="submit" className={`${styles.submitBtn} ${styles.fullWidth}`} disabled={isSending}>
+      <Button type="submit" size="lg" block className={styles.fullWidth} disabled={isSending}>
         {isSending ? labels.sending : labels.submit}
-      </button>
+      </Button>
     </form>
   );
 };

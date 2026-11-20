@@ -1,5 +1,6 @@
 import ContactForm from '@components/ui/ContactForm/ContactForm';
 import { CONTACT } from '@data/site';
+import SectionHeader from '@components/ui/SectionHeader/SectionHeader';
 import styles from './Contact.module.css';
 
 const Contact = ({ dict, formDict }) => {
@@ -19,12 +20,9 @@ const Contact = ({ dict, formDict }) => {
   };
 
   return (
-    <section className={styles.contactSection} id="contact">
-      <div className={styles.container} data-reveal>
-        <div className={styles.header}>
-          <h2 className={styles.title}>{dict.title}</h2>
-          <p className={styles.subtitle}>{dict.subtitle}</p>
-        </div>
+    <section className={`section ${styles.contactSection}`} id="contact">
+      <div className="container" data-reveal>
+        <SectionHeader title={dict.title} subtitle={dict.subtitle} align="center" />
 
         <div className={styles.wrapper}>
           <div className={styles.mapContainer}>

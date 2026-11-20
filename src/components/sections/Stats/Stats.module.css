@@ -1,33 +1,6 @@
 .statsSection {
-  padding: 100px 0;
-  background-color: #ffffff;
-  overflow: hidden;     /* Chiziqlarning chekkadan chiqib ketishini yashiradi */
-}
-
-.container {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 5%;
-}
-
-.header {
-  margin-bottom: 80px;
-  max-width: 700px;
-}
-
-.title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #1a1a1a;
-  margin-bottom: 24px;
-  letter-spacing: -0.5px;
-}
-
-.subtitle {
-  font-size: 1.125rem;
-  color: #475569;
-  line-height: 1.6;
+  background-color: var(--color-bg);
+  overflow: hidden; /* Chiziqlarning chekkadan chiqib ketishini yashiradi */
 }
 
 .gridWrapper {
@@ -37,7 +10,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* Katta ekranlarda 4 ustun */
-  gap: 30px 60px; /* Qatorlar orasi 30px, ustunlar orasi 60px */
+  gap: var(--space-8) var(--space-16);
   list-style: none;
 }
 
@@ -45,11 +18,11 @@
   position: relative;
 }
 
-/* Nuqta va Chiziq o'rami */
+/* Nuqta va chiziq (rang data/sections.js dan inline color orqali keladi) */
 .node {
   position: relative;
   height: 24px;
-  margin-bottom: 24px;
+  margin-bottom: var(--space-6);
   display: flex;
   align-items: center;
 }
@@ -58,85 +31,83 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: currentColor; /* Rang React'dan inline style orqali keladi */
+  background-color: currentColor;
+  box-shadow: 0 0 0 5px var(--color-bg); /* chiziq nuqtaga tegmasdan to'xtagandek ko'rinadi */
   position: relative;
   z-index: 2;
 }
 
-/* Asosiy chiziq (O'ngga qarab ketadi va keyingi element orqasida qoladi) */
+/* Asosiy chiziq: o'ngga qarab ketadi va keyingi element orqasida qoladi */
 .line {
   position: absolute;
   top: 11px;
   left: 12px;
-  width: 200vw; /* Ekran oxirigacha yetib borishi uchun katta o'lcham */
+  width: 200vw;
   height: 2px;
   background-color: currentColor;
   z-index: 1;
 }
 
-/* Oxirgi elementdagi uzuq-uzuq (dashed) chiziq */
+/* Oxirgi bosqichdan keyin uzuq-uzuq chiziq */
 .item:last-child .line {
   background-color: transparent;
   border-top: 2px dashed currentColor;
 }
 
 .itemTitle {
-  font-size: 1.25rem;
+  font-size: var(--text-xl);
   font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 16px;
-  line-height: 1.3;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+  line-height: var(--leading-snug);
 }
 
 .itemDesc {
-  font-size: 0.95rem;
-  color: #475569;
-  line-height: 1.6;
-  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
 }
 
 /* =========================================
-   Moslashuvchanlik (Responsive) qoidalari
+   Responsive
    ========================================= */
 
-/* Katta ekran: Har bir qatorning birinchi elementida chiziq chapdan boshlanishi kerak */
+/* Katta ekran: har bir qatorning birinchi elementida chiziq chapdan boshlanadi */
 @media (min-width: 1025px) {
   .item:nth-child(4n + 1) .line {
     left: -100vw;
   }
 }
 
-/* Planshetlar: 2 ustun */
+/* Planshet: 2 ustun */
 @media (max-width: 1024px) and (min-width: 769px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 60px 40px;
+    gap: var(--space-16) var(--space-10);
   }
   .item:nth-child(2n + 1) .line {
     left: -100vw;
   }
 }
 
-/* Telefonlar: 1 ustun, Vertikal chiziq */
+/* Telefon: 1 ustun, vertikal chiziq */
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: var(--space-10);
   }
 
   .line {
     top: 12px;
     left: 11px;
     width: 2px;
-    height: 200vh; /* Vertikal pastga ketadi */
+    height: 200vh;
   }
 
-  /* Birinchi element chizig'i tepadan kelishi kerak */
   .item:first-child .line {
     top: -100vh;
   }
 
-  /* Oxirgi element chizig'i uzuq-uzuq vertikal bo'ladi */
   .item:last-child .line {
     background-color: transparent;
     border-top: none;
