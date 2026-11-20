@@ -3,14 +3,16 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import Navbar from '@components/layout/Navbar/Navbar.jsx';
 import Footer from '@components/layout/Footer/Footer.jsx';
 import Hero from '@components/sections/Hero/Hero.jsx';
+import Trust from '@components/sections/Trust/Trust.jsx';
 import Benefits from '@components/sections/Benefits/Benefits.jsx';
 import Services from '@components/sections/Services/Services.jsx';
-import Stats from '@components/sections/Stats/Stats.jsx';
+import Process from '@components/sections/Process/Process.jsx';
 import Expertise from '@components/sections/Expertise/Expertise.jsx';
 import Portfolio from '@components/sections/Portfolio/Portfolio.jsx';
 import FAQ from '@components/sections/FAQ/FAQ.jsx';
 import Contact from '@components/sections/Contact/Contact.jsx';
 import ContactModal from '@components/ui/ContactModal/ContactModal.jsx';
+import MobileCTA from '@components/ui/MobileCTA/MobileCTA.jsx';
 import { getDictionary, getLanguageLinks, localizedPath } from '@i18n';
 
 const { lang } = Astro.props;
@@ -32,17 +34,41 @@ const homeHref = localizedPath(lang);
 
   <main id="main" tabindex="-1">
     <Hero dict={dict.hero} />
+    <!-- Haqiqiy raqam/logotip/fikr kiritilmaguncha (src/data/trust.js) bu blok chizilmaydi -->
+    <Trust dict={dict.trust} lang={lang} />
     <Benefits dict={dict.benefits} />
     <Services dict={dict.services} />
-    <Stats dict={dict.stats} />
+    <Process dict={dict.process} />
     <Expertise client:visible dict={dict.expertise} />
     <Portfolio client:visible dict={dict.portfolio} />
     <FAQ client:visible dict={dict.faq} />
-    <Contact client:visible dict={dict.contact} formDict={dict.form} />
+    <Contact client:visible dict={dict.contact} formDict={dict.form} address={dict.footer.address} />
   </main>
 
   <Footer dict={dict.footer} homeHref={homeHref} lang={lang} />
 
+  <MobileCTA dict={dict.quickContact} estimateLabel={dict.hero.btnEstimate} />
+
   <!-- Saytdagi yagona aloqa oynasi: [data-open-contact] tugmalarining barchasi shuni ochadi -->
   <ContactModal client:load dict={dict.contactModal} formDict={dict.form} />
 </BaseLayout>
+
+<script>
+  // Mobil tezkor aloqa paneli: hero ekranda ko'rinib turganda yashirin, undan keyin paydo bo'ladi.
+  // Yashirin paytda panel klaviatura va ekran o'quvchilar uchun ham yopiq (inert).
+  const bar = document.querySelector<HTMLElement>('[data-mobile-cta]');
+  const hero = document.getElementById('hero');
+
+  const setVisible = (visible: boolean) => {
+    if (!bar) return;
+    bar.toggleAttribute('data-visible', visible);
+    bar.inert = !visible;
+  };
+
+  if (bar && hero && 'IntersectionObserver' in window) {
+    setVisible(false);
+    new IntersectionObserver(([entry]) => setVisible(!entry.isIntersecting), { threshold: 0.15 }).observe(hero);
+  } else {
+    setVisible(true);
+  }
+</script>

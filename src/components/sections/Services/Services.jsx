@@ -25,10 +25,11 @@ const Services = ({ dict }) => (
           const Icon = ICONS[icon];
           return (
             <li key={key} className={styles.card}>
-              <h3 className={styles.cardTitle}>{dict.items[key]}</h3>
-              <span className={styles.iconWrapper} aria-hidden="true">
-                <Icon size={36} strokeWidth={1.2} />
+              <span className={styles.iconBox} aria-hidden="true">
+                <Icon size={24} strokeWidth={1.75} />
               </span>
+              <h3 className={styles.cardTitle}>{dict.items[key]}</h3>
+              <p className={styles.cardDesc}>{dict.desc[key]}</p>
             </li>
           );
         })}

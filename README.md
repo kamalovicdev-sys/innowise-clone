@@ -54,6 +54,9 @@ src/
 - **Matnlar:** `src/locales/*/translation.json`. Uchala faylda kalitlar bir xil bo'lishi kerak.
 - **Telefon, email, xarita:** `src/data/site.js` → `CONTACT`
 - **Ijtimoiy tarmoqlar:** `src/data/site.js` → `SOCIAL_LINKS`. `href: null` bo'lgan tarmoq saytda ko'rsatilmaydi.
+- **Telegram / WhatsApp (to'g'ridan-to'g'ri yozish):** `src/data/site.js` → `CONTACT.telegram`, `CONTACT.whatsapp`. Havola yozilsa, tugmalar Contact bo'limida va mobil panelda paydo bo'ladi.
+- **Ishonch bloki** (raqamlar, mijoz logotiplari, mijoz fikrlari): `src/data/trust.js`. Hammasi bo'sh bo'lsa, blok saytda ko'rinmaydi. Faqat haqiqiy ma'lumot kiriting.
+- **Keys natijalari:** tarjima faylida `portfolio.industries.<id>.metrics = [{ "value": "−23%", "label": "..." }]`. Bu maydon bo'lmasa, natijalar qatori chiqmaydi.
 - **Privacy Policy / Terms:** `src/data/site.js` → `LEGAL_PAGES` (sahifalar hali yo'q).
 - **Aloqa oynasini ochish:** istalgan elementga `data-open-contact` atributini qo'shing.
 

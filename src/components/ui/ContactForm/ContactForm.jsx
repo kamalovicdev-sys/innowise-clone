@@ -1,4 +1,4 @@
-import { useId } from 'react';
+import { useId, useRef } from 'react';
 import { Check } from 'lucide-react';
 import { CONTACT } from '@data/site';
 import Button from '@components/ui/Button/Button';
@@ -8,12 +8,15 @@ import styles from './ContactForm.module.css';
 /**
  * Umumiy aloqa formasi.
  * labels: name, company, email, phone, message, companyPlaceholder, submit, sending,
- *         successTitle, successDesc, errorMsg, errorCall
+ *         successTitle, successDesc, errorMsg, errorCall, errors: { required, phone, email }
  * layout: 'grid' (Contact bo'limi, 2 ustun) | 'stack' (modal, tor)
  */
 const ContactForm = ({ labels, layout = 'grid', onSuccess }) => {
   const id = useId();
-  const { fields, honeypot, setHoneypot, status, handleChange, handleSubmit } = useContactForm({ onSuccess });
+  const formRef = useRef(null);
+  const focusField = (name) => formRef.current?.elements.namedItem(name)?.focus();
+  const { fields, errors, honeypot, setHoneypot, status, handleChange, handlePhoneBlur, handleSubmit } =
+    useContactForm({ onSuccess, onInvalid: focusField });
 
   if (status === 'success') {
     return (
@@ -29,9 +32,20 @@ const ContactForm = ({ labels, layout = 'grid', onSuccess }) => {
 
   const isSending = status === 'sending';
   const fieldId = (name) => `${id}-${name}`;
+  const errorId = (name) => `${fieldId(name)}-error`;
+
+  // Xato bo'lsa maydon belgilanadi va xabar ekran o'quvchiga ham o'qiladi
+  const a11yProps = (name) =>
+    errors[name] ? { 'aria-invalid': true, 'aria-describedby': errorId(name) } : {};
+  const errorMessage = (name) =>
+    errors[name] && (
+      <p id={errorId(name)} className={styles.fieldError}>
+        {labels.errors[errors[name]]}
+      </p>
+    );
 
   return (
-    <form className={`${styles.form} ${styles[layout]}`} onSubmit={handleSubmit}>
+    <form ref={formRef} className={`${styles.form} ${styles[layout]}`} onSubmit={handleSubmit} noValidate>
       <div className={styles.group}>
         <label className={styles.label} htmlFor={fieldId('name')}>{labels.name}</label>
         <input
@@ -43,7 +57,9 @@ const ContactForm = ({ labels, layout = 'grid', onSuccess }) => {
           value={fields.name}
           onChange={handleChange}
           required
+          {...a11yProps('name')}
         />
+        {errorMessage('name')}
       </div>
 
       <div className={`${styles.group} ${styles.pair}`}>
@@ -55,11 +71,14 @@ const ContactForm = ({ labels, layout = 'grid', onSuccess }) => {
           className={styles.input}
           autoComplete="tel"
           inputMode="tel"
-          placeholder="+998 99 000 00 00"
+          placeholder="+998 90 123 45 67"
           value={fields.phone}
           onChange={handleChange}
+          onBlur={handlePhoneBlur}
           required
+          {...a11yProps('phone')}
         />
+        {errorMessage('phone')}
       </div>
 
       <div className={`${styles.group} ${styles.pair}`}>
@@ -70,10 +89,12 @@ const ContactForm = ({ labels, layout = 'grid', onSuccess }) => {
           name="email"
           className={styles.input}
           autoComplete="email"
-          placeholder="example@mail.com"
+          placeholder="name@company.uz"
           value={fields.email}
           onChange={handleChange}
+          {...a11yProps('email')}
         />
+        {errorMessage('email')}
       </div>
 
       <div className={styles.group}>

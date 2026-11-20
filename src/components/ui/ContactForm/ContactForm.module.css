@@ -85,6 +85,22 @@
   color: var(--color-text-subtle);
 }
 
+/* Xato holati */
+.input[aria-invalid='true'] {
+  border-color: var(--color-danger);
+  background-color: var(--color-bg);
+}
+
+.input[aria-invalid='true']:focus {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-danger) 15%, transparent);
+}
+
+.fieldError {
+  font-size: var(--text-sm);
+  line-height: 1.4;
+  color: var(--color-danger);
+}
+
 .honeypot {
   position: absolute;
   left: -10000px;

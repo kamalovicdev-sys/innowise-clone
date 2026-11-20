@@ -1,16 +1,14 @@
 import styles from './Logo.module.css';
 
 /**
- * "Mehr" belgisi: sakkiz qirrali yulduz (o'zbek naqshidagi quyosh motivi, "mehr" = quyosh/mehr)
- * ichida o'sib boruvchi uchta ustun (ma'lumot va o'sish). Konsept — rasmiy logo tayyor bo'lsa shu yerda almashtiriladi.
+ * Belgi: lojuvard kvadrat ichida geometrik "M" — o'ng cho'qqisi balandroq (o'sish chizig'i),
+ * tagida firuza chiziq (grafik o'qi). Rasmiy logo tayyor bo'lsa shu yerda almashtiriladi.
  */
 export const LogoMark = ({ className = '' }) => (
   <svg viewBox="0 0 40 40" className={`${styles.mark} ${className}`} aria-hidden="true" focusable="false">
-    <rect className={styles.star} x="8" y="8" width="24" height="24" rx="3" />
-    <rect className={styles.star} x="8" y="8" width="24" height="24" rx="3" transform="rotate(45 20 20)" />
-    <rect className={styles.bar} x="12.5" y="21" width="4" height="7" rx="1" />
-    <rect className={styles.bar} x="18" y="17" width="4" height="11" rx="1" />
-    <rect className={styles.barAccent} x="23.5" y="13" width="4" height="15" rx="1" />
+    <rect className={styles.tile} x="1" y="1" width="38" height="38" rx="9" />
+    <polyline className={styles.monogram} points="10.5,29 10.5,17 19.5,25 29.5,11 29.5,29" />
+    <rect className={styles.baseline} x="8.4" y="31.2" width="23.2" height="2.6" rx="1.3" />
   </svg>
 );
 
@@ -21,8 +19,8 @@ const Logo = ({ tone = 'light', tagline = true, className = '' }) => (
   <span className={`${styles.logo} ${styles[tone]} ${className}`}>
     <LogoMark />
     <span className={styles.wordmark}>
-      <span className={styles.name}>mehrzod</span>
-      {tagline && <span className={styles.tagline}>business group</span>}
+      <span className={styles.name}>Mehrzod</span>
+      {tagline && <span className={styles.tagline}>Business group</span>}
     </span>
   </span>
 );

@@ -74,6 +74,7 @@ const ContactModal = ({ dict, formDict }) => {
     successDesc: dict.successDesc,
     errorMsg: dict.errorMsg,
     errorCall: formDict.errorCall,
+    errors: formDict.errors,
   };
 
   return (

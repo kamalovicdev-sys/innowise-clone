@@ -6,15 +6,15 @@
 }
 
 .light {
-  --logo-star: var(--color-primary);
-  --logo-bar: var(--color-on-ink);
+  --logo-tile: var(--color-primary);
+  --logo-letter: var(--color-on-ink);
   --logo-name: var(--color-text);
   --logo-tagline: var(--color-text-muted);
 }
 
 .dark {
-  --logo-star: var(--color-on-ink);
-  --logo-bar: var(--color-primary);
+  --logo-tile: var(--color-on-ink);
+  --logo-letter: var(--color-primary);
   --logo-name: var(--color-on-ink);
   --logo-tagline: var(--color-accent);
 }
@@ -25,15 +25,19 @@
   flex-shrink: 0;
 }
 
-.star {
-  fill: var(--logo-star);
+.tile {
+  fill: var(--logo-tile);
 }
 
-.bar {
-  fill: var(--logo-bar);
+.monogram {
+  fill: none;
+  stroke: var(--logo-letter);
+  stroke-width: 4.2;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
 }
 
-.barAccent {
+.baseline {
   fill: var(--color-accent);
 }
 
@@ -42,11 +46,13 @@
   flex-direction: column;
 }
 
+/* So'z-belgi katta harflarda (DOM'da "Mehrzod" — ekran o'quvchi so'z sifatida o'qiydi) */
 .name {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--logo-name);
 }
 
@@ -54,7 +60,7 @@
   margin-top: 0.3rem;
   font-size: 0.625rem;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--logo-tagline);
 }
@@ -67,11 +73,11 @@
   }
 
   .name {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
 
   .tagline {
-    font-size: 0.5625rem;
-    letter-spacing: 0.18em;
+    font-size: 0.5rem;
+    letter-spacing: 0.16em;
   }
 }

@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import { CONTACT, SOCIAL_LINKS, LEGAL_PAGES } from '@data/site';
 import { localizedPath } from '@i18n';
 import Logo from '@components/ui/Logo/Logo';
@@ -72,6 +72,15 @@ const Footer = ({ dict, homeHref, lang }) => {
                 <a href={`tel:${CONTACT.phone}`}>{CONTACT.phoneDisplay}</a>
               </span>
             </div>
+
+            {CONTACT.whatsapp && (
+              <div className={styles.contactItem}>
+                <MessageCircle className={styles.contactIcon} size={20} aria-hidden="true" />
+                <span className={styles.contactText}>
+                  <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                </span>
+              </div>
+            )}
 
             <div className={styles.contactItem}>
               <Mail className={styles.contactIcon} size={20} aria-hidden="true" />
