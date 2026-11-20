@@ -1,104 +1,62 @@
 /* --- Navbar --- */
 .header {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 24px 0;
+  inset: 0 0 auto;
+  padding-block: var(--space-5);
   background-color: transparent;
-  transition: all 0.3s ease;
-  z-index: 1000;
+  transition:
+    padding var(--duration) ease,
+    background-color var(--duration) ease,
+    box-shadow var(--duration) ease;
+  z-index: var(--z-header);
 }
 
 .scrolled {
-  background-color: rgba(255, 255, 255, 0.98);
-  padding: 16px 0;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  background-color: color-mix(in srgb, var(--color-bg) 96%, transparent);
+  padding-block: var(--space-3);
+  box-shadow: var(--shadow-md);
   backdrop-filter: blur(10px);
 }
 
 .container {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: var(--space-4);
 }
 
-/* --- Logotip --- */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.logoLink {
+  display: inline-flex;
   text-decoration: none;
-  cursor: pointer;
-}
-
-.logoIcon {
-  background: linear-gradient(135deg, #1e40af, #3b82f6);
-  color: #ffffff;
-  padding: 6px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
-}
-
-.logo:hover .logoIcon {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
-}
-
-.logoText {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #0f172a;
-  letter-spacing: 0.5px;
-}
-
-.highlight {
-  color: #2563eb;
+  border-radius: var(--radius-sm);
 }
 
 /* --- Desktop Nav --- */
-.desktopNav {
-  display: block;
-}
-
 .navLinks {
   display: flex;
-  gap: 32px;
+  gap: var(--space-8);
   list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .navLinks a {
-  color: #475569;
+  color: var(--color-text-muted);
   text-decoration: none;
-  font-size: 1rem;
   font-weight: 600;
-  transition: color 0.3s ease;
+  transition: color var(--duration) ease;
 }
 
 .navLinks a:hover {
-  color: #2563eb;
+  color: var(--color-primary);
 }
 
-/* --- O'ng taraf (Tugma, Til va Mobil Gamburger) --- */
+/* --- O'ng taraf (Til, Aloqa tugmasi, Gamburger) --- */
 .rightActions {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: var(--space-4);
 }
 
-/* =========================================
-   Korporativ Til O'zgartirgich (Language Switcher)
-   ========================================= */
+/* --- Til o'zgartirgich --- */
 .langSwitcher {
   position: relative;
 }
@@ -107,25 +65,26 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  font-size: 14px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-line);
+  font-size: var(--text-sm);
   font-weight: 600;
-  color: #334155;
+  color: var(--color-text);
   cursor: pointer;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: all 0.2s ease;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  transition:
+    background-color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease;
 }
 
 .langBtn:hover {
-  background-color: #f1f5f9;
-  border-color: #cbd5e1;
-  color: #0f172a;
+  background-color: var(--color-surface-2);
+  border-color: var(--color-line-strong);
 }
 
 .chevron {
-  transition: transform 0.3s ease;
+  transition: transform var(--duration) ease;
 }
 
 .rotate {
@@ -134,18 +93,25 @@
 
 .langDropdown {
   position: absolute;
-  top: 110%;
+  top: calc(100% + var(--space-2));
   right: 0;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  min-width: 140px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  min-width: 140px;
-  z-index: 1010;
+  list-style: none;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-dropdown);
   animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* display: flex [hidden] atributini bekor qilmasligi uchun */
+.langDropdown[hidden],
+.mobileMenu[hidden] {
+  display: none;
 }
 
 @keyframes fadeIn {
@@ -153,47 +119,27 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-.langDropdown button {
-  background: none;
-  border: none;
-  padding: 12px 16px;
-  font-size: 14px;
+.langDropdown a {
+  display: block;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
   font-weight: 500;
-  color: #475569;
-  cursor: pointer;
-  text-align: left;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.langDropdown button:hover {
-  background-color: #f1f5f9;
-  color: #2563eb;
-}
-
-.activeLang {
-  color: #2563eb !important;
-  font-weight: 700 !important;
-  background-color: #eff6ff !important;
-}
-
-/* --- Contact Tugmasi --- */
-.contactBtn {
-  background-color: #0f172a;
-  color: #ffffff;
-  border: none;
-  padding: 12px 24px;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  color: var(--color-text-muted);
   text-decoration: none;
-  text-align: center;
+  transition:
+    background-color var(--duration-fast) ease,
+    color var(--duration-fast) ease;
 }
 
-.contactBtn:hover {
-  background-color: #1e293b;
-  transform: translateY(-1px);
+.langDropdown a:hover {
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+}
+
+.langDropdown a.activeLang {
+  color: var(--color-primary);
+  font-weight: 700;
+  background-color: var(--color-primary-soft);
 }
 
 /* --- Gamburger --- */
@@ -203,16 +149,17 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
-  z-index: 1001;
+  padding: var(--space-2);
+  margin-right: calc(var(--space-2) * -1);
+  border-radius: var(--radius-sm);
 }
 
 .bar {
   width: 25px;
   height: 3px;
-  background-color: #0f172a;
+  background-color: var(--color-ink);
   margin: 3px 0;
-  transition: all 0.3s ease;
+  transition: transform var(--duration) ease, opacity var(--duration) ease;
   border-radius: 10px;
 }
 
@@ -226,56 +173,40 @@
   top: 100%;
   left: 0;
   width: 100%;
-  background-color: #ffffff;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-  border-top: 1px solid #f1f5f9;
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-md);
+  border-top: 1px solid var(--color-line);
 }
 
 .mobileLinks {
   list-style: none;
-  padding: 20px 5%;
-  margin: 0;
+  padding: var(--space-5) var(--container-pad);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--space-5);
 }
 
 .mobileLinks a {
-  color: #0f172a;
+  color: var(--color-text);
   text-decoration: none;
-  font-size: 1.125rem;
+  font-size: var(--text-lg);
   font-weight: 600;
   display: block;
-}
-
-.contactBtnMobile {
-  background-color: #2563eb;
-  color: #ffffff;
-  border: none;
-  padding: 14px 24px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  width: 100%;
-  display: block;
-  text-align: center;
 }
 
 /* =========================================
-   Responsive (Kichik ekranlarga moslashuv)
+   Responsive
    ========================================= */
 @media (max-width: 768px) {
-  .desktopNav {
-    display: none;
-  }
+  .desktopNav,
   .contactBtn {
     display: none;
   }
+
   .hamburger {
     display: flex;
   }
-  /* Mobilda lang switcher o'rtada qoladi va chiroyli ko'rinadi */
+
   .langBtn {
     padding: 6px 10px;
   }

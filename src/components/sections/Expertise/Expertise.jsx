@@ -1,112 +1,64 @@
-import React, { useState } from 'react';
-import styles from './Expertise.module.css';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { MonitorSmartphone, TerminalSquare, Database, Cloud } from 'lucide-react';
-import { useTranslation } from 'react-i18next'; // 1. Hookni import qilamiz
+import { TECH_CATEGORIES } from '@data/sections';
+import { handleTabKeyDown } from '@lib/tabs';
+import SectionHeader from '@components/ui/SectionHeader/SectionHeader';
+import styles from './Expertise.module.css';
 
-// Animatsiya sozlamalari (tashqarida qolishi yaxshi, qayta-qayta render bo'lmaydi)
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
-};
+const ICONS = { MonitorSmartphone, TerminalSquare, Database, Cloud };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
-};
-
-const Expertise = () => {
-  const { t } = useTranslation(); // 2. Hookni chaqiramiz
-
-  // Array'ni komponent ichiga olamiz, chunki t() funksiyasi shu yerda ishlaydi
-  const techCategories = [
-    {
-      id: 'frontend',
-      title: t('expertise.categories.frontend'),
-      icon: <MonitorSmartphone size={24} />,
-      techs: ["React", "Vue.js", "Next.js", "TypeScript", "Tailwind CSS"]
-    },
-    {
-      id: 'backend',
-      title: t('expertise.categories.backend'),
-      icon: <TerminalSquare size={24} />,
-      techs: ["Node.js", "Python", "Go", "FastAPI"]
-    },
-    {
-      id: 'database',
-      title: t('expertise.categories.database'),
-      icon: <Database size={24} />,
-      techs: ["PostgreSQL", "MongoDB", "Redis", "MySQL"]
-    },
-    {
-      id: 'cloud',
-      title: t('expertise.categories.cloud'),
-      icon: <Cloud size={24} />,
-      techs: ["AWS", "Google Cloud", "Docker", "Kubernetes", "CI/CD"]
-    }
-  ];
-
-  // State'da butun ob'ektni emas, faqat ID ni saqlaymiz (til o'zgarganda xato bermasligi uchun)
-  const [activeTabId, setActiveTabId] = useState(techCategories[0].id);
-
-  // Faol kategoriyani ID orqali topib olamiz
-  const activeTab = techCategories.find(cat => cat.id === activeTabId);
+const Expertise = ({ dict }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const active = TECH_CATEGORIES[activeIndex];
 
   return (
-    <section className={styles.expertiseSection} id="expertise">
-      <div className={styles.container}>
-
-        <div className={styles.header}>
-          <h2 className={styles.title}>{t('expertise.title')}</h2>
-          <p className={styles.subtitle}>
-            {t('expertise.subtitle')}
-          </p>
-        </div>
+    <section className={`section ${styles.expertiseSection}`} id="expertise">
+      <div className="container" data-reveal>
+        <SectionHeader id="expertise-title" title={dict.title} subtitle={dict.subtitle} align="center" />
 
         <div className={styles.wrapper}>
-
-          {/* Chap taraf - Kategoriyalar (Yon menyu) */}
-          <div className={styles.sidebar}>
-            {techCategories.map((category) => (
-              <button
-                key={category.id}
-                className={`${styles.categoryBtn} ${activeTabId === category.id ? styles.active : ''}`}
-                onClick={() => setActiveTabId(category.id)}
-              >
-                <div className={styles.iconBox}>
-                  {category.icon}
-                </div>
-                <span className={styles.categoryName}>{category.title}</span>
-              </button>
-            ))}
-          </div>
-
-          {/* O'ng taraf - Texnologiyalar Grid'i */}
-          <div className={styles.contentArea}>
-            <motion.div
-              className={styles.techGrid}
-              key={activeTab.id}
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {activeTab.techs.map((tech, index) => (
-                <motion.div
-                  key={index}
-                  className={styles.techCard}
-                  variants={itemVariants}
+          <div className={styles.sidebar} role="tablist" aria-labelledby="expertise-title" aria-orientation="vertical">
+            {TECH_CATEGORIES.map((category, index) => {
+              const Icon = ICONS[category.icon];
+              const isActive = index === activeIndex;
+              return (
+                <button
+                  key={category.id}
+                  type="button"
+                  role="tab"
+                  id={`expertise-tab-${category.id}`}
+                  aria-selected={isActive}
+                  aria-controls="expertise-panel"
+                  tabIndex={isActive ? 0 : -1}
+                  className={`${styles.categoryBtn} ${isActive ? styles.active : ''}`}
+                  onClick={() => setActiveIndex(index)}
+                  onKeyDown={(e) => handleTabKeyDown(e, index, TECH_CATEGORIES.length, setActiveIndex)}
                 >
-                  {tech}
-                </motion.div>
-              ))}
-            </motion.div>
+                  <span className={styles.iconBox} aria-hidden="true">
+                    <Icon size={24} />
+                  </span>
+                  <span className={styles.categoryName}>{dict.categories[category.id]}</span>
+                </button>
+              );
+            })}
           </div>
 
+          <div
+            className={styles.contentArea}
+            role="tabpanel"
+            id="expertise-panel"
+            aria-labelledby={`expertise-tab-${active.id}`}
+          >
+            {/* key: tab almashganda ro'yxat qayta chiziladi va CSS animatsiyasi qaytadan boshlanadi */}
+            <ul className={styles.techGrid} key={active.id}>
+              {active.techs.map((tech, index) => (
+                <li key={tech} className={styles.techCard} style={{ '--i': index }}>
+                  {tech}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-
       </div>
     </section>
   );

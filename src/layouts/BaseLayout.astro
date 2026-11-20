@@ -1,0 +1,143 @@
+---
+// Shriftlar o'z serverimizdan (lotin, kirill va h.k. subsetlari unicode-range bo'yicha faqat kerak bo'lganda yuklanadi)
+import '@fontsource-variable/inter';
+import '@fontsource-variable/manrope';
+// Matn ko'rinishi shrift kelganda "sakramasligi" (CLS) uchun asosiy subsetlar oldindan yuklanadi.
+// ?url — Vite CSS'dagi bilan bir xil hash'li faylni qaytaradi, shrift ikki marta yuklanmaydi.
+import interLatin from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import interCyrillic from '@fontsource-variable/inter/files/inter-cyrillic-wght-normal.woff2?url';
+import manropeLatin from '@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2?url';
+import manropeCyrillic from '@fontsource-variable/manrope/files/manrope-cyrillic-wght-normal.woff2?url';
+import '@styles/global.css';
+import { LOCALES, LOCALE_META, LANG_STORAGE_KEY, localizedPath } from '@i18n';
+
+const {
+  lang,
+  title,
+  description,
+  path = '', // tilga bog'liq bo'lmagan yo'l: bosh sahifa uchun '', keyinchalik masalan 'privacy/'
+  noindex = false,
+  rememberLanguage = false, // faqat o'zbekcha bosh sahifada: oldin tanlangan tilga yo'naltirish
+  ogImage = `/og/og-${lang}.jpg`, // ulashish rasmi: npm run og bilan yaratiladi
+} = Astro.props;
+
+const site = Astro.site;
+const canonical = new URL(localizedPath(lang, path), site).href;
+const alternates = LOCALES.map((code) => ({
+  hreflang: code,
+  href: new URL(localizedPath(code, path), site).href,
+}));
+const xDefault = new URL(localizedPath('uz', path), site).href;
+const ogImageUrl = new URL(ogImage, site).href;
+const preloadFonts = lang === 'ru' ? [interCyrillic, manropeCyrillic] : [interLatin, manropeLatin];
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    {
+      rememberLanguage && (
+        <script is:inline define:vars={{ storageKey: LANG_STORAGE_KEY }}>
+          // Foydalanuvchi oldin ruscha yoki inglizchani tanlagan bo'lsa (yoki ?lng=ru havolasi bilan kelsa),
+          // o'sha tildagi sahifaga o'tkazamiz. Qidiruv botlari tanlov saqlamaydi, ular doim o'zbekchani ko'radi.
+          try {
+            var requested = new URLSearchParams(location.search).get('lng');
+            var target = requested || localStorage.getItem(storageKey);
+            if (target === 'ru' || target === 'en') location.replace('/' + target + '/' + location.hash);
+          } catch (e) {
+            /* localStorage yopiq bo'lsa o'zbekcha qoladi */
+          }
+        </script>
+      )
+    }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="google-site-verification" content="KrC3ndj_uaPwTOGKHD1bu0Kbe_zxq1I0ZmdVaEf2Z_I" />
+
+    {!noindex && <link rel="canonical" href={canonical} />}
+    {
+      !noindex &&
+        alternates.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)
+    }
+    {!noindex && <link rel="alternate" hreflang="x-default" href={xDefault} />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mehrzod Business Group" />
+    <meta property="og:locale" content={LOCALE_META[lang].ogLocale} />
+    {
+      LOCALES.filter((code) => code !== lang).map((code) => (
+        <meta property="og:locale:alternate" content={LOCALE_META[code].ogLocale} />
+      ))
+    }
+    {!noindex && <meta property="og:url" content={canonical} />}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Sahifaga xos qo'shimcha teglar (masalan JSON-LD) -->
+    <slot name="head" />
+
+    {preloadFonts.map((href) => <link rel="preload" href={href} as="font" type="font/woff2" crossorigin />)}
+
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#f3f6fa" />
+
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-18213108374"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'AW-18213108374');
+    </script>
+
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+  <body>
+    <slot />
+
+    <script is:inline>
+      // Scroll reveal: [data-reveal] elementlar ekranga kirganda ko'rinadi (stillar global.css da)
+      (function () {
+        var items = document.querySelectorAll('[data-reveal]');
+        var show = function (el) {
+          el.setAttribute('data-revealed', '');
+        };
+        if (!('IntersectionObserver' in window)) {
+          items.forEach(show);
+          return;
+        }
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                show(entry.target);
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+        items.forEach(function (el) {
+          observer.observe(el);
+        });
+      })();
+    </script>
+  </body>
+</html>

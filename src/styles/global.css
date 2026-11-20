@@ -1,0 +1,136 @@
+@import './tokens.css';
+
+html {
+  scroll-behavior: smooth; /* Havolalarni silliq aylantirish */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Sarlavhalar Manrope'da. Juda uzun so'z (masalan o'zbekcha qo'shimchali so'zlar) ekrandan chiqmasin */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: var(--leading-snug);
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+/* Tugma va maydonlar ham sayt shriftida bo'lsin (brauzer standarti tizim shrifti) */
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* Klaviatura bilan yurganda fokus aniq ko'rinsin (sichqoncha bosilganda chiqmaydi) */
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* "Asosiy mazmunga o'tish" orqali fokus olganda ramka chizilmasin */
+#main:focus {
+  outline: none;
+}
+
+/* Modal (dialog) ochiq bo'lganda orqadagi sahifa aylanmasin */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+/* --- Layout utilitalari: barcha bo'limlar bir xil kenglik va chekinishda --- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+/* Telefonda pastki tezkor aloqa paneli (MobileCTA) footer matnini yopmasin */
+@media (max-width: 768px) {
+  body:has([data-mobile-cta]) {
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* "Asosiy mazmunga o'tish" havolasi: faqat Tab bosilganda ko'rinadi */
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: -100px;
+  z-index: var(--z-skip);
+  background-color: var(--color-ink);
+  color: var(--color-on-ink);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Scroll reveal: bo'lim ichidagi konteyner ekranga kirganda paydo bo'ladi.
+   Animatsiya <section id> ning o'ziga emas, ichidagi [data-reveal] ga qo'llanadi,
+   shuning uchun #anchor havolalari to'g'ri joyga tushadi.
+   JS o'chiq bo'lsa (.js klassi yo'q) kontent darhol ko'rinadi. */
+[data-reveal] {
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.js [data-reveal]:not([data-revealed]) {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Chop etishda hali ko'rilmagan bo'limlar ham ko'rinsin */
+@media print {
+  .js [data-reveal]:not([data-revealed]) {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-reveal] {
+    transition: none;
+  }
+
+  .js [data-reveal]:not([data-revealed]) {
+    opacity: 1;
+    transform: none;
+  }
+}

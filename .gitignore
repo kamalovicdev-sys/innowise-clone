@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+# Astro
+.astro/
+
+# Environment (EmailJS kalitlari)
+.env
+.env.production
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -22,3 +29,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# graphify knowledge graph output
+graphify-out/
+
+# Playwright
+test-results/
+playwright-report/

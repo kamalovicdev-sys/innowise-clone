@@ -1,0 +1,132 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Navbar from '@components/layout/Navbar/Navbar.jsx';
+import Footer from '@components/layout/Footer/Footer.jsx';
+import ContactModal from '@components/ui/ContactModal/ContactModal.jsx';
+import { getDictionary, getLanguageLinks, localizedPath } from '@i18n';
+import { LEGAL_PAGES } from '@data/site';
+import type { MarkdownInstance } from 'astro';
+
+// Huquqiy sahifa (masalan Maxfiylik siyosati). Matn: src/content/legal/<doc>.<lang>.md
+const { lang, doc } = Astro.props as { lang: 'uz' | 'ru' | 'en'; doc: string };
+
+type LegalFrontmatter = { title: string; description: string; updated: string };
+const docs = import.meta.glob<MarkdownInstance<LegalFrontmatter>>('../../content/legal/*.md', { eager: true });
+const entry = docs[`../../content/legal/${doc}.${lang}.md`];
+if (!entry) throw new Error(`Legal page text not found: src/content/legal/${doc}.${lang}.md`);
+const { Content, frontmatter } = entry;
+
+const path = `${doc}/`;
+const published = Boolean(LEGAL_PAGES[doc]);
+const dict = getDictionary(lang);
+const homeHref = localizedPath(lang);
+const privacyHref = LEGAL_PAGES.privacy ? localizedPath(lang, LEGAL_PAGES.privacy) : null;
+const intlLocale = lang === 'uz' ? 'uz-Latn' : lang;
+const updatedText = new Intl.DateTimeFormat(intlLocale, { dateStyle: 'long' }).format(new Date(frontmatter.updated));
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${frontmatter.title} | Mehrzod Group`}
+  description={frontmatter.description}
+  path={path}
+  noindex={!published}
+>
+  <a class="skip-link" href="#main">{dict.nav.skipToContent}</a>
+  <Navbar
+    client:load
+    dict={dict.nav}
+    languages={getLanguageLinks(lang, path)}
+    homeHref={homeHref}
+    anchorBase={homeHref}
+  />
+
+  <main id="main" tabindex="-1" class="legal">
+    <div class="container legal-container">
+      {!published && <p class="draft-notice" role="note">{dict.legal.draftNotice}</p>}
+      <h1>{frontmatter.title}</h1>
+      <p class="updated">
+        {dict.legal.updated}: <time datetime={frontmatter.updated}>{updatedText}</time>
+      </p>
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </main>
+
+  <Footer dict={dict.footer} homeHref={homeHref} lang={lang} anchorBase={homeHref} />
+  <ContactModal client:load dict={dict.contactModal} formDict={dict.form} privacyHref={privacyHref} />
+</BaseLayout>
+
+<style>
+  .legal {
+    padding-top: calc(var(--header-h) + var(--space-12));
+    padding-bottom: var(--section-y);
+    background-color: var(--color-bg);
+  }
+
+  .legal-container {
+    max-width: calc(46rem + 2 * var(--container-pad));
+  }
+
+  .draft-notice {
+    margin-bottom: var(--space-8);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--color-accent-ink);
+    background-color: var(--color-accent-soft);
+    color: var(--color-accent-ink);
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+
+  h1 {
+    font-size: var(--text-section);
+    font-weight: 800;
+    letter-spacing: var(--tracking-tight);
+    margin-bottom: var(--space-3);
+  }
+
+  .updated {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-10);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  /* Markdown matni */
+  .prose {
+    color: var(--color-text);
+    line-height: var(--leading-relaxed);
+  }
+
+  .prose :global(h2) {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin: var(--space-10) 0 var(--space-3);
+  }
+
+  .prose :global(p) {
+    margin-bottom: var(--space-4);
+  }
+
+  .prose :global(ul) {
+    margin: 0 0 var(--space-4) var(--space-6);
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .prose :global(li::marker) {
+    color: var(--color-accent-ink);
+  }
+
+  .prose :global(a) {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .prose :global(strong) {
+    font-weight: 700;
+  }
+</style>

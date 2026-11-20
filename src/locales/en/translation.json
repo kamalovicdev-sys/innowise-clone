@@ -1,15 +1,48 @@
 {
+  "meta": {
+    "title": "Data Analytics & BI Solutions | Mehrzod Group",
+    "description": "Mehrzod Business Group: data analytics, BI dashboards, data warehousing and business consulting. We turn your business data into clear decisions."
+  },
   "nav": {
     "services": "Services",
     "portfolio": "Case Studies",
     "faq": "FAQ",
-    "contact": "Contact us"
+    "contact": "Contact us",
+    "language": "Choose language",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to content"
   },
   "hero": {
-    "title": "IT Services & Solutions by Mehrzod Group",
-    "subtitle": "We help businesses turn data into decisions. Whether you are looking for new revenue streams, cutting costs, or improving forecasting, our teams build the systems that make it happen. Fast, reliable, and scalable.",
+    "title": "We turn your data into clear decisions",
+    "subtitle": "See sales, inventory and profit on one dashboard. We build data systems, automate reporting and find where your business can grow.",
     "btnEstimate": "Estimate Project",
-    "btnExplore": "Explore Services"
+    "btnExplore": "Explore Services",
+    "mock": {
+      "badge": "Demo",
+      "title": "Sales overview",
+      "kpiGrowth": "Sales growth",
+      "kpiOrders": "Orders",
+      "kpiStock": "Stock level",
+      "chartTitle": "Revenue trend",
+      "notification": "Weekly report is ready",
+      "thisYear": "This year",
+      "lastYear": "Last year",
+      "months": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ]
+    }
   },
   "benefits": {
     "title": "What you'll get from working with us",
@@ -48,52 +81,73 @@
       "system_design": "System Design",
       "consulting": "Business Consulting",
       "sales_dept": "Sales Department Development and Implementation"
+    },
+    "desc": {
+      "analysis": "We find trends and growth opportunities in your sales, customer and inventory data.",
+      "warehousing": "We bring data from every source into one reliable warehouse.",
+      "management": "Platforms that keep your data accurate, secure and up to date.",
+      "bi": "Real-time dashboards and automated reports for decision-makers.",
+      "web_ads": "Sales-focused websites, SEO and targeted advertising.",
+      "ai_bots": "AI tools and chatbots that take routine work off your team.",
+      "system_design": "Scalable system architecture built around your processes.",
+      "consulting": "Consulting on streamlining operations and cutting costs.",
+      "sales_dept": "Building a sales department from scratch or strengthening yours."
     }
   },
-  "stats": {
+  "process": {
     "title": "Your project at your pace",
     "subtitle": "Each step moves your data closer to real business value with zero wasted effort or guesswork.",
-    "steps": {
-      "step1": {
-        "title": "Requirement analysis",
-        "desc": "We look at how your team uses data, find what's missing, and define what your analytics system needs to deliver."
+    "phases": [
+      {
+        "title": "Analysis & design",
+        "desc": "We learn how your team uses data, find the gaps and design the system architecture.",
+        "steps": [
+          "Requirement analysis",
+          "Data architecture"
+        ]
       },
-      "step2": {
-        "title": "Data architecture",
-        "desc": "We design how your data is structured, labeled, and linked, so your analytics are accurate, fast, and easy to scale."
+      {
+        "title": "Data collection & storage",
+        "desc": "We bring data from files, APIs and cloud tools into one place by building a data lake and a central warehouse.",
+        "steps": [
+          "Data ingestion",
+          "Data lake building",
+          "Data warehouse setup"
+        ]
       },
-      "step3": {
-        "title": "Data ingestion",
-        "desc": "Whether it's files, APIs, or cloud tools, we connect every source and ensure your data flows into one place without errors or delays."
+      {
+        "title": "Cleaning & processing",
+        "desc": "We fix duplicates and errors and connect your data to automatically refreshed ETL/ELT pipelines.",
+        "steps": [
+          "Data cleaning",
+          "ETL/ELT development"
+        ]
       },
-      "step4": {
-        "title": "Data lake building",
-        "desc": "We set up storage for all raw and semi-structured data, so you can keep everything in one place and use it later for reports or deep analysis."
+      {
+        "title": "Testing & launch",
+        "desc": "We test every connection, rule and load time, then launch the system and automate your reports.",
+        "steps": [
+          "Quality assurance",
+          "Deployment"
+        ]
       },
-      "step5": {
-        "title": "Data warehouse setup",
-        "desc": "This is where clean data lives. We set up a central warehouse that keeps everything organized and ready for reporting."
-      },
-      "step6": {
-        "title": "Data cleaning",
-        "desc": "From duplicates to format mismatches, we resolve the issues that slow teams down, so every record can be trusted."
-      },
-      "step7": {
-        "title": "ETL/ELT development",
-        "desc": "Your analytics are only as fresh as your pipeline. We set up flows that move and transform data without delays or manual work."
-      },
-      "step8": {
-        "title": "Quality assurance",
-        "desc": "We test each component of your data pipeline, including data connections, pipeline logic, data accuracy, load times to prevent future issues."
-      },
-      "step9": {
-        "title": "Deployment",
-        "desc": "Finally, we put it all in motion — automating updates, syncing reports, and handing off a system that's ready to deliver insights from day one."
-      },
-      "step10": {
-        "title": "Data analytics",
-        "desc": "With everything in place, we integrate real-time analytics into your workflows so your team can explore data insights and make data-driven decisions."
+      {
+        "title": "Analytics & growth",
+        "desc": "We bring real-time analytics into your workflows and keep adding metrics based on your feedback.",
+        "steps": [
+          "Data analytics"
+        ]
       }
+    ]
+  },
+  "trust": {
+    "title": "Trusted by growing businesses",
+    "logosLabel": "Our clients",
+    "stats": {
+      "projects": "projects delivered",
+      "years": "years of experience",
+      "industries": "industries",
+      "clients": "returning clients"
     }
   },
   "expertise": {
@@ -159,7 +213,9 @@
           "Customer lifetime value prediction"
         ]
       }
-    }
+    },
+    "prev": "Previous industry",
+    "next": "Next industry"
   },
   "faq": {
     "title": "FAQ",
@@ -198,7 +254,18 @@
     "message": "Project Details",
     "btnEstimate": "Get a Free Estimate",
     "successTitle": "Thank you!",
-    "successDesc": "Your request has been received. We will contact you soon."
+    "successDesc": "Your request has been received. We will contact you soon.",
+    "sending": "Sending...",
+    "errorMsg": "An error occurred. Please try again.",
+    "companyPlaceholder": "Your Company Ltd.",
+    "channels": {
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address",
+      "telegram": "Telegram",
+      "whatsapp": "WhatsApp",
+      "whatsappAction": "Message us on WhatsApp"
+    }
   },
   "footer": {
     "desc": "Empowering global enterprises with advanced data analytics, custom software, and scalable cloud solutions.",
@@ -225,7 +292,6 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
   },
-
   "contactModal": {
     "title": "Get in Touch",
     "subtitle": "Fill out the form below and we'll reach out to discuss your project.",
@@ -238,7 +304,34 @@
     "sending": "Sending...",
     "successTitle": "Thank You!",
     "successDesc": "We have received your message and will get back to you shortly.",
-    "errorMsg": "An error occurred. Please try again."
+    "errorMsg": "An error occurred. Please try again.",
+    "close": "Close",
+    "companyPlaceholder": "Your Company Ltd."
+  },
+  "form": {
+    "errorCall": "Or call us:",
+    "errors": {
+      "required": "Please fill in this field",
+      "phone": "Enter a full phone number, e.g. +998 90 123 45 67",
+      "email": "Enter a valid email, e.g. name@company.uz"
+    },
+    "consent": {
+      "before": "By submitting this form, you agree to the processing of your personal data in line with our ",
+      "link": "Privacy Policy",
+      "after": "."
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "desc": "The page you are looking for doesn't exist or has moved.",
+    "back": "Back to the home page"
+  },
+  "quickContact": {
+    "label": "Quick contact",
+    "call": "Call us"
+  },
+  "legal": {
+    "updated": "Last updated",
+    "draftNotice": "Draft: this text has not been approved by a lawyer and is not linked on the site yet."
   }
 }
-

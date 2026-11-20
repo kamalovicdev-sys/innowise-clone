@@ -1,122 +1,90 @@
-import React, { useState, useRef } from 'react';
+import { Phone, Mail, MapPin, Send, MessageCircle } from 'lucide-react';
+import ContactForm from '@components/ui/ContactForm/ContactForm';
+import SectionHeader from '@components/ui/SectionHeader/SectionHeader';
+import { CONTACT } from '@data/site';
 import styles from './Contact.module.css';
-import { Check } from 'lucide-react';
-import emailjs from '@emailjs/browser';
-import { useTranslation } from 'react-i18next'; // 1. Hookni import qilamiz
 
-const Contact = () => {
-  const { t } = useTranslation(); // 2. t() funksiyasini chaqiramiz
-  const form = useRef();
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+const stripProtocol = (url) => url.replace(/^https?:\/\//, '');
 
-  const [formData, setFormData] = useState({
-    name: '', email: '', company: '', phone: '', message: ''
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+/** @param {{ dict: any, formDict: any, address: { street: string, city: string }, privacyHref?: string | null }} props */
+const Contact = ({ dict, formDict, address, privacyHref = null }) => {
+  const labels = {
+    name: dict.name,
+    company: dict.company,
+    email: dict.email,
+    phone: dict.phone,
+    message: dict.message,
+    companyPlaceholder: dict.companyPlaceholder,
+    submit: dict.btnEstimate,
+    sending: dict.sending,
+    successTitle: dict.successTitle,
+    successDesc: dict.successDesc,
+    errorMsg: dict.errorMsg,
+    errorCall: formDict.errorCall,
+    errors: formDict.errors,
+    consent: formDict.consent,
+    privacyHref,
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    emailjs.sendForm(
-      'service_nd0dlfn',
-      'template_8262qok',
-      form.current,
-      '1_d6jjPbBc2LZUQlh'
-    )
-    .then((result) => {
-        setIsLoading(false);
-        setIsSubmitted(true);
-
-        setTimeout(() => {
-          setIsSubmitted(false);
-          setFormData({ name: '', email: '', company: '', phone: '', message: '' });
-        }, 3000);
-    }, (error) => {
-        setIsLoading(false);
-        alert("Xatolik yuz berdi. Iltimos, qayta urinib ko'ring.");
-        console.log(error.text);
-    });
-  };
+  // Messenjerlar faqat site.js da havola berilganda ko'rsatiladi
+  const channels = [
+    { id: 'phone', Icon: Phone, label: dict.channels.phone, value: CONTACT.phoneDisplay, href: `tel:${CONTACT.phone}` },
+    CONTACT.telegram && {
+      id: 'telegram', Icon: Send, label: dict.channels.telegram, value: stripProtocol(CONTACT.telegram), href: CONTACT.telegram, external: true,
+    },
+    CONTACT.whatsapp && {
+      id: 'whatsapp', Icon: MessageCircle, label: dict.channels.whatsapp, value: dict.channels.whatsappAction, href: CONTACT.whatsapp, external: true,
+    },
+    { id: 'email', Icon: Mail, label: dict.channels.email, value: CONTACT.email, href: `mailto:${CONTACT.email}` },
+    { id: 'address', Icon: MapPin, label: dict.channels.address, value: `${address.street}, ${address.city}` },
+  ].filter(Boolean);
 
   return (
-    <section className={styles.contactSection} id="contact">
-      <div className={styles.container}>
-
-        <div className={styles.header}>
-          <h2 className={styles.title}>{t('contact.title')}</h2>
-          <p className={styles.subtitle}>
-            {t('contact.subtitle')}
-          </p>
-        </div>
+    <section className={`section ${styles.contactSection}`} id="contact">
+      <div className="container" data-reveal>
+        <SectionHeader title={dict.title} subtitle={dict.subtitle} align="center" />
 
         <div className={styles.wrapper}>
+          <div className={styles.infoColumn}>
+            <ul className={styles.channels}>
+              {channels.map(({ id, Icon, label, value, href, external }) => (
+                <li key={id} className={styles.channel}>
+                  <span className={styles.channelIcon} aria-hidden="true">
+                    <Icon size={20} />
+                  </span>
+                  <span className={styles.channelText}>
+                    <span className={styles.channelLabel}>{label}</span>
+                    {href ? (
+                      <a
+                        href={href}
+                        className={styles.channelValue}
+                        {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      >
+                        {value}
+                      </a>
+                    ) : (
+                      <span className={styles.channelValue}>{value}</span>
+                    )}
+                  </span>
+                </li>
+              ))}
+            </ul>
 
-          <div className={styles.mapContainer}>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2999.250619484291!2d69.2238091!3d41.2598788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8a7667710b21%3A0xc478dc0d295f9756!2zTWFsbCDigJxWZWdh4oCd!5e0!3m2!1sen!2s!4v1779699142856!5m2!1sen!2s"
-              className={styles.map}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Mehrzod Business Group"></iframe>
+            <div className={styles.mapContainer}>
+              <iframe
+                src={CONTACT.mapEmbedUrl}
+                className={styles.map}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Mehrzod Business Group — Mall Vega, Toshkent"
+              ></iframe>
+            </div>
           </div>
 
           <div className={styles.formCard}>
-            {isSubmitted ? (
-              <div style={{ textAlign: 'center', padding: '40px 0', color: '#16a34a' }}>
-                <div style={{ background: '#dcfce7', width: '64px', height: '64px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
-                  <Check size={32} />
-                </div>
-                <h3 style={{ fontSize: '1.5rem', marginBottom: '10px', color: '#0f172a' }}>
-                  {t('contact.successTitle')}
-                </h3>
-                <p style={{ color: '#475569' }}>
-                  {t('contact.successDesc')}
-                </p>
-              </div>
-            ) : (
-              <form ref={form} onSubmit={handleSubmit}>
-                <div className={styles.formGrid}>
-
-                  <div className={styles.formGroup}>
-                    <label className={styles.label} htmlFor="name">{t('contact.name')}</label>
-                    <input type="text" id="name" name="name" className={styles.input} placeholder="" value={formData.name} onChange={handleChange} required />
-                  </div>
-
-                  <div className={styles.formGroup}>
-                    <label className={styles.label} htmlFor="company">{t('contact.company')}</label>
-                    <input type="text" id="company" name="company" className={styles.input} placeholder="Your Company Ltd." value={formData.company} onChange={handleChange} />
-                  </div>
-
-                  <div className={styles.formGroup}>
-                    <label className={styles.label} htmlFor="email">{t('contact.email')}</label>
-                    <input type="email" id="email" name="email" className={styles.input} placeholder="example@mail.com" value={formData.email} onChange={handleChange}  />
-                  </div>
-
-                  <div className={styles.formGroup}>
-                    <label className={styles.label} htmlFor="phone">{t('contact.phone')}</label>
-                    <input type="tel" id="phone" name="phone" className={styles.input} placeholder="+ 998 99 000 0000" value={formData.phone} onChange={handleChange} required />
-                  </div>
-
-                  <div className={`${styles.formGroup} ${styles.fullWidth}`}>
-                    <label className={styles.label} htmlFor="message">{t('contact.message')}</label>
-                    <textarea id="message" name="message" className={styles.textarea} placeholder="..." value={formData.message} onChange={handleChange}  ></textarea>
-                  </div>
-
-                </div>
-
-                <button type="submit" className={styles.submitBtn} disabled={isLoading}>
-                  {isLoading ? t('contact.sending', 'Sending...') : t('contact.btnEstimate')}
-                </button>
-              </form>
-            )}
+            <ContactForm labels={labels} layout="grid" />
           </div>
-
         </div>
       </div>
     </section>

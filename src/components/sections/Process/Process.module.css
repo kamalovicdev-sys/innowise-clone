@@ -1,0 +1,127 @@
+.processSection {
+  background-color: var(--color-bg);
+}
+
+.timeline {
+  --number-size: 52px;
+  position: relative;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-8);
+}
+
+/* Bosqichlarni bog'lovchi chiziq (lojuvarddan firuzaga) */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--number-size) / 2 - 1px);
+  left: calc(var(--number-size) / 2);
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  opacity: 0.35;
+}
+
+.phase {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.number {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: var(--number-size);
+  height: var(--number-size);
+  border-radius: 50%;
+  background-color: var(--color-bg);
+  border: 2px solid var(--phase-color);
+  box-shadow: 0 0 0 6px var(--color-bg);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.phaseTitle {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.phaseDesc {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+}
+
+.steps {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+
+.step {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--color-text);
+  padding: 4px var(--space-3);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-line);
+}
+
+/* Planshet va telefon: vertikal timeline */
+@media (max-width: 1024px) {
+  .timeline {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-10);
+  }
+
+  .timeline::before {
+    top: 0;
+    bottom: 0;
+    left: calc(var(--number-size) / 2 - 1px);
+    right: auto;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
+  }
+
+  .phase {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-6);
+  }
+
+  .number {
+    flex-shrink: 0;
+  }
+
+  .body {
+    padding-top: var(--space-3);
+    max-width: 40rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline {
+    --number-size: 44px;
+  }
+
+  .phase {
+    gap: var(--space-4);
+  }
+}

@@ -1,0 +1,77 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Logo from '@components/ui/Logo/Logo.jsx';
+import { LOCALES, getDictionary, localizedPath } from '@i18n';
+
+// Netlify noma'lum manzil uchun dist/404.html ni avtomatik ko'rsatadi.
+// Til noma'lum bo'lgani uchun xabar uchala tilda beriladi.
+const messages = LOCALES.map((lang) => ({ lang, href: localizedPath(lang), ...getDictionary(lang).notFound }));
+const uz = getDictionary('uz').notFound;
+---
+
+<BaseLayout lang="uz" title={`${uz.title} | Mehrzod Group`} description={uz.desc} noindex>
+  <main class="not-found">
+    <a href="/" class="logo" aria-label="Mehrzod Business Group"><Logo /></a>
+    <p class="code" aria-hidden="true">404</p>
+    <ul class="messages">
+      {
+        messages.map((m) => (
+          <li lang={m.lang}>
+            <h1>{m.title}</h1>
+            <p>{m.desc}</p>
+            <a href={m.href} hreflang={m.lang}>{m.back}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-6);
+    padding: var(--space-12) var(--container-pad);
+    background-color: var(--color-surface);
+    text-align: center;
+  }
+
+  .logo {
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+  }
+
+  .code {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 12vw, 7rem);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--color-line);
+  }
+
+  .messages {
+    list-style: none;
+    display: grid;
+    gap: var(--space-8);
+    max-width: 560px;
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-2);
+  }
+
+  p {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2);
+  }
+
+  .messages a {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+</style>
