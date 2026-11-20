@@ -1,0 +1,109 @@
+html {
+  scroll-behavior: smooth; /* Havolalarni silliq aylantirish */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background-color: #ffffff;
+  color: #0f172a;
+  overflow-x: hidden;
+}
+
+/* Tugma va maydonlar ham sayt shriftida bo'lsin (brauzer standarti tizim shrifti) */
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* "Asosiy mazmunga o'tish" orqali fokus olganda ramka chizilmasin */
+#main:focus {
+  outline: none;
+}
+
+/* Juda uzun so'z (masalan o'zbekcha qo'shimchali so'zlar) ekrandan chiqib ketmasin */
+h1, h2, h3 {
+  overflow-wrap: break-word;
+}
+
+/* Klaviatura bilan yurganda fokus aniq ko'rinsin (sichqoncha bosilganda chiqmaydi) */
+:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Modal (dialog) ochiq bo'lganda orqadagi sahifa aylanmasin */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+/* "Asosiy mazmunga o'tish" havolasi: faqat Tab bosilganda ko'rinadi */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 2000;
+  background-color: #0f172a;
+  color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Scroll reveal: bo'lim ichidagi konteyner ekranga kirganda paydo bo'ladi.
+   Animatsiya <section id> ning o'ziga emas, ichidagi [data-reveal] ga qo'llanadi,
+   shuning uchun #anchor havolalari to'g'ri joyga tushadi.
+   JS o'chiq bo'lsa (.js klassi yo'q) kontent darhol ko'rinadi. */
+[data-reveal] {
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.js [data-reveal]:not([data-revealed]) {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Chop etishda hali ko'rilmagan bo'limlar ham ko'rinsin */
+@media print {
+  .js [data-reveal]:not([data-revealed]) {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-reveal] {
+    transition: none;
+  }
+
+  .js [data-reveal]:not([data-revealed]) {
+    opacity: 1;
+    transform: none;
+  }
+}

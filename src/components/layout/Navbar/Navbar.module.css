@@ -145,7 +145,14 @@
   overflow: hidden;
   min-width: 140px;
   z-index: 1010;
+  list-style: none;
   animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* display: flex [hidden] atributini bekor qilmasligi uchun */
+.langDropdown[hidden],
+.mobileMenu[hidden] {
+  display: none;
 }
 
 @keyframes fadeIn {
@@ -153,19 +160,17 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-.langDropdown button {
-  background: none;
-  border: none;
+.langDropdown a {
+  display: block;
   padding: 12px 16px;
   font-size: 14px;
   font-weight: 500;
   color: #475569;
-  cursor: pointer;
-  text-align: left;
+  text-decoration: none;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.langDropdown button:hover {
+.langDropdown a:hover {
   background-color: #f1f5f9;
   color: #2563eb;
 }

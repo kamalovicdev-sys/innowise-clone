@@ -23,6 +23,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  list-style: none;
 }
 
 /* Kartochkalar dizayni */
@@ -34,8 +35,7 @@
   align-items: center;
   border-radius: 4px;
   transition: all 0.3s ease;
-  cursor: pointer;
-  border: 1px solid transparent;
+  border: 1px solid transparent; /* kartalar bosilmaydi, shuning uchun cursor: pointer yo'q */
 }
 
 .card:hover {

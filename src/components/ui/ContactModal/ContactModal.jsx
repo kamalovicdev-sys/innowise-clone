@@ -1,123 +1,101 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { X } from 'lucide-react';
+import ContactForm from '@components/ui/ContactForm/ContactForm';
 import styles from './ContactModal.module.css';
-import { X, Check } from 'lucide-react';
-import emailjs from '@emailjs/browser';
-import { useTranslation } from 'react-i18next'; // 1. Hookni import qilamiz
 
-const ContactModal = ({ isOpen, onClose }) => {
-  const { t } = useTranslation(); // 2. Hookni chaqiramiz
-  const form = useRef();
+/**
+ * Saytdagi yagona aloqa oynasi. Sahifadagi istalgan [data-open-contact] elementi uni ochadi
+ * (Navbar, Hero, FAQ tugmalari), shuning uchun ular alohida modal nusxasini saqlamaydi.
+ * Native <dialog>: Esc bilan yopiladi, fokus ichkarida qoladi, yopilganda tugmaga qaytadi.
+ */
+const ContactModal = ({ dict, formDict }) => {
+  const dialogRef = useRef(null);
+  const triggerRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+  // Har ochilishda forma yangidan boshlanishi uchun
+  const [session, setSession] = useState(0);
 
-  // State'ga shablondagi barcha maydonlarni qo'shamiz
-  const [formData, setFormData] = useState({
-    name: '', email: '', company: '', phone: '', message: ''
-  });
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const open = useCallback((trigger) => {
+    const dialog = dialogRef.current;
+    if (!dialog || dialog.open) return;
+    triggerRef.current = trigger;
+    setSession((n) => n + 1);
+    setIsOpen(true);
+    dialog.showModal();
+  }, []);
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => { document.body.style.overflow = 'unset'; };
-  }, [isOpen]);
+  const close = useCallback(() => dialogRef.current?.close(), []);
 
-  if (!isOpen) return null;
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  // Yopilganda fokusni oynani ochgan tugmaga qaytaramiz
+  // (Safari tugmaga bosganda unga fokus bermaydi, shuning uchun brauzerga tayanmaymiz)
+  const handleClose = () => {
+    setIsOpen(false);
+    triggerRef.current?.focus?.();
+    triggerRef.current = null;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsLoading(true);
+  useEffect(() => {
+    const handleClick = (event) => {
+      const trigger = event.target.closest?.('[data-open-contact]');
+      if (!trigger) return;
+      event.preventDefault();
+      open(trigger);
+    };
+    document.addEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick);
+  }, [open]);
 
-    // EmailJS ga yuborish
-    emailjs.sendForm(
-      'service_nd0dlfn',
-      'template_8262qok',
-      form.current,
-      '1_d6jjPbBc2LZUQlh'
-    )
-    .then((result) => {
-        setIsLoading(false);
-        setIsSubmitted(true);
+  // Orqa fonga (dialog chegarasidan tashqariga) bosilganda yopish.
+  // Klaviatura uchun Esc'ni <dialog>ning o'zi boshqaradi.
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    const handleBackdropClick = (event) => {
+      if (event.target === dialog) close();
+    };
+    dialog?.addEventListener('click', handleBackdropClick);
+    return () => dialog?.removeEventListener('click', handleBackdropClick);
+  }, [close]);
 
-        // 3 soniyadan so'ng formani tozalab, modaldan chiqish
-        setTimeout(() => {
-          setIsSubmitted(false);
-          setFormData({ name: '', email: '', company: '', phone: '', message: '' });
-          onClose();
-        }, 3000);
-    }, (error) => {
-        setIsLoading(false);
-        // Xatolik xabarini ham tarjima qildik
-        alert(t('contactModal.errorMsg'));
-        console.log(error.text);
-    });
+  // Ochilganda birinchi maydonga fokus
+  useEffect(() => {
+    if (isOpen) dialogRef.current?.querySelector('input')?.focus();
+  }, [isOpen, session]);
+
+  const labels = {
+    name: dict.name,
+    company: dict.company,
+    email: dict.email,
+    phone: dict.phone,
+    message: dict.message,
+    companyPlaceholder: dict.companyPlaceholder,
+    submit: dict.btnSubmit,
+    sending: dict.sending,
+    successTitle: dict.successTitle,
+    successDesc: dict.successDesc,
+    errorMsg: dict.errorMsg,
+    errorCall: formDict.errorCall,
   };
 
   return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-
-        <button className={styles.closeBtn} onClick={onClose}>
-          <X size={20} />
+    <dialog
+      ref={dialogRef}
+      className={styles.dialog}
+      aria-labelledby="contact-modal-title"
+      onClose={handleClose}
+    >
+      <div className={styles.modal}>
+        <button type="button" className={styles.closeBtn} onClick={close} aria-label={dict.close}>
+          <X size={20} aria-hidden="true" />
         </button>
 
         <div className={styles.modalContent}>
-          {isSubmitted ? (
-            <div className={styles.successMessage}>
-              <div className={styles.successIcon}>
-                <Check size={32} />
-              </div>
-              <h3 className={styles.title}>{t('contactModal.successTitle')}</h3>
-              <p className={styles.subtitle}>{t('contactModal.successDesc')}</p>
-            </div>
-          ) : (
-            <>
-              <h2 className={styles.title}>{t('contactModal.title')}</h2>
-              <p className={styles.subtitle}>{t('contactModal.subtitle')}</p>
+          <h2 id="contact-modal-title" className={styles.title}>{dict.title}</h2>
+          <p className={styles.subtitle}>{dict.subtitle}</p>
 
-              <form ref={form} onSubmit={handleSubmit}>
-                <div className={styles.formGroup}>
-                  <label className={styles.label} htmlFor="modal-name">{t('contactModal.name')}</label>
-                  <input type="text" id="modal-name" name="name" className={styles.input} placeholder="" value={formData.name} onChange={handleChange} required />
-                </div>
-
-                <div className={styles.formGroup}>
-                  <label className={styles.label} htmlFor="modal-email">{t('contactModal.email')}</label>
-                  <input type="email" id="modal-email" name="email" className={styles.input} placeholder="example@mail.com" value={formData.email} onChange={handleChange}  />
-                </div>
-
-                {/* Telefon va Kompaniya maydonlari joy tejash uchun yonma-yon qo'yildi */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-                  <div className={styles.formGroup}>
-                    <label className={styles.label} htmlFor="modal-phone">{t('contactModal.phone')}</label>
-                    <input type="tel" id="modal-phone" name="phone" className={styles.input} placeholder="+ 998 99 000 0000" value={formData.phone} onChange={handleChange}  required />
-                  </div>
-                  <div className={styles.formGroup}>
-                    <label className={styles.label} htmlFor="modal-company">{t('contactModal.company')}</label>
-                    <input type="text" id="modal-company" name="company" className={styles.input} placeholder="" value={formData.company} onChange={handleChange} />
-                  </div>
-                </div>
-
-                <div className={styles.formGroup}>
-                  <label className={styles.label} htmlFor="modal-message">{t('contactModal.message')}</label>
-                  <textarea id="modal-message" name="message" className={styles.textarea} placeholder="..." value={formData.message} onChange={handleChange}  ></textarea>
-                </div>
-
-                <button type="submit" className={styles.submitBtn} disabled={isLoading}>
-                  {isLoading ? t('contactModal.sending') : t('contactModal.btnSubmit')}
-                </button>
-              </form>
-            </>
-          )}
+          {isOpen && <ContactForm key={session} labels={labels} layout="stack" onSuccess={close} />}
         </div>
       </div>
-    </div>
+    </dialog>
   );
 };
 

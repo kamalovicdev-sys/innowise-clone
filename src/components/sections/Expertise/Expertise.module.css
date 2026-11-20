@@ -112,6 +112,22 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 20px;
+  list-style: none;
+}
+
+/* Kartalar navbat bilan paydo bo'ladi (avval framer-motion bilan qilingan edi) */
+@keyframes techCardIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.techCard {
+  animation: techCardIn 0.4s ease-out both;
+  animation-delay: calc(var(--i, 0) * 0.1s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .techCard { animation: none; }
 }
 
 .techCard {

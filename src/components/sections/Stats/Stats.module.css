@@ -37,7 +37,8 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* Katta ekranlarda 4 ustun */
-  gap: 30px 60px; /* Qatorlar orasi 80px, ustunlar orasi 40px */
+  gap: 30px 60px; /* Qatorlar orasi 30px, ustunlar orasi 60px */
+  list-style: none;
 }
 
 .item {
