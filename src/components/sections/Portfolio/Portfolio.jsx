@@ -7,11 +7,13 @@ import styles from './Portfolio.module.css';
 
 const DEFAULT_INDEX = Math.max(0, INDUSTRIES.findIndex((i) => i.id === DEFAULT_INDUSTRY));
 
-const Portfolio = ({ dict }) => {
+// images: { [id]: { src, srcset, sizes, width, height } } — HomePage.astro'da getImage orqali tayyorlanadi
+const Portfolio = ({ dict, images }) => {
   const [activeIndex, setActiveIndex] = useState(DEFAULT_INDEX);
   const count = INDUSTRIES.length;
   const current = INDUSTRIES[activeIndex];
   const text = dict.industries[current.id];
+  const image = images[current.id];
 
   const showNext = () => setActiveIndex((prev) => (prev + 1) % count);
   const showPrev = () => setActiveIndex((prev) => (prev - 1 + count) % count);
@@ -90,10 +92,12 @@ const Portfolio = ({ dict }) => {
 
           <div className={styles.rightBlock}>
             <img
-              src={current.image}
+              src={image.src}
+              srcSet={image.srcset}
+              sizes={image.sizes}
               alt={text.title}
-              width="1000"
-              height="667"
+              width={image.width}
+              height={image.height}
               loading="lazy"
               decoding="async"
             />

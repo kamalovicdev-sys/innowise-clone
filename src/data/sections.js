@@ -23,14 +23,9 @@ export const TECH_CATEGORIES = [
   { id: 'cloud', icon: 'Cloud', techs: ['AWS', 'Google Cloud', 'Docker', 'Kubernetes', 'CI/CD'] },
 ];
 
-// Rasmlar vaqtinchalik: haqiqiy keyslar tayyor bo'lgach o'z rasmlarimizga almashtiriladi (5-bosqich).
-export const INDUSTRIES = [
-  { id: 'healthcare', image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000&h=667' },
-  { id: 'retail', image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1000&h=667' },
-  { id: 'banking', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000&h=667' },
-  { id: 'logistics', image: 'https://hsl.uz/uploads/images/eac76294-0c8b-4d15-bca4-5a375ab14dab.webp' },
-  { id: 'insurance', image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1000&h=667' },
-];
+// Sohalar. Rasmlar: src/assets/portfolio/<id>.jpg (Unsplash litsenziyasi; build vaqtida WebP'ga aylantiriladi).
+// Haqiqiy keyslar tayyor bo'lgach shu fayllarni o'z rasmlaringiz bilan almashtiring (nom bir xil qolsin).
+export const INDUSTRIES = [{ id: 'healthcare' }, { id: 'retail' }, { id: 'banking' }, { id: 'logistics' }, { id: 'insurance' }];
 
 // Sahifa ochilganda ko'rsatiladigan soha (avvalgi versiyadagidek logistika)
 export const DEFAULT_INDUSTRY = 'logistics';

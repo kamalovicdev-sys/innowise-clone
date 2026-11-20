@@ -5,6 +5,11 @@ import react from '@astrojs/react';
 export default defineConfig({
   site: 'https://mehrzod.uz',
 
+  // CSS jami ~14 KB: alohida fayl o'rniga HTML ichiga qo'yiladi (render-blocking so'rovlar yo'qoladi)
+  build: {
+    inlineStylesheets: 'always',
+  },
+
   // Har bir til o'z URL'ida: / (o'zbekcha, standart), /ru/, /en/
   i18n: {
     locales: ['uz', 'ru', 'en'],
