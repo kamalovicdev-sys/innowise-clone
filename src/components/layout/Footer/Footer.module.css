@@ -55,17 +55,29 @@
 
 .socials {
   display: flex;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
 }
 
-.socialIcon {
-  color: #94a3b8;
-  transition: color 0.3s ease, transform 0.3s ease;
+.socialLink {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid #1e293b;
+  border-radius: 999px;
+  color: #cbd5e1;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.3s ease, border-color 0.3s ease;
 }
 
-.socialIcon:hover {
+.socialLink:hover {
   color: #3b82f6;
-  transform: translateY(-3px);
+  border-color: #3b82f6;
+}
+
+.contactCol {
+  font-style: normal; /* <address> standart kursivini olib tashlaymiz */
 }
 
 /* --- 2 va 3-ustunlar: Menyular --- */

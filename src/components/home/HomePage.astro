@@ -1,0 +1,48 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Navbar from '@components/layout/Navbar/Navbar.jsx';
+import Footer from '@components/layout/Footer/Footer.jsx';
+import Hero from '@components/sections/Hero/Hero.jsx';
+import Benefits from '@components/sections/Benefits/Benefits.jsx';
+import Services from '@components/sections/Services/Services.jsx';
+import Stats from '@components/sections/Stats/Stats.jsx';
+import Expertise from '@components/sections/Expertise/Expertise.jsx';
+import Portfolio from '@components/sections/Portfolio/Portfolio.jsx';
+import FAQ from '@components/sections/FAQ/FAQ.jsx';
+import Contact from '@components/sections/Contact/Contact.jsx';
+import ContactModal from '@components/ui/ContactModal/ContactModal.jsx';
+import { getDictionary, getLanguageLinks, localizedPath } from '@i18n';
+
+const { lang } = Astro.props;
+const dict = getDictionary(lang);
+const languages = getLanguageLinks(lang);
+const homeHref = localizedPath(lang);
+---
+
+<BaseLayout
+  lang={lang}
+  title={dict.meta.title}
+  description={dict.meta.description}
+  rememberLanguage={lang === 'uz'}
+>
+  <a class="skip-link" href="#main">{dict.nav.skipToContent}</a>
+
+  <!-- Interaktiv qismlar (client:*) brauzerda jonlanadi, qolganlari faqat tayyor HTML, JS'siz -->
+  <Navbar client:load dict={dict.nav} languages={languages} homeHref={homeHref} />
+
+  <main id="main" tabindex="-1">
+    <Hero dict={dict.hero} />
+    <Benefits dict={dict.benefits} />
+    <Services dict={dict.services} />
+    <Stats dict={dict.stats} />
+    <Expertise client:visible dict={dict.expertise} />
+    <Portfolio client:visible dict={dict.portfolio} />
+    <FAQ client:visible dict={dict.faq} />
+    <Contact client:visible dict={dict.contact} formDict={dict.form} />
+  </main>
+
+  <Footer dict={dict.footer} homeHref={homeHref} lang={lang} />
+
+  <!-- Saytdagi yagona aloqa oynasi: [data-open-contact] tugmalarining barchasi shuni ochadi -->
+  <ContactModal client:load dict={dict.contactModal} formDict={dict.form} />
+</BaseLayout>

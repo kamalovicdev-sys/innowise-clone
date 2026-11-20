@@ -1,9 +1,17 @@
 {
+  "meta": {
+    "title": "Data Analytics & BI Solutions | Mehrzod Group",
+    "description": "Mehrzod Business Group: data analytics, BI dashboards, data warehousing and business consulting. We turn your business data into clear decisions."
+  },
   "nav": {
     "services": "Services",
     "portfolio": "Case Studies",
     "faq": "FAQ",
-    "contact": "Contact us"
+    "contact": "Contact us",
+    "language": "Choose language",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to content"
   },
   "hero": {
     "title": "IT Services & Solutions by Mehrzod Group",
@@ -159,7 +167,9 @@
           "Customer lifetime value prediction"
         ]
       }
-    }
+    },
+    "prev": "Previous industry",
+    "next": "Next industry"
   },
   "faq": {
     "title": "FAQ",
@@ -228,7 +238,6 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
   },
-
   "contactModal": {
     "title": "Get in Touch",
     "subtitle": "Fill out the form below and we'll reach out to discuss your project.",
@@ -241,7 +250,16 @@
     "sending": "Sending...",
     "successTitle": "Thank You!",
     "successDesc": "We have received your message and will get back to you shortly.",
-    "errorMsg": "An error occurred. Please try again."
+    "errorMsg": "An error occurred. Please try again.",
+    "close": "Close",
+    "companyPlaceholder": "Your Company Ltd."
+  },
+  "form": {
+    "errorCall": "Or call us:"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "desc": "The page you are looking for doesn't exist or has moved.",
+    "back": "Back to the home page"
   }
 }
-

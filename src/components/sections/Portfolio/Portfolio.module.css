@@ -153,14 +153,19 @@
 }
 
 .rightBlock img {
+  display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 3 / 2; /* rasm yuklanguncha joy band qilinadi, sahifa "sakramaydi" */
   border-radius: 4px;
   object-fit: cover;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  background-color: #f1f5f9;
 }
 
-.item:last-child { border-top: 1px solid #e2e8f0; }
+@media (prefers-reduced-motion: reduce) {
+  .contentArea { animation: none; }
+}
 
 /* Responsive (Moslashuvchanlik) */
 @media (max-width: 992px) {

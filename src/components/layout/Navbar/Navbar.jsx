@@ -1,140 +1,158 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styles from './Navbar.module.css';
+import { useEffect, useId, useRef, useState } from 'react';
 import { ChartGantt, Languages, ChevronDown } from 'lucide-react';
-import ContactModal from '@components/ui/ContactModal/ContactModal';
-import { useTranslation } from 'react-i18next';
+import { LANG_STORAGE_KEY } from '@i18n';
+import styles from './Navbar.module.css';
 
-const Navbar = () => {
-  const { t, i18n } = useTranslation();
+const rememberLanguage = (code) => {
+  try {
+    localStorage.setItem(LANG_STORAGE_KEY, code);
+  } catch {
+    /* localStorage yopiq bo'lsa tanlov faqat URL orqali ishlaydi */
+  }
+};
+
+const Navbar = ({ dict, languages, homeHref }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
 
-  // Til menyusini tashqarisiga bosganda yopish uchun
-  const langDropdownRef = useRef(null);
+  const headerRef = useRef(null);
+  const langRef = useRef(null);
+  const langBtnRef = useRef(null);
+  const menuBtnRef = useRef(null);
+  const menuId = useId();
+  const langMenuId = useId();
+
+  const currentLang = languages.find((l) => l.current) ?? languages[0];
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Tashqariga bosganda til menyusini yopish
+  // Ochiq menyular tashqariga bosilganda yoki Esc bilan yopiladi
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (langDropdownRef.current && !langDropdownRef.current.contains(event.target)) {
+    if (!isLangOpen && !isMenuOpen) return undefined;
+
+    const handlePointerDown = (event) => {
+      if (isLangOpen && !langRef.current?.contains(event.target)) setIsLangOpen(false);
+      if (isMenuOpen && !headerRef.current?.contains(event.target)) setIsMenuOpen(false);
+    };
+    const handleKeyDown = (event) => {
+      if (event.key !== 'Escape') return;
+      if (isLangOpen) {
         setIsLangOpen(false);
+        langBtnRef.current?.focus();
+      }
+      if (isMenuOpen) {
+        setIsMenuOpen(false);
+        menuBtnRef.current?.focus();
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+    document.addEventListener('pointerdown', handlePointerDown);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isLangOpen, isMenuOpen]);
 
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-    setIsLangOpen(false);
-  };
-
-  // Hozirgi tilni chiroyli ko'rsatish uchun
-  // resolvedLanguage doim 'uz' | 'ru' | 'en' dan biri bo'ladi ('en-US' kabi qiymatlar emas)
-  const currentLang = (i18n.resolvedLanguage || 'uz').toUpperCase();
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <>
-      <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
-        <div className={styles.container}>
+    <header ref={headerRef} className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
+      <div className={styles.container}>
+        <a href={homeHref} className={styles.logo}>
+          <span className={styles.logoIcon} aria-hidden="true">
+            <ChartGantt size={24} strokeWidth={2.5} />
+          </span>
+          <span className={styles.logoText}>
+            MEHR<span className={styles.highlight}>ZOD</span>
+          </span>
+        </a>
 
-          <a href="#" className={styles.logo}>
-            <div className={styles.logoIcon}>
-              <ChartGantt size={24} strokeWidth={2.5} />
-            </div>
-            <span className={styles.logoText}>
-              MEHR<span className={styles.highlight}>ZOD</span>
-            </span>
-          </a>
+        <nav className={styles.desktopNav} aria-label="Main">
+          <ul className={styles.navLinks}>
+            <li><a href="#services">{dict.services}</a></li>
+            <li><a href="#portfolio">{dict.portfolio}</a></li>
+            <li><a href="#faq">{dict.faq}</a></li>
+          </ul>
+        </nav>
 
-          <nav className={styles.desktopNav}>
-            <ul className={styles.navLinks}>
-              <li><a href="#services">{t('nav.services')}</a></li>
-              <li><a href="#portfolio">{t('nav.portfolio')}</a></li>
-              <li><a href="#faq">{t('nav.faq')}</a></li>
-            </ul>
-          </nav>
-
-          <div className={styles.rightActions}>
-
-            {/* Korporativ Til o'zgartirgich (Dropdown) */}
-            <div className={styles.langSwitcher} ref={langDropdownRef}>
-              <button
-                className={styles.langBtn}
-                onClick={() => setIsLangOpen(!isLangOpen)}
-                aria-label="Change language"
-              >
-                <Languages size={18} />
-                <span>{currentLang}</span>
-                <ChevronDown size={14} className={`${styles.chevron} ${isLangOpen ? styles.rotate : ''}`} />
-              </button>
-
-              {isLangOpen && (
-                <div className={styles.langDropdown}>
-                  <button onClick={() => changeLanguage('en')} className={currentLang === 'EN' ? styles.activeLang : ''}>English </button>
-                  <button onClick={() => changeLanguage('ru')} className={currentLang === 'RU' ? styles.activeLang : ''}>Русский </button>
-                  <button onClick={() => changeLanguage('uz')} className={currentLang === 'UZ' ? styles.activeLang : ''}>O'zbek </button>
-                </div>
-              )}
-            </div>
-
+        <div className={styles.rightActions}>
+          <div className={styles.langSwitcher} ref={langRef}>
             <button
-              className={styles.contactBtn}
-              onClick={() => setIsModalOpen(true)}
+              ref={langBtnRef}
+              type="button"
+              className={styles.langBtn}
+              onClick={() => setIsLangOpen((open) => !open)}
+              aria-expanded={isLangOpen}
+              aria-controls={langMenuId}
+              aria-label={`${dict.language}: ${currentLang.label}`}
             >
-              {t('nav.contact')}
+              <Languages size={18} aria-hidden="true" />
+              <span aria-hidden="true">{currentLang.short}</span>
+              <ChevronDown
+                size={14}
+                aria-hidden="true"
+                className={`${styles.chevron} ${isLangOpen ? styles.rotate : ''}`}
+              />
             </button>
 
-            <button className={styles.hamburger} onClick={toggleMenu} aria-label="Menu">
-              <span className={`${styles.bar} ${isMenuOpen ? styles.barOpen : ''}`}></span>
-              <span className={`${styles.bar} ${isMenuOpen ? styles.barOpen : ''}`}></span>
-              <span className={`${styles.bar} ${isMenuOpen ? styles.barOpen : ''}`}></span>
-            </button>
-          </div>
-        </div>
-
-        {isMenuOpen && (
-          <div className={styles.mobileMenu}>
-            <ul className={styles.mobileLinks}>
-              <li><a href="#services" onClick={toggleMenu}>{t('nav.services')}</a></li>
-              <li><a href="#portfolio" onClick={toggleMenu}>{t('nav.portfolio')}</a></li>
-              <li><a href="#faq" onClick={toggleMenu}>{t('nav.faq')}</a></li>
-              <li>
-                <button
-                  className={styles.contactBtnMobile}
-                  onClick={() => {
-                    setIsModalOpen(true);
-                    toggleMenu();
-                  }}
-                >
-                  {t('nav.contact')}
-                </button>
-              </li>
+            <ul id={langMenuId} className={styles.langDropdown} hidden={!isLangOpen}>
+              {languages.map((lang) => (
+                <li key={lang.code}>
+                  <a
+                    href={lang.href}
+                    hrefLang={lang.code}
+                    lang={lang.code}
+                    aria-current={lang.current ? 'page' : undefined}
+                    className={lang.current ? styles.activeLang : undefined}
+                    onClick={() => rememberLanguage(lang.code)}
+                  >
+                    {lang.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
-        )}
-      </header>
 
-      <ContactModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
-    </>
+          <button type="button" className={styles.contactBtn} data-open-contact>
+            {dict.contact}
+          </button>
+
+          <button
+            ref={menuBtnRef}
+            type="button"
+            className={styles.hamburger}
+            onClick={() => setIsMenuOpen((open) => !open)}
+            aria-expanded={isMenuOpen}
+            aria-controls={menuId}
+            aria-label={isMenuOpen ? dict.closeMenu : dict.openMenu}
+          >
+            <span className={`${styles.bar} ${isMenuOpen ? styles.barOpen : ''}`}></span>
+            <span className={`${styles.bar} ${isMenuOpen ? styles.barOpen : ''}`}></span>
+            <span className={`${styles.bar} ${isMenuOpen ? styles.barOpen : ''}`}></span>
+          </button>
+        </div>
+      </div>
+
+      <nav id={menuId} className={styles.mobileMenu} hidden={!isMenuOpen} aria-label="Mobile">
+        <ul className={styles.mobileLinks}>
+          <li><a href="#services" onClick={closeMenu}>{dict.services}</a></li>
+          <li><a href="#portfolio" onClick={closeMenu}>{dict.portfolio}</a></li>
+          <li><a href="#faq" onClick={closeMenu}>{dict.faq}</a></li>
+          <li>
+            <button type="button" className={styles.contactBtnMobile} data-open-contact onClick={closeMenu}>
+              {dict.contact}
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
   );
 };
 

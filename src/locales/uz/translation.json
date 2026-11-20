@@ -1,9 +1,17 @@
 {
+  "meta": {
+    "title": "Ma'lumotlar tahlili va BI yechimlari | Mehrzod Group",
+    "description": "Mehrzod Business Group: ma'lumotlar tahlili, BI dashbordlar, ma'lumotlar ombori va biznes konsalting. Biznesingiz ma'lumotlarini aniq qarorlarga aylantiramiz."
+  },
   "nav": {
     "services": "Xizmatlar",
     "portfolio": "Keyslar",
     "faq": "FAQ",
-    "contact": "Biz bilan bog'lanish"
+    "contact": "Biz bilan bog'lanish",
+    "language": "Tilni tanlash",
+    "openMenu": "Menyuni ochish",
+    "closeMenu": "Menyuni yopish",
+    "skipToContent": "Asosiy mazmunga o'tish"
   },
   "hero": {
     "title": "Mehrzod Group tomonidan IT xizmatlar va yechimlar",
@@ -54,16 +62,46 @@
     "title": "Loyihangiz sizning tezligingizda",
     "subtitle": "Har bir qadam ma'lumotlaringizni biznes qiymatiga yaqinlashtiradi, behuda harakatlar va taxminlarsiz.",
     "steps": {
-      "step1": { "title": "Talablarni tahlil qilish", "desc": "Biz jamoangiz ma'lumotlardan qanday foydalanishini o'rganamiz, kamchiliklarni topamiz va tahliliy tizimingiz nimalarni taqdim etishi kerakligini belgilaymiz." },
-      "step2": { "title": "Ma'lumotlar arxitekturasi", "desc": "Biz ma'lumotlaringiz qanday tuzilishi, belgilanishi va bog'lanishini loyihalashtiramiz, shunda tahlillaringiz aniq, tez va oson kengaytiriladigan bo'ladi." },
-      "step3": { "title": "Ma'lumotlarni yig'ish", "desc": "Fayllar, API yoki bulutli vositalar bo'ladimi, biz har bir manbani ulaymiz va ma'lumotlaringiz xatosiz yoki kechikishlarsiz bitta joyga kelib tushishini ta'minlaymiz." },
-      "step4": { "title": "Ma'lumotlar ko'lini (Data Lake) yaratish", "desc": "Biz barcha xom va yarim tuzilgan ma'lumotlar uchun ombor o'rnatamiz, shunda siz hamma narsani bir joyda saqlashingiz va keyinroq hisobotlar yoki chuqur tahlil uchun ishlatishingiz mumkin." },
-      "step5": { "title": "Ma'lumotlar omborini o'rnatish", "desc": "Bu yerda toza ma'lumotlar yashaydi. Biz hamma narsani tartibli va hisobot berishga tayyor holda saqlaydigan markaziy omborni o'rnatamiz." },
-      "step6": { "title": "Ma'lumotlarni tozalash", "desc": "Dublikatlardan tortib format mos kelmasligigacha, biz jamoalar ishini sekinlashtiradigan muammolarni hal qilamiz, shunda har bir yozuvga ishonish mumkin bo'ladi." },
-      "step7": { "title": "ETL/ELT ishlab chiqish", "desc": "Sizning tahlillaringiz tizimingiz kabi yangi. Biz ma'lumotlarni kechikishlarsiz yoki qo'l mehnatisiz ko'chiradigan va o'zgartiradigan oqimlarni o'rnatamiz." },
-      "step8": { "title": "Sifat nazorati", "desc": "Kelajakdagi muammolarni oldini olish uchun biz ma'lumotlar tizimingizning har bir qismini, jumladan, ulanishlar, mantiq, aniqlik va yuklanish vaqtlarini sinovdan o'tkazamiz." },
-      "step9": { "title": "Ishga tushirish (Deployment)", "desc": "Nihoyat, biz hammasini harakatga keltiramiz — yangilanishlarni avtomatlashtiramiz, hisobotlarni sinxronlashtiramiz va birinchi kundan boshlab ma'lumot berishga tayyor tizimni topshiramiz." },
-      "step10": { "title": "Ma'lumotlar tahlili", "desc": "Hamma narsa o'z joyida bo'lgach, biz jamoangiz ma'lumotlarni o'rganishi va qarorlar qabul qilishi uchun real vaqt tahlilini ish jarayonlaringizga kiritamiz." }
+      "step1": {
+        "title": "Talablarni tahlil qilish",
+        "desc": "Biz jamoangiz ma'lumotlardan qanday foydalanishini o'rganamiz, kamchiliklarni topamiz va tahliliy tizimingiz nimalarni taqdim etishi kerakligini belgilaymiz."
+      },
+      "step2": {
+        "title": "Ma'lumotlar arxitekturasi",
+        "desc": "Biz ma'lumotlaringiz qanday tuzilishi, belgilanishi va bog'lanishini loyihalashtiramiz, shunda tahlillaringiz aniq, tez va oson kengaytiriladigan bo'ladi."
+      },
+      "step3": {
+        "title": "Ma'lumotlarni yig'ish",
+        "desc": "Fayllar, API yoki bulutli vositalar bo'ladimi, biz har bir manbani ulaymiz va ma'lumotlaringiz xatosiz yoki kechikishlarsiz bitta joyga kelib tushishini ta'minlaymiz."
+      },
+      "step4": {
+        "title": "Ma'lumotlar ko'lini (Data Lake) yaratish",
+        "desc": "Biz barcha xom va yarim tuzilgan ma'lumotlar uchun ombor o'rnatamiz, shunda siz hamma narsani bir joyda saqlashingiz va keyinroq hisobotlar yoki chuqur tahlil uchun ishlatishingiz mumkin."
+      },
+      "step5": {
+        "title": "Ma'lumotlar omborini o'rnatish",
+        "desc": "Bu yerda toza ma'lumotlar yashaydi. Biz hamma narsani tartibli va hisobot berishga tayyor holda saqlaydigan markaziy omborni o'rnatamiz."
+      },
+      "step6": {
+        "title": "Ma'lumotlarni tozalash",
+        "desc": "Dublikatlardan tortib format mos kelmasligigacha, biz jamoalar ishini sekinlashtiradigan muammolarni hal qilamiz, shunda har bir yozuvga ishonish mumkin bo'ladi."
+      },
+      "step7": {
+        "title": "ETL/ELT ishlab chiqish",
+        "desc": "Sizning tahlillaringiz tizimingiz kabi yangi. Biz ma'lumotlarni kechikishlarsiz yoki qo'l mehnatisiz ko'chiradigan va o'zgartiradigan oqimlarni o'rnatamiz."
+      },
+      "step8": {
+        "title": "Sifat nazorati",
+        "desc": "Kelajakdagi muammolarni oldini olish uchun biz ma'lumotlar tizimingizning har bir qismini, jumladan, ulanishlar, mantiq, aniqlik va yuklanish vaqtlarini sinovdan o'tkazamiz."
+      },
+      "step9": {
+        "title": "Ishga tushirish (Deployment)",
+        "desc": "Nihoyat, biz hammasini harakatga keltiramiz — yangilanishlarni avtomatlashtiramiz, hisobotlarni sinxronlashtiramiz va birinchi kundan boshlab ma'lumot berishga tayyor tizimni topshiramiz."
+      },
+      "step10": {
+        "title": "Ma'lumotlar tahlili",
+        "desc": "Hamma narsa o'z joyida bo'lgach, biz jamoangiz ma'lumotlarni o'rganishi va qarorlar qabul qilishi uchun real vaqt tahlilini ish jarayonlaringizga kiritamiz."
+      }
     }
   },
   "expertise": {
@@ -129,7 +167,9 @@
           "Mijozning umr bo'yi qiymatini (LTV) bashorat qilish"
         ]
       }
-    }
+    },
+    "prev": "Oldingi soha",
+    "next": "Keyingi soha"
   },
   "faq": {
     "title": "Ko'p so'raladigan savollar (FAQ)",
@@ -198,7 +238,6 @@
     "privacy": "Maxfiylik siyosati",
     "terms": "Xizmat ko'rsatish shartlari"
   },
-
   "contactModal": {
     "title": "Biz bilan bog'laning",
     "subtitle": "Quyidagi shaklni to'ldiring va loyihangizni muhokama qilish uchun siz bilan bog'lanamiz.",
@@ -211,6 +250,16 @@
     "sending": "Yuborilmoqda...",
     "successTitle": "Rahmat!",
     "successDesc": "Xabaringiz qabul qilindi va tez orada siz bilan bog'lanamiz.",
-    "errorMsg": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring."
+    "errorMsg": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring.",
+    "close": "Yopish",
+    "companyPlaceholder": "Kompaniyangiz MChJ"
+  },
+  "form": {
+    "errorCall": "Yoki bizga qo'ng'iroq qiling:"
+  },
+  "notFound": {
+    "title": "Sahifa topilmadi",
+    "desc": "Siz qidirgan sahifa mavjud emas yoki boshqa manzilga ko'chirilgan.",
+    "back": "Bosh sahifaga qaytish"
   }
 }
