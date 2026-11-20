@@ -1,107 +1,70 @@
 .heroSection {
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
-  background-color: #f8fafc;
-  padding-top: 80px;
-  overflow: hidden; /* Animatsiya chekkaga chiqib ketmasligi un */
+  background-color: var(--color-surface);
+  padding-top: calc(var(--header-h) + var(--space-4)); /* qotirilgan navbar ostida qolmasligi uchun */
+  overflow: hidden; /* Animatsiya chekkaga chiqib ketmasligi uchun */
 }
 
 .container {
-  width: 100%;
-  padding: 0 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 40px;
+  gap: var(--space-10);
 }
 
-/* 1. Matn qismi (chap tarafdagi kontent) */
+/* 1. Matn qismi (chap tomon) */
 .content {
-  flex: 1; /* Ekran yarmini egallaydi */
+  flex: 1;
   max-width: 650px;
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.8s var(--ease-out) both;
 }
 
 .title {
-  font-size: 4.5rem;
+  font-size: var(--text-display);
   font-weight: 800;
-  line-height: 1.1;
-  color: #0f172a;
-  margin-bottom: 24px;
-  letter-spacing: -2px;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
 }
 
 .subtitle {
-  font-size: 1.25rem;
-  line-height: 1.6;
-  color: #475569;
-  margin-bottom: 40px;
+  font-size: var(--text-xl);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-10);
   max-width: 600px;
 }
 
 .buttonGroup {
   display: flex;
-  gap: 16px;
+  gap: var(--space-4);
   flex-wrap: wrap;
 }
 
-.primaryBtn, .secondaryBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-family: inherit;
-  padding: 16px 32px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.primaryBtn {
-  background-color: #2563eb;
-  color: #ffffff;
-  border: none;
-}
-
-.primaryBtn:hover {
-  background-color: #1d4ed8;
-  transform: translateY(-2px);
-}
-
-.secondaryBtn {
-  background-color: transparent;
-  color: #0f172a;
-  border: 1px solid #cbd5e1;
-}
-
-.secondaryBtn:hover {
-  background-color: #e2e8f0;
-}
-
-/* 2. Animatsiya qismi (o'ng tarafdagi dashboard) */
+/* 2. Animatsiya qismi (o'ng tomondagi dashboard, bezak) */
 .dashWrapper {
-  flex: 1; /* Ekran o'ng yarmini egallaydi */
+  flex: 1;
   height: 450px;
-  position: relative; /* Ichidagi elementlar bunga nisbatan joylashadi */
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden; /* Oqim chiziqlari chapdagi matn ustiga chiqib ketmasin */
 }
 
-/* Dashboard'ning asosiy geometrik asosi */
 .dashContainer {
   position: relative;
   width: 100%;
   max-width: 400px;
   height: 300px;
-  background-color: rgba(37, 99, 235, 0.03);
-  border: 2px solid rgba(37, 99, 235, 0.1);
-  border-radius: 12px;
-  padding: 20px;
+  background-color: color-mix(in srgb, var(--color-primary) 4%, transparent);
+  border: 2px solid color-mix(in srgb, var(--color-primary) 12%, transparent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
@@ -109,34 +72,34 @@
   z-index: 1; /* Oqim chiziqlari kartalar orqasidan o'tadi */
 }
 
-/* Dashboard ichidagi Card'lar */
 .dashCard {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
   padding: 15px;
   gap: 10px;
-  transition: all 0.3s ease;
+  transition: transform var(--duration) ease, border-color var(--duration) ease;
 }
 
 .dashCard:hover {
-  border-color: #2563eb;
+  border-color: var(--color-primary);
   transform: scale(1.05) translateY(-5px);
 }
 
 /* Ma'lumotlarni anglatuvchi chiziqlar */
-.dashTitle, .dashValue, .dashBar, .dataLine {
-  background-color: #e2e8f0;
+.dashTitle,
+.dashValue,
+.dashBar {
+  background-color: var(--color-line);
   border-radius: 4px;
 }
 
 .dashTitle { height: 14px; width: 60%; }
-.dashValue { height: 24px; width: 40%; background-color: #cbd5e1; }
-.dashBar { height: 8px; width: 100%; background-color: rgba(37, 99, 235, 0.2); }
+.dashValue { height: 24px; width: 40%; background-color: color-mix(in srgb, var(--color-line-strong) 35%, var(--color-line)); }
+.dashBar { height: 8px; width: 100%; background-color: color-mix(in srgb, var(--color-primary) 22%, transparent); }
 
-/* Avval inline style bilan berilgan o'lchamlar */
 .dashCardWide { grid-column: 2 / 4; }
 .dashCardBottom { grid-column: 1 / 3; }
 .dashTitleLong { width: 90%; }
@@ -144,17 +107,15 @@
 .dashBars { display: flex; gap: 5px; }
 .dashBarShort { width: 70%; }
 
-/* Data Flow Chiziqlari (Asosiy animatsiya) */
+/* Data oqimi chiziqlari (firuza) */
 .dataFlowLine {
   position: absolute;
   height: 2px;
-  background-color: rgba(37, 99, 235, 0.4);
+  background-color: color-mix(in srgb, var(--color-accent) 55%, transparent);
   border-radius: 2px;
   transform-origin: center;
 }
 
-/* Alohida animatsiya chiziqlari.
-   nth-child ishlatilmaydi: ota-elementning 1-bolasi dashContainer, shuning uchun indekslar siljib ketardi */
 .flowLine1 {
   top: 10%; left: 0%; width: 100%;
   animation: flowHorizontal 4s infinite linear;
@@ -168,33 +129,28 @@
   animation: flowHorizontal 6s infinite 0.5s linear;
 }
 
-/* Tepaga o'suvchi Bar Chart elementi */
+/* Tepaga o'suvchi ustun (firuza aksent) */
 .upwardBar {
   position: absolute;
   bottom: 0;
   left: 10%;
   width: 15px;
   height: 10px;
-  background-color: #2563eb;
+  background-color: var(--color-accent);
   border-radius: 4px 4px 0 0;
   animation: growUp 5s infinite ease-out;
 }
 
-/* --- `@keyframes` Animatsiya logikasi --- */
-
-/* Asosiy kontent silliq chiqishi */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Dashboard konteyneri sekin nafas olish effekti */
 @keyframes dashPulse {
-  0%, 100% { opacity: 0.8; transform: scale(1); }
+  0%, 100% { opacity: 0.85; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.02); }
 }
 
-/* Ma'lumotlar oqimining gorizontal harakati */
 @keyframes flowHorizontal {
   0% { transform: translateX(-100%); opacity: 0; }
   20% { opacity: 1; }
@@ -202,19 +158,11 @@
   100% { transform: translateX(100%); opacity: 0; }
 }
 
-/* Bar Chart'ning o'sishi va pasayishi */
 @keyframes growUp {
   0% { height: 10px; opacity: 1; }
   30% { height: 120px; }
   70% { height: 90px; }
   100% { height: 150px; opacity: 0; }
-}
-
-/* --- Kichik ekranlar uchun moslashuvchanlik (Responsive) --- */
-@media (max-width: 1024px) {
-  .title { font-size: 3rem; }
-  .subtitle { font-size: 1.125rem; }
-  .dashWrapper { height: 350px; }
 }
 
 /* Harakatni kamaytirish so'ralgan bo'lsa (OS sozlamasi) cheksiz animatsiyalarni to'xtatamiz */
@@ -230,9 +178,17 @@
   .dashCard:hover { transform: none; }
 }
 
+@media (max-width: 1024px) {
+  .dashWrapper { height: 350px; }
+}
+
 @media (max-width: 768px) {
-  .container { flex-direction: column-reverse; padding: 10% 5%; }
+  .container {
+    flex-direction: column-reverse;
+    padding-block: var(--space-12);
+  }
   .content { text-align: center; max-width: 100%; }
+  .subtitle { font-size: var(--text-lg); margin-inline: auto; }
   .buttonGroup { justify-content: center; }
-  .dashWrapper { width: 100%; max-width: 400px; margin-bottom: 40px; }
+  .dashWrapper { width: 100%; max-width: 400px; margin-bottom: var(--space-10); }
 }

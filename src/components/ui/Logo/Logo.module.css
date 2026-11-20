@@ -1,0 +1,77 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  line-height: 1;
+}
+
+.light {
+  --logo-star: var(--color-primary);
+  --logo-bar: var(--color-on-ink);
+  --logo-name: var(--color-text);
+  --logo-tagline: var(--color-text-muted);
+}
+
+.dark {
+  --logo-star: var(--color-on-ink);
+  --logo-bar: var(--color-primary);
+  --logo-name: var(--color-on-ink);
+  --logo-tagline: var(--color-accent);
+}
+
+.mark {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+}
+
+.star {
+  fill: var(--logo-star);
+}
+
+.bar {
+  fill: var(--logo-bar);
+}
+
+.barAccent {
+  fill: var(--color-accent);
+}
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--logo-name);
+}
+
+.tagline {
+  margin-top: 0.3rem;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--logo-tagline);
+}
+
+/* Juda tor telefonlarda (320–380px) navbar'ga sig'ishi uchun kichraytiramiz */
+@media (max-width: 380px) {
+  .mark {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .name {
+    font-size: 1.25rem;
+  }
+
+  .tagline {
+    font-size: 0.5625rem;
+    letter-spacing: 0.18em;
+  }
+}

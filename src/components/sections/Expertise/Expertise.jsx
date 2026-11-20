@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { MonitorSmartphone, TerminalSquare, Database, Cloud } from 'lucide-react';
 import { TECH_CATEGORIES } from '@data/sections';
 import { handleTabKeyDown } from '@lib/tabs';
+import SectionHeader from '@components/ui/SectionHeader/SectionHeader';
 import styles from './Expertise.module.css';
 
 const ICONS = { MonitorSmartphone, TerminalSquare, Database, Cloud };
@@ -11,12 +12,9 @@ const Expertise = ({ dict }) => {
   const active = TECH_CATEGORIES[activeIndex];
 
   return (
-    <section className={styles.expertiseSection} id="expertise">
-      <div className={styles.container} data-reveal>
-        <div className={styles.header}>
-          <h2 className={styles.title} id="expertise-title">{dict.title}</h2>
-          <p className={styles.subtitle}>{dict.subtitle}</p>
-        </div>
+    <section className={`section ${styles.expertiseSection}`} id="expertise">
+      <div className="container" data-reveal>
+        <SectionHeader id="expertise-title" title={dict.title} subtitle={dict.subtitle} align="center" />
 
         <div className={styles.wrapper}>
           <div className={styles.sidebar} role="tablist" aria-labelledby="expertise-title" aria-orientation="vertical">

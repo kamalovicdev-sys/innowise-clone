@@ -12,18 +12,19 @@ export const SERVICES = [
   { key: 'sales_dept', icon: 'Headset' },
 ];
 
-// Jarayon bosqichlari (Stats bo'limi). Ranglar 3-bosqichda yangi palitraga moslanadi.
+// Jarayon bosqichlari (Stats bo'limi): rang lojuvarddan (#1F3A93) firuzaga (#0E9AA7) silliq o'tadi.
+// Har bir rang oq fonda kamida 3.4:1 kontrastga ega (grafik elementlar uchun talab >= 3:1).
 export const PROCESS_STEPS = [
-  { key: 'step1', color: '#d32f2f' },
-  { key: 'step2', color: '#df6262' },
-  { key: 'step3', color: '#e58e8e' },
-  { key: 'step4', color: '#ebb6b6' },
-  { key: 'step5', color: '#e29ab9' },
-  { key: 'step6', color: '#cd9bd9' },
-  { key: 'step7', color: '#bca1e6' },
-  { key: 'step8', color: '#d7c7f0' },
-  { key: 'step9', color: '#aa8dd8' },
-  { key: 'step10', color: '#8964c4' },
+  { key: 'step1', color: '#1f3a93' },
+  { key: 'step2', color: '#1d4595' },
+  { key: 'step3', color: '#1b4f97' },
+  { key: 'step4', color: '#195a9a' },
+  { key: 'step5', color: '#17659c' },
+  { key: 'step6', color: '#166f9e' },
+  { key: 'step7', color: '#147aa0' },
+  { key: 'step8', color: '#1285a3' },
+  { key: 'step9', color: '#108fa5' },
+  { key: 'step10', color: '#0e9aa7' },
 ];
 
 export const BENEFITS = ['visibility', 'reporting', 'presence', 'guidance', 'roi'];

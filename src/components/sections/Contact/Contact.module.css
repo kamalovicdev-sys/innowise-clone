@@ -1,51 +1,20 @@
 .contactSection {
-  padding: 100px 0;
-  background-color: #f1f5f9;
+  background-color: var(--color-surface);
 }
 
-.container {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 5%;
-}
-
-/* Sarlavha qismi markazda turadi */
-.header {
-  text-align: center;
-  margin-bottom: 60px;
-  max-width: 700px;
-  margin-inline: auto;
-}
-
-.title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 16px;
-  letter-spacing: -1px;
-}
-
-.subtitle {
-  font-size: 1.125rem;
-  color: #475569;
-  line-height: 1.6;
-}
-
-/* Forma va Xarita yonma-yon (Grid) */
+/* Xarita va forma yonma-yon */
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: stretch; /* Ikkalasi bir xil balandlikda bo'lishi uchun */
+  gap: var(--space-10);
+  align-items: stretch;
 }
 
-/* --- Xarita qismi --- */
 .mapContainer {
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-  background-color: #ffffff;
+  box-shadow: var(--shadow-md);
+  background-color: var(--color-surface-2);
   min-height: 400px;
 }
 
@@ -57,36 +26,29 @@
   border: 0;
 }
 
-/* --- Forma kartasi (forma o'zi: ui/ContactForm) --- */
+/* Forma kartasi (forma o'zi: ui/ContactForm) */
 .formCard {
-  background-color: #ffffff;
-  border-radius: 16px;
-  padding: 40px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  background-color: var(--color-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--space-10);
+  box-shadow: var(--shadow-md);
 }
 
-/* Responsive dizayn */
 @media (max-width: 992px) {
   .wrapper {
     grid-template-columns: 1fr;
   }
   .mapContainer {
     min-height: 350px;
-    order: 2; /* Mobilda xarita formadan keyin turadi */
+    order: 2; /* Mobilda xarita formadan keyin */
   }
   .formCard {
-    order: 1; /* Mobilda forma birinchi turadi */
-  }
-}
-
-@media (max-width: 768px) {
-  .title {
-    font-size: 2rem;
+    order: 1;
   }
 }
 
 @media (max-width: 600px) {
   .formCard {
-    padding: 24px;
+    padding: var(--space-6);
   }
 }

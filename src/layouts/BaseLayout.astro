@@ -1,4 +1,7 @@
 ---
+// Shriftlar o'z serverimizdan (lotin, kirill va h.k. subsetlari unicode-range bo'yicha faqat kerak bo'lganda yuklanadi)
+import '@fontsource-variable/inter';
+import '@fontsource-variable/manrope';
 import '@styles/global.css';
 import { LOCALES, LOCALE_META, LANG_STORAGE_KEY, localizedPath } from '@i18n';
 
@@ -64,15 +67,10 @@ const xDefault = new URL(localizedPath('uz', path), site).href;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
 
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#f3f6fa" />
 
     <!-- Google tag (gtag.js) -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-18213108374"></script>
