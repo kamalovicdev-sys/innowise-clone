@@ -314,6 +314,11 @@
       "required": "Please fill in this field",
       "phone": "Enter a full phone number, e.g. +998 90 123 45 67",
       "email": "Enter a valid email, e.g. name@company.uz"
+    },
+    "consent": {
+      "before": "By submitting this form, you agree to the processing of your personal data in line with our ",
+      "link": "Privacy Policy",
+      "after": "."
     }
   },
   "notFound": {
@@ -324,5 +329,9 @@
   "quickContact": {
     "label": "Quick contact",
     "call": "Call us"
+  },
+  "legal": {
+    "updated": "Last updated",
+    "draftNotice": "Draft: this text has not been approved by a lawyer and is not linked on the site yet."
   }
 }

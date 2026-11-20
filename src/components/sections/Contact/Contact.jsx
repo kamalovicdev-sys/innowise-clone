@@ -6,7 +6,8 @@ import styles from './Contact.module.css';
 
 const stripProtocol = (url) => url.replace(/^https?:\/\//, '');
 
-const Contact = ({ dict, formDict, address }) => {
+/** @param {{ dict: any, formDict: any, address: { street: string, city: string }, privacyHref?: string | null }} props */
+const Contact = ({ dict, formDict, address, privacyHref = null }) => {
   const labels = {
     name: dict.name,
     company: dict.company,
@@ -21,6 +22,8 @@ const Contact = ({ dict, formDict, address }) => {
     errorMsg: dict.errorMsg,
     errorCall: formDict.errorCall,
     errors: formDict.errors,
+    consent: formDict.consent,
+    privacyHref,
   };
 
   // Messenjerlar faqat site.js da havola berilganda ko'rsatiladi

@@ -314,6 +314,11 @@
       "required": "Bu maydonni to'ldiring",
       "phone": "Telefon raqamini to'liq kiriting, masalan +998 90 123 45 67",
       "email": "Email manzilini to'g'ri kiriting, masalan name@company.uz"
+    },
+    "consent": {
+      "before": "Formani yuborish orqali siz shaxsiy ma'lumotlaringiz ",
+      "link": "Maxfiylik siyosati",
+      "after": "ga muvofiq qayta ishlanishiga rozilik bildirasiz."
     }
   },
   "notFound": {
@@ -324,5 +329,9 @@
   "quickContact": {
     "label": "Tezkor aloqa",
     "call": "Qo'ng'iroq qilish"
+  },
+  "legal": {
+    "updated": "Yangilangan sana",
+    "draftNotice": "Qoralama: bu matn hali yurist tomonidan tasdiqlanmagan va saytda havola qilinmagan."
   }
 }

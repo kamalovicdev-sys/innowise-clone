@@ -8,7 +8,8 @@ import styles from './ContactForm.module.css';
 /**
  * Umumiy aloqa formasi.
  * labels: name, company, email, phone, message, companyPlaceholder, submit, sending,
- *         successTitle, successDesc, errorMsg, errorCall, errors: { required, phone, email }
+ *         successTitle, successDesc, errorMsg, errorCall, errors: { required, phone, email },
+ *         consent: { before, link, after }, privacyHref (null bo'lsa rozilik yozuvi ko'rsatilmaydi)
  * layout: 'grid' (Contact bo'limi, 2 ustun) | 'stack' (modal, tor)
  */
 const ContactForm = ({ labels, layout = 'grid', onSuccess }) => {
@@ -140,6 +141,16 @@ const ContactForm = ({ labels, layout = 'grid', onSuccess }) => {
         <p className={`${styles.error} ${styles.fullWidth}`} role="alert">
           {labels.errorMsg} {labels.errorCall}{' '}
           <a href={`tel:${CONTACT.phone}`}>{CONTACT.phoneDisplay}</a>
+        </p>
+      )}
+
+      {labels.privacyHref && (
+        <p className={`${styles.consent} ${styles.fullWidth}`}>
+          {labels.consent.before}
+          <a href={labels.privacyHref} target="_blank" rel="noopener">
+            {labels.consent.link}
+          </a>
+          {labels.consent.after}
         </p>
       )}
 

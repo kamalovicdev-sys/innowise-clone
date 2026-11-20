@@ -22,7 +22,10 @@ export const SOCIAL_LINKS = [
   { id: 'linkedin', label: 'LinkedIn', href: null },
 ];
 
-// Privacy Policy va Terms sahifalari tayyor bo'lgach yo'lini yozing (masalan 'privacy/').
+// Huquqiy sahifalar. Matn: src/content/legal/<sahifa>.<til>.md
+// null — sahifa qoralama: /privacy/ manzilida ochiladi, lekin noindex, sitemap'da yo'q, footer'da havola yo'q.
+// 'privacy/' deb yozilsa — e'lon qilinadi: footer havolasi, sitemap, formalardagi rozilik yozuvi paydo bo'ladi.
+/** @type {Record<string, string | null>} */
 export const LEGAL_PAGES = {
   privacy: null,
   terms: null,

@@ -60,6 +60,14 @@ src/
 - **Privacy Policy / Terms:** `src/data/site.js` → `LEGAL_PAGES` (sahifalar hali yo'q).
 - **Aloqa oynasini ochish:** istalgan elementga `data-open-contact` atributini qo'shing.
 
+### Maxfiylik siyosati
+
+- Matn: `src/content/legal/privacy.{uz,ru,en}.md` (oddiy Markdown). Yuqoridagi `updated` sanasini ham yangilang.
+- Hozir **qoralama**: sahifa `/privacy/`, `/ru/privacy/`, `/en/privacy/` manzillarida ochiladi, lekin indekslanmaydi, sitemap'da yo'q va saytda havola qilinmagan. Sahifa yuqorisida "qoralama" belgisi turadi.
+- Yurist tasdiqlagach `src/data/site.js` faylida `LEGAL_PAGES.privacy = 'privacy/'` deb yozing. Shunda footer havolasi, sitemap yozuvi va formalardagi rozilik matni o'zi paydo bo'ladi.
+- Qoralamadagi `[kvadrat qavs]` joylarini to'ldiring: yuridik nom, STIR, saqlash muddati, javob berish muddati.
+- **Yurist bilan kelishilishi kerak:** O'RQ-547 Qonunining 27¹-moddasi O'zbekiston fuqarolarining shaxsiy ma'lumotlarini O'zbekistondagi serverlarda saqlashni talab qiladi. Hozir forma ma'lumotlari EmailJS va Gmail (xorijiy serverlar) orqali o'tadi.
+
 ### Dizayn tizimi ("Lojuvard")
 
 Barcha ranglar, shriftlar, masofalar, burchaklar va soyalar `src/styles/tokens.css` faylida CSS o'zgaruvchilari sifatida saqlanadi. Komponentlarda rang yoki o'lchamni to'g'ridan-to'g'ri yozmang, tokendan foydalaning (masalan `var(--color-primary)`).
