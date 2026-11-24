@@ -24,7 +24,7 @@ npm run dev            # http://localhost:3000
 | `npm run preview` | Yig'ilgan saytni lokal ko'rish |
 | `npm run lint` | ESLint (accessibility qoidalari bilan) |
 | `npm run check` | Astro va tip tekshiruvi |
-| `npm run test:e2e` | Playwright testlari: tillar, forma, modal, mobil panel, 404, maxfiylik sahifasi (tizimda Google Chrome bo'lishi kerak) |
+| `npm run test:e2e` | Playwright testlari: tillar, forma, modal, bo'limlar, mobil panel, 404, maxfiylik sahifasi (tizimda Google Chrome bo'lishi kerak) |
 | `npm run og` | Ijtimoiy tarmoqlar uchun ulashish rasmlarini (`public/og/og-*.jpg`) qayta yaratish. Hero sarlavhasi o'zgarsa ishga tushiring |
 
 ## Deploy (Netlify)
@@ -52,8 +52,8 @@ src/
   components/
     home/HomePage.astro   # Bosh sahifa bo'limlarini yig'adi
     layout/               # Navbar (interaktiv), Footer (statik)
-    sections/             # Hero, Benefits, Services, Stats, Expertise, Portfolio, FAQ, Contact
-    ui/                   # ContactForm (umumiy forma + hook), ContactModal (yagona modal)
+    sections/             # Hero, Trust, Problems, Solutions, Process, Industries, Integrations, FAQ, Contact
+    ui/                   # ContactForm (umumiy forma + hook), ContactModal (yagona modal), ProblemFlow
   data/               # Tilga bog'liq bo'lmagan ma'lumotlar: kontaktlar, ijtimoiy tarmoqlar, bo'lim ro'yxatlari
   i18n/               # Tarjimalar va til yordamchilari
   locales/{uz,ru,en}/translation.json
@@ -65,11 +65,14 @@ src/
 
 - **Matnlar:** `src/locales/*/translation.json`. Uchala faylda kalitlar bir xil bo'lishi kerak.
 - **Telefon, email, xarita, koordinata:** `src/data/site.js` → `CONTACT`
-- **Portfolio rasmlari:** `src/assets/portfolio/<soha>.jpg`. Build vaqtida 480, 800 va 1200 px WebP'ga aylantiriladi. Almashtirganda fayl nomini saqlang
+- **Sahifa formati:** asosiy bo'limlar "Muammo → Oqibati → Yechimimiz" tuzilishida (`ui/ProblemFlow`). Muammo kartalari: `src/data/sections.js` → `PROBLEMS`, matni `problems.items.<key>`. Har bir kartaning manzili `/#problem-<key>` (masalan `/#problem-inventory`), uni reklama sitelink'larida ishlatish mumkin.
+- **Yechimlar:** `SOLUTIONS` (har birida `solves`: qaysi muammolarni hal qiladi), qo'shimcha xizmatlar: `EXTRA_SERVICES`. Kartaning manzili `/#solution-<key>`.
+- **Sohalar:** `INDUSTRIES`, matni `industries.items.<id>`. Rasmlar ixtiyoriy: `src/assets/industries/<id>.jpg` (batafsil: shu papkadagi README). Oltitasi ham qo'yilmaguncha ikonkali panel ko'rsatiladi.
+- **Integratsiyalar:** `INTEGRATION_GROUPS`. Tilga qarab nomi farq qiladigan tizim obyekt bilan yoziladi: `{ default: '1C', ru: '1С' }`.
 - **Ijtimoiy tarmoqlar:** `src/data/site.js` → `SOCIAL_LINKS`. `href: null` bo'lgan tarmoq saytda ko'rsatilmaydi.
 - **Telegram / WhatsApp (to'g'ridan-to'g'ri yozish):** `src/data/site.js` → `CONTACT.telegram`, `CONTACT.whatsapp`. Havola yozilsa, tugmalar Contact bo'limida va mobil panelda paydo bo'ladi.
 - **Ishonch bloki** (raqamlar, mijoz logotiplari, mijoz fikrlari): `src/data/trust.js`. Hammasi bo'sh bo'lsa, blok saytda ko'rinmaydi. Faqat haqiqiy ma'lumot kiriting.
-- **Keys natijalari:** tarjima faylida `portfolio.industries.<id>.metrics = [{ "value": "−23%", "label": "..." }]`. Bu maydon bo'lmasa, natijalar qatori chiqmaydi.
+- **Keys natijalari:** tarjima faylida `industries.items.<id>.metrics = [{ "value": "−23%", "label": "..." }]`. Bu maydon bo'lmasa, natijalar qatori chiqmaydi.
 - **Privacy Policy / Terms:** `src/data/site.js` → `LEGAL_PAGES` (sahifalar hali yo'q).
 - **Aloqa oynasini ochish:** istalgan elementga `data-open-contact` atributini qo'shing.
 
@@ -103,7 +106,7 @@ Barcha ranglar, shriftlar, masofalar, burchaklar va soyalar `src/styles/tokens.c
 
 ### Qaysi qism JS ishlatadi
 
-Hero, Benefits, Services, Stats va Footer tayyor HTML bo'lib chiqadi va JS ishlatmaydi. Navbar va ContactModal sahifa ochilishi bilan, Expertise, Portfolio, FAQ va Contact esa ekranga kirganda jonlanadi (`client:visible`).
+Hero, Problems, Solutions, Process, Integrations va Footer tayyor HTML bo'lib chiqadi va JS ishlatmaydi. Navbar va ContactModal sahifa ochilishi bilan, Industries, FAQ va Contact esa ekranga kirganda jonlanadi (`client:visible`).
 
 ### Til tanlovi
 

@@ -21,7 +21,7 @@ test.describe('Telefon', () => {
     const bar = page.locator('[data-mobile-cta]');
     expect(await bar.evaluate((el) => el.inert)).toBe(true);
 
-    await page.locator('#services').scrollIntoViewIfNeeded();
+    await page.locator('#solutions').scrollIntoViewIfNeeded();
     await expect(bar).toHaveAttribute('data-visible', '');
     await expect(bar.locator('a[href="tel:+998955209595"]')).toBeVisible();
     await bar.locator('[data-open-contact]').click();

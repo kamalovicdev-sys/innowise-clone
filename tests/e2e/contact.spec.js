@@ -20,7 +20,7 @@ test.describe('Aloqa oynasi (modal)', () => {
   });
 
   test('orqa fonga bosilganda yopiladi va sahifa aylanmaydi', async ({ page }) => {
-    await page.getByRole('button', { name: t.nav.contact }).click();
+    await page.locator('header').getByRole('button', { name: t.nav.contact, exact: true }).click();
     await expect(page.getByRole('dialog')).toBeVisible();
     expect(await page.evaluate(() => getComputedStyle(document.documentElement).overflow)).toBe('hidden');
     await page.mouse.click(8, 8);
@@ -56,7 +56,7 @@ test.describe('Aloqa oynasi (modal)', () => {
     await expect(dialog).toBeHidden({ timeout: 6000 });
 
     // 10 soniya ichida qayta yuborish bloklanadi (EmailJS rate limit)
-    await page.getByRole('button', { name: t.nav.contact }).click();
+    await page.locator('header').getByRole('button', { name: t.nav.contact, exact: true }).click();
     await expect(dialog.locator('input[name=name]')).toHaveValue('');
     await dialog.locator('input[name=name]').fill('Ikkinchi');
     await dialog.locator('input[name=phone]').fill('901234567');

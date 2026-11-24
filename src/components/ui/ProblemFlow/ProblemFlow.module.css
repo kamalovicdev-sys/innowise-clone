@@ -1,0 +1,85 @@
+/* Muammo → Oqibati → Yechimimiz: chap tomonda nuqtalar va ularni bog'lovchi chiziq.
+   Yechim qismi firuza fonda ajralib turadi (biz sotadigan narsa aynan shu). */
+.flow {
+  --gap: var(--space-4);
+  --dot: 10px;
+  --dot-top: 5px;          /* yorliq qatori (20px) o'rtasi */
+  --solution-pad: var(--space-3);
+  display: grid;
+  gap: var(--gap);
+}
+
+.step {
+  position: relative;
+  padding-left: var(--space-6);
+}
+
+/* Nuqta */
+.step::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: var(--dot-top);
+  width: var(--dot);
+  height: var(--dot);
+  border-radius: 50%;
+  background-color: var(--marker);
+}
+
+/* Keyingi qadam nuqtasigacha chiziq */
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: calc(var(--dot) / 2 - 1px);
+  top: calc(var(--dot-top) + var(--dot) + 4px);
+  height: calc(100% - var(--dot-top) - var(--dot) - 8px + var(--gap) + var(--dot-top) + var(--next-pad, 0px));
+  width: 2px;
+  background-color: var(--color-line);
+}
+
+.label {
+  font-size: var(--text-xs);
+  line-height: 20px;
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--label-color);
+}
+
+.text {
+  margin-top: var(--space-1);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+}
+
+.problem {
+  --marker: var(--color-text-muted);
+  --label-color: var(--color-text);
+}
+
+.consequence {
+  --marker: var(--color-danger);
+  --label-color: var(--color-danger);
+  --next-pad: var(--solution-pad); /* yechim bloki ichki chekinishga ega, chiziq uning nuqtasigacha yetsin */
+}
+
+/* Yechim: chekinish bilan ajratilgan blok, nuqta boshqalari bilan bir chiziqda qoladi */
+.solution {
+  --marker: var(--color-accent);
+  --label-color: var(--color-accent-ink);
+  margin-left: calc(-1 * var(--solution-pad));
+  padding: var(--solution-pad) var(--solution-pad) var(--solution-pad) calc(var(--space-6) + var(--solution-pad));
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent-soft);
+}
+
+.solution::before {
+  left: var(--solution-pad);
+  top: calc(var(--solution-pad) + var(--dot-top));
+}
+
+.solution .text {
+  color: var(--color-text);
+  font-weight: 500;
+}

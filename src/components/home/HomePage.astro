@@ -4,17 +4,18 @@ import Navbar from '@components/layout/Navbar/Navbar.jsx';
 import Footer from '@components/layout/Footer/Footer.jsx';
 import Hero from '@components/sections/Hero/Hero.jsx';
 import Trust from '@components/sections/Trust/Trust.jsx';
-import Benefits from '@components/sections/Benefits/Benefits.jsx';
-import Services from '@components/sections/Services/Services.jsx';
+import Problems from '@components/sections/Problems/Problems.jsx';
+import Solutions from '@components/sections/Solutions/Solutions.jsx';
 import Process from '@components/sections/Process/Process.jsx';
-import Expertise from '@components/sections/Expertise/Expertise.jsx';
-import Portfolio from '@components/sections/Portfolio/Portfolio.jsx';
+import Industries from '@components/sections/Industries/Industries.jsx';
+import Integrations from '@components/sections/Integrations/Integrations.jsx';
 import FAQ from '@components/sections/FAQ/FAQ.jsx';
 import Contact from '@components/sections/Contact/Contact.jsx';
 import ContactModal from '@components/ui/ContactModal/ContactModal.jsx';
 import MobileCTA from '@components/ui/MobileCTA/MobileCTA.jsx';
 import { getDictionary, getLanguageLinks, localizedPath } from '@i18n';
 import { LEGAL_PAGES, CONTACT, SOCIAL_LINKS } from '@data/site';
+import { INDUSTRIES } from '@data/sections';
 import { getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 
@@ -63,21 +64,27 @@ const structuredData = [
   },
 ];
 
-// Portfolio rasmlari: o'z serverimizdan, bir nechta o'lchamdagi WebP (srcset) sifatida
-const PORTFOLIO_SIZES = '(max-width: 992px) calc(100vw - 2.5rem), 560px';
-const portfolioSources = import.meta.glob<ImageMetadata>('../../assets/portfolio/*.jpg', { eager: true, import: 'default' });
-const portfolioImages = Object.fromEntries(
-  await Promise.all(
-    Object.entries(portfolioSources).map(async ([file, src]) => {
-      const id = file.split('/').pop()!.replace('.jpg', '');
-      const img = await getImage({ src, width: 1200, widths: [480, 800, 1200], format: 'webp', quality: 72 });
-      return [
-        id,
-        { src: img.src, srcset: img.srcSet.attribute, sizes: PORTFOLIO_SIZES, width: src.width, height: src.height },
-      ];
-    })
-  )
-);
+// Sohalar rasmlari: src/assets/industries/<id>.jpg. Bir xil ko'rinish uchun faqat HAMMA sohalar uchun fayl
+// bo'lganda ishlatiladi (o'z serverimizdan, bir nechta o'lchamdagi WebP). Aks holda Industries ikonkali panel chizadi.
+const INDUSTRY_IMAGE_SIZES = '(max-width: 992px) calc(100vw - 2.5rem), 560px';
+// glob eager emas: rasmlar to'liq bo'lmasa fayllar import qilinmaydi va dist/ ga tushmaydi
+const industrySources = import.meta.glob<ImageMetadata>('../../assets/industries/*.jpg', { import: 'default' });
+const loaderFor = (id: string) => industrySources[`../../assets/industries/${id}.jpg`];
+const hasAllImages = INDUSTRIES.every(({ id }) => loaderFor(id));
+const industryImages = hasAllImages
+  ? Object.fromEntries(
+      await Promise.all(
+        INDUSTRIES.map(async ({ id }) => {
+          const src = await loaderFor(id)();
+          const img = await getImage({ src, width: 1200, widths: [480, 800, 1200], format: 'webp', quality: 72 });
+          return [
+            id,
+            { src: img.src, srcset: img.srcSet.attribute, sizes: INDUSTRY_IMAGE_SIZES, width: src.width, height: src.height },
+          ];
+        })
+      )
+    )
+  : null;
 ---
 
 <BaseLayout
@@ -97,18 +104,19 @@ const portfolioImages = Object.fromEntries(
     <Hero dict={dict.hero} />
     <!-- Haqiqiy raqam/logotip/fikr kiritilmaguncha (src/data/trust.js) bu blok chizilmaydi -->
     <Trust dict={dict.trust} lang={lang} />
-    <Benefits dict={dict.benefits} />
-    <Services dict={dict.services} />
+    <!-- Asosiy format: Muammo → Oqibati → Yechimimiz -->
+    <Problems dict={dict.problems} />
+    <Solutions dict={dict.solutions} problems={dict.problems.items} />
     <Process dict={dict.process} />
-    <Expertise client:visible dict={dict.expertise} />
-    <Portfolio client:visible dict={dict.portfolio} images={portfolioImages} />
+    <Industries client:visible dict={dict.industries} labels={dict.problems.labels} images={industryImages} />
+    <Integrations dict={dict.integrations} lang={lang} />
     <FAQ client:visible dict={dict.faq} />
     <Contact client:visible dict={dict.contact} formDict={dict.form} address={dict.footer.address} privacyHref={privacyHref} />
   </main>
 
   <Footer dict={dict.footer} homeHref={homeHref} lang={lang} />
 
-  <MobileCTA dict={dict.quickContact} estimateLabel={dict.hero.btnEstimate} />
+  <MobileCTA dict={dict.quickContact} estimateLabel={dict.nav.contact} />
 
   <!-- Saytdagi yagona aloqa oynasi: [data-open-contact] tugmalarining barchasi shuni ochadi -->
   <ContactModal client:load dict={dict.contactModal} formDict={dict.form} privacyHref={privacyHref} />

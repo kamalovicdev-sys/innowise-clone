@@ -61,6 +61,7 @@ const FAQ = ({ dict }) => {
               <Headset size={72} strokeWidth={1} />
             </div>
             <p className={styles.ctaTitle}>{dict.ctaTitle}</p>
+            <p className={styles.ctaText}>{dict.ctaText}</p>
             <Button block size="lg" data-open-contact>
               {dict.btnCall}
             </Button>

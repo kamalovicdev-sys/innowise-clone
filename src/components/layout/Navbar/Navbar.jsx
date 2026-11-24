@@ -5,6 +5,9 @@ import Logo from '@components/ui/Logo/Logo';
 import Button from '@components/ui/Button/Button';
 import styles from './Navbar.module.css';
 
+// Bosh sahifadagi bo'limlar (id = dict kaliti)
+const NAV_LINKS = ['problems', 'solutions', 'industries', 'faq'];
+
 const rememberLanguage = (code) => {
   try {
     localStorage.setItem(LANG_STORAGE_KEY, code);
@@ -13,7 +16,7 @@ const rememberLanguage = (code) => {
   }
 };
 
-// anchorBase: bosh sahifada '' (#services), boshqa sahifalarda bosh sahifa manzili ('/ru/#services')
+// anchorBase: bosh sahifada '' (#problems), boshqa sahifalarda bosh sahifa manzili ('/ru/#problems')
 const Navbar = ({ dict, languages, homeHref, anchorBase = '' }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -74,9 +77,11 @@ const Navbar = ({ dict, languages, homeHref, anchorBase = '' }) => {
 
         <nav className={styles.desktopNav} aria-label="Main">
           <ul className={styles.navLinks}>
-            <li><a href={`${anchorBase}#services`}>{dict.services}</a></li>
-            <li><a href={`${anchorBase}#portfolio`}>{dict.portfolio}</a></li>
-            <li><a href={`${anchorBase}#faq`}>{dict.faq}</a></li>
+            {NAV_LINKS.map((id) => (
+              <li key={id}>
+                <a href={`${anchorBase}#${id}`}>{dict[id]}</a>
+              </li>
+            ))}
           </ul>
         </nav>
 
@@ -140,9 +145,13 @@ const Navbar = ({ dict, languages, homeHref, anchorBase = '' }) => {
 
       <nav id={menuId} className={styles.mobileMenu} hidden={!isMenuOpen} aria-label="Mobile">
         <ul className={styles.mobileLinks}>
-          <li><a href={`${anchorBase}#services`} onClick={closeMenu}>{dict.services}</a></li>
-          <li><a href={`${anchorBase}#portfolio`} onClick={closeMenu}>{dict.portfolio}</a></li>
-          <li><a href={`${anchorBase}#faq`} onClick={closeMenu}>{dict.faq}</a></li>
+          {NAV_LINKS.map((id) => (
+            <li key={id}>
+              <a href={`${anchorBase}#${id}`} onClick={closeMenu}>
+                {dict[id]}
+              </a>
+            </li>
+          ))}
           <li>
             <Button block data-open-contact onClick={closeMenu}>
               {dict.contact}
