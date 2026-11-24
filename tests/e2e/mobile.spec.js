@@ -28,7 +28,7 @@ test.describe('Telefon', () => {
     await expect(page.getByRole('dialog')).toBeVisible();
   });
 
-  for (const path of ['/', '/ru/', '/en/', '/privacy/']) {
+  for (const path of ['/', '/ru/', '/en/', '/privacy/', '/ru/1c-analytics/', '/metabase/']) {
     test(`320px kenglikda ${path} gorizontal aylanmaydi, panel sig'adi`, async ({ page }) => {
       await page.setViewportSize({ width: 320, height: 700 });
       await page.goto(path);

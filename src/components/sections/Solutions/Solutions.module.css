@@ -58,6 +58,30 @@
   color: var(--color-text-muted);
 }
 
+/* "Batafsil:" xizmat sahifalariga havolalar */
+.more {
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-5);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.moreLabel {
+  font-weight: 600;
+}
+
+.moreLink {
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-primary) 35%, transparent);
+  text-underline-offset: 3px;
+}
+
+.moreLink:hover {
+  text-decoration-color: currentColor;
+}
+
 /* "Hal qiladi:" va muammo kartalariga havolalar */
 .solves {
   margin-top: auto;

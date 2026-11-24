@@ -13,9 +13,11 @@ import FAQ from '@components/sections/FAQ/FAQ.jsx';
 import Contact from '@components/sections/Contact/Contact.jsx';
 import ContactModal from '@components/ui/ContactModal/ContactModal.jsx';
 import MobileCTA from '@components/ui/MobileCTA/MobileCTA.jsx';
+import MobileCTAToggle from '@components/ui/MobileCTA/MobileCTAToggle.astro';
 import { getDictionary, getLanguageLinks, localizedPath } from '@i18n';
 import { LEGAL_PAGES, CONTACT, SOCIAL_LINKS } from '@data/site';
 import { INDUSTRIES } from '@data/sections';
+import { SERVICE_PAGES } from '@data/services';
 import { getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 
@@ -30,6 +32,17 @@ const privacyHref = LEGAL_PAGES.privacy ? localizedPath(lang, LEGAL_PAGES.privac
 const site = Astro.site;
 const orgId = new URL('/#organization', site).href;
 const sameAs = [CONTACT.telegram, ...SOCIAL_LINKS.map((s) => s.href)].filter(Boolean);
+// Xizmatlar katalogi: alohida sahifasi bor xizmatlar havola bilan, qolganlari bosh sahifadagi tavsif bilan
+const serviceOffers = [
+  ...SERVICE_PAGES.map(({ key, slug }) => ({
+    name: dict.servicePages[key],
+    url: new URL(localizedPath(lang, `${slug}/`), site).href,
+  })),
+  ...['analytics', 'consulting'].map((key) => ({
+    name: dict.solutions.items[key].title,
+    description: dict.solutions.items[key].desc,
+  })),
+].map((service) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', ...service } }));
 const structuredData = [
   {
     '@context': 'https://schema.org',
@@ -51,6 +64,7 @@ const structuredData = [
     geo: { '@type': 'GeoCoordinates', ...CONTACT.geo },
     areaServed: { '@type': 'Country', name: 'Uzbekistan' },
     knowsLanguage: ['uz', 'ru', 'en'],
+    hasOfferCatalog: { '@type': 'OfferCatalog', name: dict.footer.servicesTitle, itemListElement: serviceOffers },
     ...(sameAs.length > 0 ? { sameAs } : {}),
   },
   {
@@ -106,7 +120,7 @@ const industryImages = hasAllImages
     <Trust dict={dict.trust} lang={lang} />
     <!-- Asosiy format: Muammo → Oqibati → Yechimimiz -->
     <Problems dict={dict.problems} />
-    <Solutions dict={dict.solutions} problems={dict.problems.items} />
+    <Solutions dict={dict.solutions} problems={dict.problems.items} lang={lang} pageLabels={dict.servicePages} />
     <Process dict={dict.process} />
     <Industries client:visible dict={dict.industries} labels={dict.problems.labels} images={industryImages} />
     <Integrations dict={dict.integrations} lang={lang} />
@@ -114,30 +128,11 @@ const industryImages = hasAllImages
     <Contact client:visible dict={dict.contact} formDict={dict.form} address={dict.footer.address} privacyHref={privacyHref} />
   </main>
 
-  <Footer dict={dict.footer} homeHref={homeHref} lang={lang} />
+  <Footer dict={dict.footer} homeHref={homeHref} lang={lang} pageLabels={dict.servicePages} />
 
   <MobileCTA dict={dict.quickContact} estimateLabel={dict.nav.contact} />
 
   <!-- Saytdagi yagona aloqa oynasi: [data-open-contact] tugmalarining barchasi shuni ochadi -->
   <ContactModal client:load dict={dict.contactModal} formDict={dict.form} privacyHref={privacyHref} />
+  <MobileCTAToggle />
 </BaseLayout>
-
-<script>
-  // Mobil tezkor aloqa paneli: hero ekranda ko'rinib turganda yashirin, undan keyin paydo bo'ladi.
-  // Yashirin paytda panel klaviatura va ekran o'quvchilar uchun ham yopiq (inert).
-  const bar = document.querySelector<HTMLElement>('[data-mobile-cta]');
-  const hero = document.getElementById('hero');
-
-  const setVisible = (visible: boolean) => {
-    if (!bar) return;
-    bar.toggleAttribute('data-visible', visible);
-    bar.inert = !visible;
-  };
-
-  if (bar && hero && 'IntersectionObserver' in window) {
-    setVisible(false);
-    new IntersectionObserver(([entry]) => setVisible(!entry.isIntersecting), { threshold: 0.15 }).observe(hero);
-  } else {
-    setVisible(true);
-  }
-</script>

@@ -1,0 +1,305 @@
+{
+  "common": {
+    "deliverablesTitle": "What you get",
+    "relatedTitle": "Our other services",
+    "relatedSubtitle": "Depending on your task, our other services may be a good fit too.",
+    "more": "Learn more",
+    "home": "Home"
+  },
+  "pages": {
+    "powerBi": {
+      "meta": {
+        "title": "Power BI Implementation & Dashboards | Mehrzod Group",
+        "description": "We implement Power BI: connect 1C, CRM and Excel and build dashboards for management and every department. Tashkent, Uzbekistan. Free data audit."
+      },
+      "card": "Microsoft Power BI dashboards for management and departments: sales, profit, stock and KPIs on one screen.",
+      "hero": {
+        "kicker": "Power BI implementation · Tashkent",
+        "title": "Power BI dashboards: all your business numbers on one screen",
+        "subtitle": "We connect 1C, your CRM, Excel and other systems to Power BI. Sales, profit, stock and KPIs update every day, and managers see them on both desktop and phone.",
+        "btnEstimate": "Free data audit",
+        "btnExplore": "What you get",
+        "note": ["First dashboard in 2–4 weeks", "We sign an NDA"]
+      },
+      "problems": {
+        "title": "When you need Power BI",
+        "subtitle": "If any of these situations sounds familiar, Power BI dashboards will save you time and money.",
+        "items": {
+          "excelReports": {
+            "title": "Reports are built by hand in Excel",
+            "problem": "Every week someone copies data out of 1C and the CRM and builds tables and charts in Excel.",
+            "consequence": "Reports arrive days late, formula errors go unnoticed, and the whole process depends on one person.",
+            "solution": "Power BI pulls data from the sources itself and refreshes it on a schedule. Manual copying disappears completely."
+          },
+          "noSingleView": {
+            "title": "Management can't see the big picture",
+            "problem": "Sales, finance and warehouse numbers live in separate files. Comparing them means requesting several reports.",
+            "consequence": "Decisions slow down and important changes are noticed too late.",
+            "solution": "An executive dashboard with the key metrics on one screen, with drill-down to branch, product or sales rep."
+          },
+          "unusedBi": {
+            "title": "You have Power BI, but nobody uses it",
+            "problem": "Licences were bought or a dashboard was built, but its data is out of date and nobody opens it.",
+            "consequence": "The money is spent and the team has gone back to Excel.",
+            "solution": "We automate the data flow, rebuild the dashboard around what users actually need and train the team."
+          }
+        },
+        "cta": {
+          "title": "Sound familiar?",
+          "text": "In a free audit we review your current reports and tell you which Power BI dashboards you need.",
+          "button": "Book a free audit"
+        }
+      },
+      "deliverables": {
+        "subtitle": "You end up with a reporting system that runs on its own, not just a set of nice charts.",
+        "items": {
+          "connections": {
+            "title": "Connected data sources",
+            "desc": "1C, amoCRM, Bitrix24, Excel, Google Sheets and other systems are connected to Power BI and refresh on a schedule."
+          },
+          "model": {
+            "title": "A single data model",
+            "desc": "Every metric is calculated once, by one rule, so the numbers match across all reports."
+          },
+          "executive": {
+            "title": "Executive dashboard",
+            "desc": "Sales, profit, stock and KPIs against plan on one screen. Also works in the Power BI mobile app."
+          },
+          "departments": {
+            "title": "Department reports",
+            "desc": "Separate pages for sales, finance, warehouse and marketing, with role-based access."
+          },
+          "alerts": {
+            "title": "Alerts",
+            "desc": "When a metric drifts from plan, the person responsible gets a message on Telegram or by email."
+          },
+          "training": {
+            "title": "Training and growth",
+            "desc": "We train your team to work with the dashboards and then add new metrics step by step."
+          }
+        }
+      },
+      "faq": {
+        "title": "Power BI questions",
+        "items": {
+          "license": {
+            "q": "Do we need a Power BI licence, and who buys it?",
+            "a": "Power BI Desktop is free for building dashboards. To share dashboards with colleagues, each user usually needs a Pro licence. The licence is registered to your company. In the audit we work out the cheapest option for your number of users."
+          },
+          "onec": {
+            "q": "Does Power BI work with 1C?",
+            "a": "Yes. We take 1C data through the OData interface, an HTTP service or a regular export. We connect with read-only access, so the data in 1C is never changed."
+          },
+          "timeline": {
+            "q": "How long does the first dashboard take?",
+            "a": "Usually we connect the data and deliver the first working dashboard within 2–4 weeks. Then we add new metrics step by step."
+          },
+          "security": {
+            "q": "Is our data safe?",
+            "a": "We sign an NDA before work starts and connect to your systems with read-only access. Dashboard access is role-based: each employee sees only what they are allowed to see."
+          },
+          "metabase": {
+            "q": "Power BI or Metabase: which is better?",
+            "a": "Power BI is strong for complex calculations and the Microsoft ecosystem, but it is paid. Metabase is free, runs on your own server and is simpler to use. In the audit we recommend one based on your task and budget."
+          }
+        }
+      }
+    },
+    "onec": {
+      "meta": {
+        "title": "1C Analytics: Reports & Dashboards | Mehrzod Group",
+        "description": "We connect 1C to Power BI or Metabase: sales, stock, receivables and profit on one screen, refreshed daily. Tashkent, Uzbekistan. Free data audit."
+      },
+      "card": "Sales, warehouse and receivables dashboards built on your 1C data, without replacing 1C.",
+      "hero": {
+        "kicker": "1C analytics · Tashkent",
+        "title": "Clear, decision-ready reports from your 1C data",
+        "subtitle": "1C stores data well but doesn't show it to managers the way they need. We combine 1C with your CRM and other systems and build dashboards that refresh every day.",
+        "btnEstimate": "Free data audit",
+        "btnExplore": "What you get",
+        "note": ["No need to replace 1C", "Read-only access only"]
+      },
+      "problems": {
+        "title": "Familiar problems with 1C",
+        "subtitle": "Many companies run 1C, yet getting the number you need out of it is still hard.",
+        "items": {
+          "developerQueue": {
+            "title": "Every report needs a developer",
+            "problem": "When you need a new report or breakdown, you ask a 1C developer and wait in the queue.",
+            "consequence": "A simple question takes days or weeks to answer, and every change costs extra.",
+            "solution": "We bring 1C data into a BI system. New breakdowns and filters can be added right in the dashboard, without a developer."
+          },
+          "excelExport": {
+            "title": "Endless exports from 1C to Excel",
+            "problem": "To get a report, data is exported from 1C to Excel, merged by hand and patched together with formulas.",
+            "consequence": "It takes time, errors multiply, everyone works in their own file and the numbers don't match.",
+            "solution": "Exports are automated: data is pulled from 1C on a schedule and shows up in a ready-made dashboard."
+          },
+          "disconnected": {
+            "title": "1C and the CRM are disconnected",
+            "problem": "Sales works in amoCRM or Bitrix24, while accounting and the warehouse work in 1C.",
+            "consequence": "There's no single place to follow a deal through to payment and shipment.",
+            "solution": "We connect 1C, the CRM and other sources to one data warehouse. Sales, payments and stock appear in one report."
+          }
+        },
+        "cta": {
+          "title": "Sound familiar?",
+          "text": "In a free audit we look at your 1C configuration and reporting needs and tell you which dashboards you need.",
+          "button": "Book a free audit"
+        }
+      },
+      "deliverables": {
+        "subtitle": "1C keeps working as before, and you get its data as ready-made reports.",
+        "items": {
+          "access": {
+            "title": "Secure connection to 1C",
+            "desc": "We take data through OData, an HTTP service or exports, with read-only access. Nothing in 1C is changed."
+          },
+          "refresh": {
+            "title": "Automatic refresh",
+            "desc": "Data refreshes on a schedule, for example every morning. No more manual exports."
+          },
+          "sales": {
+            "title": "Sales and profit report",
+            "desc": "Sales, margin and plan vs. actual by product, customer, sales rep and branch."
+          },
+          "inventory": {
+            "title": "Warehouse and stock",
+            "desc": "Stock levels, turnover, slow-moving items and stockout risk."
+          },
+          "receivables": {
+            "title": "Receivables and cash flow",
+            "desc": "Who owes how much, when payments are due and how cash is moving, on one screen."
+          },
+          "crm": {
+            "title": "CRM integration",
+            "desc": "amoCRM or Bitrix24 data alongside 1C: from deal to payment."
+          }
+        }
+      },
+      "faq": {
+        "title": "1C analytics questions",
+        "items": {
+          "configs": {
+            "q": "Which 1C configurations do you work with?",
+            "a": "1C:Accounting, 1C:Trade Management, 1C:ERP and other configurations. The main requirement is that data can be read through OData, an HTTP service or exports. We check this during the audit."
+          },
+          "load": {
+            "q": "Will the connection slow 1C down?",
+            "a": "We set up the connection so it doesn't put extra load on 1C: data is usually pulled outside working hours or in small batches."
+          },
+          "developer": {
+            "q": "Will we need a 1C developer?",
+            "a": "Usually not. If OData or an HTTP service has to be enabled in 1C, we set it up once together with your 1C specialist."
+          },
+          "tool": {
+            "q": "Which tool will the dashboards be in?",
+            "a": "Power BI or Metabase. Power BI is more powerful and fits the Microsoft ecosystem, while Metabase is free and runs on your own server. We choose together during the audit."
+          },
+          "timeline": {
+            "q": "When will we see the first result?",
+            "a": "Usually we connect your 1C data and deliver the first working dashboard within 2–4 weeks."
+          }
+        }
+      }
+    },
+    "metabase": {
+      "meta": {
+        "title": "Metabase Implementation & Dashboards | Mehrzod Group",
+        "description": "We install Metabase on your server and connect 1C, CRM and Excel. BI dashboards with no per-user licence fees. Tashkent, Uzbekistan. Free data audit."
+      },
+      "card": "An open-source BI system with no per-user fees, running on your own server.",
+      "hero": {
+        "kicker": "Metabase implementation · Tashkent",
+        "title": "Metabase: BI dashboards without licence fees",
+        "subtitle": "Metabase is an open-source BI system. We install it on your server, connect your systems and build clear dashboards for your team.",
+        "btnEstimate": "Free data audit",
+        "btnExplore": "What you get",
+        "note": ["No per-user licence fees", "Your data stays on your server"]
+      },
+      "problems": {
+        "title": "When Metabase is the right choice",
+        "subtitle": "In these situations Metabase can be a better fit than paid BI tools.",
+        "items": {
+          "licenseCost": {
+            "title": "Licences get expensive",
+            "problem": "Many employees need to see the dashboards, and each one needs a paid BI licence.",
+            "consequence": "Costs grow with every user, so only a few managers end up seeing the dashboards.",
+            "solution": "The open-source edition of Metabase has no per-user fees: everyone who needs the dashboards can see them."
+          },
+          "dataLocation": {
+            "title": "Data must not leave the company",
+            "problem": "Security policy or legal requirements don't allow sending data to foreign cloud services.",
+            "consequence": "Cloud BI tools are off the table, and reports stay stuck in Excel.",
+            "solution": "Metabase is installed on your own server or a server in Uzbekistan. The data stays under your control."
+          },
+          "analystQueue": {
+            "title": "Every question goes to an analyst",
+            "problem": "Even for a simple answer, managers have to ask an analyst or developer for a report.",
+            "consequence": "The analyst drowns in a queue of requests and answers come late.",
+            "solution": "In Metabase you can ask a question without SQL, using simple filters and grouping. We set up ready-made datasets for this."
+          }
+        },
+        "cta": {
+          "title": "Is Metabase right for you?",
+          "text": "In a free audit we tell you clearly whether Metabase or Power BI fits your task better.",
+          "button": "Book a free audit"
+        }
+      },
+      "deliverables": {
+        "subtitle": "From installation to team training: a ready BI system that runs on its own.",
+        "items": {
+          "install": {
+            "title": "Installation and setup",
+            "desc": "We install Metabase on your own or a cloud server and set up backups."
+          },
+          "warehouse": {
+            "title": "Data warehouse",
+            "desc": "Data from 1C, CRM, Excel and other sources is collected automatically into a PostgreSQL or MySQL warehouse."
+          },
+          "dashboards": {
+            "title": "Dashboards",
+            "desc": "Sales, profit, stock and KPI dashboards for management and departments."
+          },
+          "access": {
+            "title": "Access rights",
+            "desc": "Employees are split into groups, and each one sees only their own dashboards."
+          },
+          "alerts": {
+            "title": "Alerts and subscriptions",
+            "desc": "When a metric drifts or a report is ready, a message arrives on Telegram or by email."
+          },
+          "training": {
+            "title": "Training",
+            "desc": "We teach your team to ask questions in Metabase and build simple dashboards."
+          }
+        }
+      },
+      "faq": {
+        "title": "Metabase questions",
+        "items": {
+          "free": {
+            "q": "Is Metabase really free?",
+            "a": "The open-source edition of Metabase is free, with no limit on the number of users. You only pay for the server. There is a paid edition too, but the free one is enough for many companies."
+          },
+          "server": {
+            "q": "Where will the server be?",
+            "a": "It's your choice: your own server, a data centre in Uzbekistan or a foreign cloud. We help you choose and set up the server."
+          },
+          "onec": {
+            "q": "Does Metabase work with 1C?",
+            "a": "Metabase doesn't connect to 1C directly. So we first collect 1C data automatically into a warehouse (PostgreSQL or MySQL), and Metabase reads it from there."
+          },
+          "powerBi": {
+            "q": "How is it different from Power BI?",
+            "a": "Power BI is stronger for complex calculations and the Microsoft ecosystem, but it is paid per user. Metabase is simpler, free and runs on your own server. For many companies Metabase does everything they need."
+          },
+          "timeline": {
+            "q": "When will the first dashboard be ready?",
+            "a": "Usually within 2–4 weeks we set up the server, connect the data and deliver the first working dashboard."
+          }
+        }
+      }
+    }
+  }
+}

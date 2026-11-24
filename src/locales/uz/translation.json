@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "BI dashbordlar va ma'lumotlar tahlili | Mehrzod Group",
-    "description": "1C, amoCRM, Bitrix24 va Excel'dagi ma'lumotlarni avtomatik bir joyga yig'amiz va Power BI yoki Metabase dashbordlariga aylantiramiz. Bepul ma'lumotlar auditi."
+    "title": "BI tahlil va Power BI dashbordlar Toshkentda | Mehrzod Group",
+    "description": "1C, amoCRM, Bitrix24 va Excel ma'lumotlarini avtomatik yig'ib, Power BI yoki Metabase dashbordlariga aylantiramiz. Toshkent. Bepul ma'lumotlar auditi."
   },
   "nav": {
     "problems": "Muammolar",
@@ -15,6 +15,7 @@
     "skipToContent": "Asosiy mazmunga o'tish"
   },
   "hero": {
+    "kicker": "BI tahlil va Power BI dashbordlar · Toshkent",
     "title": "Hisobotlar kechikadi, raqamlar tarqoq\u00a0\u2014 qarorlar taxminga qolmoqdami?",
     "subtitle": "Ma'lumotlaringizni barcha tizimlardan avtomatik ravishda bir joyga yig'amiz va Power BI yoki Metabase'da tushunarli dashbordlarga aylantiramiz. Raqamlar har kuni o'zi yangilanadi, ularni hech kim qo'lda yig'maydi.",
     "btnEstimate": "Bepul ma'lumotlar auditi",
@@ -115,6 +116,7 @@
     "title": "Yechimlarimiz",
     "subtitle": "Ma'lumotlarni yig'ishdan tortib qaror qabul qilishgacha bo'lgan butun yo'lni yopamiz.",
     "solvesLabel": "Hal qiladi:",
+    "moreLabel": "Batafsil:",
     "items": {
       "automation": {
         "title": "Ma'lumotlarni avtomatlashtirish",
@@ -186,6 +188,7 @@
     "items": {
       "fmcg": {
         "name": "FMCG va chakana savdo",
+        "imageAlt": "Supermarket peshtaxtalarida terilgan oziq-ovqat mahsulotlari",
         "title": "FMCG va chakana savdo",
         "problem": "Yuzlab mahsulot (SKU) va bir nechta savdo nuqtasi bor, sotuv va qoldiq ma'lumotlari esa turli tizimlarda.",
         "consequence": "Xaridorgir tovar tugab qoladi, sekin sotiladigani omborda yotadi. Aksiyalar foyda keltirdimi yoki yo'qmi, noma'lum.",
@@ -193,6 +196,7 @@
       },
       "distribution": {
         "name": "Distribyutsiya",
+        "imageAlt": "Stellajlar va qutilar bilan to'la katta distribyutsiya ombori",
         "title": "Distribyutsiya",
         "problem": "Agentlar, hududlar va mijozlar bo'yicha ma'lumotlar ERP, Excel va agentlar hisobotlarida tarqalgan.",
         "consequence": "Debitorlik qarzi o'sib boradi, rejani bajarmayotgan hudud yoki agent kech aniqlanadi.",
@@ -200,6 +204,7 @@
       },
       "ecommerce": {
         "name": "E-commerce",
+        "imageAlt": "Kiyim va aksessuarlar do'koni vitrinasi",
         "title": "E-commerce va marketplace",
         "problem": "Sayt, Uzum Market va boshqa marketplace'lardagi buyurtmalar, reklama xarajatlari va qoldiqlar alohida kabinetlarda.",
         "consequence": "Komissiya va reklama xarajatidan keyin har bir kanal va mahsulotning haqiqiy foydasi noma'lum, byudjet taxminan taqsimlanadi.",
@@ -207,6 +212,7 @@
       },
       "manufacturing": {
         "name": "Ishlab chiqarish",
+        "imageAlt": "Ishlab chiqarish liniyasidagi sanoat roboti",
         "title": "Ishlab chiqarish",
         "problem": "Xomashyo, ishlab chiqarish va sotuv ma'lumotlari turli bo'limlarda, tannarx qo'lda hisoblanadi.",
         "consequence": "Mahsulotning haqiqiy tannarxi va rentabelligi noaniq, ortiqcha xomashyo zaxirasi esa aylanma mablag'ni band qiladi.",
@@ -214,6 +220,7 @@
       },
       "horeca": {
         "name": "HoReCa",
+        "imageAlt": "Mehmonlar o'tirgan kafe zali",
         "title": "HoReCa: restoran va kafelar",
         "problem": "Kassa tizimi (iiko, R-Keeper, Poster), ombor va yetkazib berish servislarining ma'lumotlari alohida.",
         "consequence": "Food cost nazoratdan chiqadi, qaysi taom yoki filial foyda keltirishi noma'lum, isrof va kamomad kech aniqlanadi.",
@@ -221,6 +228,7 @@
       },
       "logistics": {
         "name": "Logistika",
+        "imageAlt": "Avtomagistralda ketayotgan yuk mashinasi",
         "title": "Logistika",
         "problem": "Reyslar, yoqilg'i, transport va yetkazib berish ma'lumotlari turli tizim va jadvallarda.",
         "consequence": "Har bir reys va marshrutning haqiqiy xarajati noma'lum, kechikishlar va bo'sh yurishlar foydani kamaytiradi.",
@@ -306,6 +314,11 @@
       "whatsapp": "WhatsApp",
       "whatsappAction": "WhatsApp'da yozish"
     }
+  },
+  "servicePages": {
+    "powerBi": "Power BI dashbordlar",
+    "onec": "1C analitikasi",
+    "metabase": "Metabase dashbordlar"
   },
   "footer": {
     "desc": "O'zbekistondagi kompaniyalar uchun ma'lumotlar tahlili, BI dashbordlar va ma'lumotlarni avtomatlashtirish. Tarqoq raqamlarni aniq qarorlarga aylantiramiz.",

@@ -12,10 +12,11 @@ export const PROBLEMS = [
 ];
 
 // Asosiy xizmatlar. solves: shu xizmat hal qiladigan muammolar (PROBLEMS dagi key'lar).
+// pages: shu xizmat haqida batafsil sahifalar (services.js dagi SERVICE_PAGES key'lari).
 // Karta id'si `solution-<key>` (footer havolalari shu yerga olib boradi).
 export const SOLUTIONS = [
-  { key: 'automation', icon: 'Workflow', solves: ['manualReports', 'scatteredData'] },
-  { key: 'dashboards', icon: 'LayoutDashboard', solves: ['lateControl', 'scatteredData'] },
+  { key: 'automation', icon: 'Workflow', solves: ['manualReports', 'scatteredData'], pages: ['onec'] },
+  { key: 'dashboards', icon: 'LayoutDashboard', solves: ['lateControl', 'scatteredData'], pages: ['powerBi', 'metabase'] },
   { key: 'analytics', icon: 'ChartNoAxesCombined', solves: ['profitBlindness', 'inventory', 'marketing'] },
   { key: 'consulting', icon: 'Compass', solves: ['lateControl', 'profitBlindness'] },
 ];

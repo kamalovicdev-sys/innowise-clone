@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "BI Dashboards & Data Analytics | Mehrzod Group",
-    "description": "We automatically collect data from 1C, amoCRM, Bitrix24 and Excel and turn it into Power BI or Metabase dashboards. Free data audit."
+    "title": "BI Analytics & Power BI Dashboards in Tashkent | Mehrzod Group",
+    "description": "We pull data from 1C, amoCRM, Bitrix24 and Excel into Power BI or Metabase dashboards. Tashkent, Uzbekistan. Free data audit."
   },
   "nav": {
     "problems": "Problems",
@@ -15,6 +15,7 @@
     "skipToContent": "Skip to content"
   },
   "hero": {
+    "kicker": "BI analytics & Power BI dashboards · Tashkent",
     "title": "Late reports, scattered numbers\u00a0\u2014 are your decisions based on guesswork?",
     "subtitle": "We automatically collect data from all your systems in one place and turn it into clear Power BI or Metabase dashboards. The numbers refresh every day, so nobody has to compile them by hand.",
     "btnEstimate": "Free data audit",
@@ -115,6 +116,7 @@
     "title": "Our solutions",
     "subtitle": "We cover the whole path, from collecting data to making decisions.",
     "solvesLabel": "Solves:",
+    "moreLabel": "Learn more:",
     "items": {
       "automation": {
         "title": "Data automation",
@@ -186,6 +188,7 @@
     "items": {
       "fmcg": {
         "name": "FMCG & retail",
+        "imageAlt": "Food products on supermarket shelves",
         "title": "FMCG and retail",
         "problem": "Hundreds of products (SKUs) and several outlets, while sales and stock data sit in different systems.",
         "consequence": "Best-sellers run out while slow movers sit in the warehouse. Nobody knows whether promotions actually paid off.",
@@ -193,6 +196,7 @@
       },
       "distribution": {
         "name": "Distribution",
+        "imageAlt": "Large distribution warehouse with racks and boxes",
         "title": "Distribution",
         "problem": "Data on sales reps, regions and clients is scattered across the ERP, Excel and reps' reports.",
         "consequence": "Receivables keep growing, and a region or rep missing the plan is spotted too late.",
@@ -200,6 +204,7 @@
       },
       "ecommerce": {
         "name": "E-commerce",
+        "imageAlt": "Clothing and accessories store display",
         "title": "E-commerce and marketplaces",
         "problem": "Orders, ad spend and stock from your website, Uzum Market and other marketplaces live in separate accounts.",
         "consequence": "The real profit of each channel and product after commissions and ads is unknown, so the budget is split by guesswork.",
@@ -207,6 +212,7 @@
       },
       "manufacturing": {
         "name": "Manufacturing",
+        "imageAlt": "Industrial robot on a production line",
         "title": "Manufacturing",
         "problem": "Raw material, production and sales data sit in different departments, and unit costs are calculated by hand.",
         "consequence": "The real cost and profitability of products are unclear, and excess raw material ties up working capital.",
@@ -214,6 +220,7 @@
       },
       "horeca": {
         "name": "HoReCa",
+        "imageAlt": "Café dining room with guests",
         "title": "HoReCa: restaurants and cafés",
         "problem": "POS (iiko, R-Keeper, Poster), inventory and delivery service data are kept separately.",
         "consequence": "Food cost gets out of control, it's unclear which dish or branch makes money, and waste and shortages are found late.",
@@ -221,6 +228,7 @@
       },
       "logistics": {
         "name": "Logistics",
+        "imageAlt": "Truck on a highway",
         "title": "Logistics",
         "problem": "Trip, fuel, fleet and delivery data sit in different systems and spreadsheets.",
         "consequence": "The real cost of each trip and route is unknown, and delays and empty runs eat into profit.",
@@ -306,6 +314,11 @@
       "whatsapp": "WhatsApp",
       "whatsappAction": "Message us on WhatsApp"
     }
+  },
+  "servicePages": {
+    "powerBi": "Power BI dashboards",
+    "onec": "1C analytics",
+    "metabase": "Metabase dashboards"
   },
   "footer": {
     "desc": "Data analytics, BI dashboards and data automation for companies in Uzbekistan. We turn scattered numbers into clear decisions.",

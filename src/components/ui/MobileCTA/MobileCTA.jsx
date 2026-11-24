@@ -5,7 +5,7 @@ import styles from './MobileCTA.module.css';
 
 /**
  * Telefonda pastda qotirilgan tezkor aloqa paneli (faqat ≤768px).
- * Hero ekrandan chiqqanda ko'rinadi (HomePage.astro dagi skript data-visible qo'yadi).
+ * Hero ekrandan chiqqanda ko'rinadi (MobileCTAToggle.astro skripti data-visible qo'yadi).
  * Statik: JS faqat ko'rsatish/yashirish uchun.
  */
 const MobileCTA = ({ dict, estimateLabel }) => (

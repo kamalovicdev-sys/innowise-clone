@@ -128,7 +128,7 @@ const Industries = ({ dict, labels, images = null }) => {
                 src={image.src}
                 srcSet={image.srcset}
                 sizes={image.sizes}
-                alt={text.title}
+                alt={text.imageAlt ?? text.title}
                 width={image.width}
                 height={image.height}
                 loading="lazy"

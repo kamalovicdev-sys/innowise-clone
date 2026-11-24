@@ -1,0 +1,13 @@
+---
+// Xizmat sahifalari: /power-bi/, /1c-analytics/, /metabase/ (ro'yxat: src/data/services.js)
+import ServicePage from '@components/services/ServicePage.astro';
+import { SERVICE_PAGES } from '@data/services';
+
+export function getStaticPaths() {
+  return SERVICE_PAGES.map(({ key, slug }) => ({ params: { service: slug }, props: { serviceKey: key } }));
+}
+
+const { serviceKey } = Astro.props;
+---
+
+<ServicePage lang="uz" serviceKey={serviceKey} />

@@ -1,6 +1,9 @@
 import uz from '../locales/uz/translation.json';
 import ru from '../locales/ru/translation.json';
 import en from '../locales/en/translation.json';
+import servicesUz from '../locales/uz/services.json';
+import servicesRu from '../locales/ru/services.json';
+import servicesEn from '../locales/en/services.json';
 
 /** @typedef {'uz' | 'ru' | 'en'} Locale */
 
@@ -19,9 +22,15 @@ export const LOCALE_META = {
 };
 
 const dictionaries = { uz, ru, en };
+const serviceDictionaries = { uz: servicesUz, ru: servicesRu, en: servicesEn };
 
 export function getDictionary(lang) {
   return dictionaries[lang] ?? dictionaries[DEFAULT_LOCALE];
+}
+
+/** Xizmat sahifalari matnlari (src/locales/<til>/services.json) */
+export function getServiceDictionary(lang) {
+  return serviceDictionaries[lang] ?? serviceDictionaries[DEFAULT_LOCALE];
 }
 
 /**

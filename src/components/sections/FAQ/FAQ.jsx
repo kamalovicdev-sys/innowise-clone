@@ -5,9 +5,10 @@ import SectionHeader from '@components/ui/SectionHeader/SectionHeader';
 import Button from '@components/ui/Button/Button';
 import styles from './FAQ.module.css';
 
-const FAQ = ({ dict }) => {
+// items: savollar kalitlari (dict.items ichida). Bosh sahifada FAQ_ITEMS, xizmat sahifalarida o'zining ro'yxati.
+const FAQ = ({ dict, items = FAQ_ITEMS }) => {
   // Birinchi savol ochiq turadi
-  const [activeKey, setActiveKey] = useState(FAQ_ITEMS[0]);
+  const [activeKey, setActiveKey] = useState(items[0]);
 
   const toggle = (key) => setActiveKey((current) => (current === key ? null : key));
 
@@ -18,7 +19,7 @@ const FAQ = ({ dict }) => {
 
         <div className={styles.wrapper}>
           <div className={styles.accordion}>
-            {FAQ_ITEMS.map((key) => {
+            {items.map((key) => {
               const isActive = activeKey === key;
               const item = dict.items[key];
               return (

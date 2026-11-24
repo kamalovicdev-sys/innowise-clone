@@ -1,20 +1,49 @@
-import { FileSpreadsheet, Split, CircleDollarSign, Boxes, Megaphone, AlarmClock } from 'lucide-react';
+import {
+  FileSpreadsheet,
+  Split,
+  CircleDollarSign,
+  Boxes,
+  Megaphone,
+  AlarmClock,
+  EyeOff,
+  TriangleAlert,
+  Hourglass,
+  Unlink,
+  Wallet,
+  Lock,
+  MessagesSquare,
+} from 'lucide-react';
 import { PROBLEMS } from '@data/sections';
 import SectionHeader from '@components/ui/SectionHeader/SectionHeader';
 import ProblemFlow from '@components/ui/ProblemFlow/ProblemFlow';
 import Button from '@components/ui/Button/Button';
 import styles from './Problems.module.css';
 
-const ICONS = { FileSpreadsheet, Split, CircleDollarSign, Boxes, Megaphone, AlarmClock };
+const ICONS = {
+  FileSpreadsheet,
+  Split,
+  CircleDollarSign,
+  Boxes,
+  Megaphone,
+  AlarmClock,
+  EyeOff,
+  TriangleAlert,
+  Hourglass,
+  Unlink,
+  Wallet,
+  Lock,
+  MessagesSquare,
+};
 
 // Asosiy bo'lim: mijoz muammosi → oqibati → bizning yechim. Statik (JS'siz).
-const Problems = ({ dict }) => (
+// items: kartalar ro'yxati ({ key, icon }). Bosh sahifada PROBLEMS, xizmat sahifalarida o'zining ro'yxati.
+const Problems = ({ dict, items = PROBLEMS }) => (
   <section className={`section ${styles.problemsSection}`} id="problems">
     <div className="container" data-reveal>
       <SectionHeader title={dict.title} subtitle={dict.subtitle} />
 
       <ul className={styles.grid}>
-        {PROBLEMS.map(({ key, icon }) => {
+        {items.map(({ key, icon }) => {
           const Icon = ICONS[icon];
           const item = dict.items[key];
           return (

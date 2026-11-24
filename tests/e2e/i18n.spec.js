@@ -38,9 +38,12 @@ test.describe('Tillar va URL', () => {
     await expect(page).toHaveURL(/\/en\/$/);
   });
 
-  test('sitemap.xml: 3 ta til, hreflang bilan; qoralama sahifalar yo\'q', async ({ request }) => {
+  test('sitemap.xml: bosh sahifa va 3 ta xizmat sahifasi, 3 tilda, hreflang bilan; qoralama sahifalar yo\'q', async ({ request }) => {
     const xml = await (await request.get('/sitemap.xml')).text();
-    expect(xml.match(/<loc>/g)).toHaveLength(3);
+    expect(xml.match(/<loc>/g)).toHaveLength(12);
+    for (const slug of ['power-bi', '1c-analytics', 'metabase']) {
+      expect(xml).toContain(`<loc>https://mehrzod.uz/ru/${slug}/</loc>`);
+    }
     expect(xml).toContain('hreflang="x-default"');
     expect(xml).not.toContain('privacy');
   });

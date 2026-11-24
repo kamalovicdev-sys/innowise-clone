@@ -1,0 +1,23 @@
+---
+// Mobil tezkor aloqa paneli (MobileCTA) uchun ko'rsatish/yashirish skripti.
+// Sahifada id="hero" bo'limi bo'lishi kerak: hero ekranda ko'rinib turganda panel yashirin, undan keyin paydo bo'ladi.
+---
+
+<script>
+  // Yashirin paytda panel klaviatura va ekran o'quvchilar uchun ham yopiq (inert).
+  const bar = document.querySelector<HTMLElement>('[data-mobile-cta]');
+  const hero = document.getElementById('hero');
+
+  const setVisible = (visible: boolean) => {
+    if (!bar) return;
+    bar.toggleAttribute('data-visible', visible);
+    bar.inert = !visible;
+  };
+
+  if (bar && hero && 'IntersectionObserver' in window) {
+    setVisible(false);
+    new IntersectionObserver(([entry]) => setVisible(!entry.isIntersecting), { threshold: 0.15 }).observe(hero);
+  } else {
+    setVisible(true);
+  }
+</script>

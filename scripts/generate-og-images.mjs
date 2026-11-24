@@ -1,7 +1,7 @@
 // Ijtimoiy tarmoqlar uchun ulashish rasmlari (og:image, 1200x630) — har bir til uchun bittadan.
 // Ishga tushirish: npm run og   (tizimda Google Chrome o'rnatilgan bo'lishi kerak)
 // Natija: public/og/og-uz.jpg, og-ru.jpg, og-en.jpg
-// Hero sarlavhasi yoki meta title o'zgarsa, qayta ishga tushiring.
+// Hero sarlavhasi yoki kicker (sarlavha ustidagi yozuv) o'zgarsa, qayta ishga tushiring.
 import { chromium } from '@playwright/test';
 import { readFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -95,7 +95,7 @@ const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, dev
 
 for (const lang of ['uz', 'ru', 'en']) {
   const dict = JSON.parse(readFileSync(join(root, 'src', 'locales', lang, 'translation.json'), 'utf8'));
-  const eyebrow = dict.meta.title.split('|')[0].trim();
+  const eyebrow = dict.hero.kicker;
   await page.setContent(html({ lang, eyebrow, title: dict.hero.title }), { waitUntil: 'load' });
   await page.evaluate(() => document.fonts.ready);
   const file = join(outDir, `og-${lang}.jpg`);
