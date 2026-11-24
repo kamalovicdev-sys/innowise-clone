@@ -79,6 +79,8 @@ src/
 - **Keys natijalari:** tarjima faylida `industries.items.<id>.metrics = [{ "value": "−23%", "label": "..." }]`. Bu maydon bo'lmasa, natijalar qatori chiqmaydi.
 - **Privacy Policy / Terms:** `src/data/site.js` → `LEGAL_PAGES` (maxfiylik siyosati e'lon qilingan, shartlar sahifasi hali yo'q).
 - **Aloqa oynasini ochish:** istalgan elementga `data-open-contact` atributini qo'shing.
+- **Scroll animatsiyasi ("yig'ilish"):** elementga `data-assemble="left|right|up|down|zoom"` qo'shing, u ekranga kirganda shu tomondan kelib o'z joyiga tushadi. Birga kirgan elementlar navbatma-navbat yig'iladi. Grid uchun tomonni `src/lib/assemble.js` → `gridSide(index, ustunlar)` hisoblaydi. Stillar `global.css`, skript `BaseLayout.astro`. `key` bilan qayta yaratiladigan React elementlariga qo'ymang, ularni doimiy o'ramga qo'ying (Industries paneliga qarang).
+- **Hero dashbordi:** `HeroDashboard.jsx` (barcha tillarda inglizcha demo), harakati: `HeroDashboardLive.astro` (KPI sanash, Revenue → Channels → Inventory almashishi har 4.5 s). Ekrandan chiqqanda to'xtaydi. "Harakatni kamaytirish" yoqilgan bo'lsa, animatsiya o'chadi.
 - **SEO kalit so'zlari:** title va description: `meta` (OG rasmlardagi ustki yozuv title'ning `|` gacha qismidan olinadi, o'zgartirsangiz `npm run og`).
 
 ### Xizmat sahifalari

@@ -4,6 +4,7 @@ import { getServicePage } from '@data/services';
 import { localizedPath } from '@i18n';
 import SectionHeader from '@components/ui/SectionHeader/SectionHeader';
 import styles from './Solutions.module.css';
+import { gridSide } from '@lib/assemble';
 
 const ICONS = { Workflow, LayoutDashboard, ChartNoAxesCombined, Compass, Globe, Bot, Headset, Network };
 
@@ -14,15 +15,15 @@ const ICONS = { Workflow, LayoutDashboard, ChartNoAxesCombined, Compass, Globe, 
  */
 const Solutions = ({ dict, problems, lang, pageLabels }) => (
   <section className={`section ${styles.solutionsSection}`} id="solutions">
-    <div className="container" data-reveal>
+    <div className="container">
       <SectionHeader title={dict.title} subtitle={dict.subtitle} />
 
       <ul className={styles.grid}>
-        {SOLUTIONS.map(({ key, icon, solves, pages = [] }) => {
+        {SOLUTIONS.map(({ key, icon, solves, pages = [] }, index) => {
           const Icon = ICONS[icon];
           const item = dict.items[key];
           return (
-            <li key={key} id={`solution-${key}`} className={styles.card}>
+            <li key={key} id={`solution-${key}`} className={styles.card} data-assemble={gridSide(index, 2)}>
               <span className={styles.iconBox} aria-hidden="true">
                 <Icon size={24} strokeWidth={1.75} />
               </span>
@@ -62,7 +63,7 @@ const Solutions = ({ dict, problems, lang, pageLabels }) => (
         })}
       </ul>
 
-      <div className={styles.extra}>
+      <div className={styles.extra} data-assemble="up">
         <h3 className={styles.extraTitle}>{dict.extraTitle}</h3>
         <ul className={styles.extraList}>
           {EXTRA_SERVICES.map(({ key, icon }) => {

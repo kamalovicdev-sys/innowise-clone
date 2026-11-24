@@ -11,11 +11,11 @@ const Trust = ({ dict, lang }) => {
 
   return (
     <section className={`section ${styles.trustSection}`} aria-labelledby="trust-title">
-      <div className="container" data-reveal>
+      <div className="container">
         <SectionHeader id="trust-title" title={dict.title} align="center" />
 
         {TRUST_STATS.length > 0 && (
-          <dl className={styles.stats}>
+          <dl className={styles.stats} data-assemble="up">
             {TRUST_STATS.map((stat) => (
               <div key={stat.key} className={styles.stat}>
                 <dt className={styles.statLabel}>{dict.stats[stat.key]}</dt>
@@ -26,7 +26,7 @@ const Trust = ({ dict, lang }) => {
         )}
 
         {CLIENT_LOGOS.length > 0 && (
-          <ul className={styles.logos} aria-label={dict.logosLabel}>
+          <ul className={styles.logos} aria-label={dict.logosLabel} data-assemble="up">
             {CLIENT_LOGOS.map((logo) => (
               <li key={logo.name} className={styles.logo}>
                 <img src={logo.src} alt={logo.name} height="40" loading="lazy" decoding="async" />
@@ -36,7 +36,7 @@ const Trust = ({ dict, lang }) => {
         )}
 
         {TESTIMONIALS.length > 0 && (
-          <div className={styles.testimonials}>
+          <div className={styles.testimonials} data-assemble="up">
             {TESTIMONIALS.map((item) => (
               <figure key={item.author} className={styles.testimonial}>
                 <Quote size={28} className={styles.quoteIcon} aria-hidden="true" />

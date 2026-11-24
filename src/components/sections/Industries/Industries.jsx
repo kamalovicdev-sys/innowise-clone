@@ -56,10 +56,10 @@ const Industries = ({ dict, labels, images = null }) => {
 
   return (
     <section className={`section ${styles.industriesSection}`} id="industries">
-      <div className="container" data-reveal>
+      <div className="container">
         <SectionHeader id="industries-title" title={dict.title} subtitle={dict.subtitle} />
 
-        <div className={styles.tabsHeader}>
+        <div className={styles.tabsHeader} data-assemble="up">
           <div className={styles.tabList} role="tablist" aria-labelledby="industries-title">
             {INDUSTRIES.map((industry, index) => {
               const isActive = index === activeIndex;
@@ -92,6 +92,8 @@ const Industries = ({ dict, labels, images = null }) => {
           </div>
         </div>
 
+        {/* Panel tab almashganda key bilan qayta yaratiladi, shuning uchun animatsiya doimiy o'ramda */}
+        <div data-assemble="zoom">
         <div
           className={styles.contentArea}
           key={current.id}
@@ -138,6 +140,7 @@ const Industries = ({ dict, labels, images = null }) => {
               <IndustryVisual icon={current.icon} index={activeIndex} />
             )}
           </div>
+        </div>
         </div>
       </div>
     </section>

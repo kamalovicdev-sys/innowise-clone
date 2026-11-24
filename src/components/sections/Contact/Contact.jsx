@@ -41,11 +41,11 @@ const Contact = ({ dict, formDict, address, privacyHref = null }) => {
 
   return (
     <section className={`section ${styles.contactSection}`} id="contact">
-      <div className="container" data-reveal>
+      <div className="container">
         <SectionHeader title={dict.title} subtitle={dict.subtitle} align="center" />
 
         <div className={styles.wrapper}>
-          <div className={styles.infoColumn}>
+          <div className={styles.infoColumn} data-assemble="left">
             <ul className={styles.channels}>
               {channels.map(({ id, Icon, label, value, href, external }) => (
                 <li key={id} className={styles.channel}>
@@ -82,7 +82,7 @@ const Contact = ({ dict, formDict, address, privacyHref = null }) => {
             </div>
           </div>
 
-          <div className={styles.formCard}>
+          <div className={styles.formCard} data-assemble="right">
             <ContactForm labels={labels} layout="grid" />
           </div>
         </div>

@@ -14,6 +14,7 @@ import Contact from '@components/sections/Contact/Contact.jsx';
 import ContactModal from '@components/ui/ContactModal/ContactModal.jsx';
 import MobileCTA from '@components/ui/MobileCTA/MobileCTA.jsx';
 import MobileCTAToggle from '@components/ui/MobileCTA/MobileCTAToggle.astro';
+import HeroDashboardLive from '@components/sections/Hero/HeroDashboardLive.astro';
 import { getDictionary, getLanguageLinks, localizedPath } from '@i18n';
 import { LEGAL_PAGES, CONTACT, SOCIAL_LINKS } from '@data/site';
 import { INDUSTRIES } from '@data/sections';
@@ -135,4 +136,5 @@ const industryImages = hasAllImages
   <!-- Saytdagi yagona aloqa oynasi: [data-open-contact] tugmalarining barchasi shuni ochadi -->
   <ContactModal client:load dict={dict.contactModal} formDict={dict.form} privacyHref={privacyHref} />
   <MobileCTAToggle />
+  <HeroDashboardLive />
 </BaseLayout>

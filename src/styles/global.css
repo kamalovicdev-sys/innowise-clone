@@ -99,22 +99,62 @@ html:has(dialog[open]) {
   white-space: nowrap;
 }
 
-/* Scroll reveal: bo'lim ichidagi konteyner ekranga kirganda paydo bo'ladi.
-   Animatsiya <section id> ning o'ziga emas, ichidagi [data-reveal] ga qo'llanadi,
-   shuning uchun #anchor havolalari to'g'ri joyga tushadi.
+/* Scroll paytida "yig'ilish": [data-assemble] elementlar o'z tomonidan (chap, o'ng, past, yuqori) kelib,
+   biroz kattalashib o'z joyiga tushadi. Ekranga birga kirganlar navbatma-navbat (--assemble-delay, skript qo'yadi).
+   Kelish tomoni: data-assemble="left|right|up|down|zoom" (grid uchun src/lib/assemble.js -> gridSide).
    JS o'chiq bo'lsa (.js klassi yo'q) kontent darhol ko'rinadi. */
-[data-reveal] {
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+[data-assemble='up'] {
+  --assemble-from: translate3d(0, 40px, 0) scale(0.97);
 }
 
-.js [data-reveal]:not([data-revealed]) {
+[data-assemble='down'] {
+  --assemble-from: translate3d(0, -28px, 0);
+}
+
+[data-assemble='left'] {
+  --assemble-from: translate3d(-64px, 20px, 0) rotate(-1.5deg) scale(0.95);
+}
+
+[data-assemble='right'] {
+  --assemble-from: translate3d(64px, 20px, 0) rotate(1.5deg) scale(0.95);
+}
+
+[data-assemble='zoom'] {
+  --assemble-from: scale(0.94);
+}
+
+/* Komponentning o'z o'tishlari (hover'dagi chegara, soya, fon) ham saqlanadi */
+.js [data-assemble] {
+  transition:
+    opacity 0.6s ease-out var(--assemble-delay, 0ms),
+    transform 0.9s var(--ease-out) var(--assemble-delay, 0ms),
+    border-color var(--duration) ease,
+    box-shadow var(--duration) ease,
+    background-color var(--duration) ease,
+    color var(--duration) ease;
+}
+
+.js [data-assemble]:not([data-assembled]) {
   opacity: 0;
-  transform: translateY(40px);
+  transform: var(--assemble-from);
+}
+
+/* Yon tomondan kelayotgan elementlar sahifani gorizontal kengaytirmasin */
+main {
+  overflow-x: clip;
+}
+
+/* Telefonda chap/o'ng tomonlar ham pastdan keladi (tor ekranda yon harakat chalkash ko'rinadi) */
+@media (max-width: 760px) {
+  [data-assemble='left'],
+  [data-assemble='right'] {
+    --assemble-from: translate3d(0, 32px, 0) scale(0.97);
+  }
 }
 
 /* Chop etishda hali ko'rilmagan bo'limlar ham ko'rinsin */
 @media print {
-  .js [data-reveal]:not([data-revealed]) {
+  .js [data-assemble]:not([data-assembled]) {
     opacity: 1;
     transform: none;
   }
@@ -125,11 +165,11 @@ html:has(dialog[open]) {
     scroll-behavior: auto;
   }
 
-  [data-reveal] {
+  .js [data-assemble] {
     transition: none;
   }
 
-  .js [data-reveal]:not([data-revealed]) {
+  .js [data-assemble]:not([data-assembled]) {
     opacity: 1;
     transform: none;
   }

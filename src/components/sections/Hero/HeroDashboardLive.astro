@@ -1,0 +1,88 @@
+---
+// Hero'dagi demo dashbordni "jonlantiradi" (HeroDashboard.jsx):
+// - KPI raqamlari noldan sanab o'sadi, keyin har siklda biroz yangilanadi;
+// - har 4.5 soniyada ko'rinish almashadi: Revenue → Channels → Inventory (data-view, animatsiyalar CSS'da);
+// - dashbord ekranda ko'rinmasa yoki brauzer tabi yashirin bo'lsa, sikl to'xtaydi;
+// - "harakatni kamaytirish" yoqilgan bo'lsa, hech narsa o'zgarmaydi (yakuniy qiymatlar va Revenue turadi).
+---
+
+<script>
+  const VIEWS = ['revenue', 'channels', 'inventory'];
+  const CYCLE_MS = 4500;
+
+  const format = (el: HTMLElement, value: number) => {
+    const decimals = Number(el.dataset.decimals ?? 0);
+    const number = value.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+    return `${el.dataset.prefix ?? ''}${number}${el.dataset.suffix ?? ''}`;
+  };
+
+  const init = (dash: HTMLElement) => {
+    const counters = [...dash.querySelectorAll<HTMLElement>('[data-count]')].map((el) => ({
+      el,
+      value: Number(el.dataset.count),
+      decimals: Number(el.dataset.decimals ?? 0),
+    }));
+    counters.forEach(({ el }) => el.setAttribute('data-counting', ''));
+
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Qiymatni silliq o'zgartirish (ease-out)
+    const tween = (el: HTMLElement, from: number, to: number, ms: number) => {
+      const start = performance.now();
+      const step = (now: number) => {
+        const progress = Math.min(1, (now - start) / ms);
+        const eased = 1 - (1 - progress) ** 3;
+        el.textContent = format(el, from + (to - from) * eased);
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+
+    // Boshlanish: oyna ko'tarilayotganda raqamlar noldan o'sadi
+    counters.forEach(({ el, value }) => {
+      el.textContent = format(el, 0);
+      setTimeout(() => tween(el, 0, value, 1600), 250);
+    });
+
+    // Har siklda "yangi ma'lumot": tushum va buyurtmalar biroz o'sadi, marja ozgina tebranadi
+    const drift = [
+      () => 0.01 + Math.random() * 0.03,
+      () => 30 + Math.round(Math.random() * 60),
+      () => (Math.random() - 0.45) * 0.6,
+    ];
+
+    let index = 0;
+    const next = () => {
+      index = (index + 1) % VIEWS.length;
+      dash.dataset.view = VIEWS[index];
+      counters.forEach((counter, k) => {
+        const to = Number((counter.value + drift[k]()).toFixed(counter.decimals));
+        tween(counter.el, counter.value, to, 900);
+        counter.value = to;
+      });
+    };
+
+    let timer: number | undefined;
+    let onScreen = true;
+    const update = () => {
+      if (onScreen && !document.hidden) {
+        timer ??= window.setInterval(next, CYCLE_MS);
+      } else {
+        window.clearInterval(timer);
+        timer = undefined;
+      }
+    };
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => {
+        onScreen = entry.isIntersecting;
+        update();
+      }).observe(dash);
+    }
+    document.addEventListener('visibilitychange', update);
+    update();
+  };
+
+  const dash = document.querySelector<HTMLElement>('[data-hero-dash]');
+  if (dash) init(dash);
+</script>
