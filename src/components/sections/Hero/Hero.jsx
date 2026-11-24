@@ -1,9 +1,12 @@
+import { Check } from 'lucide-react';
 import Button from '@components/ui/Button/Button';
 import HeroDashboard from './HeroDashboard';
 import styles from './Hero.module.css';
 
-// Statik bo'lim (JS'siz). "Loyihani baholash" tugmasi umumiy ContactModal'ni data-open-contact orqali ochadi.
-const Hero = ({ dict }) => (
+// Statik bo'lim (JS'siz). Sarlavha mijoz muammosidan boshlanadi.
+// "Bepul ma'lumotlar auditi" tugmasi umumiy ContactModal'ni data-open-contact orqali ochadi.
+// exploreHref: ikkinchi tugma olib boradigan bo'lim (bosh sahifada #solutions, xizmat sahifasida #deliverables).
+const Hero = ({ dict, exploreHref = '#solutions' }) => (
   <section className={styles.heroSection} id="hero">
     <div className={`container ${styles.container}`}>
       <div className={styles.content}>
@@ -13,10 +16,18 @@ const Hero = ({ dict }) => (
           <Button size="lg" data-open-contact>
             {dict.btnEstimate}
           </Button>
-          <Button href="#services" variant="secondary" size="lg">
+          <Button href={exploreHref} variant="secondary" size="lg">
             {dict.btnExplore}
           </Button>
         </div>
+        <ul className={styles.note}>
+          {dict.note.map((item) => (
+            <li key={item} className={styles.noteItem}>
+              <Check size={16} strokeWidth={2.5} className={styles.noteIcon} aria-hidden="true" />
+              {item}
+            </li>
+          ))}
+        </ul>
       </div>
 
       <div className={styles.visual}>

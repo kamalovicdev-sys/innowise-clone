@@ -65,8 +65,8 @@ body { width: 1200px; height: 630px; }
 .logo svg { width: 56px; height: 56px; }
 .name { font-family: 'Manrope Variable'; font-weight: 800; font-size: 30px; letter-spacing: 0.06em; line-height: 1; }
 .tag { margin-top: 6px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em; color: #4fc6cf; }
-.eyebrow { margin-top: auto; font-size: 22px; font-weight: 600; color: #4fc6cf; }
-h1 { margin-top: 14px; font-family: 'Manrope Variable'; font-weight: 800; font-size: 58px; line-height: 1.08; letter-spacing: -0.02em; text-wrap: balance; }
+.eyebrow { margin-top: auto; padding-top: 24px; font-size: 22px; font-weight: 600; color: #4fc6cf; }
+h1 { margin-top: 14px; font-family: 'Manrope Variable'; font-weight: 800; font-size: ${t.title.length > 48 ? 48 : 58}px; line-height: 1.08; letter-spacing: -0.02em; text-wrap: balance; }
 .domain { margin-top: auto; padding-top: 28px; font-size: 22px; font-weight: 600; color: #a9b4cc; }
 .chart { position: relative; padding: 24px; border-radius: 20px; background: rgb(255 255 255 / 0.06); border: 1px solid rgb(255 255 255 / 0.12); }
 </style></head><body><div class="card">

@@ -1,11 +1,17 @@
 import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import { CONTACT, SOCIAL_LINKS, LEGAL_PAGES } from '@data/site';
+import { SERVICE_PAGES } from '@data/services';
 import { localizedPath } from '@i18n';
 import Logo from '@components/ui/Logo/Logo';
 import styles from './Footer.module.css';
 
+const QUICK_LINKS = ['problems', 'solutions', 'industries', 'faq'];
+// Alohida sahifasi yo'q xizmatlar bosh sahifadagi kartaga olib boradi
+const SOLUTION_ANCHORS = ['analytics', 'consulting'];
+
 // anchorBase: bosh sahifada '', boshqa sahifalarda bosh sahifa manzili (bo'lim havolalari uchun)
-const Footer = ({ dict, homeHref, lang, anchorBase = '' }) => {
+// pageLabels: tarjima faylidagi servicePages (xizmat sahifalari nomlari)
+const Footer = ({ dict, homeHref, lang, pageLabels, anchorBase = '' }) => {
   // Havolasi hali yo'q tarmoqlar/sahifalar ko'rsatilmaydi ("o'lik" # havolalar o'rniga)
   const socials = SOCIAL_LINKS.filter((s) => s.href);
   const legal = [
@@ -38,20 +44,27 @@ const Footer = ({ dict, homeHref, lang, anchorBase = '' }) => {
           <nav aria-labelledby="footer-quick-links">
             <h2 id="footer-quick-links" className={styles.title}>{dict.quickLinks}</h2>
             <ul className={styles.list}>
-              <li><a href={`${anchorBase}#services`}>{dict.links.ourServices}</a></li>
-              <li><a href={`${anchorBase}#portfolio`}>{dict.links.caseStudies}</a></li>
-              <li><a href={`${anchorBase}#expertise`}>{dict.links.coreTech}</a></li>
-              <li><a href={`${anchorBase}#faq`}>{dict.links.faq}</a></li>
+              {QUICK_LINKS.map((id) => (
+                <li key={id}>
+                  <a href={`${anchorBase}#${id}`}>{dict.links[id]}</a>
+                </li>
+              ))}
             </ul>
           </nav>
 
           <div>
             <h2 className={styles.title}>{dict.servicesTitle}</h2>
             <ul className={styles.list}>
-              <li><a href={`${anchorBase}#services`}>{dict.serviceLinks.dataAnalytics}</a></li>
-              <li><a href={`${anchorBase}#services`}>{dict.serviceLinks.dataWarehousing}</a></li>
-              <li><a href={`${anchorBase}#services`}>{dict.serviceLinks.webAds}</a></li>
-              <li><a href={`${anchorBase}#services`}>{dict.serviceLinks.consulting}</a></li>
+              {SERVICE_PAGES.map(({ key, slug }) => (
+                <li key={key}>
+                  <a href={localizedPath(lang, `${slug}/`)}>{pageLabels[key]}</a>
+                </li>
+              ))}
+              {SOLUTION_ANCHORS.map((key) => (
+                <li key={key}>
+                  <a href={`${anchorBase}#solution-${key}`}>{dict.serviceLinks[key]}</a>
+                </li>
+              ))}
             </ul>
           </div>
 

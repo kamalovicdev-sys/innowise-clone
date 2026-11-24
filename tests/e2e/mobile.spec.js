@@ -21,14 +21,14 @@ test.describe('Telefon', () => {
     const bar = page.locator('[data-mobile-cta]');
     expect(await bar.evaluate((el) => el.inert)).toBe(true);
 
-    await page.locator('#services').scrollIntoViewIfNeeded();
+    await page.locator('#solutions').scrollIntoViewIfNeeded();
     await expect(bar).toHaveAttribute('data-visible', '');
     await expect(bar.locator('a[href="tel:+998955209595"]')).toBeVisible();
     await bar.locator('[data-open-contact]').click();
     await expect(page.getByRole('dialog')).toBeVisible();
   });
 
-  for (const path of ['/', '/ru/', '/en/', '/privacy/']) {
+  for (const path of ['/', '/ru/', '/en/', '/privacy/', '/ru/1c-analytics/', '/metabase/']) {
     test(`320px kenglikda ${path} gorizontal aylanmaydi, panel sig'adi`, async ({ page }) => {
       await page.setViewportSize({ width: 320, height: 700 });
       await page.goto(path);

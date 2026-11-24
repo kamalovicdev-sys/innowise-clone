@@ -124,8 +124,14 @@
   font-size: var(--text-2xl);
   font-weight: 700;
   color: var(--color-text);
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-3);
   line-height: var(--leading-snug);
+  text-wrap: balance;
+}
+
+.ctaText {
+  margin-bottom: var(--space-8);
+  color: var(--color-text-muted);
   text-wrap: balance;
 }
 

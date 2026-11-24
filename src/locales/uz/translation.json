@@ -1,23 +1,28 @@
 {
   "meta": {
-    "title": "Ma'lumotlar tahlili va BI yechimlari | Mehrzod Group",
-    "description": "Mehrzod Business Group: ma'lumotlar tahlili, BI dashbordlar, ma'lumotlar ombori va biznes konsalting. Biznesingiz ma'lumotlarini aniq qarorlarga aylantiramiz."
+    "title": "BI tahlil va Power BI dashbordlar Toshkentda | Mehrzod Group",
+    "description": "1C, amoCRM, Bitrix24 va Excel ma'lumotlarini avtomatik yig'ib, Power BI yoki Metabase dashbordlariga aylantiramiz. Toshkent. Bepul ma'lumotlar auditi."
   },
   "nav": {
-    "services": "Xizmatlar",
-    "portfolio": "Keyslar",
+    "problems": "Muammolar",
+    "solutions": "Yechimlar",
+    "industries": "Sohalar",
     "faq": "FAQ",
-    "contact": "Biz bilan bog'lanish",
+    "contact": "Bepul audit",
     "language": "Tilni tanlash",
     "openMenu": "Menyuni ochish",
     "closeMenu": "Menyuni yopish",
     "skipToContent": "Asosiy mazmunga o'tish"
   },
   "hero": {
-    "title": "Ma'lumotlarni aniq qarorlarga aylantiramiz",
-    "subtitle": "Sotuvlar, zaxiralar va foydani bitta dashbordda ko'ring. Ma'lumot tizimlarini quramiz, hisobotlarni avtomatlashtiramiz va biznesingiz o'sishi mumkin bo'lgan nuqtalarni topamiz.",
-    "btnEstimate": "Loyihani baholash",
-    "btnExplore": "Xizmatlarni o'rganish",
+    "title": "Hisobotlar kechikadi, raqamlar tarqoq\u00a0\u2014 qarorlar taxminga qolmoqdami?",
+    "subtitle": "Ma'lumotlaringizni barcha tizimlardan avtomatik ravishda bir joyga yig'amiz va Power BI yoki Metabase'da tushunarli dashbordlarga aylantiramiz. Raqamlar har kuni o'zi yangilanadi, ularni hech kim qo'lda yig'maydi.",
+    "btnEstimate": "Bepul ma'lumotlar auditi",
+    "btnExplore": "Yechimlarni ko'rish",
+    "note": [
+      "Dasturlaringizni almashtirish shart emas",
+      "NDA imzolaymiz"
+    ],
     "mock": {
       "badge": "Demo",
       "title": "Savdo tahlili",
@@ -44,102 +49,6 @@
       ]
     }
   },
-  "benefits": {
-    "title": "Biz bilan ishlash orqali nimalarga ega bo'lasiz",
-    "items": {
-      "visibility": {
-        "title": "Biznesingizning aniq ko'rinishi",
-        "desc": "Nima yaxshi sotilishini taxmin qilishni bas qiling. Biz ma'lumotlaringizni aniq tendentsiyalarga aylantiramiz, shunda siz nima zaxira qilish yoki reklama qilishni aniq bilib olasiz."
-      },
-      "reporting": {
-        "title": "Avtomatlashtirilgan, stressiz hisobotlar",
-        "desc": "Chalkash jadvallar bilan xayrlashing. Biz bir necha soniya ichida sotuvlar, zaxiralar va foydalar haqida to'liq ma'lumot beruvchi real vaqtli dasbordlarni yaratamiz."
-      },
-      "presence": {
-        "title": "Sotuvlarni oshiruvchi raqamli mavjudlik",
-        "desc": "Chiroyli veb-saytning o'zi yetarli emas. Maqsadli SEO va brend reklamalari orqali biz sizning biznesingizni xarid qilishga tayyor mijozlar ko'z o'ngiga olib chiqamiz."
-      },
-      "guidance": {
-        "title": "Kengayish uchun strategik ko'rsatmalar",
-        "desc": "Biznesingizni rivojlantirish xatolar orqali bo'lmasligi kerak. Bizning konsalting xizmatimiz operatsiyalarni optimallashtirish, xarajatlarni kamaytirish va ishonch bilan o'sishga yordam beradi."
-      },
-      "roi": {
-        "title": "Har bir sarflangan dollar uchun o'lchanadigan ROI",
-        "desc": "Biz amalga oshiradigan har bir strategiya bitta narsaga qaratilgan: sizning foydangiz. Biz sarmoyalaringiz to'g'ridan-to'g'ri o'sishingizga xizmat qilishi uchun nima ish berayotganini kuzatib boramiz."
-      }
-    }
-  },
-  "services": {
-    "title": "Bizning Xizmatlar",
-    "items": {
-      "analysis": "Ma'lumotlar tahlili",
-      "warehousing": "Ma'lumotlar ombori yechimlari",
-      "management": "Ma'lumotlarni boshqarish platformalari",
-      "bi": "Business Intelligence (BI)",
-      "web_ads": "Veb-sayt va Reklama",
-      "ai_bots": "AI vositalari va Botlar",
-      "system_design": "Tizim dizayni",
-      "consulting": "Biznes konsalting",
-      "sales_dept": "Sotuv bo'limini ishlab chiqish va joriy etish"
-    },
-    "desc": {
-      "analysis": "Savdo, mijoz va ombor ma'lumotlaridan trendlar va o'sish nuqtalarini topamiz.",
-      "warehousing": "Barcha manbalardagi ma'lumotlarni bitta ishonchli omborga jamlaymiz.",
-      "management": "Ma'lumotlar sifati, kirish huquqlari va yangilanishini nazorat qiluvchi platformalar.",
-      "bi": "Rahbariyat uchun real vaqtli dashbordlar va avtomatik hisobotlar.",
-      "web_ads": "Sotuvga yo'naltirilgan veb-sayt, SEO va maqsadli reklama.",
-      "ai_bots": "Takroriy ishlarni avtomatlashtiradigan AI vositalari va chat-botlar.",
-      "system_design": "Biznes jarayonlaringizga mos, kengaytiriladigan tizim arxitekturasi.",
-      "consulting": "Jarayonlarni optimallashtirish va xarajatlarni kamaytirish bo'yicha maslahat.",
-      "sales_dept": "Sotuv bo'limini noldan qurish yoki mavjudini kuchaytirish."
-    }
-  },
-  "process": {
-    "title": "Loyihangiz sizning tezligingizda",
-    "subtitle": "Har bir qadam ma'lumotlaringizni biznes qiymatiga yaqinlashtiradi, behuda harakatlar va taxminlarsiz.",
-    "phases": [
-      {
-        "title": "Tahlil va loyihalash",
-        "desc": "Jamoangiz ma'lumotlardan qanday foydalanishini o'rganamiz, kamchiliklarni topamiz va tizim arxitekturasini loyihalaymiz.",
-        "steps": [
-          "Talablarni tahlil qilish",
-          "Ma'lumotlar arxitekturasi"
-        ]
-      },
-      {
-        "title": "Ma'lumotlarni yig'ish va saqlash",
-        "desc": "Fayllar, API va bulutli servislardagi ma'lumotlarni bir joyga yig'amiz: data lake va markaziy omborni quramiz.",
-        "steps": [
-          "Ma'lumotlarni yig'ish",
-          "Ma'lumotlar ko'lini (Data Lake) yaratish",
-          "Ma'lumotlar omborini o'rnatish"
-        ]
-      },
-      {
-        "title": "Tozalash va qayta ishlash",
-        "desc": "Dublikat va xatolarni tuzatamiz, ma'lumotlarni avtomatik yangilanadigan ETL/ELT oqimlariga ulaymiz.",
-        "steps": [
-          "Ma'lumotlarni tozalash",
-          "ETL/ELT ishlab chiqish"
-        ]
-      },
-      {
-        "title": "Sinov va ishga tushirish",
-        "desc": "Har bir ulanish, mantiq va yuklanish vaqtini tekshiramiz, so'ng tizimni ishga tushirib, hisobotlarni avtomatlashtiramiz.",
-        "steps": [
-          "Sifat nazorati",
-          "Ishga tushirish (Deployment)"
-        ]
-      },
-      {
-        "title": "Tahlil va rivojlantirish",
-        "desc": "Real vaqt tahlilini ish jarayonlaringizga kiritamiz va fikr-mulohazangiz asosida yangi ko'rsatkichlar qo'shib boramiz.",
-        "steps": [
-          "Ma'lumotlar tahlili"
-        ]
-      }
-    ]
-  },
   "trust": {
     "title": "Bizga ishonch bildirganlar",
     "logosLabel": "Mijozlarimiz",
@@ -150,111 +59,249 @@
       "clients": "doimiy mijoz"
     }
   },
-  "expertise": {
-    "title": "Asosiy Texnologiyalarimiz",
-    "subtitle": "Biz biznesingizning ehtiyojlariga mos keladigan yechimlarni yaratish uchun eng zamonaviy texnologiyalardan foydalanamiz.",
-    "categories": {
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "database": "Ma'lumotlar bazasi",
-      "cloud": "Bulut & DevOps"
+  "problems": {
+    "title": "Bu vaziyatlar sizga tanishmi?",
+    "subtitle": "Kompaniya o'sgan sari ma'lumot ko'payadi, lekin aniqlik kamayadi. Quyida eng ko'p uchraydigan muammolar, ularning oqibati va biz taklif qiladigan yechim.",
+    "labels": {
+      "problem": "Muammo",
+      "consequence": "Oqibati",
+      "solution": "Yechimimiz"
+    },
+    "items": {
+      "manualReports": {
+        "title": "Hisobotlar qo'lda yig'iladi",
+        "problem": "Hisobotlar 1C, CRM va Excel'dan qo'lda ko'chirib yig'iladi. Bu ish ko'pincha bitta xodimga bog'liq.",
+        "consequence": "Rahbar raqamlarni kechikib ko'radi, ko'chirishda xatolar paydo bo'ladi. Xodim ta'tilga chiqsa yoki ishdan ketsa, hisobot ham to'xtaydi.",
+        "solution": "Ma'lumotlarni tizimlaringizdan avtomatik yig'ishni yo'lga qo'yamiz. Hisobotlar o'zi yangilanadi, xodimlar esa raqam yig'ish o'rniga ular bilan ishlaydi."
+      },
+      "scatteredData": {
+        "title": "Har bo'limda o'z raqami",
+        "problem": "Sotuv bo'limi CRM'da, buxgalteriya 1C'da, ombor Excel'da ishlaydi. Bitta ko'rsatkich har joyda har xil chiqadi.",
+        "consequence": "Majlislar “qaysi raqam to'g'ri” degan bahsga ketadi. Rahbariyat ma'lumotlarga ishonmay qo'yadi va qarorlar sezgiga tayanadi.",
+        "solution": "Barcha manbalarni yagona ma'lumotlar omboriga ulaymiz. Ma'lumotlar doimiy ravishda bir joyga keladi va butun kompaniya bitta raqamga qaraydi."
+      },
+      "profitBlindness": {
+        "title": "Foyda qayerdan kelishi noma'lum",
+        "problem": "Umumiy sotuv hajmi ko'rinadi, lekin qaysi mahsulot, filial, mijoz yoki menejer haqiqatda foyda keltirayotgani aniq emas.",
+        "consequence": "Pul va vaqt zarar keltirayotgan yo'nalishlarga sarflanadi, eng foydali mijoz va mahsulotlar esa e'tibordan chetda qoladi.",
+        "solution": "Mahsulot, filial, mijoz va menejer kesimida marja tahlili (ABC/XYZ). Qayerga sarmoya kiritish va nimadan voz kechish kerakligi aniq ko'rinadi."
+      },
+      "inventory": {
+        "title": "Omborda ortiqcha zaxira yoki tanqislik",
+        "problem": "Buyurtma hajmi tajriba va taxmin asosida belgilanadi.",
+        "consequence": "Bir tovar omborda yotib qolib pulni muzlatadi, boshqasi tugab qoladi va xaridor raqobatchiga ketadi.",
+        "solution": "Sotuv tarixiga asoslangan talab prognozi, qoldiqlar dashbordi va tovar tugashidan oldin ogohlantirish."
+      },
+      "marketing": {
+        "title": "Reklama samarasi o'lchanmaydi",
+        "problem": "Reklamaga pul sarflanadi, lekin qaysi kanal haqiqiy sotuv olib kelayotgani noma'lum.",
+        "consequence": "Byudjet natija bermaydigan kanallarga ketadi, bitta mijozni jalb qilish narxi oshib boradi.",
+        "solution": "Reklama kabinetlari, CRM va sotuv ma'lumotlarini bog'laymiz. Har bir kanal bo'yicha lid narxi, sotuv va ROI bitta hisobotda ko'rinadi."
+      },
+      "lateControl": {
+        "title": "Muammolar kech aniqlanadi",
+        "problem": "Reja va fakt oy oxirida solishtiriladi. Kunlik holatni bilish uchun hisobot so'rab kutish kerak.",
+        "consequence": "Rejadan orqada qolish zarar ko'rilgandan keyin aniqlanadi va vaziyatni tuzatishga vaqt qolmaydi.",
+        "solution": "KPI dashbordi: reja-fakt har kuni yangilanadi. Ko'rsatkich rejadan chetga chiqsa, mas'ul xodimga email yoki Telegram orqali ogohlantirish keladi."
+      }
+    },
+    "cta": {
+      "title": "Qaysi biri sizga tanish?",
+      "text": "Bepul ma'lumotlar auditida biznesingizdagi aniq muammolarni topamiz va ularni hal qilish rejasini beramiz.",
+      "button": "Bepul auditga yozilish"
     }
   },
-  "portfolio": {
-    "title": "Har bir soha uchun ma'lumotlar tahlili",
-    "industries": {
-      "healthcare": {
-        "name": "Sog'liqni saqlash",
-        "title": "Sog'liqni saqlash tahlili",
-        "desc": "Biz tibbiyot muassasalariga bemorlar natijalarini yaxshilash, resurslarni taqsimlashni optimallashtirish va tibbiy ma'lumotlar qoidalariga rioya qilishni ta'minlashda yordam beramiz.",
-        "features": [
-          "Bemorlarning bashoratli tahlili",
-          "Resurslar va xodimlarni optimallashtirish",
-          "EHR ma'lumotlarini integratsiyasi va xavfsizligi"
-        ]
+  "solutions": {
+    "title": "Yechimlarimiz",
+    "subtitle": "Ma'lumotlarni yig'ishdan tortib qaror qabul qilishgacha bo'lgan butun yo'lni yopamiz.",
+    "solvesLabel": "Hal qiladi:",
+    "moreLabel": "Batafsil:",
+    "items": {
+      "automation": {
+        "title": "Ma'lumotlarni avtomatlashtirish",
+        "desc": "1C, amoCRM, Bitrix24, Excel va boshqa tizimlaringizni ulaymiz. Ma'lumotlar belgilangan jadval bo'yicha o'zi yagona omborga tushadi, tozalanadi va tekshiriladi. Bir marta sozlaymiz, keyin biznesingiz ma'lumotlari doimiy ravishda bir joyga kelib turadi."
       },
-      "retail": {
-        "name": "Chakana savdo va e-tijorat",
-        "title": "Chakana savdo va E-tijorat",
-        "desc": "Ilg'or mijozlar tahlili, shaxsiy tavsiya tizimlari va real vaqt bozor ma'lumotlariga asoslangan dinamik narxlash modellari bilan chakana biznesingizni o'zgartiring.",
-        "features": [
-          "Mijozlar ketishini bashorat qilish",
-          "Dinamik narxlash algoritmlari",
-          "Zaxiralar va talabni bashorat qilish"
-        ]
+      "dashboards": {
+        "title": "BI dashbordlar",
+        "desc": "Power BI yoki Metabase'da rahbariyat va har bir bo'lim uchun dashbordlar: sotuv, foyda, zaxira va KPI bitta ekranda, kompyuterda ham, telefonda ham."
       },
-      "banking": {
-        "name": "Bank va moliya",
-        "title": "Bank va Moliya",
-        "desc": "Moliyaviy muassasangizni xavfsiz ma'lumotlarni qayta ishlash, firibgarlikni aniqlash tizimlari va aktivlarni himoya qiluvchi hamda barqaror o'sishni ta'minlovchi xavflarni baholash modellari bilan kuchaytiring.",
-        "features": [
-          "Firibgarlikni real vaqtda aniqlash tizimlari",
-          "Xavflarni avtomatlashtirilgan baholash modellari",
-          "Algoritmik savdo tahlili"
-        ]
+      "analytics": {
+        "title": "Ma'lumotlar tahlili va prognoz",
+        "desc": "Marja va ABC/XYZ tahlili, mijozlar segmentatsiyasi, talab prognozi va marketing samaradorligi. O'sish nuqtalarini va pul yo'qotilayotgan joylarni topamiz."
+      },
+      "consulting": {
+        "title": "Data-konsalting",
+        "desc": "Qaysi ko'rsatkichlarni kuzatish kerakligini aniqlaymiz, KPI tizimi va hisobot jarayonlarini quramiz, jamoangizni dashbordlardan foydalanishga o'rgatamiz."
+      }
+    },
+    "extraTitle": "Qo'shimcha xizmatlar",
+    "extra": {
+      "web_ads": {
+        "title": "Veb-sayt va reklama",
+        "desc": "Sotuvga yo'naltirilgan sayt, SEO va maqsadli reklama."
+      },
+      "ai_bots": {
+        "title": "AI vositalari va botlar",
+        "desc": "Takroriy ishlarni avtomatlashtiradigan AI vositalari va chat-botlar."
+      },
+      "sales_dept": {
+        "title": "Sotuv bo'limini qurish",
+        "desc": "Sotuv bo'limini noldan qurish yoki mavjudini kuchaytirish."
+      },
+      "system_design": {
+        "title": "Tizim dizayni",
+        "desc": "Biznes jarayonlaringizga mos, kengaytiriladigan tizim arxitekturasi."
+      }
+    }
+  },
+  "process": {
+    "title": "Qanday ishlaymiz",
+    "subtitle": "Bepul auditdan doimiy ishlaydigan tizimgacha. Har bir qadamda nima olishingiz aniq.",
+    "resultLabel": "Natija:",
+    "phases": [
+      {
+        "title": "Bepul ma'lumotlar auditi",
+        "desc": "Hisobot jarayonlaringiz va ma'lumot manbalaringizni ko'rib chiqamiz, qaysi qarorlar uchun raqam yetishmayotganini aniqlaymiz.",
+        "result": "muammolar ro'yxati va yechim rejasi."
+      },
+      {
+        "title": "Ulash va avtomatlashtirish",
+        "desc": "Tizimlaringizni ulaymiz, ma'lumotlarni tozalaymiz va yagona omborga avtomatik oqimni sozlaymiz.",
+        "result": "ma'lumotlar o'zi bir joyga keladi."
+      },
+      {
+        "title": "Dashbord va hisobotlar",
+        "desc": "Power BI yoki Metabase'da rahbariyat va bo'limlar uchun dashbordlar quramiz.",
+        "result": "birinchi ishchi dashbord 2–\u20604 haftada."
+      },
+      {
+        "title": "Qo'llab-quvvatlash va rivojlantirish",
+        "desc": "Tizim barqaror ishlashini kuzatamiz, yangi ko'rsatkichlar qo'shamiz va jamoangizni o'rgatamiz.",
+        "result": "biznesingiz bilan birga o'sadigan tizim."
+      }
+    ]
+  },
+  "industries": {
+    "title": "Sohalar bo'yicha yechimlar",
+    "subtitle": "Har bir sohada ma'lumotlar bilan bog'liq o'z muammolari bor. Eng ko'p uchraydiganlari va ularni qanday hal qilishimiz:",
+    "items": {
+      "fmcg": {
+        "name": "FMCG va chakana savdo",
+        "imageAlt": "Supermarket peshtaxtalarida terilgan oziq-ovqat mahsulotlari",
+        "title": "FMCG va chakana savdo",
+        "problem": "Yuzlab mahsulot (SKU) va bir nechta savdo nuqtasi bor, sotuv va qoldiq ma'lumotlari esa turli tizimlarda.",
+        "consequence": "Xaridorgir tovar tugab qoladi, sekin sotiladigani omborda yotadi. Aksiyalar foyda keltirdimi yoki yo'qmi, noma'lum.",
+        "solution": "SKU va do'kon kesimida sotuv, qoldiq va marja dashbordi, ABC/XYZ tahlili va aksiyalar samarasi hisoboti."
+      },
+      "distribution": {
+        "name": "Distribyutsiya",
+        "imageAlt": "Stellajlar va qutilar bilan to'la katta distribyutsiya ombori",
+        "title": "Distribyutsiya",
+        "problem": "Agentlar, hududlar va mijozlar bo'yicha ma'lumotlar ERP, Excel va agentlar hisobotlarida tarqalgan.",
+        "consequence": "Debitorlik qarzi o'sib boradi, rejani bajarmayotgan hudud yoki agent kech aniqlanadi.",
+        "solution": "Hudud, agent va mijoz kesimida reja-fakt, debitorlik qarzi va to'lov intizomi dashbordi. Har kuni yangilanadi."
+      },
+      "ecommerce": {
+        "name": "E-commerce",
+        "imageAlt": "Kiyim va aksessuarlar do'koni vitrinasi",
+        "title": "E-commerce va marketplace",
+        "problem": "Sayt, Uzum Market va boshqa marketplace'lardagi buyurtmalar, reklama xarajatlari va qoldiqlar alohida kabinetlarda.",
+        "consequence": "Komissiya va reklama xarajatidan keyin har bir kanal va mahsulotning haqiqiy foydasi noma'lum, byudjet taxminan taqsimlanadi.",
+        "solution": "Barcha kanallarni bitta dashbordga jamlaymiz: buyurtmalar, sof marja, reklama ROI va qoldiqlar mahsulot kesimida."
+      },
+      "manufacturing": {
+        "name": "Ishlab chiqarish",
+        "imageAlt": "Ishlab chiqarish liniyasidagi sanoat roboti",
+        "title": "Ishlab chiqarish",
+        "problem": "Xomashyo, ishlab chiqarish va sotuv ma'lumotlari turli bo'limlarda, tannarx qo'lda hisoblanadi.",
+        "consequence": "Mahsulotning haqiqiy tannarxi va rentabelligi noaniq, ortiqcha xomashyo zaxirasi esa aylanma mablag'ni band qiladi.",
+        "solution": "Tannarx va rentabellik tahlili, xomashyo sarfi va ishlab chiqarish rejasining bajarilishini kuzatuvchi dashbordlar."
+      },
+      "horeca": {
+        "name": "HoReCa",
+        "imageAlt": "Mehmonlar o'tirgan kafe zali",
+        "title": "HoReCa: restoran va kafelar",
+        "problem": "Kassa tizimi (iiko, R-Keeper, Poster), ombor va yetkazib berish servislarining ma'lumotlari alohida.",
+        "consequence": "Food cost nazoratdan chiqadi, qaysi taom yoki filial foyda keltirishi noma'lum, isrof va kamomad kech aniqlanadi.",
+        "solution": "Filial, taom va soat kesimida sotuv, food cost va o'rtacha chek dashbordi hamda menyu tahlili (menu engineering)."
       },
       "logistics": {
-        "name": "Transport va logistika",
-        "title": "Transport va Logistika",
-        "desc": "Logistikada har bir daqiqa muhim. Mehrzod Group kompaniyalarga transport parkini kuzatish, ombor tizimlari va yetkazib berish jarayonlaridagi ma'lumotlarni tahlil qilish orqali to'liq nazoratga ega bo'lishga yordam beradi.",
-        "features": [
-          "Xizmat ko'rsatish xarajatlarini kamaytirish",
-          "Real vaqt ma'lumotlari orqali yaxshi rejalashtirish",
-          "Yaxshilangan marshrut va tarmoq optimallashtirish"
-        ]
-      },
-      "insurance": {
-        "name": "Sug'urta",
-        "title": "Sug'urta",
-        "desc": "Sug'urta sektori uchun ma'lumotlar tahlili yechimlarimiz yordamida da'volarni ko'rib chiqishni optimallashtiring, xavflarni aniq baholang va shaxsiylashtirilgan polis tavsiyalarini taqdim eting.",
-        "features": [
-          "Da'volarni avtomatlashtirilgan qayta ishlash",
-          "Bashoratli xavf modellashtirish",
-          "Mijozning umr bo'yi qiymatini (LTV) bashorat qilish"
-        ]
+        "name": "Logistika",
+        "imageAlt": "Avtomagistralda ketayotgan yuk mashinasi",
+        "title": "Logistika",
+        "problem": "Reyslar, yoqilg'i, transport va yetkazib berish ma'lumotlari turli tizim va jadvallarda.",
+        "consequence": "Har bir reys va marshrutning haqiqiy xarajati noma'lum, kechikishlar va bo'sh yurishlar foydani kamaytiradi.",
+        "solution": "Reys, marshrut va mashina kesimida xarajatlar hamda o'z vaqtida yetkazish ko'rsatkichlari dashbordi."
       }
     },
     "prev": "Oldingi soha",
     "next": "Keyingi soha"
   },
+  "integrations": {
+    "title": "Siz ishlatayotgan tizimlarga ulanamiz",
+    "subtitle": "Dasturlaringizni almashtirish shart emas. Ma'lumotlarni mavjud tizimlaringizdan olamiz va Power BI yoki Metabase'da ko'rsatamiz.",
+    "groups": {
+      "bi": "BI vositalari",
+      "erp": "Buxgalteriya va ERP",
+      "crm": "CRM",
+      "pos": "Savdo va kassa",
+      "marketplaces": "Marketplace va to'lovlar",
+      "marketing": "Marketing",
+      "data": "Jadvallar va bazalar"
+    },
+    "note": "Ro'yxatda tizimingiz yo'qmi? API yoki ma'lumot eksporti bo'lsa, uni ham ulaymiz."
+  },
   "faq": {
-    "title": "Ko'p so'raladigan savollar (FAQ)",
-    "ctaTitle": "Qo'ng'iroqni band qilishdan tortinmang va barcha kerakli javoblarni oling.",
-    "btnCall": "Qo'ng'iroqni band qilish",
+    "title": "Ko'p so'raladigan savollar",
+    "ctaTitle": "Savolingizga javob topmadingizmi?",
+    "ctaText": "Bepul auditda barchasini batafsil muhokama qilamiz.",
+    "btnCall": "Bepul auditga yozilish",
     "items": {
       "q1": {
-        "q": "Business Intelligence (BI) nima va u mening kompaniyamga nima uchun kerak?",
-        "a": "BI - bu kompaniyangizning xom, tartibsiz ma'lumotlarini aniq va tushunarli hisobotlarga (dasbordlarga) aylantirish jarayoni. BI barcha tarqalgan ma'lumotlarni bitta ekranga jamlaydi va real vaqt rejimida aniq daromadingizni, eng ko'p sotilayotgan mahsulotlarni va zaif tomonlarni ko'rish imkonini beradi."
+        "q": "Bepul ma'lumotlar auditi nima beradi?",
+        "a": "Hisobot jarayonlaringiz va ma'lumot manbalaringizni (1C, CRM, Excel va boshqalar) ko'rib chiqamiz, qaysi qarorlar uchun raqam yetishmayotganini aniqlaymiz. Natijada muammolar ro'yxati va ularni hal qilish rejasini olasiz. Audit bepul va sizni hech qanday majburiyatga bog'lamaydi."
       },
       "q2": {
-        "q": "Siz bilan ishlash uchun joriy dasturiy ta'minotimizni (1C, ERP yoki Excel) almashtirishimiz kerakmi?",
-        "a": "Yo'q, mutlaqo yo'q. Bizning yechimlarimiz siz allaqachon foydalanayotgan tizimlarga to'g'ridan-to'g'ri ulanish uchun yaratilgan. Ma'lumotlaringiz 1C, CRM, Google Sheets yoki elektron tijorat platformasida bo'ladimi, biz jamoangizning kundalik ishini buzmasdan yagona dasbordga joylashtiramiz."
+        "q": "BI nima va kompaniyamga nega kerak?",
+        "a": "BI (Business Intelligence) kompaniyaning tarqoq ma'lumotlarini tushunarli dashbordlarga aylantiradi. Sotuv, foyda, zaxira va boshqa ko'rsatkichlar bitta ekranda, har kuni yangilangan holda ko'rinadi. Natijada qarorlar taxminga emas, aniq raqamlarga tayanadi."
       },
       "q3": {
-        "q": "Ma'lumotlar tahlili FMCG yoki E-tijoratda sotuvlarimni oshirishga qanday yordam berishi mumkin?",
-        "a": "Ma'lumotlar tahlili mijozlaringizning yashirin xarid odatlarini ochib beradi. Masalan, qaysi mahsulotlar ko'pincha birga xarid qilinishini ko'rsata olamiz. Bu sizga maqsadli marketing kampaniyalarini yaratish va eng yaxshi mahsulotlaringiz doimo zaxirada bo'lishini ta'minlash imkonini beradi."
+        "q": "Hozirgi dasturlarimizni (1C, CRM, Excel) almashtirishimiz kerakmi?",
+        "a": "Yo'q. Biz mavjud tizimlaringizga ulanamiz va ma'lumotlarni ulardan avtomatik olamiz. Jamoangiz odatdagidek ishlashda davom etadi."
       },
       "q4": {
-        "q": "Biznesimiz uchun birinchi dasbordni ko'rishga qancha vaqt ketadi?",
-        "a": "Odatda 2 dan 4 haftagacha bo'lgan vaqt ichida biz dastlabki ma'lumotlar integratsiyasini yakunlaymiz va sizga birinchi ishchi dasbordni taqdim etamiz. Shundan so'ng yangi ko'rsatkichlarni qo'shib boramiz."
+        "q": "Loyihadan keyin ma'lumotlar yangilanib turadimi?",
+        "a": "Ha. Ma'lumotlar oqimini avtomatlashtiramiz: tizimlaringizdagi yangi ma'lumotlar belgilangan jadval bo'yicha (masalan, har kuni yoki har soatda) yagona omborga tushadi va dashbordlar o'zi yangilanadi. Hech narsani qo'lda yuklash shart emas."
       },
       "q5": {
-        "q": "Kompaniyamiz ma'lumotlarini jamoangizga topshirganimizda ular xavfsizmi?",
-        "a": "Ma'lumotlar xavfsizligi bizning eng ustuvor vazifamizdir. Biz qat'iy Ma'lumotlarni oshkor etmaslik to'g'risidagi kelishuvni (NDA) imzolaymiz. Ma'lumotlaringiz bilan ishlash uchun xavfsiz, shifrlangan bulutli platformalardan foydalanamiz va mijozlarning shaxsiy parollari kabi maxfiy ma'lumotlarga kirish huquqini so'ramaymiz."
+        "q": "Power BI yoki Metabase: qaysi biri bizga mos?",
+        "a": "Power BI murakkab tahlil uchun kuchli vosita va Microsoft ekotizimi bilan yaxshi ishlaydi, lekin foydalanuvchilar soniga qarab litsenziya to'lovini talab qiladi. Metabase ochiq kodli vosita: u o'z serveringizga o'rnatiladi va litsenziya to'lovisiz ishlatilishi mumkin. Auditda ehtiyojingiz va byudjetingizga qarab tavsiya beramiz."
+      },
+      "q6": {
+        "q": "Birinchi dashbordni qachon ko'ramiz?",
+        "a": "Odatda 2–\u20604 hafta ichida ma'lumotlarni ulab, birinchi ishchi dashbordni topshiramiz. Keyin yangi ko'rsatkichlarni bosqichma-bosqich qo'shib boramiz."
+      },
+      "q7": {
+        "q": "Ma'lumotlarimiz xavfsizmi?",
+        "a": "Ish boshlanishidan oldin maxfiylik shartnomasi (NDA) imzolaymiz. Tizimlaringizga faqat ma'lumotlarni o'qish huquqi bilan ulanamiz. Kerak bo'lsa, ombor va dashbordlar o'z serveringizda joylashadi."
+      },
+      "q8": {
+        "q": "Xizmat narxi qanday belgilanadi?",
+        "a": "Narx ma'lumot manbalari soniga, dashbordlar hajmiga va avtomatlashtirish darajasiga bog'liq. Bepul auditdan keyin aniq ish hajmi va narxni yozma taklif sifatida beramiz."
       }
     }
   },
   "contact": {
-    "title": "Loyihani boshlaymiz",
-    "subtitle": "Biznesingizni ma'lumotlarga asoslangan tahlillar orqali baholashni xohlaysizmi? Biz bilan bog'laning va mutaxassislarimiz tez orada sizga aloqaga chiqishadi.",
+    "title": "Bepul ma'lumotlar auditiga yoziling",
+    "subtitle": "Kontaktlaringizni qoldiring. Mutaxassisimiz siz bilan bog'lanib, audit uchun qulay vaqtni kelishib oladi.",
     "name": "To'liq ism *",
     "company": "Kompaniya",
-    "email": "Ishchi Email",
+    "email": "Ishchi email",
     "phone": "Telefon raqami *",
-    "message": "Loyiha tafsilotlari",
-    "btnEstimate": "Bepul baholashni olish",
+    "message": "Qaysi tizimlardan foydalanasiz va qaysi raqamlar yetishmaydi?",
+    "btnEstimate": "Bepul auditga yozilish",
     "successTitle": "Rahmat!",
-    "successDesc": "So'rovingiz qabul qilindi. Tez orada siz bilan bog'lanamiz.",
+    "successDesc": "So'rovingiz qabul qilindi. Tez orada siz bilan bog'lanib, audit vaqtini kelishamiz.",
     "sending": "Yuborilmoqda...",
     "errorMsg": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring.",
     "companyPlaceholder": "Kompaniyangiz MChJ",
@@ -267,22 +314,27 @@
       "whatsappAction": "WhatsApp'da yozish"
     }
   },
+  "servicePages": {
+    "powerBi": "Power BI dashbordlar",
+    "onec": "1C analitikasi",
+    "metabase": "Metabase dashbordlar"
+  },
   "footer": {
-    "desc": "Ilg'or ma'lumotlar tahlili, maxsus dasturiy ta'minot va kengaytiriladigan bulutli yechimlar bilan global korxonalarni kuchaytiramiz.",
+    "desc": "O'zbekistondagi kompaniyalar uchun ma'lumotlar tahlili, BI dashbordlar va ma'lumotlarni avtomatlashtirish. Tarqoq raqamlarni aniq qarorlarga aylantiramiz.",
     "quickLinks": "Tezkor havolalar",
     "servicesTitle": "Xizmatlar",
     "contactTitle": "Biz bilan bog'lanish",
     "links": {
-      "ourServices": "Xizmatlarimiz",
-      "caseStudies": "Keyslar",
-      "coreTech": "Asosiy texnologiyalar",
+      "problems": "Muammolar",
+      "solutions": "Yechimlar",
+      "industries": "Sohalar",
       "faq": "FAQ"
     },
     "serviceLinks": {
-      "dataAnalytics": "Ma'lumotlar tahlili va BI",
-      "dataWarehousing": "Ma'lumotlar ombori yechimlari",
-      "webAds": "Veb-sayt + SEO va Reklama",
-      "consulting": "Biznes konsalting"
+      "automation": "Ma'lumotlarni avtomatlashtirish",
+      "dashboards": "BI dashbordlar",
+      "analytics": "Ma'lumotlar tahlili",
+      "consulting": "Data-konsalting"
     },
     "address": {
       "street": "Shota Rustaveli ko'chasi, 150",
@@ -293,17 +345,17 @@
     "terms": "Xizmat ko'rsatish shartlari"
   },
   "contactModal": {
-    "title": "Biz bilan bog'laning",
-    "subtitle": "Quyidagi shaklni to'ldiring va loyihangizni muhokama qilish uchun siz bilan bog'lanamiz.",
+    "title": "Bepul ma'lumotlar auditi",
+    "subtitle": "Kontaktlaringizni qoldiring. Biz siz bilan bog'lanib, biznesingizdagi ma'lumotlar holatini ko'rib chiqish uchun qulay vaqtni kelishamiz.",
     "name": "To'liq ism *",
-    "email": "Ishchi Email",
+    "email": "Ishchi email",
     "phone": "Telefon raqami *",
     "company": "Kompaniya",
-    "message": "Sizga qanday yordam bera olamiz?",
-    "btnSubmit": "Xabarni yuborish",
+    "message": "Qaysi tizimlardan foydalanasiz va qaysi raqamlar yetishmaydi?",
+    "btnSubmit": "Auditga yozilish",
     "sending": "Yuborilmoqda...",
     "successTitle": "Rahmat!",
-    "successDesc": "Xabaringiz qabul qilindi va tez orada siz bilan bog'lanamiz.",
+    "successDesc": "So'rovingiz qabul qilindi. Tez orada siz bilan bog'lanib, audit vaqtini kelishamiz.",
     "errorMsg": "Xatolik yuz berdi. Iltimos, qayta urinib ko'ring.",
     "close": "Yopish",
     "companyPlaceholder": "Kompaniyangiz MChJ"

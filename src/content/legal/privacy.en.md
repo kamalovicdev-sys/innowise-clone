@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
 description: How the Mehrzod Business Group website collects, uses and protects personal data.
-updated: 2026-11-20
+updated: 2026-11-24
 ---
 
 
@@ -9,8 +9,8 @@ This policy explains how **Mehrzod Business Group** (the "Company", "we") proces
 
 ## 1. Data controller
 
-- Name: [full legal name of the Company]
-- Taxpayer ID (STIR): [number]
+- Name: MEHRZOD BUSINESS GROUP LLC
+- Taxpayer ID (STIR): 304447183
 - Address: 150 Shota Rustaveli Street, Tashkent
 - Email: [mehrzodgroup@gmail.com](mailto:mehrzodgroup@gmail.com)
 - Phone: [+998 95 520 95 95](tel:+998955209595)
@@ -46,7 +46,7 @@ We do not sell your personal data or use it for purposes other than those listed
 
 ## 5. How long we keep it
 
-Request data is kept for [period] after our work with you ends and is then deleted, unless the law requires a different period.
+Request data is kept for 1 year after our work with you ends and is then deleted, unless the law requires a different period.
 
 ## 6. Your rights
 
@@ -57,7 +57,7 @@ You have the right to:
 - ask us to delete your data or stop processing it;
 - withdraw your consent at any time.
 
-To do so, email [mehrzodgroup@gmail.com](mailto:mehrzodgroup@gmail.com). We will reply within [period].
+To do so, email [mehrzodgroup@gmail.com](mailto:mehrzodgroup@gmail.com). We will reply within 10 working days.
 
 ## 7. Cookies
 

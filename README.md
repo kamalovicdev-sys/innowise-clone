@@ -4,6 +4,7 @@
 
 - **Stack:** [Astro 7](https://astro.build) (statik HTML) + React 19 (faqat interaktiv qismlar uchun)
 - **Tillar:** o'zbekcha `/` (standart), ruscha `/ru/`, inglizcha `/en/`
+- **Sahifalar:** bosh sahifa, xizmat sahifalari (`/power-bi/`, `/1c-analytics/`, `/metabase/`), maxfiylik siyosati, 404
 - **Forma:** EmailJS orqali email yuboriladi
 
 ## Ishga tushirish
@@ -24,7 +25,7 @@ npm run dev            # http://localhost:3000
 | `npm run preview` | Yig'ilgan saytni lokal ko'rish |
 | `npm run lint` | ESLint (accessibility qoidalari bilan) |
 | `npm run check` | Astro va tip tekshiruvi |
-| `npm run test:e2e` | Playwright testlari: tillar, forma, modal, mobil panel, 404, maxfiylik sahifasi (tizimda Google Chrome bo'lishi kerak) |
+| `npm run test:e2e` | Playwright testlari: tillar, forma, modal, bo'limlar, mobil panel, 404, maxfiylik sahifasi, xizmat sahifalari (tizimda Google Chrome bo'lishi kerak) |
 | `npm run og` | Ijtimoiy tarmoqlar uchun ulashish rasmlarini (`public/og/og-*.jpg`) qayta yaratish. Hero sarlavhasi o'zgarsa ishga tushiring |
 
 ## Deploy (Netlify)
@@ -33,10 +34,10 @@ npm run dev            # http://localhost:3000
 2. `dist/` papkasini Netlify'ning **Deploys** sahifasiga sudrab tashlang.
 
 Deploy'dan keyin quyidagilarni tekshiring:
-- `https://mehrzod.uz/`, `/ru/`, `/en/` ochiladi. `/sitemap.xml` va `/robots.txt` mavjud.
+- `https://mehrzod.uz/`, `/ru/`, `/en/` va xizmat sahifalari (`/power-bi/`, `/ru/1c-analytics/` va h.k.) ochiladi. `/sitemap.xml` va `/robots.txt` mavjud.
 - Havolani Telegramda ulashing: og:image rasmi chiqishi kerak.
-- Google Search Console: eski `/sitemap-index.xml` yozuvini o'chiring, `/sitemap.xml` ni qayta yuboring.
-- Google Rich Results Test (search.google.com/test/rich-results): kompaniya ma'lumoti (JSON-LD) xatosiz.
+- Google Search Console: eski `/sitemap-index.xml` yozuvini o'chiring, `/sitemap.xml` ni qayta yuboring. Yangi sahifalarni "URL Inspection" orqali indekslashga yuboring.
+- Google Rich Results Test (search.google.com/test/rich-results): kompaniya ma'lumoti va xizmat sahifalaridagi breadcrumb (JSON-LD) xatosiz.
 - EmailJS: Account → Security → Allowed origins ga `https://mehrzod.uz` qo'shing.
 
 `public/_headers` fayli Netlify'ga keshlash qoidalarini (`/_astro/*` 1 yil) va xavfsizlik headerlarini beradi.
@@ -47,16 +48,19 @@ Deploy'dan keyin quyidagilarni tekshiring:
 
 ```
 src/
-  pages/              # Route'lar: index.astro (uz), ru/, en/, 404.astro
+  pages/              # Route'lar: index.astro (uz), [service].astro (xizmat sahifalari), ru/, en/, 404.astro
   layouts/            # BaseLayout: <head>, SEO, hreflang, gtag, scroll-reveal
   components/
     home/HomePage.astro   # Bosh sahifa bo'limlarini yig'adi
+    services/ServicePage.astro  # Xizmat sahifasi (Power BI, 1C analitikasi, Metabase)
     layout/               # Navbar (interaktiv), Footer (statik)
-    sections/             # Hero, Benefits, Services, Stats, Expertise, Portfolio, FAQ, Contact
-    ui/                   # ContactForm (umumiy forma + hook), ContactModal (yagona modal)
+    sections/             # Hero, Trust, Problems, Solutions, Process, Industries, Integrations, FAQ, Contact,
+                          # Deliverables va RelatedServices (xizmat sahifalari uchun)
+    ui/                   # ContactForm (umumiy forma + hook), ContactModal (yagona modal), ProblemFlow
   data/               # Tilga bog'liq bo'lmagan ma'lumotlar: kontaktlar, ijtimoiy tarmoqlar, bo'lim ro'yxatlari
   i18n/               # Tarjimalar va til yordamchilari
-  locales/{uz,ru,en}/translation.json
+  locales/{uz,ru,en}/translation.json   # Bosh sahifa va umumiy matnlar
+  locales/{uz,ru,en}/services.json      # Xizmat sahifalari matnlari
   lib/                # EmailJS yuborish, tablar uchun klaviatura boshqaruvi
   styles/global.css
 ```
@@ -65,21 +69,32 @@ src/
 
 - **Matnlar:** `src/locales/*/translation.json`. Uchala faylda kalitlar bir xil bo'lishi kerak.
 - **Telefon, email, xarita, koordinata:** `src/data/site.js` → `CONTACT`
-- **Portfolio rasmlari:** `src/assets/portfolio/<soha>.jpg`. Build vaqtida 480, 800 va 1200 px WebP'ga aylantiriladi. Almashtirganda fayl nomini saqlang
+- **Sahifa formati:** asosiy bo'limlar "Muammo → Oqibati → Yechimimiz" tuzilishida (`ui/ProblemFlow`). Muammo kartalari: `src/data/sections.js` → `PROBLEMS`, matni `problems.items.<key>`. Har bir kartaning manzili `/#problem-<key>` (masalan `/#problem-inventory`), uni reklama sitelink'larida ishlatish mumkin.
+- **Yechimlar:** `SOLUTIONS` (har birida `solves`: qaysi muammolarni hal qiladi), qo'shimcha xizmatlar: `EXTRA_SERVICES`. Kartaning manzili `/#solution-<key>`.
+- **Sohalar:** `INDUSTRIES`, matni `industries.items.<id>`. Rasmlar ixtiyoriy: `src/assets/industries/<id>.jpg` (batafsil: shu papkadagi README). Oltitasi ham qo'yilmaguncha ikonkali panel ko'rsatiladi.
+- **Integratsiyalar:** `INTEGRATION_GROUPS`. Tilga qarab nomi farq qiladigan tizim obyekt bilan yoziladi: `{ default: '1C', ru: '1С' }`.
 - **Ijtimoiy tarmoqlar:** `src/data/site.js` → `SOCIAL_LINKS`. `href: null` bo'lgan tarmoq saytda ko'rsatilmaydi.
 - **Telegram / WhatsApp (to'g'ridan-to'g'ri yozish):** `src/data/site.js` → `CONTACT.telegram`, `CONTACT.whatsapp`. Havola yozilsa, tugmalar Contact bo'limida va mobil panelda paydo bo'ladi.
 - **Ishonch bloki** (raqamlar, mijoz logotiplari, mijoz fikrlari): `src/data/trust.js`. Hammasi bo'sh bo'lsa, blok saytda ko'rinmaydi. Faqat haqiqiy ma'lumot kiriting.
-- **Keys natijalari:** tarjima faylida `portfolio.industries.<id>.metrics = [{ "value": "−23%", "label": "..." }]`. Bu maydon bo'lmasa, natijalar qatori chiqmaydi.
-- **Privacy Policy / Terms:** `src/data/site.js` → `LEGAL_PAGES` (sahifalar hali yo'q).
+- **Keys natijalari:** tarjima faylida `industries.items.<id>.metrics = [{ "value": "−23%", "label": "..." }]`. Bu maydon bo'lmasa, natijalar qatori chiqmaydi.
+- **Privacy Policy / Terms:** `src/data/site.js` → `LEGAL_PAGES` (maxfiylik siyosati e'lon qilingan, shartlar sahifasi hali yo'q).
 - **Aloqa oynasini ochish:** istalgan elementga `data-open-contact` atributini qo'shing.
+- **SEO kalit so'zlari:** title va description: `meta` (OG rasmlardagi ustki yozuv title'ning `|` gacha qismidan olinadi, o'zgartirsangiz `npm run og`).
+
+### Xizmat sahifalari
+
+- Ro'yxat: `src/data/services.js` → `SERVICE_PAGES` (`slug`, muammo va "Nima olasiz" kartalari ikonkalari bilan). Yangi sahifa qo'shilsa, u uchala tilda, sitemap'da, footer'da va boshqa xizmat sahifalarining "Boshqa xizmatlar" bo'limida o'zi paydo bo'ladi.
+- Matn: `src/locales/<til>/services.json` → `pages.<key>` (meta, hero, muammolar, "Nima olasiz", FAQ). Qisqa nomi: `translation.json` → `servicePages.<key>`.
+- Jarayon, integratsiyalar va aloqa bo'limlari bosh sahifa bilan bir xil matndan olinadi.
+- Bosh sahifadagi Yechimlar kartasidan havola: `src/data/sections.js` → `SOLUTIONS[].pages`.
+- Google Ads uchun: har bir reklama guruhini mos sahifaga yo'naltiring (masalan "внедрение Power BI" → `/ru/power-bi/`).
 
 ### Maxfiylik siyosati
 
-- Matn: `src/content/legal/privacy.{uz,ru,en}.md` (oddiy Markdown). Yuqoridagi `updated` sanasini ham yangilang.
-- Hozir **qoralama**: sahifa `/privacy/`, `/ru/privacy/`, `/en/privacy/` manzillarida ochiladi, lekin indekslanmaydi, sitemap'da yo'q va saytda havola qilinmagan. Sahifa yuqorisida "qoralama" belgisi turadi.
-- Yurist tasdiqlagach `src/data/site.js` faylida `LEGAL_PAGES.privacy = 'privacy/'` deb yozing. Shunda footer havolasi, sitemap yozuvi va formalardagi rozilik matni o'zi paydo bo'ladi.
-- Qoralamadagi `[kvadrat qavs]` joylarini to'ldiring: yuridik nom, STIR, saqlash muddati, javob berish muddati.
-- **Yurist bilan kelishilishi kerak:** O'RQ-547 Qonunining 27¹-moddasi O'zbekiston fuqarolarining shaxsiy ma'lumotlarini O'zbekistondagi serverlarda saqlashni talab qiladi. Hozir forma ma'lumotlari EmailJS va Gmail (xorijiy serverlar) orqali o'tadi.
+- Matn: `src/content/legal/privacy.{uz,ru,en}.md` (oddiy Markdown). Matnni o'zgartirsangiz, yuqoridagi `updated` sanasini ham yangilang.
+- **E'lon qilingan** (2026-11-24): `src/data/site.js` → `LEGAL_PAGES.privacy = 'privacy/'`. Shu sababli footer havolasi, sitemap yozuvi va formalardagi rozilik matni ko'rsatiladi. `null` qilinsa, sahifa yana qoralamaga aylanadi (noindex, havolasiz, "qoralama" belgisi bilan).
+- Operator: "MEHRZOD BUSINESS GROUP" MChJ, STIR 304447183. Saqlash muddati: ish yakunlangandan keyin 1 yil. So'rovlarga javob: 10 ish kuni.
+- **Yurist bilan kelishilishi kerak:** O'RQ-547 Qonunining 27¹-moddasi O'zbekiston fuqarolarining shaxsiy ma'lumotlarini O'zbekistondagi serverlarda saqlashni talab qiladi. Hozir forma ma'lumotlari EmailJS va Gmail (xorijiy serverlar) orqali o'tadi, bu siyosatning 4-bo'limida ochiq ko'rsatilgan.
 
 ### Dizayn tizimi ("Lojuvard")
 
@@ -103,7 +118,7 @@ Barcha ranglar, shriftlar, masofalar, burchaklar va soyalar `src/styles/tokens.c
 
 ### Qaysi qism JS ishlatadi
 
-Hero, Benefits, Services, Stats va Footer tayyor HTML bo'lib chiqadi va JS ishlatmaydi. Navbar va ContactModal sahifa ochilishi bilan, Expertise, Portfolio, FAQ va Contact esa ekranga kirganda jonlanadi (`client:visible`).
+Hero, Problems, Solutions, Process, Integrations va Footer tayyor HTML bo'lib chiqadi va JS ishlatmaydi. Navbar va ContactModal sahifa ochilishi bilan, Industries, FAQ va Contact esa ekranga kirganda jonlanadi (`client:visible`).
 
 ### Til tanlovi
 

@@ -28,6 +28,6 @@ export const SOCIAL_LINKS = [
 // 'privacy/' deb yozilsa — e'lon qilinadi: footer havolasi, sitemap, formalardagi rozilik yozuvi paydo bo'ladi.
 /** @type {Record<string, string | null>} */
 export const LEGAL_PAGES = {
-  privacy: null,
+  privacy: 'privacy/',
   terms: null,
 };

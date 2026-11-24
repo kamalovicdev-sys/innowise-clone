@@ -137,6 +137,28 @@ const preloadFonts = lang === 'ru' ? [interCyrillic, manropeCyrillic] : [interLa
         items.forEach(function (el) {
           observer.observe(el);
         });
+
+        // #havola (menyu, "Hal qiladi", reklama sitelink'i) ko'rinmagan bo'limga olib borsa, bo'lim animatsiyasiz
+        // darhol ochiladi. Aks holda brauzer siljigan (translateY) joyni hisoblaydi va sarlavha navbar ostida qoladi.
+        var revealTarget = function (hash) {
+          if (!hash || hash.length < 2) return;
+          var target;
+          try {
+            target = document.getElementById(decodeURIComponent(hash.slice(1)));
+          } catch (e) {
+            return;
+          }
+          var box = target && target.closest('[data-reveal]');
+          if (!box || box.hasAttribute('data-revealed')) return;
+          box.style.transition = 'none';
+          show(box);
+          observer.unobserve(box);
+        };
+        revealTarget(location.hash);
+        document.addEventListener('click', function (event) {
+          var link = event.target.closest && event.target.closest('a[href*="#"]');
+          if (link && link.origin === location.origin && link.pathname === location.pathname) revealTarget(link.hash);
+        });
       })();
     </script>
   </body>

@@ -54,7 +54,7 @@ const updatedText = new Intl.DateTimeFormat(intlLocale, { dateStyle: 'long' }).f
     </div>
   </main>
 
-  <Footer dict={dict.footer} homeHref={homeHref} lang={lang} anchorBase={homeHref} />
+  <Footer dict={dict.footer} homeHref={homeHref} lang={lang} pageLabels={dict.servicePages} anchorBase={homeHref} />
   <ContactModal client:load dict={dict.contactModal} formDict={dict.form} privacyHref={privacyHref} />
 </BaseLayout>
 

@@ -1,0 +1,254 @@
+.problemsSection {
+  background-color: var(--color-bg);
+}
+
+/* =========================================================================
+   Hisobot jadvali: Muammo | Oqibati | Yechimimiz
+   Ustun nomlari bir marta yoziladi. "Yechimimiz" ustuni jadval bo'ylab uzluksiz firuza tasma:
+   bo'limdagi yagona yorqin element (biz sotadigan narsa aynan shu).
+   ========================================================================= */
+.ledger {
+  --cols: minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 1.1fr);
+  --pad-x: var(--space-5);
+  --pad-y: var(--space-6);
+  --icon: 20px;
+  --icon-gap: var(--space-3);
+  --band: var(--color-accent-soft);
+  --band-line: color-mix(in srgb, var(--color-accent) 22%, var(--color-accent-soft));
+}
+
+.head {
+  display: grid;
+  grid-template-columns: var(--cols);
+}
+
+.headCell {
+  padding: var(--space-3) var(--pad-x);
+  border-bottom: 2px solid var(--color-ink);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* Rang ma'no beradi: oqibat — yo'qotish, yechim — natija */
+.headConsequence {
+  color: var(--color-danger);
+}
+
+.headSolution {
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  border-bottom-color: var(--color-accent-ink);
+  background-color: var(--band);
+  color: var(--color-accent-ink);
+}
+
+.rows {
+  list-style: none;
+}
+
+.row {
+  /* Havola (/#problem-<key>, "Hal qiladi") bilan kelinganda qator navbar ostida qolmasin */
+  scroll-margin-top: calc(var(--header-h) + var(--space-6));
+}
+
+.cells {
+  display: grid;
+  grid-template-columns: var(--cols);
+}
+
+.cell {
+  position: relative;
+  padding: var(--pad-y) var(--pad-x);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.solution {
+  background-color: var(--band);
+  border-bottom-color: var(--band-line);
+}
+
+.row:last-child .cell {
+  border-bottom: 0;
+}
+
+.row:last-child .solution {
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+.title {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--icon-gap);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  line-height: var(--leading-snug);
+  color: var(--color-text);
+}
+
+.icon {
+  flex-shrink: 0;
+  margin-top: 0.15em;
+  color: var(--color-primary);
+}
+
+/* Tafsilot sarlavha matni bilan bir chiziqda (ikonka ostida emas) */
+.detail {
+  margin-top: var(--space-2);
+  padding-left: calc(var(--icon) + var(--icon-gap));
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+}
+
+.text {
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+}
+
+.solution .text {
+  font-weight: 500;
+}
+
+/* Kompyuterda ustun nomi ko'rinib turadi, shuning uchun qatordagi yorliq faqat ekran o'quvchilar uchun */
+.cellLabel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Havola orqali kelingan qator belgilanadi */
+.row:target .problem,
+.row:target .consequence {
+  background-color: color-mix(in srgb, var(--color-primary-soft) 70%, transparent);
+}
+
+.row:target .problem {
+  box-shadow: inset 3px 0 0 var(--color-accent);
+}
+
+/* Bo'lim oxiridagi chaqiriq */
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  margin-top: var(--space-12);
+  padding: var(--space-8) var(--space-10);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-primary-soft);
+}
+
+.ctaTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  line-height: var(--leading-snug);
+  color: var(--color-text);
+}
+
+.ctaText {
+  margin-top: var(--space-2);
+  max-width: 40rem;
+  color: var(--color-text-muted);
+}
+
+.ctaButton {
+  flex-shrink: 0;
+}
+
+@media (max-width: 1100px) {
+  .ledger {
+    --pad-x: var(--space-4);
+  }
+}
+
+/* Telefon va kichik planshet: jadval bloklarga aylanadi, yorliqlar ko'rinadi */
+@media (max-width: 900px) {
+  .head {
+    display: none;
+  }
+
+  .rows {
+    border-top: 2px solid var(--color-ink);
+  }
+
+  .row {
+    padding-block: var(--space-6);
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .cells {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+  }
+
+  .cell,
+  .row:last-child .cell {
+    padding: 0;
+    border-bottom: 0;
+  }
+
+  /* .row:last-child .cell dagi padding: 0 ni ham yengishi uchun ikkala selektor */
+  .consequence,
+  .row:last-child .consequence {
+    padding-left: calc(var(--icon) + var(--icon-gap));
+  }
+
+  .solution,
+  .row:last-child .solution {
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+  }
+
+  .cellLabel {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0 0 var(--space-1);
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: 700;
+  }
+
+  .consequence .cellLabel {
+    color: var(--color-danger);
+  }
+
+  .solution .cellLabel {
+    color: var(--color-accent-ink);
+  }
+
+  .row:target .problem,
+  .row:target .consequence {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .row:target {
+    box-shadow: inset 3px 0 0 var(--color-accent);
+    padding-left: var(--space-4);
+  }
+}
+
+@media (max-width: 760px) {
+  .cta {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .ctaText {
+    margin-inline: auto;
+  }
+}

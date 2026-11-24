@@ -1,0 +1,302 @@
+{
+  "common": {
+    "deliverablesTitle": "Nima olasiz",
+    "relatedTitle": "Boshqa xizmatlarimiz",
+    "relatedSubtitle": "Vazifangizga qarab boshqa yo'nalishlarimiz ham mos kelishi mumkin.",
+    "more": "Batafsil",
+    "home": "Bosh sahifa"
+  },
+  "pages": {
+    "powerBi": {
+      "meta": {
+        "title": "Power BI joriy qilish va dashbordlar | Mehrzod Group",
+        "description": "Power BI'ni joriy qilamiz: 1C, CRM va Excel ma'lumotlarini ulab, rahbariyat va bo'limlar uchun dashbord quramiz. Toshkent. Bepul ma'lumotlar auditi."
+      },
+      "card": "Rahbariyat va bo'limlar uchun Microsoft Power BI dashbordlari: sotuv, foyda, qoldiq va KPI bitta ekranda.",
+      "hero": {
+        "title": "Power BI dashbordlar: biznes raqamlari bitta ekranda",
+        "subtitle": "1C, CRM, Excel va boshqa tizimlaringizni Power BI'ga ulaymiz. Sotuv, foyda, qoldiq va KPI har kuni o'zi yangilanadi, rahbar ularni kompyuterda ham, telefonda ham ko'radi.",
+        "btnEstimate": "Bepul ma'lumotlar auditi",
+        "btnExplore": "Nima olasiz",
+        "note": ["Birinchi dashbord 2–4 haftada", "NDA imzolaymiz"]
+      },
+      "problems": {
+        "title": "Power BI qachon kerak bo'ladi",
+        "subtitle": "Quyidagi vaziyatlardan biri tanish bo'lsa, Power BI dashbordlari vaqt va pulni tejaydi.",
+        "items": {
+          "excelReports": {
+            "title": "Hisobotlar Excel'da qo'lda tuziladi",
+            "problem": "Har hafta xodim 1C va CRM'dan ma'lumot ko'chirib, Excel'da jadval va grafik yasaydi.",
+            "consequence": "Hisobot bir necha kun kechikadi, formulalardagi xato sezilmay qoladi, ish esa bitta odamga bog'liq bo'lib qoladi.",
+            "solution": "Power BI ma'lumotni manbalardan o'zi oladi va jadval bo'yicha yangilaydi. Qo'lda ko'chirish butunlay yo'qoladi."
+          },
+          "noSingleView": {
+            "title": "Rahbar umumiy holatni ko'rmaydi",
+            "problem": "Sotuv, moliya va ombor raqamlari alohida fayllarda. Ularni solishtirish uchun bir nechta hisobot so'rash kerak.",
+            "consequence": "Qaror qabul qilish sekinlashadi, muhim o'zgarishlar kech seziladi.",
+            "solution": "Rahbariyat dashbordi: asosiy ko'rsatkichlar bitta ekranda. Kerak bo'lsa, filial, mahsulot yoki menejergacha ochib ko'rish mumkin."
+          },
+          "unusedBi": {
+            "title": "Power BI bor, lekin ishlatilmaydi",
+            "problem": "Litsenziya olingan yoki dashbord yasalgan, lekin undagi ma'lumot eskirgan va unga hech kim qaramaydi.",
+            "consequence": "Pul sarflangan, jamoa esa yana Excel'ga qaytgan.",
+            "solution": "Ma'lumot oqimini avtomatlashtiramiz, dashbordni foydalanuvchilar ehtiyojiga qarab qayta quramiz va jamoani o'qitamiz."
+          }
+        },
+        "cta": {
+          "title": "Qaysi biri sizga tanish?",
+          "text": "Bepul auditda hozirgi hisobotlaringizni ko'rib chiqamiz va Power BI'da qanday dashbordlar kerakligini aytamiz.",
+          "button": "Bepul auditga yozilish"
+        }
+      },
+      "deliverables": {
+        "subtitle": "Ish yakunida sizda shunchaki chiroyli grafiklar emas, o'zi ishlaydigan hisobot tizimi bo'ladi.",
+        "items": {
+          "connections": {
+            "title": "Ma'lumot manbalari ulanadi",
+            "desc": "1C, amoCRM, Bitrix24, Excel, Google Sheets va boshqa tizimlar Power BI'ga ulanadi va jadval bo'yicha yangilanadi."
+          },
+          "model": {
+            "title": "Yagona ma'lumotlar modeli",
+            "desc": "Har bir ko'rsatkich bir marta va bir xil qoida bilan hisoblanadi, shuning uchun barcha hisobotlarda raqam bir xil chiqadi."
+          },
+          "executive": {
+            "title": "Rahbariyat dashbordi",
+            "desc": "Sotuv, foyda, qoldiq va KPI reja-fakt bilan bitta ekranda. Power BI mobil ilovasida telefonda ham ishlaydi."
+          },
+          "departments": {
+            "title": "Bo'limlar uchun hisobotlar",
+            "desc": "Sotuv, moliya, ombor va marketing uchun alohida sahifalar. Kirish huquqi rol bo'yicha sozlanadi."
+          },
+          "alerts": {
+            "title": "Ogohlantirishlar",
+            "desc": "Ko'rsatkich rejadan chetga chiqsa, mas'ul xodimga Telegram yoki email orqali xabar keladi."
+          },
+          "training": {
+            "title": "O'qitish va rivojlantirish",
+            "desc": "Jamoangizni dashbordlar bilan ishlashga o'rgatamiz, keyin yangi ko'rsatkichlarni bosqichma-bosqich qo'shib boramiz."
+          }
+        }
+      },
+      "faq": {
+        "title": "Power BI bo'yicha savollar",
+        "items": {
+          "license": {
+            "q": "Power BI litsenziyasi kerakmi va uni kim oladi?",
+            "a": "Dashbord yaratish uchun Power BI Desktop bepul. Dashbordlarni hamkasblar bilan ulashish uchun odatda har bir foydalanuvchiga Pro litsenziyasi kerak bo'ladi. Litsenziya kompaniyangiz nomiga rasmiylashtiriladi. Foydalanuvchilar soniga qarab eng arzon variantni auditda hisoblab beramiz."
+          },
+          "onec": {
+            "q": "Power BI 1C bilan ishlaydimi?",
+            "a": "Ha. 1C ma'lumotlarini OData interfeysi, HTTP-servis yoki muntazam eksport orqali olamiz. Tizimingizga faqat o'qish huquqi bilan ulanamiz, 1C'dagi ma'lumotlar o'zgarmaydi."
+          },
+          "timeline": {
+            "q": "Birinchi dashbord qancha vaqtda tayyor bo'ladi?",
+            "a": "Odatda 2–4 hafta ichida ma'lumotlarni ulab, birinchi ishchi dashbordni topshiramiz. Keyin yangi ko'rsatkichlarni bosqichma-bosqich qo'shib boramiz."
+          },
+          "security": {
+            "q": "Ma'lumotlarimiz xavfsizmi?",
+            "a": "Ish boshlanishidan oldin NDA imzolaymiz va tizimlaringizga faqat o'qish huquqi bilan ulanamiz. Dashbordlarga kirish huquqi rol bo'yicha beriladi: har bir xodim faqat o'ziga ruxsat berilgan ma'lumotni ko'radi."
+          },
+          "metabase": {
+            "q": "Power BI yoki Metabase: qaysi biri yaxshiroq?",
+            "a": "Power BI murakkab hisob-kitoblar va Microsoft ekotizimi uchun kuchli, lekin pullik. Metabase bepul, o'z serveringizga o'rnatiladi va ishlatish oddiyroq. Auditda vazifangiz va byudjetingizga qarab tavsiya beramiz."
+          }
+        }
+      }
+    },
+    "onec": {
+      "meta": {
+        "title": "1C analitikasi: hisobotlar va dashbordlar | Mehrzod Group",
+        "description": "1C ma'lumotlarini Power BI yoki Metabase'ga ulaymiz: sotuv, qoldiq, debitorlik va foyda bitta ekranda, har kuni yangilanadi. Toshkent. Bepul audit."
+      },
+      "card": "1C ma'lumotlaridan sotuv, ombor va debitorlik dashbordlari. 1C'ni almashtirmasdan.",
+      "hero": {
+        "title": "1C'dagi ma'lumotlardan qaror uchun aniq hisobotlar",
+        "subtitle": "1C ma'lumotlarni yaxshi saqlaydi, lekin rahbarga kerakli ko'rinishda bermaydi. Biz 1C'ni CRM va boshqa tizimlar bilan birlashtirib, har kuni yangilanadigan dashbordlar quramiz.",
+        "btnEstimate": "Bepul ma'lumotlar auditi",
+        "btnExplore": "Nima olasiz",
+        "note": ["1C'ni almashtirish shart emas", "Faqat o'qish huquqi bilan ulanamiz"]
+      },
+      "problems": {
+        "title": "1C bilan bog'liq tanish muammolar",
+        "subtitle": "Ko'p kompaniyalarda 1C bor, lekin undan kerakli raqamni olish hali ham qiyin.",
+        "items": {
+          "developerQueue": {
+            "title": "Har bir hisobot uchun dasturchi kerak",
+            "problem": "Yangi hisobot yoki kesim kerak bo'lsa, 1C dasturchisiga murojaat qilinadi va navbat kutiladi.",
+            "consequence": "Oddiy savolga javob bir necha kun yoki hafta oladi, har bir o'zgarish qo'shimcha xarajat.",
+            "solution": "1C ma'lumotlarini BI tizimiga chiqaramiz. Yangi kesim va filtrlarni dasturchisiz, dashbordning o'zida qo'shish mumkin bo'ladi."
+          },
+          "excelExport": {
+            "title": "1C'dan Excel'ga cheksiz eksport",
+            "problem": "Hisobot olish uchun ma'lumot 1C'dan Excel'ga yuklanadi, qo'lda birlashtiriladi va formulalar yoziladi.",
+            "consequence": "Vaqt ketadi, xato ko'payadi, har kim o'z faylida ishlaydi va raqamlar mos kelmaydi.",
+            "solution": "Eksport avtomatlashadi: ma'lumotlar 1C'dan jadval bo'yicha olinadi va tayyor dashbordda ko'rinadi."
+          },
+          "disconnected": {
+            "title": "1C va CRM bir-biridan alohida",
+            "problem": "Sotuv bo'limi amoCRM yoki Bitrix24'da, buxgalteriya va ombor 1C'da ishlaydi.",
+            "consequence": "Bitimdan to'lov va jo'natishgacha bo'lgan yo'lni bitta joyda ko'rib bo'lmaydi.",
+            "solution": "1C, CRM va boshqa manbalarni yagona ma'lumotlar omboriga ulaymiz. Sotuv, to'lov va qoldiq bitta hisobotda ko'rinadi."
+          }
+        },
+        "cta": {
+          "title": "Qaysi biri sizga tanish?",
+          "text": "Bepul auditda 1C konfiguratsiyangizni va hisobot ehtiyojlaringizni ko'rib chiqamiz, qanday dashbordlar kerakligini aytamiz.",
+          "button": "Bepul auditga yozilish"
+        }
+      },
+      "deliverables": {
+        "subtitle": "1C o'z ishini davom ettiradi, siz esa undagi ma'lumotlarni tayyor hisobot ko'rinishida olasiz.",
+        "items": {
+          "access": {
+            "title": "1C'ga xavfsiz ulanish",
+            "desc": "Ma'lumotlarni OData, HTTP-servis yoki eksport orqali faqat o'qish huquqi bilan olamiz. 1C'dagi ma'lumotlar o'zgarmaydi."
+          },
+          "refresh": {
+            "title": "Avtomatik yangilanish",
+            "desc": "Ma'lumotlar jadval bo'yicha, masalan har kuni ertalab, o'zi yangilanadi. Qo'lda eksport kerak bo'lmaydi."
+          },
+          "sales": {
+            "title": "Sotuv va foyda hisoboti",
+            "desc": "Mahsulot, mijoz, menejer va filial kesimida sotuv, marja va reja-fakt."
+          },
+          "inventory": {
+            "title": "Ombor va qoldiqlar",
+            "desc": "Qoldiqlar, tovar aylanmasi, sekin sotiladigan tovarlar va tugab qolish xavfi."
+          },
+          "receivables": {
+            "title": "Debitorlik va pul oqimi",
+            "desc": "Kim qancha qarzdor, to'lov muddati qachon va pul oqimi qanday ekani bitta ekranda."
+          },
+          "crm": {
+            "title": "CRM bilan birlashtirish",
+            "desc": "amoCRM yoki Bitrix24 ma'lumotlari 1C bilan bir joyda: bitimdan to'lovgacha."
+          }
+        }
+      },
+      "faq": {
+        "title": "1C analitikasi bo'yicha savollar",
+        "items": {
+          "configs": {
+            "q": "Qaysi 1C konfiguratsiyalari bilan ishlaysiz?",
+            "a": "1C:Buxgalteriya, 1C:Savdoni boshqarish (UT), 1C:ERP va boshqa konfiguratsiyalar bilan. Asosiy shart: ma'lumotlarni OData, HTTP-servis yoki eksport orqali olish imkoni bo'lishi. Buni auditda tekshiramiz."
+          },
+          "load": {
+            "q": "Ulanish 1C ishini sekinlashtirmaydimi?",
+            "a": "Ulanishni 1C'ga ortiqcha yuklama tushmaydigan qilib sozlaymiz: ma'lumotlar odatda ish vaqtidan tashqari yoki kichik qismlarda olinadi."
+          },
+          "developer": {
+            "q": "1C dasturchisi kerak bo'ladimi?",
+            "a": "Odatda yo'q. Agar 1C'da OData yoki HTTP-servisni yoqish kerak bo'lsa, buni sizning 1C mutaxassisingiz bilan birga bir marta sozlaymiz."
+          },
+          "tool": {
+            "q": "Dashbordlar qaysi dasturda bo'ladi?",
+            "a": "Power BI yoki Metabase'da. Power BI kuchli va Microsoft ekotizimiga mos, Metabase esa bepul va o'z serveringizga o'rnatiladi. Tanlovni auditda birga qilamiz."
+          },
+          "timeline": {
+            "q": "Birinchi natija qachon bo'ladi?",
+            "a": "Odatda 2–4 hafta ichida 1C ma'lumotlarini ulab, birinchi ishchi dashbordni topshiramiz."
+          }
+        }
+      }
+    },
+    "metabase": {
+      "meta": {
+        "title": "Metabase joriy qilish va dashbordlar | Mehrzod Group",
+        "description": "Metabase'ni serveringizga o'rnatamiz, 1C, CRM va Excel ma'lumotlarini ulaymiz. Foydalanuvchi litsenziyasi to'lovisiz BI dashbordlar. Toshkent. Bepul audit."
+      },
+      "card": "Ochiq kodli BI tizimi: foydalanuvchi litsenziyasi uchun to'lovsiz, o'z serveringizda ishlaydi.",
+      "hero": {
+        "title": "Metabase: litsenziya to'lovisiz BI dashbordlar",
+        "subtitle": "Metabase ochiq kodli BI tizimi. Uni serveringizga o'rnatamiz, tizimlaringizni ulaymiz va jamoangiz uchun tushunarli dashbordlar quramiz.",
+        "btnEstimate": "Bepul ma'lumotlar auditi",
+        "btnExplore": "Nima olasiz",
+        "note": ["Foydalanuvchi litsenziyasi uchun to'lov yo'q", "Ma'lumotlar o'z serveringizda"]
+      },
+      "problems": {
+        "title": "Metabase qachon to'g'ri tanlov",
+        "subtitle": "Quyidagi vaziyatlarda Metabase pullik BI vositalaridan qulayroq bo'lishi mumkin.",
+        "items": {
+          "licenseCost": {
+            "title": "Litsenziya xarajati qimmatga tushadi",
+            "problem": "Dashbordni ko'radigan xodimlar ko'p, har biriga pullik BI litsenziyasi kerak.",
+            "consequence": "Xarajat foydalanuvchilar soniga qarab o'sadi, shuning uchun dashbordni faqat bir necha rahbar ko'radi.",
+            "solution": "Metabase'ning ochiq kodli versiyasida foydalanuvchi uchun to'lov yo'q: dashbordni kerakli barcha xodimlar ko'radi."
+          },
+          "dataLocation": {
+            "title": "Ma'lumot kompaniyadan chiqmasligi kerak",
+            "problem": "Ma'lumotlarni xorijiy bulut xizmatlariga yuborish xavfsizlik siyosati yoki qonun talablariga to'g'ri kelmaydi.",
+            "consequence": "Bulutli BI vositalaridan foydalanib bo'lmaydi va hisobotlar Excel'da qolib ketadi.",
+            "solution": "Metabase o'z serveringizga yoki O'zbekistondagi serverga o'rnatiladi. Ma'lumotlar sizning nazoratingizda qoladi."
+          },
+          "analystQueue": {
+            "title": "Har bir savol uchun analitikka murojaat",
+            "problem": "Menejer oddiy savolga javob olish uchun ham analitik yoki dasturchidan hisobot so'raydi.",
+            "consequence": "Analitik so'rovlar navbatiga ko'milib ketadi, javob esa kech keladi.",
+            "solution": "Metabase'da savolni SQL bilmasdan, oddiy filtr va guruhlash orqali berish mumkin. Buning uchun tayyor ma'lumotlar to'plamlarini sozlab beramiz."
+          }
+        },
+        "cta": {
+          "title": "Metabase sizga mosmi?",
+          "text": "Bepul auditda vazifangizga Metabase yoki Power BI qaysi biri ko'proq mos kelishini aniq aytamiz.",
+          "button": "Bepul auditga yozilish"
+        }
+      },
+      "deliverables": {
+        "subtitle": "O'rnatishdan tortib jamoani o'qitishgacha: tayyor va o'zi ishlaydigan BI tizimi.",
+        "items": {
+          "install": {
+            "title": "O'rnatish va sozlash",
+            "desc": "Metabase'ni o'z serveringizga yoki bulutli serverga o'rnatamiz, zaxira nusxa olishni sozlaymiz."
+          },
+          "warehouse": {
+            "title": "Ma'lumotlar ombori",
+            "desc": "1C, CRM, Excel va boshqa manbalar ma'lumotlari PostgreSQL yoki MySQL omboriga avtomatik yig'iladi."
+          },
+          "dashboards": {
+            "title": "Dashbordlar",
+            "desc": "Rahbariyat va bo'limlar uchun sotuv, foyda, qoldiq va KPI dashbordlari."
+          },
+          "access": {
+            "title": "Kirish huquqlari",
+            "desc": "Xodimlar guruhlarga bo'linadi, har kim faqat o'ziga tegishli dashbordlarni ko'radi."
+          },
+          "alerts": {
+            "title": "Ogohlantirish va obunalar",
+            "desc": "Ko'rsatkich chetga chiqsa yoki hisobot tayyor bo'lsa, Telegram yoki email orqali xabar keladi."
+          },
+          "training": {
+            "title": "O'qitish",
+            "desc": "Jamoangizni Metabase'da savol berish va oddiy dashbord yasashga o'rgatamiz."
+          }
+        }
+      },
+      "faq": {
+        "title": "Metabase bo'yicha savollar",
+        "items": {
+          "free": {
+            "q": "Metabase haqiqatan bepulmi?",
+            "a": "Metabase'ning ochiq kodli versiyasi bepul va foydalanuvchilar soniga cheklov yo'q. Faqat server xarajati bo'ladi. Pullik versiyasi ham bor, lekin ko'p kompaniyalar uchun bepul versiya yetarli."
+          },
+          "server": {
+            "q": "Server qayerda joylashadi?",
+            "a": "Tanlov sizda: o'z serveringiz, O'zbekistondagi data-markaz yoki xorijiy bulut. Serverni tanlash va sozlashda yordam beramiz."
+          },
+          "onec": {
+            "q": "Metabase 1C bilan ishlaydimi?",
+            "a": "Metabase 1C'ga to'g'ridan-to'g'ri ulanmaydi. Shuning uchun 1C ma'lumotlarini avval ma'lumotlar omboriga (PostgreSQL yoki MySQL) avtomatik yig'amiz, Metabase esa shu ombordan o'qiydi."
+          },
+          "powerBi": {
+            "q": "Power BI'dan nimasi bilan farq qiladi?",
+            "a": "Power BI murakkab hisob-kitoblar va Microsoft ekotizimi uchun kuchliroq, lekin har bir foydalanuvchi uchun pullik. Metabase oddiyroq, bepul va o'z serveringizda ishlaydi. Ko'p kompaniyalar uchun Metabase imkoniyatlari yetarli."
+          },
+          "timeline": {
+            "q": "Birinchi dashbord qachon tayyor bo'ladi?",
+            "a": "Odatda 2–4 hafta ichida serverni sozlab, ma'lumotlarni ulab, birinchi ishchi dashbordni topshiramiz."
+          }
+        }
+      }
+    }
+  }
+}

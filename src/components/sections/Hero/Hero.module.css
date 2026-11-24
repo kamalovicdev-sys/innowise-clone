@@ -34,7 +34,8 @@
 }
 
 .title {
-  font-size: var(--text-display);
+  /* Sarlavha savol shaklida va uzunroq, shuning uchun umumiy display o'lchamidan kichikroq */
+  font-size: clamp(2.125rem, 1.45rem + 2.2vw, 3.25rem);
   font-weight: 800;
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
@@ -54,6 +55,29 @@
   display: flex;
   gap: var(--space-4);
   flex-wrap: wrap;
+}
+
+/* Tugmalar ostidagi kichik ishonch yozuvlari */
+.note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+  margin-top: var(--space-6);
+  list-style: none;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.noteItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.noteIcon {
+  flex-shrink: 0;
+  color: var(--color-accent-ink);
 }
 
 .visual {
@@ -91,7 +115,8 @@
     margin-inline: auto;
   }
 
-  .buttonGroup {
+  .buttonGroup,
+  .note {
     justify-content: center;
   }
 }
