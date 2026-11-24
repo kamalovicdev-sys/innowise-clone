@@ -78,14 +78,22 @@ test.describe('Interaktiv bo\'limlar', () => {
 });
 
 test.describe('Boshqa sahifalar', () => {
-  test('Maxfiylik siyosati qoralama: noindex, belgi, havolalar to\'g\'ri', async ({ page }) => {
+  test('Maxfiylik siyosati e\'lon qilingan: indekslanadi, qoralama belgisi va bo\'sh joylar yo\'q, havolalar to\'g\'ri', async ({ page }) => {
     await page.goto('/ru/privacy/');
     await expect(page.locator('html')).toHaveAttribute('lang', 'ru');
-    await expect(page.locator('meta[name=robots]')).toHaveAttribute('content', 'noindex');
-    await expect(page.getByRole('note')).toHaveText(dict.ru.legal.draftNotice);
+    await expect(page.locator('meta[name=robots]')).toHaveCount(0);
+    await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href', 'https://mehrzod.uz/ru/privacy/');
+    await expect(page.getByRole('note')).toHaveCount(0);
+    await expect(page.locator('main')).not.toContainText(/\[[^\]]+\](?!\()/);
     await expect(page.locator('header nav a').first()).toHaveAttribute('href', '/ru/#problems');
     await expect(page.locator('header a[hreflang=uz]')).toHaveAttribute('href', '/privacy/');
-    await expect(page.locator('footer a[href*=privacy]')).toHaveCount(0);
+    await expect(page.locator('footer a[href="/ru/privacy/"]')).toHaveText(dict.ru.footer.privacy);
+  });
+
+  test('aloqa formasida maxfiylik siyosatiga rozilik yozuvi va havolasi bor', async ({ page }) => {
+    await page.goto('/ru/');
+    const consent = page.locator('#contact').getByRole('link', { name: dict.ru.form.consent.link });
+    await expect(consent).toHaveAttribute('href', '/ru/privacy/');
   });
 
 });

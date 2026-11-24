@@ -38,13 +38,13 @@ test.describe('Tillar va URL', () => {
     await expect(page).toHaveURL(/\/en\/$/);
   });
 
-  test('sitemap.xml: bosh sahifa va 3 ta xizmat sahifasi, 3 tilda, hreflang bilan; qoralama sahifalar yo\'q', async ({ request }) => {
+  test('sitemap.xml: bosh sahifa, 3 ta xizmat sahifasi va maxfiylik siyosati, 3 tilda, hreflang bilan', async ({ request }) => {
     const xml = await (await request.get('/sitemap.xml')).text();
-    expect(xml.match(/<loc>/g)).toHaveLength(12);
-    for (const slug of ['power-bi', '1c-analytics', 'metabase']) {
+    expect(xml.match(/<loc>/g)).toHaveLength(15);
+    for (const slug of ['power-bi', '1c-analytics', 'metabase', 'privacy']) {
       expect(xml).toContain(`<loc>https://mehrzod.uz/ru/${slug}/</loc>`);
     }
     expect(xml).toContain('hreflang="x-default"');
-    expect(xml).not.toContain('privacy');
+    expect(xml).not.toContain('terms');
   });
 });

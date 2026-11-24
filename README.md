@@ -4,7 +4,7 @@
 
 - **Stack:** [Astro 7](https://astro.build) (statik HTML) + React 19 (faqat interaktiv qismlar uchun)
 - **Tillar:** o'zbekcha `/` (standart), ruscha `/ru/`, inglizcha `/en/`
-- **Sahifalar:** bosh sahifa, xizmat sahifalari (`/power-bi/`, `/1c-analytics/`, `/metabase/`), maxfiylik siyosati (qoralama), 404
+- **Sahifalar:** bosh sahifa, xizmat sahifalari (`/power-bi/`, `/1c-analytics/`, `/metabase/`), maxfiylik siyosati, 404
 - **Forma:** EmailJS orqali email yuboriladi
 
 ## Ishga tushirish
@@ -77,7 +77,7 @@ src/
 - **Telegram / WhatsApp (to'g'ridan-to'g'ri yozish):** `src/data/site.js` → `CONTACT.telegram`, `CONTACT.whatsapp`. Havola yozilsa, tugmalar Contact bo'limida va mobil panelda paydo bo'ladi.
 - **Ishonch bloki** (raqamlar, mijoz logotiplari, mijoz fikrlari): `src/data/trust.js`. Hammasi bo'sh bo'lsa, blok saytda ko'rinmaydi. Faqat haqiqiy ma'lumot kiriting.
 - **Keys natijalari:** tarjima faylida `industries.items.<id>.metrics = [{ "value": "−23%", "label": "..." }]`. Bu maydon bo'lmasa, natijalar qatori chiqmaydi.
-- **Privacy Policy / Terms:** `src/data/site.js` → `LEGAL_PAGES` (sahifalar hali yo'q).
+- **Privacy Policy / Terms:** `src/data/site.js` → `LEGAL_PAGES` (maxfiylik siyosati e'lon qilingan, shartlar sahifasi hali yo'q).
 - **Aloqa oynasini ochish:** istalgan elementga `data-open-contact` atributini qo'shing.
 - **SEO kalit so'zlari:** title va description: `meta`, hero sarlavhasi ustidagi yozuv: `hero.kicker` (OG rasmlardagi ustki yozuv ham shundan olinadi, o'zgartirsangiz `npm run og`).
 
@@ -91,11 +91,10 @@ src/
 
 ### Maxfiylik siyosati
 
-- Matn: `src/content/legal/privacy.{uz,ru,en}.md` (oddiy Markdown). Yuqoridagi `updated` sanasini ham yangilang.
-- Hozir **qoralama**: sahifa `/privacy/`, `/ru/privacy/`, `/en/privacy/` manzillarida ochiladi, lekin indekslanmaydi, sitemap'da yo'q va saytda havola qilinmagan. Sahifa yuqorisida "qoralama" belgisi turadi.
-- Yurist tasdiqlagach `src/data/site.js` faylida `LEGAL_PAGES.privacy = 'privacy/'` deb yozing. Shunda footer havolasi, sitemap yozuvi va formalardagi rozilik matni o'zi paydo bo'ladi.
-- Qoralamadagi `[kvadrat qavs]` joylarini to'ldiring: yuridik nom, STIR, saqlash muddati, javob berish muddati.
-- **Yurist bilan kelishilishi kerak:** O'RQ-547 Qonunining 27¹-moddasi O'zbekiston fuqarolarining shaxsiy ma'lumotlarini O'zbekistondagi serverlarda saqlashni talab qiladi. Hozir forma ma'lumotlari EmailJS va Gmail (xorijiy serverlar) orqali o'tadi.
+- Matn: `src/content/legal/privacy.{uz,ru,en}.md` (oddiy Markdown). Matnni o'zgartirsangiz, yuqoridagi `updated` sanasini ham yangilang.
+- **E'lon qilingan** (2026-11-24): `src/data/site.js` → `LEGAL_PAGES.privacy = 'privacy/'`. Shu sababli footer havolasi, sitemap yozuvi va formalardagi rozilik matni ko'rsatiladi. `null` qilinsa, sahifa yana qoralamaga aylanadi (noindex, havolasiz, "qoralama" belgisi bilan).
+- Operator: "MEHRZOD BUSINESS GROUP" MChJ, STIR 304447183. Saqlash muddati: ish yakunlangandan keyin 1 yil. So'rovlarga javob: 10 ish kuni.
+- **Yurist bilan kelishilishi kerak:** O'RQ-547 Qonunining 27¹-moddasi O'zbekiston fuqarolarining shaxsiy ma'lumotlarini O'zbekistondagi serverlarda saqlashni talab qiladi. Hozir forma ma'lumotlari EmailJS va Gmail (xorijiy serverlar) orqali o'tadi, bu siyosatning 4-bo'limida ochiq ko'rsatilgan.
 
 ### Dizayn tizimi ("Lojuvard")
 

@@ -1,7 +1,7 @@
 ---
 title: Maxfiylik siyosati
 description: Mehrzod Business Group saytida shaxsiy ma'lumotlar qanday yig'ilishi, ishlatilishi va himoya qilinishi.
-updated: 2026-11-20
+updated: 2026-11-24
 ---
 
 
@@ -9,8 +9,8 @@ Ushbu siyosat **Mehrzod Business Group** (keyingi o'rinlarda — «Kompaniya», 
 
 ## 1. Ma'lumotlar operatori
 
-- Nomi: [Kompaniyaning to'liq yuridik nomi]
-- STIR: [STIR raqami]
+- Nomi: "MEHRZOD BUSINESS GROUP" MChJ
+- STIR: 304447183
 - Manzil: Toshkent sh., Shota Rustaveli ko'chasi, 150
 - Email: [mehrzodgroup@gmail.com](mailto:mehrzodgroup@gmail.com)
 - Telefon: [+998 95 520 95 95](tel:+998955209595)
@@ -46,7 +46,7 @@ Biz shaxsiy ma'lumotlaringizni sotmaymiz va ulardan yuqorida ko'rsatilmagan maqs
 
 ## 5. Saqlash muddati
 
-So'rovlar bo'yicha ma'lumotlar siz bilan ish yakunlangandan keyin [muddat] davomida saqlanadi, so'ng o'chiriladi, agar qonunchilikda boshqa muddat belgilanmagan bo'lsa.
+So'rovlar bo'yicha ma'lumotlar siz bilan ish yakunlangandan keyin 1 yil davomida saqlanadi, so'ng o'chiriladi, agar qonunchilikda boshqa muddat belgilanmagan bo'lsa.
 
 ## 6. Sizning huquqlaringiz
 
@@ -57,7 +57,7 @@ Siz quyidagi huquqlarga egasiz:
 - ma'lumotlaringizni o'chirish yoki qayta ishlashni to'xtatishni talab qilish;
 - berilgan rozilikni istalgan vaqtda qaytarib olish.
 
-Buning uchun [mehrzodgroup@gmail.com](mailto:mehrzodgroup@gmail.com) manziliga yozing. So'rovingizga [muddat] ichida javob beramiz.
+Buning uchun [mehrzodgroup@gmail.com](mailto:mehrzodgroup@gmail.com) manziliga yozing. So'rovingizga 10 ish kuni ichida javob beramiz.
 
 ## 7. Cookie fayllar
 
