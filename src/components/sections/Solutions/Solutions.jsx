@@ -11,7 +11,8 @@ const ICONS = { Workflow, LayoutDashboard, ChartNoAxesCombined, Compass, Globe, 
 /**
  * Yechimlar: 4 ta asosiy xizmat (har biri qaysi muammoni hal qilishi bilan) va pastda qo'shimcha xizmatlar.
  * problems: tarjima faylidagi problems.items ("Hal qiladi" havolalarining nomi uchun).
- * pageLabels: tarjima faylidagi servicePages (batafsil sahifalar havolasi uchun). Statik (JS'siz).
+ * pageLabels: tarjima faylidagi servicePages (batafsil sahifalar havolasi uchun).
+ * Statik; kartalarning 3D egilishi uchun kichik skript: TiltCards.astro (data-tilt).
  */
 const Solutions = ({ dict, problems, lang, pageLabels }) => (
   <section className={`section ${styles.solutionsSection}`} id="solutions">
@@ -23,40 +24,43 @@ const Solutions = ({ dict, problems, lang, pageLabels }) => (
           const Icon = ICONS[icon];
           const item = dict.items[key];
           return (
-            <li key={key} id={`solution-${key}`} className={styles.card} data-assemble={gridSide(index, 2)}>
-              <span className={styles.iconBox} aria-hidden="true">
-                <Icon size={24} strokeWidth={1.75} />
-              </span>
-              <h3 className={styles.cardTitle}>{item.title}</h3>
-              <p className={styles.cardDesc}>{item.desc}</p>
+            <li key={key} id={`solution-${key}`} className={styles.cardWrap} data-assemble={gridSide(index, 2)}>
+              {/* 3D egilish ichki qatlamda: li ning transform'i scroll animatsiyasiga band (TiltCards.astro) */}
+              <div className={styles.card} data-tilt>
+                <span className={styles.iconBox} aria-hidden="true">
+                  <Icon size={24} strokeWidth={1.75} />
+                </span>
+                <h3 className={styles.cardTitle}>{item.title}</h3>
+                <p className={styles.cardDesc}>{item.desc}</p>
 
-              {pages.length > 0 && (
-                <p className={styles.more}>
-                  <span className={styles.moreLabel}>{dict.moreLabel}</span>{' '}
-                  {pages.map((pageKey, index) => (
-                    <span key={pageKey}>
-                      {index > 0 && ' · '}
-                      <a href={localizedPath(lang, `${getServicePage(pageKey).slug}/`)} className={styles.moreLink}>
-                        {pageLabels[pageKey]}
-                      </a>
-                    </span>
-                  ))}
-                </p>
-              )}
+                {pages.length > 0 && (
+                  <p className={styles.more}>
+                    <span className={styles.moreLabel}>{dict.moreLabel}</span>{' '}
+                    {pages.map((pageKey, index) => (
+                      <span key={pageKey}>
+                        {index > 0 && ' · '}
+                        <a href={localizedPath(lang, `${getServicePage(pageKey).slug}/`)} className={styles.moreLink}>
+                          {pageLabels[pageKey]}
+                        </a>
+                      </span>
+                    ))}
+                  </p>
+                )}
 
-              <div className={styles.solves}>
-                <p className={styles.solvesLabel} id={`solution-${key}-solves`}>
-                  {dict.solvesLabel}
-                </p>
-                <ul className={styles.chips} aria-labelledby={`solution-${key}-solves`}>
-                  {solves.map((problemKey) => (
-                    <li key={problemKey}>
-                      <a href={`#problem-${problemKey}`} className={styles.chip}>
-                        {problems[problemKey].title}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <div className={styles.solves}>
+                  <p className={styles.solvesLabel} id={`solution-${key}-solves`}>
+                    {dict.solvesLabel}
+                  </p>
+                  <ul className={styles.chips} aria-labelledby={`solution-${key}-solves`}>
+                    {solves.map((problemKey) => (
+                      <li key={problemKey}>
+                        <a href={`#problem-${problemKey}`} className={styles.chip}>
+                          {problems[problemKey].title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </li>
           );

@@ -1,0 +1,15 @@
+# Netlify: GitHub'ga push qilinganda sayt o'zi yig'iladi va yangilanadi.
+# Bu fayldagi sozlamalar Netlify UI'dagi build sozlamalaridan ustun turadi.
+#
+# EmailJS kalitlari bu yerda EMAS: Netlify -> Site configuration -> Environment variables bo'limiga
+# PUBLIC_EMAILJS_SERVICE_ID, PUBLIC_EMAILJS_TEMPLATE_ID, PUBLIC_EMAILJS_PUBLIC_KEY ni qo'shing.
+# Ular bo'lmasa build ataylab xato beradi (forma kalitsiz saytga chiqib qolmasin).
+
+[build]
+  # lint + tip tekshiruvi + build: xato bo'lsa sayt yangilanmaydi, eski versiya ishlashda davom etadi
+  command = "npm run build:netlify"
+  publish = "dist"
+
+[build.environment]
+  # package.json -> engines: Node >= 22.23.4
+  NODE_VERSION = "22"

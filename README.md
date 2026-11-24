@@ -30,8 +30,11 @@ npm run dev            # http://localhost:3000
 
 ## Deploy (Netlify)
 
-1. `npm run build:netlify` (lint + tip tekshiruvi + build). Ixtiyoriy: `npm run test:e2e`
-2. `dist/` papkasini Netlify'ning **Deploys** sahifasiga sudrab tashlang.
+Sayt GitHub orqali avtomatik yangilanadi: Netlify ulangan branch'ga push qilinganda u o'zi `npm run build:netlify` (lint + tip tekshiruvi + build) ni ishga tushiradi va `dist/` ni chiqaradi. Sozlamalar: `netlify.toml`.
+
+- Push'dan oldin lokal tekshiring: `npm run build:netlify` va `npm run test:e2e`.
+- **EmailJS kalitlari** Netlify'da bo'lishi shart: Site configuration → Environment variables → `PUBLIC_EMAILJS_SERVICE_ID`, `PUBLIC_EMAILJS_TEMPLATE_ID`, `PUBLIC_EMAILJS_PUBLIC_KEY`. `.env` fayli GitHub'ga yuklanmaydi. Kalit bo'lmasa build xato beradi va eski versiya ishlashda davom etadi.
+- Build xatosi bo'lsa: Netlify → Deploys → oxirgi deploy → "Deploy log".
 
 Deploy'dan keyin quyidagilarni tekshiring:
 - `https://mehrzod.uz/`, `/ru/`, `/en/` va xizmat sahifalari (`/power-bi/`, `/ru/1c-analytics/` va h.k.) ochiladi. `/sitemap.xml` va `/robots.txt` mavjud.
@@ -80,6 +83,7 @@ src/
 - **Privacy Policy / Terms:** `src/data/site.js` → `LEGAL_PAGES` (maxfiylik siyosati e'lon qilingan, shartlar sahifasi hali yo'q).
 - **Aloqa oynasini ochish:** istalgan elementga `data-open-contact` atributini qo'shing.
 - **Scroll animatsiyasi ("yig'ilish"):** elementga `data-assemble="left|right|up|down|zoom"` qo'shing, u ekranga kirganda shu tomondan kelib o'z joyiga tushadi. Birga kirgan elementlar navbatma-navbat yig'iladi. Grid uchun tomonni `src/lib/assemble.js` → `gridSide(index, ustunlar)` hisoblaydi. Stillar `global.css`, skript `BaseLayout.astro`. `key` bilan qayta yaratiladigan React elementlariga qo'ymang, ularni doimiy o'ramga qo'ying (Industries paneliga qarang).
+- **Yechimlar kartalarida 3D effekt:** `data-tilt` atributi + `src/components/ui/TiltCards/TiltCards.astro` skripti (sichqoncha ustida egilish, qatlamlar chuqurligi, nur). Faqat sichqonchali qurilmalarda, "harakatni kamaytirish" o'chiq bo'lsa.
 - **Hero dashbordi:** `HeroDashboard.jsx` (barcha tillarda inglizcha demo), harakati: `HeroDashboardLive.astro` (KPI sanash, Revenue → Channels → Inventory almashishi har 4.5 s). Ekrandan chiqqanda to'xtaydi. "Harakatni kamaytirish" yoqilgan bo'lsa, animatsiya o'chadi.
 - **SEO kalit so'zlari:** title va description: `meta` (OG rasmlardagi ustki yozuv title'ning `|` gacha qismidan olinadi, o'zgartirsangiz `npm run og`).
 
