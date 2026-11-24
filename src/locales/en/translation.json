@@ -22,32 +22,7 @@
     "note": [
       "No need to replace your software",
       "We sign an NDA"
-    ],
-    "mock": {
-      "badge": "Demo",
-      "title": "Sales overview",
-      "kpiGrowth": "Sales growth",
-      "kpiOrders": "Orders",
-      "kpiStock": "Stock level",
-      "chartTitle": "Revenue trend",
-      "notification": "Weekly report is ready",
-      "thisYear": "This year",
-      "lastYear": "Last year",
-      "months": [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec"
-      ]
-    }
+    ]
   },
   "trust": {
     "title": "Trusted by growing businesses",

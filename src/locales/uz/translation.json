@@ -22,32 +22,7 @@
     "note": [
       "Dasturlaringizni almashtirish shart emas",
       "NDA imzolaymiz"
-    ],
-    "mock": {
-      "badge": "Demo",
-      "title": "Savdo tahlili",
-      "kpiGrowth": "Sotuvlar o'sishi",
-      "kpiOrders": "Buyurtmalar",
-      "kpiStock": "Zaxira darajasi",
-      "chartTitle": "Daromad dinamikasi",
-      "notification": "Haftalik hisobot tayyor",
-      "thisYear": "Bu yil",
-      "lastYear": "O'tgan yil",
-      "months": [
-        "Yan",
-        "Fev",
-        "Mar",
-        "Apr",
-        "May",
-        "Iyn",
-        "Iyl",
-        "Avg",
-        "Sen",
-        "Okt",
-        "Noy",
-        "Dek"
-      ]
-    }
+    ]
   },
   "trust": {
     "title": "Bizga ishonch bildirganlar",

@@ -16,6 +16,7 @@ import Contact from '@components/sections/Contact/Contact.jsx';
 import ContactModal from '@components/ui/ContactModal/ContactModal.jsx';
 import MobileCTA from '@components/ui/MobileCTA/MobileCTA.jsx';
 import MobileCTAToggle from '@components/ui/MobileCTA/MobileCTAToggle.astro';
+import HeroDashboardLive from '@components/sections/Hero/HeroDashboardLive.astro';
 import { getDictionary, getServiceDictionary, getLanguageLinks, localizedPath } from '@i18n';
 import { LEGAL_PAGES } from '@data/site';
 import { SERVICE_PAGES, getServicePage } from '@data/services';
@@ -32,8 +33,8 @@ const path = `${service.slug}/`;
 const homeHref = localizedPath(lang);
 const privacyHref = LEGAL_PAGES.privacy ? localizedPath(lang, LEGAL_PAGES.privacy) : null;
 
-// Hero: demo dashbord bosh sahifadagi bilan bir xil, matn shu xizmatniki
-const hero = { ...page.hero, mock: dict.hero.mock };
+// Hero: matn shu xizmatniki, demo dashbord bosh sahifadagi bilan bir xil (inglizcha)
+const hero = page.hero;
 const problems = { ...page.problems, labels: dict.problems.labels };
 // FAQ: savollar shu xizmatniki, o'ng tomondagi chaqiriq kartasi umumiy
 const faq = { ...dict.faq, title: page.faq.title, items: page.faq.items };
@@ -109,4 +110,5 @@ const structuredData = [
 
   <ContactModal client:load dict={dict.contactModal} formDict={dict.form} privacyHref={privacyHref} />
   <MobileCTAToggle />
+  <HeroDashboardLive />
 </BaseLayout>

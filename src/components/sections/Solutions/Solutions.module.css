@@ -9,24 +9,97 @@
   list-style: none;
 }
 
-/* Kartaning o'zi bosilmaydi, ichidagi "Hal qiladi" havolalari bosiladi */
+/* Grid katagi: perspektiva shu yerda, scroll animatsiyasi (data-assemble) ham shu elementda */
+.cardWrap {
+  perspective: 1100px;
+  scroll-margin-top: calc(var(--header-h) + var(--space-6));
+}
+
+/* Kartaning o'zi bosilmaydi, ichidagi havolalar bosiladi.
+   3D: sichqoncha ustida karta kursorga qarab egiladi, qatlamlar har xil chuqurlikda oldinga chiqadi,
+   kursor ortidan firuza nur yuradi. --rx/--ry/--gx/--gy/--sx/--sy ni TiltCards.astro skripti qo'yadi. */
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  height: 100%;
   padding: var(--space-8);
   background-color: var(--color-bg);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-lg);
-  scroll-margin-top: calc(var(--header-h) + var(--space-6));
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
   transition:
+    transform 0.7s var(--ease-out),
     border-color var(--duration) ease,
-    box-shadow var(--duration) ease;
+    box-shadow 0.5s var(--ease-out);
 }
 
 .card:hover {
   border-color: color-mix(in srgb, var(--color-primary) 35%, var(--color-line));
   box-shadow: var(--shadow-md);
+}
+
+/* Kursor ortidan yuradigan yorug'lik */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at var(--gx, 50%) var(--gy, 50%),
+    color-mix(in srgb, var(--color-accent) 18%, transparent),
+    transparent 62%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+/* Egilish paytida karta kursorga tez ergashadi, soya egilishga teskari tomonga siljiydi */
+.card[data-tilting] {
+  transition:
+    transform 0.12s ease-out,
+    border-color var(--duration) ease,
+    box-shadow 0.12s ease-out;
+  border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-line));
+  box-shadow:
+    calc(var(--sx, 0) * 1px) calc(var(--sy, 0) * 1px + 28px) 56px -20px rgb(14 26 59 / 0.3),
+    0 2px 6px rgb(14 26 59 / 0.06);
+}
+
+.card[data-tilting]::before {
+  opacity: 1;
+}
+
+/* Qatlamlar: egilganda oldinga chiqadi (parallax). Tinch holatda tekis, matn tiniq qoladi */
+.card > * {
+  transition: transform 0.7s var(--ease-out);
+}
+
+.card[data-tilting] > * {
+  transition: transform 0.35s var(--ease-out);
+}
+
+.card[data-tilting] .iconBox {
+  transform: translateZ(56px);
+}
+
+.card[data-tilting] .cardTitle {
+  transform: translateZ(36px);
+}
+
+.card[data-tilting] .cardDesc {
+  transform: translateZ(18px);
+}
+
+.card[data-tilting] .more {
+  transform: translateZ(28px);
+}
+
+.card[data-tilting] .solves {
+  transform: translateZ(24px);
 }
 
 .iconBox {
@@ -38,12 +111,25 @@
   border-radius: var(--radius-md);
   background-color: var(--color-primary-soft);
   color: var(--color-primary);
-  transition: background-color var(--duration) ease, color var(--duration) ease;
+  transition:
+    transform 0.7s var(--ease-out),
+    background-color var(--duration) ease,
+    color var(--duration) ease,
+    box-shadow var(--duration) ease;
 }
 
 .card:hover .iconBox {
   background-color: var(--color-primary);
   color: var(--color-on-ink);
+}
+
+.card[data-tilting] .iconBox {
+  box-shadow: 0 14px 24px -10px rgb(31 58 147 / 0.55);
+  transition:
+    transform 0.35s var(--ease-out),
+    background-color var(--duration) ease,
+    color var(--duration) ease,
+    box-shadow var(--duration) ease;
 }
 
 .cardTitle {

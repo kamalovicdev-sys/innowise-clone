@@ -4,65 +4,70 @@ import { getServicePage } from '@data/services';
 import { localizedPath } from '@i18n';
 import SectionHeader from '@components/ui/SectionHeader/SectionHeader';
 import styles from './Solutions.module.css';
+import { gridSide } from '@lib/assemble';
 
 const ICONS = { Workflow, LayoutDashboard, ChartNoAxesCombined, Compass, Globe, Bot, Headset, Network };
 
 /**
  * Yechimlar: 4 ta asosiy xizmat (har biri qaysi muammoni hal qilishi bilan) va pastda qo'shimcha xizmatlar.
  * problems: tarjima faylidagi problems.items ("Hal qiladi" havolalarining nomi uchun).
- * pageLabels: tarjima faylidagi servicePages (batafsil sahifalar havolasi uchun). Statik (JS'siz).
+ * pageLabels: tarjima faylidagi servicePages (batafsil sahifalar havolasi uchun).
+ * Statik; kartalarning 3D egilishi uchun kichik skript: TiltCards.astro (data-tilt).
  */
 const Solutions = ({ dict, problems, lang, pageLabels }) => (
   <section className={`section ${styles.solutionsSection}`} id="solutions">
-    <div className="container" data-reveal>
+    <div className="container">
       <SectionHeader title={dict.title} subtitle={dict.subtitle} />
 
       <ul className={styles.grid}>
-        {SOLUTIONS.map(({ key, icon, solves, pages = [] }) => {
+        {SOLUTIONS.map(({ key, icon, solves, pages = [] }, index) => {
           const Icon = ICONS[icon];
           const item = dict.items[key];
           return (
-            <li key={key} id={`solution-${key}`} className={styles.card}>
-              <span className={styles.iconBox} aria-hidden="true">
-                <Icon size={24} strokeWidth={1.75} />
-              </span>
-              <h3 className={styles.cardTitle}>{item.title}</h3>
-              <p className={styles.cardDesc}>{item.desc}</p>
+            <li key={key} id={`solution-${key}`} className={styles.cardWrap} data-assemble={gridSide(index, 2)}>
+              {/* 3D egilish ichki qatlamda: li ning transform'i scroll animatsiyasiga band (TiltCards.astro) */}
+              <div className={styles.card} data-tilt>
+                <span className={styles.iconBox} aria-hidden="true">
+                  <Icon size={24} strokeWidth={1.75} />
+                </span>
+                <h3 className={styles.cardTitle}>{item.title}</h3>
+                <p className={styles.cardDesc}>{item.desc}</p>
 
-              {pages.length > 0 && (
-                <p className={styles.more}>
-                  <span className={styles.moreLabel}>{dict.moreLabel}</span>{' '}
-                  {pages.map((pageKey, index) => (
-                    <span key={pageKey}>
-                      {index > 0 && ' · '}
-                      <a href={localizedPath(lang, `${getServicePage(pageKey).slug}/`)} className={styles.moreLink}>
-                        {pageLabels[pageKey]}
-                      </a>
-                    </span>
-                  ))}
-                </p>
-              )}
+                {pages.length > 0 && (
+                  <p className={styles.more}>
+                    <span className={styles.moreLabel}>{dict.moreLabel}</span>{' '}
+                    {pages.map((pageKey, index) => (
+                      <span key={pageKey}>
+                        {index > 0 && ' · '}
+                        <a href={localizedPath(lang, `${getServicePage(pageKey).slug}/`)} className={styles.moreLink}>
+                          {pageLabels[pageKey]}
+                        </a>
+                      </span>
+                    ))}
+                  </p>
+                )}
 
-              <div className={styles.solves}>
-                <p className={styles.solvesLabel} id={`solution-${key}-solves`}>
-                  {dict.solvesLabel}
-                </p>
-                <ul className={styles.chips} aria-labelledby={`solution-${key}-solves`}>
-                  {solves.map((problemKey) => (
-                    <li key={problemKey}>
-                      <a href={`#problem-${problemKey}`} className={styles.chip}>
-                        {problems[problemKey].title}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <div className={styles.solves}>
+                  <p className={styles.solvesLabel} id={`solution-${key}-solves`}>
+                    {dict.solvesLabel}
+                  </p>
+                  <ul className={styles.chips} aria-labelledby={`solution-${key}-solves`}>
+                    {solves.map((problemKey) => (
+                      <li key={problemKey}>
+                        <a href={`#problem-${problemKey}`} className={styles.chip}>
+                          {problems[problemKey].title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </li>
           );
         })}
       </ul>
 
-      <div className={styles.extra}>
+      <div className={styles.extra} data-assemble="up">
         <h3 className={styles.extraTitle}>{dict.extraTitle}</h3>
         <ul className={styles.extraList}>
           {EXTRA_SERVICES.map(({ key, icon }) => {

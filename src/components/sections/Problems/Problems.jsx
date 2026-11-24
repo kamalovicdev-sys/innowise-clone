@@ -42,11 +42,11 @@ const ICONS = {
 // items: qatorlar ro'yxati ({ key, icon }). Bosh sahifada PROBLEMS, xizmat sahifalarida o'zining ro'yxati.
 const Problems = ({ dict, items = PROBLEMS }) => (
   <section className={`section ${styles.problemsSection}`} id="problems">
-    <div className="container" data-reveal>
+    <div className="container">
       <SectionHeader title={dict.title} subtitle={dict.subtitle} />
 
       <div className={styles.ledger}>
-        <div className={styles.head} aria-hidden="true">
+        <div className={styles.head} aria-hidden="true" data-assemble="zoom">
           <span className={styles.headCell}>{dict.labels.problem}</span>
           <span className={`${styles.headCell} ${styles.headConsequence}`}>{dict.labels.consequence}</span>
           <span className={`${styles.headCell} ${styles.headSolution}`}>{dict.labels.solution}</span>
@@ -57,7 +57,7 @@ const Problems = ({ dict, items = PROBLEMS }) => (
             const Icon = ICONS[icon];
             const item = dict.items[key];
             return (
-              <li key={key} id={`problem-${key}`} className={styles.row}>
+              <li key={key} id={`problem-${key}`} className={styles.row} data-assemble="up">
                 <dl className={styles.cells}>
                   <div className={`${styles.cell} ${styles.problem}`}>
                     <dt className="visually-hidden">{dict.labels.problem}</dt>
@@ -84,7 +84,7 @@ const Problems = ({ dict, items = PROBLEMS }) => (
         </ul>
       </div>
 
-      <div className={styles.cta}>
+      <div className={styles.cta} data-assemble="up">
         <div>
           <p className={styles.ctaTitle}>{dict.cta.title}</p>
           <p className={styles.ctaText}>{dict.cta.text}</p>

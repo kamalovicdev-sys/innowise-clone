@@ -113,33 +113,55 @@ const preloadFonts = lang === 'ru' ? [interCyrillic, manropeCyrillic] : [interLa
     <slot />
 
     <script is:inline>
-      // Scroll reveal: [data-reveal] elementlar ekranga kirganda ko'rinadi (stillar global.css da)
+      // Scroll paytida "yig'ilish": [data-assemble] elementlar ekranga kirganda o'z joyiga tushadi (stillar global.css da).
+      // Har bir element alohida kuzatiladi; ekranga birga kirganlar navbatma-navbat (70 ms oraliq bilan) yig'iladi.
       (function () {
-        var items = document.querySelectorAll('[data-reveal]');
-        var show = function (el) {
-          el.setAttribute('data-revealed', '');
+        var STAGGER = 70;
+        var MAX_STEPS = 8;
+        var items = document.querySelectorAll('[data-assemble]');
+        var done = function (el) {
+          el.setAttribute('data-assembled', '');
         };
         if (!('IntersectionObserver' in window)) {
-          items.forEach(show);
+          items.forEach(done);
           return;
         }
         var observer = new IntersectionObserver(
           function (entries) {
+            var step = 0;
             entries.forEach(function (entry) {
-              if (entry.isIntersecting) {
-                show(entry.target);
-                observer.unobserve(entry.target);
-              }
+              if (!entry.isIntersecting) return;
+              var el = entry.target;
+              var delay = Math.min(step, MAX_STEPS) * STAGGER;
+              step += 1;
+              el.style.setProperty('--assemble-delay', delay + 'ms');
+              done(el);
+              observer.unobserve(el);
+              // Yig'ilib bo'lgach kechikish olib tashlanadi: hover o'tishlari kechikmasin
+              setTimeout(function () {
+                el.style.removeProperty('--assemble-delay');
+              }, delay + 1000);
             });
           },
-          { threshold: 0.1 }
+          { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
         );
         items.forEach(function (el) {
           observer.observe(el);
         });
 
-        // #havola (menyu, "Hal qiladi", reklama sitelink'i) ko'rinmagan bo'limga olib borsa, bo'lim animatsiyasiz
-        // darhol ochiladi. Aks holda brauzer siljigan (translateY) joyni hisoblaydi va sarlavha navbar ostida qoladi.
+        // #havola (menyu, "Hal qiladi", reklama sitelink'i) hali yig'ilmagan bo'limga olib borsa, bo'lim animatsiyasiz
+        // darhol yig'iladi. Aks holda brauzer siljigan (transform) joyni hisoblaydi va sarlavha navbar ostida qoladi.
+        var assembleNow = function (el) {
+          if (el.hasAttribute('data-assembled')) return;
+          el.style.transition = 'none';
+          done(el);
+          observer.unobserve(el);
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              el.style.transition = '';
+            });
+          });
+        };
         var revealTarget = function (hash) {
           if (!hash || hash.length < 2) return;
           var target;
@@ -148,11 +170,12 @@ const preloadFonts = lang === 'ru' ? [interCyrillic, manropeCyrillic] : [interLa
           } catch (e) {
             return;
           }
-          var box = target && target.closest('[data-reveal]');
-          if (!box || box.hasAttribute('data-revealed')) return;
-          box.style.transition = 'none';
-          show(box);
-          observer.unobserve(box);
+          if (!target) return;
+          var scope = target.closest('section') || target;
+          if (scope.matches('[data-assemble]')) assembleNow(scope);
+          scope.querySelectorAll('[data-assemble]').forEach(assembleNow);
+          var parent = target.closest('[data-assemble]');
+          if (parent) assembleNow(parent);
         };
         revealTarget(location.hash);
         document.addEventListener('click', function (event) {

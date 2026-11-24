@@ -31,7 +31,7 @@ const Hero = ({ dict, exploreHref = '#solutions' }) => (
       </div>
 
       <div className={styles.visual}>
-        <HeroDashboard dict={dict.mock} />
+        <HeroDashboard />
       </div>
     </div>
   </section>

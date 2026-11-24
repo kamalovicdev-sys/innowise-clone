@@ -14,7 +14,7 @@ const FAQ = ({ dict, items = FAQ_ITEMS }) => {
 
   return (
     <section className={`section ${styles.faqSection}`} id="faq">
-      <div className="container" data-reveal>
+      <div className="container">
         <SectionHeader title={dict.title} />
 
         <div className={styles.wrapper}>
@@ -23,7 +23,7 @@ const FAQ = ({ dict, items = FAQ_ITEMS }) => {
               const isActive = activeKey === key;
               const item = dict.items[key];
               return (
-                <div key={key} className={`${styles.faqItem} ${isActive ? styles.active : ''}`}>
+                <div key={key} className={`${styles.faqItem} ${isActive ? styles.active : ''}`} data-assemble="left">
                   <h3 className={styles.questionHeading}>
                     <button
                       type="button"
@@ -57,7 +57,7 @@ const FAQ = ({ dict, items = FAQ_ITEMS }) => {
             })}
           </div>
 
-          <div className={styles.ctaCard}>
+          <div className={styles.ctaCard} data-assemble="right">
             <div className={styles.ctaIcon} aria-hidden="true">
               <Headset size={72} strokeWidth={1} />
             </div>

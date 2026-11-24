@@ -7,12 +7,18 @@ const PHASE_COLORS = ['#1f3a93', '#195a9a', '#147aa0', '#0e9aa7'];
 // Ish jarayoni: 4 qadam, har birida mijoz oladigan natija
 const Process = ({ dict }) => (
   <section className={`section ${styles.processSection}`} id="process">
-    <div className="container" data-reveal>
+    <div className="container">
       <SectionHeader title={dict.title} subtitle={dict.subtitle} />
 
       <ol className={styles.timeline}>
         {dict.phases.map((phase, index) => (
-          <li key={phase.title} className={styles.phase} style={{ '--phase-color': PHASE_COLORS[index] }}>
+          // Bosqichlar ketma-ketlik: hammasi chapdan, navbatma-navbat keladi
+          <li
+            key={phase.title}
+            className={styles.phase}
+            style={{ '--phase-color': PHASE_COLORS[index] }}
+            data-assemble="left"
+          >
             <span className={styles.number} aria-hidden="true">
               {String(index + 1).padStart(2, '0')}
             </span>
