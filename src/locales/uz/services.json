@@ -14,7 +14,6 @@
       },
       "card": "Rahbariyat va bo'limlar uchun Microsoft Power BI dashbordlari: sotuv, foyda, qoldiq va KPI bitta ekranda.",
       "hero": {
-        "kicker": "Power BI joriy qilish · Toshkent",
         "title": "Power BI dashbordlar: biznes raqamlari bitta ekranda",
         "subtitle": "1C, CRM, Excel va boshqa tizimlaringizni Power BI'ga ulaymiz. Sotuv, foyda, qoldiq va KPI har kuni o'zi yangilanadi, rahbar ularni kompyuterda ham, telefonda ham ko'radi.",
         "btnEstimate": "Bepul ma'lumotlar auditi",
@@ -112,7 +111,6 @@
       },
       "card": "1C ma'lumotlaridan sotuv, ombor va debitorlik dashbordlari. 1C'ni almashtirmasdan.",
       "hero": {
-        "kicker": "1C analitikasi · Toshkent",
         "title": "1C'dagi ma'lumotlardan qaror uchun aniq hisobotlar",
         "subtitle": "1C ma'lumotlarni yaxshi saqlaydi, lekin rahbarga kerakli ko'rinishda bermaydi. Biz 1C'ni CRM va boshqa tizimlar bilan birlashtirib, har kuni yangilanadigan dashbordlar quramiz.",
         "btnEstimate": "Bepul ma'lumotlar auditi",
@@ -210,7 +208,6 @@
       },
       "card": "Ochiq kodli BI tizimi: foydalanuvchi litsenziyasi uchun to'lovsiz, o'z serveringizda ishlaydi.",
       "hero": {
-        "kicker": "Metabase joriy qilish · Toshkent",
         "title": "Metabase: litsenziya to'lovisiz BI dashbordlar",
         "subtitle": "Metabase ochiq kodli BI tizimi. Uni serveringizga o'rnatamiz, tizimlaringizni ulaymiz va jamoangiz uchun tushunarli dashbordlar quramiz.",
         "btnEstimate": "Bepul ma'lumotlar auditi",

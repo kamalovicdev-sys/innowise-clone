@@ -33,28 +33,6 @@
   animation: fadeInUp 0.8s var(--ease-out) both;
 }
 
-/* Sarlavha ustidagi qisqa yozuv: xizmat va shahar (firuza nuqta bilan) */
-.kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  margin-bottom: var(--space-4);
-  font-size: var(--text-sm);
-  font-weight: 700;
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
-  color: var(--color-accent-ink);
-}
-
-.kicker::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--color-accent);
-  flex-shrink: 0;
-}
-
 .title {
   /* Sarlavha savol shaklida va uzunroq, shuning uchun umumiy display o'lchamidan kichikroq */
   font-size: clamp(2.125rem, 1.45rem + 2.2vw, 3.25rem);

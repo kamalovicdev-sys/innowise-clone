@@ -15,7 +15,6 @@
     "skipToContent": "Skip to content"
   },
   "hero": {
-    "kicker": "BI analytics & Power BI dashboards · Tashkent",
     "title": "Late reports, scattered numbers\u00a0\u2014 are your decisions based on guesswork?",
     "subtitle": "We automatically collect data from all your systems in one place and turn it into clear Power BI or Metabase dashboards. The numbers refresh every day, so nobody has to compile them by hand.",
     "btnEstimate": "Free data audit",

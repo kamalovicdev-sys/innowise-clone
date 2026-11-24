@@ -79,7 +79,7 @@ src/
 - **Keys natijalari:** tarjima faylida `industries.items.<id>.metrics = [{ "value": "−23%", "label": "..." }]`. Bu maydon bo'lmasa, natijalar qatori chiqmaydi.
 - **Privacy Policy / Terms:** `src/data/site.js` → `LEGAL_PAGES` (maxfiylik siyosati e'lon qilingan, shartlar sahifasi hali yo'q).
 - **Aloqa oynasini ochish:** istalgan elementga `data-open-contact` atributini qo'shing.
-- **SEO kalit so'zlari:** title va description: `meta`, hero sarlavhasi ustidagi yozuv: `hero.kicker` (OG rasmlardagi ustki yozuv ham shundan olinadi, o'zgartirsangiz `npm run og`).
+- **SEO kalit so'zlari:** title va description: `meta` (OG rasmlardagi ustki yozuv title'ning `|` gacha qismidan olinadi, o'zgartirsangiz `npm run og`).
 
 ### Xizmat sahifalari
 

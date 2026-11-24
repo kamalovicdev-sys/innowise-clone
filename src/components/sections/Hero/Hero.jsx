@@ -4,14 +4,12 @@ import HeroDashboard from './HeroDashboard';
 import styles from './Hero.module.css';
 
 // Statik bo'lim (JS'siz). Sarlavha mijoz muammosidan boshlanadi.
-// kicker: sarlavha ustidagi qisqa yozuv (xizmat + shahar), qidiruv tizimlari uchun asosiy kalit so'zlar.
 // "Bepul ma'lumotlar auditi" tugmasi umumiy ContactModal'ni data-open-contact orqali ochadi.
 // exploreHref: ikkinchi tugma olib boradigan bo'lim (bosh sahifada #solutions, xizmat sahifasida #deliverables).
 const Hero = ({ dict, exploreHref = '#solutions' }) => (
   <section className={styles.heroSection} id="hero">
     <div className={`container ${styles.container}`}>
       <div className={styles.content}>
-        {dict.kicker && <p className={styles.kicker}>{dict.kicker}</p>}
         <h1 className={styles.title}>{dict.title}</h1>
         <p className={styles.subtitle}>{dict.subtitle}</p>
         <div className={styles.buttonGroup}>

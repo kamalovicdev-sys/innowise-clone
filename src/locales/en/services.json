@@ -14,7 +14,6 @@
       },
       "card": "Microsoft Power BI dashboards for management and departments: sales, profit, stock and KPIs on one screen.",
       "hero": {
-        "kicker": "Power BI implementation · Tashkent",
         "title": "Power BI dashboards: all your business numbers on one screen",
         "subtitle": "We connect 1C, your CRM, Excel and other systems to Power BI. Sales, profit, stock and KPIs update every day, and managers see them on both desktop and phone.",
         "btnEstimate": "Free data audit",
@@ -112,7 +111,6 @@
       },
       "card": "Sales, warehouse and receivables dashboards built on your 1C data, without replacing 1C.",
       "hero": {
-        "kicker": "1C analytics · Tashkent",
         "title": "Clear, decision-ready reports from your 1C data",
         "subtitle": "1C stores data well but doesn't show it to managers the way they need. We combine 1C with your CRM and other systems and build dashboards that refresh every day.",
         "btnEstimate": "Free data audit",
@@ -210,7 +208,6 @@
       },
       "card": "An open-source BI system with no per-user fees, running on your own server.",
       "hero": {
-        "kicker": "Metabase implementation · Tashkent",
         "title": "Metabase: BI dashboards without licence fees",
         "subtitle": "Metabase is an open-source BI system. We install it on your server, connect your systems and build clear dashboards for your team.",
         "btnEstimate": "Free data audit",
